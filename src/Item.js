@@ -114,7 +114,7 @@ class Item extends Component{
 
                 iconClassPrefix={this.props.iconClassPrefix}
                 iconLevelDown={this.props.iconLevelDown}
-                iconLevelUp={this.props.iconLevelDown}
+                iconLevelUp={this.props.iconLevelUp}
                 content={this.props.content}
             />}
         </li>

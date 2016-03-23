@@ -130,7 +130,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        /**
 	         * Renders component
 	         * If props are not given, it sets default props for first depth container
-	         * @return Object React component
+	         * @return {Object} React component
 	         */
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -236,7 +236,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Also sends closeChildContainer method reference to props of items,
 	         * to make them able to close each others submenu container
 	         * when they are opened
-	         * @return Object React component
+	         * @return {Object} React component
 	         */
 
 	    }, {
@@ -403,7 +403,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * Renders item and if it has level, submenu (container) of it
 	         * If item has sub menu, button's href link won't be applied and
 	         * will be added level status indicator icon to button.
-	         * @return Object React component
+	         * @return {Object} React component
 	         */
 
 	    }, {
@@ -438,7 +438,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	                    iconClassPrefix: this.props.iconClassPrefix,
 	                    iconLevelDown: this.props.iconLevelDown,
-	                    iconLevelUp: this.props.iconLevelDown,
+	                    iconLevelUp: this.props.iconLevelUp,
 	                    content: this.props.content
 	                })
 	            );
