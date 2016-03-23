@@ -7,6 +7,24 @@
 import React, {Component} from 'react'
 import Container from './Container'
 
+/**
+ * Menu Item Class
+ *
+ * Props comes from top component
+ * @prop {string} iconClassPrefix - Prefix for all icon's style class name
+ * @prop {string} iconLevelDown - Icon name for state of collapsed containers
+ * @prop {string} iconLevelUp - Icon name for state of opened containers
+ *
+ * Props comes from parent Container
+ * @prop {function} closeFriendContainer - Function to close peer item's container
+ *
+ * Props comes from menu content
+ * @prop {string} icon - icon class name for item
+ * @prop {string} label - label of item
+ * @prop {string} href - link address of item
+ * @prop {Object[]} content - Recursive menu stracture
+ *
+ */
 class Item extends Component{
     /**
      * constructor
@@ -72,25 +90,31 @@ class Item extends Component{
      */
     render(){
         var thisHasLevel = this.hasLevel();
-        var iconClassPrefix = this.props.iconClassPrefix || 'fa fa-';
+        var iconClassName = 'metismenu-icon '+this.props.iconClassPrefix+this.props.icon;
+
         if(thisHasLevel){
-            var iconLevelDown = this.props.iconLevelDown || 'caret-left';
-            var iconLevelUp = this.props.iconLevelUp || 'caret-down';
-            var iconLevel = this.state.containerVisibility ? iconLevelUp : iconLevelDown ;
+            var href = 'javascript:void(0);';
+            var onClick = this.toggleContainer.bind(this);
+            var iconLevel = <span className={'metismenu-iconlevel '+this.props.iconClassPrefix + (this.state.containerVisibility ? this.props.iconLevelUp : this.props.iconLevelDown)} />
+        }else{
+            var href = this.props.href;
+            var onClick = false;
+            var iconLevel = null;
         }
 
         return <li className="metismenu-item">
-            <a
-                href={thisHasLevel ? 'javascript:void(0);' : this.props.href}
-                onClick={thisHasLevel ? this.toggleContainer.bind(this) : false}
-            >
-                <span className={'metismenu-icon '+iconClassPrefix+this.props.icon} />
+            <a href={href} onClick={onClick}>
+                <span className={iconClassName} />
                 {this.props.label}
-                {thisHasLevel && <span className={'metismenu-iconlevel '+iconClassPrefix+iconLevel} />}
+                {iconLevel}
             </a>
             {thisHasLevel && <Container
                 ref="container"
                 visible={this.state.containerVisibility}
+
+                iconClassPrefix={this.props.iconClassPrefix}
+                iconLevelDown={this.props.iconLevelDown}
+                iconLevelUp={this.props.iconLevelDown}
                 content={this.props.content}
             />}
         </li>

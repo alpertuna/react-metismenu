@@ -8,8 +8,19 @@ import React, {Component} from 'react'
 import Item from './Item'
 
 /**
+ * Item Container / Submenu Class
+ *
  * Containers are levels of menu, and keep items.
  * Also provides comminication between items to close each other's sub menu levels
+ *
+ * Props come from top component
+ * @prop {string} iconClassPrefix - Prefix for all icon's style class name
+ * @prop {string} iconLevelDown - Icon name for state of collapsed containers
+ * @prop {string} iconLevelUp - Icon name for state of opened containers
+ *
+ * Props come from parent Item
+ * @prop {boolean} visible - State of container visibility
+ * @prop {Object[]} content - Recursive menu stracture (It also comes from top to first container depth)
  */
 class Container extends Component{
     /**
@@ -23,7 +34,8 @@ class Container extends Component{
         }
     }
     /**
-     * Renders container block (<ul>) and menu items of it (<li>)
+     * Renders container block and menu items of it
+     *
      * Also sends closeChildContainer method reference to props of items,
      * to make them able to close each others submenu container
      * when they are opened
@@ -39,6 +51,9 @@ class Container extends Component{
                     key={i}
                     ref={i}
                     closeFriendContainers={this.closeChildContainers.bind(this,i)}
+                    iconClassPrefix={this.props.iconClassPrefix}
+                    iconLevelDown={this.props.iconLevelDown}
+                    iconLevelUp={this.props.iconLevelUp}
                     {...item}
                 />
             })}
