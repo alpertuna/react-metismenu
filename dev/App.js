@@ -84,9 +84,6 @@ class App extends Component{
 
         return <div>
             <MetisMenu
-                iconClassPrefix="fa fa-"
-                iconLevelDown="arrow-down"
-                iconLevelUp="arrow-up"
                 content={menu}
             />
         </div>
