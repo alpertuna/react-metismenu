@@ -5,7 +5,7 @@ var config = {
     module: {
         loaders: [
             {
-                test: /\.jsx?$/,
+                test: /\.js$/,
                 loader: 'babel',
                 query: {
                     presets: ['es2015', 'react']

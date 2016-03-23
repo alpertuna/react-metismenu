@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Container from './Container.jsx'
+import Container from './Container'
 
 class Item extends Component{
     constructor(){

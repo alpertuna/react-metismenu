@@ -1,3 +1,3 @@
-import MetisMenu from './MetisMenu.jsx'
+import MetisMenu from './MetisMenu'
 
 export default MetisMenu;

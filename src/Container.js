@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Item from './Item.jsx'
+import Item from './Item'
 
 class Container extends Component{
     closeChildContainers(senderIndex){
