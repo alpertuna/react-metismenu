@@ -12,7 +12,7 @@
     "build-dist-js": "webpack --config webpack-dist.conf.js --progress --colors",
     "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-min-js && npm run build-dist-css && npm run build-dist-min-css",
     "build": "npm run build-lib && npm run build-dist",
-    "clear-dev-tools": "rm -r dev src less webpack.config.js",
+    "clear-dev-tools": "rm -r dev src less webpack-*.conf.js",
     "production": "npm run build && npm run clear-dev-tools"
   },
   "repository": {
