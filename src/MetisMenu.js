@@ -20,7 +20,7 @@ class MetisMenu extends Component{
     /**
      * Renders component
      * If props are not given, it sets default props for first depth container
-     * @return Object React component
+     * @return {Object} React component
      */
     render(){
         return <div className="metismenu">

@@ -86,7 +86,7 @@ class Item extends Component{
      * Renders item and if it has level, submenu (container) of it
      * If item has sub menu, button's href link won't be applied and
      * will be added level status indicator icon to button.
-     * @return Object React component
+     * @return {Object} React component
      */
     render(){
         var thisHasLevel = this.hasLevel();

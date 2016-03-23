@@ -39,7 +39,7 @@ class Container extends Component{
      * Also sends closeChildContainer method reference to props of items,
      * to make them able to close each others submenu container
      * when they are opened
-     * @return Object React component
+     * @return {Object} React component
      */
     render(){
         var className = 'metismenu-container';
