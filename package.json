@@ -1,6 +1,6 @@
 {
   "name": "react-metismenu",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "A ready-to-use menu component for React",
   "main": "lib/main.js",
   "scripts": {
@@ -11,9 +11,7 @@
     "build-dist-min-js": "webpack --config webpack-dist.conf.js -p --progress --colors",
     "build-dist-js": "webpack --config webpack-dist.conf.js --progress --colors",
     "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-min-js && npm run build-dist-css && npm run build-dist-min-css",
-    "build": "npm run build-lib && npm run build-dist",
-    "clear-dev-tools": "rm -r dev src less webpack-*.conf.js",
-    "production": "npm run build && npm run clear-dev-tools"
+    "build": "npm run build-lib && npm run build-dist"
   },
   "repository": {
     "type": "git",
