@@ -66,7 +66,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = _MetisMenu2.default;
+	// Entry point of component
+	exports.default = _MetisMenu2.default; /*
+	                                        * src/main.js
+	                                        * Author: H.Alper Tuna <halpertuna@gmail.com>
+	                                        * Date: 23.03.2016
+	                                        */
 
 /***/ },
 /* 1 */
@@ -77,8 +82,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -96,7 +99,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * src/MetisMenu.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: H.Alper Tuna <halpertuna@gmail.com>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 23.03.2016
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	/**
+	 * Main container of MetisMenu
+	 *
+	 * Props come from top component
+	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
+	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
+	 * @prop {string} iconLevelUp - Icon name for state of opened containers
+	 * @prop {Object[]} content - Recursive menu stracture
+	 */
 
 	var MetisMenu = function (_Component) {
 	    _inherits(MetisMenu, _Component);
@@ -109,11 +126,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _createClass(MetisMenu, [{
 	        key: 'render',
+
+	        /**
+	         * Renders component
+	         * If props are not given, it sets default props for first depth container
+	         * @return Object React component
+	         */
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'metismenu' },
-	                _react2.default.createElement(_Container2.default, _extends({}, this.props, { className: 'metismenu' }))
+	                _react2.default.createElement(_Container2.default, {
+	                    className: 'metismenu',
+	                    iconClassPrefix: this.props.iconClassPrefix || 'fa fa-',
+	                    iconLevelDown: this.props.iconLevelDown || 'caret-left',
+	                    iconLevelUp: this.props.iconLevelUp || 'caret-down',
+	                    content: this.props.content || []
+	                })
 	            );
 	        }
 	    }]);
@@ -157,7 +186,27 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * src/Container.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: H.Alper Tuna <halpertuna@gmail.com>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 23.03.2016
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	/**
+	 * Item Container / Submenu Class
+	 *
+	 * Containers are levels of menu, and keep items.
+	 * Also provides comminication between items to close each other's sub menu levels
+	 *
+	 * Props come from top component
+	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
+	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
+	 * @prop {string} iconLevelUp - Icon name for state of opened containers
+	 *
+	 * Props come from parent Item
+	 * @prop {boolean} visible - State of container visibility
+	 * @prop {Object[]} content - Recursive menu stracture (It also comes from top to first container depth)
+	 */
 
 	var Container = function (_Component) {
 	    _inherits(Container, _Component);
@@ -170,12 +219,26 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _createClass(Container, [{
 	        key: 'closeChildContainers',
+
+	        /**
+	         * To close all item's submenu containers except sender item
+	         * @param {number} senderIndex - Index of sender menu item
+	         */
 	        value: function closeChildContainers(senderIndex) {
 	            for (var i in this.refs) {
 	                if (i == senderIndex) continue;
 	                this.refs[i].closeContainer();
 	            }
 	        }
+	        /**
+	         * Renders container block and menu items of it
+	         *
+	         * Also sends closeChildContainer method reference to props of items,
+	         * to make them able to close each others submenu container
+	         * when they are opened
+	         * @return Object React component
+	         */
+
 	    }, {
 	        key: 'render',
 	        value: function render() {
@@ -191,7 +254,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    return _react2.default.createElement(_Item2.default, _extends({
 	                        key: i,
 	                        ref: i,
-	                        closeFriendContainers: _this2.closeChildContainers.bind(_this2, i)
+	                        closeFriendContainers: _this2.closeChildContainers.bind(_this2, i),
+	                        iconClassPrefix: _this2.props.iconClassPrefix,
+	                        iconLevelDown: _this2.props.iconLevelDown,
+	                        iconLevelUp: _this2.props.iconLevelUp
 	                    }, item));
 	                })
 	            );
@@ -229,10 +295,38 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * src/Item.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: H.Alper Tuna <halpertuna@gmail.com>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 23.03.2016
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	/**
+	 * Menu Item Class
+	 *
+	 * Props comes from top component
+	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
+	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
+	 * @prop {string} iconLevelUp - Icon name for state of opened containers
+	 *
+	 * Props comes from parent Container
+	 * @prop {function} closeFriendContainer - Function to close peer item's container
+	 *
+	 * Props comes from menu content
+	 * @prop {string} icon - icon class name for item
+	 * @prop {string} label - label of item
+	 * @prop {string} href - link address of item
+	 * @prop {Object[]} content - Recursive menu stracture
+	 *
+	 */
 
 	var Item = function (_Component) {
 	    _inherits(Item, _Component);
+
+	    /**
+	     * constructor
+	     * it sets first state of container's visibility
+	     */
 
 	    function Item() {
 	        _classCallCheck(this, Item);
@@ -245,16 +339,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _this;
 	    }
 
+	    /**
+	     * To check this item has submenu
+	     * @return {boolean}
+	     */
+
+
 	    _createClass(Item, [{
 	        key: 'hasLevel',
 	        value: function hasLevel() {
 	            return typeof this.props.content != 'undefined';
 	        }
+
+	        /**
+	         * Returns container's visibility status
+	         * @return {boolean} If it's true, container is collapsed
+	         */
+
 	    }, {
 	        key: 'isContainerClosed',
 	        value: function isContainerClosed() {
 	            return !this.state.containerVisibility;
 	        }
+	        /*
+	         * Change container's visibility state to true and close peer items container
+	         */
+
 	    }, {
 	        key: 'openContainer',
 	        value: function openContainer() {
@@ -263,6 +373,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                containerVisibility: true
 	            });
 	        }
+	        /*
+	         * Change container's visibility state to false and close submenu too
+	         */
+
 	    }, {
 	        key: 'closeContainer',
 	        value: function closeContainer() {
@@ -271,6 +385,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                containerVisibility: false
 	            });
 	        }
+	        /*
+	         * Toggles container visibility state
+	         */
+
 	    }, {
 	        key: 'toggleContainer',
 	        value: function toggleContainer() {
@@ -280,15 +398,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this.closeContainer();
 	            }
 	        }
+
+	        /*
+	         * Renders item and if it has level, submenu (container) of it
+	         * If item has sub menu, button's href link won't be applied and
+	         * will be added level status indicator icon to button.
+	         * @return Object React component
+	         */
+
 	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var thisHasLevel = this.hasLevel();
-	            var iconClassPrefix = this.props.iconClassPrefix || 'fa fa-';
+	            var iconClassName = 'metismenu-icon ' + this.props.iconClassPrefix + this.props.icon;
+
 	            if (thisHasLevel) {
-	                var iconLevelDown = this.props.iconLevelDown || 'caret-left';
-	                var iconLevelUp = this.props.iconLevelUp || 'caret-down';
-	                var iconLevel = this.state.containerVisibility ? iconLevelUp : iconLevelDown;
+	                var href = 'javascript:void(0);';
+	                var onClick = this.toggleContainer.bind(this);
+	                var iconLevel = _react2.default.createElement('span', { className: 'metismenu-iconlevel ' + this.props.iconClassPrefix + (this.state.containerVisibility ? this.props.iconLevelUp : this.props.iconLevelDown) });
+	            } else {
+	                var href = this.props.href;
+	                var onClick = false;
+	                var iconLevel = null;
 	            }
 
 	            return _react2.default.createElement(
@@ -296,17 +427,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	                { className: 'metismenu-item' },
 	                _react2.default.createElement(
 	                    'a',
-	                    {
-	                        href: thisHasLevel ? 'javascript:void(0);' : this.props.href,
-	                        onClick: thisHasLevel ? this.toggleContainer.bind(this) : false
-	                    },
-	                    _react2.default.createElement('span', { className: 'metismenu-icon ' + iconClassPrefix + this.props.icon }),
+	                    { href: href, onClick: onClick },
+	                    _react2.default.createElement('span', { className: iconClassName }),
 	                    this.props.label,
-	                    thisHasLevel && _react2.default.createElement('span', { className: 'metismenu-iconlevel ' + iconClassPrefix + iconLevel })
+	                    iconLevel
 	                ),
 	                thisHasLevel && _react2.default.createElement(_Container2.default, {
 	                    ref: 'container',
 	                    visible: this.state.containerVisibility,
+
+	                    iconClassPrefix: this.props.iconClassPrefix,
+	                    iconLevelDown: this.props.iconLevelDown,
+	                    iconLevelUp: this.props.iconLevelDown,
 	                    content: this.props.content
 	                })
 	            );
