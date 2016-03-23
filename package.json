@@ -1,7 +1,7 @@
 {
   "name": "react-metismenu",
-  "version": "1.0.0",
-  "description": "MetisMenu Component for React",
+  "version": "0.1.0",
+  "description": "A ready-to-use menu component for React",
   "main": "lib/main.js",
   "scripts": {
     "dev-server": "webpack-dev-server --config webpack-dev.conf.js --progress --colors --hot --inline",
