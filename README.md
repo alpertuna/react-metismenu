@@ -34,6 +34,13 @@ ReactDOM.render(
 );
 ```
 
+Also you have to embed core css file to your html for MetisMenu to work.
+```html
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alpertuna/react-metismenu/master/dist/react-metismenu.min.css" />
+```
+You can find this css in your `node_modules/react-metismenu/dist` to embed locally.
+
+
 PROPERTIES
 ==========
 MetisMenu (React component) properties
