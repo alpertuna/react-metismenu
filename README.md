@@ -1,8 +1,10 @@
 # react-metismenu
-A ready-to-use menu component for react
+A ready-to-use menu component for React
+
+react-metismenu is under development now, It is time to contribute :blush:
 
 
-INSTALL
+Install
 =======
 
 ```sh
@@ -10,7 +12,7 @@ npm install react-metismenu
 ```
 In your project you may use `--save` or `--save-dev` options of npm
 
-USAGE
+Usage
 =====
 
 With Ecma Script 6 and React Loaders
@@ -41,7 +43,7 @@ Also you have to embed core css file to your html for MetisMenu to work.
 You can find this css in your `node_modules/react-metismenu/dist` to embed locally.
 
 
-PROPERTIES
+Properties
 ==========
 MetisMenu (React component) properties
 
@@ -56,7 +58,7 @@ Properties for each item in content
 * `href` {string} - Link of item (if item has submenu, href property will be ignored)
 * `content` {Object[]} - Submenu of item
 
-EXAMPLE
+Example
 =======
 
 ```javascript
