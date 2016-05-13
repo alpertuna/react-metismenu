@@ -1,5 +1,5 @@
 # react-metismenu
-A ready-to-use menu component for React
+A ready-to-use menu component for [React](https://facebook.github.io/react/)
 
 react-metismenu is under development now, It is time to contribute :blush:
 
@@ -70,7 +70,7 @@ var content=[
     {
         icon: 'icon-class-name',
         label: 'Label of Item',
-        href: 'link/of/item'
+        href: '#a-link'
     },
     {
         icon: 'icon-class-name',
@@ -79,11 +79,11 @@ var content=[
             {
                 icon: 'icon-class-name',
                 label: 'Sub Menu of Second Item',
-                href: 'link/of/item'
+                href: '#another-link'
             }
         ]
     },
 ];
 
-ReactDOM.render(<MetisMenu content={content} />,document.getElementById('root'));
+ReactDOM.render(<MetisMenu content={content} />, document.getElementById('root'));
 ```
