@@ -42,6 +42,7 @@
   color: #333;
 }
 .metismenu-icon {
+  display: inline-block;
   text-align: center;
   width: 2.2em;
 }
