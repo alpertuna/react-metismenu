@@ -1,7 +1,8 @@
 /*
  * src/Item.js
  * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 23.03.2016
+ * Contributor: Layne Anderson
+ * Date: 17.08.2016
  */
 
 import React, {Component} from 'react'
@@ -21,6 +22,7 @@ import Container from './Container'
  * Props comes from menu content
  * @prop {string} icon - icon class name for item
  * @prop {string} label - label of item
+ * @prop {boolean} externalLink - (optional) if true href opens in new tab/window
  * @prop {string} href - link address of item
  * @prop {Object[]} content - Recursive menu stracture
  *
@@ -102,8 +104,14 @@ class Item extends Component{
             var iconLevel = null;
         }
 
+        if(this.props.externalLink){
+            var target = '_blank';
+        }else{
+            var target = '';
+        }
+
         return <li className="metismenu-item">
-            <a href={href} onClick={onClick}>
+            <a target={target} href={href} onClick={onClick}>
                 <span className={iconClassName} />
                 {this.props.label}
                 {iconLevel}

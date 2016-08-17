@@ -55,6 +55,7 @@ MetisMenu (React component) properties
 Properties for each item in content
 * `icon` {string} - Icon class name of item
 * `label` {string} - Label of item
+* `externalLink` (boolean) - (optional) if true href opens in new tab/window
 * `href` {string} - Link of item (if item has submenu, href property will be ignored)
 * `content` {Object[]} - Submenu of item
 

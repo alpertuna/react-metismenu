@@ -76,9 +76,10 @@ class App extends Component{
                 ]
             },
             {
-                icon: 'user',
-                label: 'Menu 5',
-                href: '#menu-5'
+                icon: 'external-link',
+                label: 'External Link',
+                externalLink: true, 
+                href: 'https://www.google.com'
             }
         ];
 
