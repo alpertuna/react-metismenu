@@ -1,6 +1,6 @@
 {
   "name": "react-metismenu",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A ready-to-use menu component for React",
   "main": "dist/react-metismenu.min.js",
   "scripts": {
