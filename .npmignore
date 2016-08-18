@@ -1,4 +1,4 @@
-src
-less
-dev
-webpack-*.conf.js
+/src
+/less
+/dev
+/webpack
