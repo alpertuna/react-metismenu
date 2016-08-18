@@ -36,12 +36,7 @@ ReactDOM.render(
 );
 ```
 
-Also you have to embed core css file to your html for MetisMenu to work.
-```html
-<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alpertuna/react-metismenu/master/dist/react-metismenu.min.css" />
-```
-You can find this css in your `node_modules/react-metismenu/dist` to embed locally.
-
+Now, core css file is embed so that you don't need to add link.
 
 Properties
 ==========
@@ -65,7 +60,7 @@ Example
 ```javascript
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MetisMenu from 'react-metismenu'
+import Menu from 'react-metismenu'
 
 var content=[
     {
@@ -86,5 +81,5 @@ var content=[
     },
 ];
 
-ReactDOM.render(<MetisMenu content={content} />, document.getElementById('root'));
+ReactDOM.render(<Menu content={content} />, document.getElementById('root'));
 ```

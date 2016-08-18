@@ -2,6 +2,7 @@
 var config = {
     entry: './dev/App.js',
     output: 'bundle.js',
+    devtool: 'eval-source-map',
     module: {
         loaders: [
             {

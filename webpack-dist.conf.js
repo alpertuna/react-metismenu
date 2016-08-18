@@ -16,6 +16,10 @@ var config = {
                 query: {
                     presets: ['es2015', 'react']
                 }
+            },
+            {
+                test: /\.less$/,
+                loader: 'style!css!less',
             }
         ]
     },
@@ -30,11 +34,18 @@ var config = {
         }
     ]
 }
+  var webpack = require('webpack');
+  config.plugins = [
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  })
+  ];
 
 //For minified version
 if(process.argv[4] == '-p'){
-    config.output.filename = 'react-metismenu.min.js';
-    config.devtool = 'cheap-module-source-map';
+  config.output.filename = 'react-metismenu.min.js';
 }
 
 module.exports = config;

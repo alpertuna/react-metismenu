@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 import MetisMenu from '../src/main.js'
-import '../less/style.less'
 
 class App extends Component{
     render(){
