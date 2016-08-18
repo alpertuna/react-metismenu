@@ -4,9 +4,9 @@
   "description": "A ready-to-use menu component for React",
   "main": "dist/react-metismenu.min.js",
   "scripts": {
-    "dev-server": "webpack-dev-server --config webpack-dev.conf.js --progress --colors --hot --inline",
-    "build-dist-min-js": "webpack --config webpack-dist.conf.js -p --progress --colors",
-    "build-dist-js": "webpack --config webpack-dist.conf.js --progress --colors",
+    "dev-server": "webpack-dev-server --config webpack/dev.conf.js --progress --colors --hot --inline",
+    "build-dist-min-js": "webpack --config webpack/dist-min.conf.js --progress --colors",
+    "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
     "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-min-js"
   },
   "repository": {
