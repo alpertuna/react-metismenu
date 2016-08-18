@@ -4,10 +4,10 @@
  * Date: 18.08.2016
  */
 
-var webpack = require('webpack');
+var webpack = require('webpack')
 var config = require('./dist.conf')
 
-//Webpack Production Settings - Minified
+// Webpack Production Settings - Minified
 config = Object.assign(config, {
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
@@ -17,6 +17,6 @@ config = Object.assign(config, {
     })
   ]
 })
-config.output.filename = 'react-metismenu.min.js';
+config.output.filename = 'react-metismenu.min.js'
 
-module.exports = config;
+module.exports = config

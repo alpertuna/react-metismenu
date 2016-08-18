@@ -19,21 +19,21 @@ With Ecma Script 6 and React Loaders
 ```javascript
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MetisMenu from 'react-metismenu'
+import Menu from 'react-metismenu'
 
-ReactDOM.render(<MetisMenu />,document.getElementById('dom_id'));
+ReactDOM.render(<Menu />, document.getElementById('dom_id'))
 ```
 
 Without Loaders (ES5)
 ```javascript
-var React = require('react');
-var ReactDOM = require('react-dom');
-var MetisMenu = require('react-metismenu');
+var React = require('react')
+var ReactDOM = require('react-dom')
+var Menu = require('react-metismenu')
 
 ReactDOM.render(
-    React.createElement(MetisMenu),
+    React.createElement(Menu),
     document.getElementById('dom_id')
-);
+)
 ```
 
 Now, core css file is embed so that you don't need to add link.
@@ -97,7 +97,7 @@ cd react-metismenu
 npm install
 ```
 
-**Folders and Files**
+#### Folders and Files
  - **`src`** folder keeps all source files of `react-metismenu`
  - `react-metismenu` uses less preprocessor for styling, and **`less`** folder keeps source style files.
  - **`dev`** is playground folder to develop `react-metismenu`.
@@ -105,7 +105,7 @@ npm install
 Under **`dev`** folder, `index.html` is index file of our web server. You don't need to touch here if you don't want to add any other external js or css files.
 `App.js` file is entry point for our react application, and you can test your alterations in here. There is a working example in `App.js` and it imports `react-metismenu` directly from source code, that's why there is no need to build it while developing. Similarly less folder is imported directly through less compiler pipe.
 
-**To run dev server,**
+#### To run dev server,
 ```sh
 npm run dev-server
 ```
@@ -113,7 +113,7 @@ And open `localhost:8080` in browser.
 Dev server uses webpack and it has hot modul replecament plugins, so when you change and save any source file, it will rebuild virtual bundle and send signal browser to refresh page automaticly.
 
 
-**Other scripts,**
+#### Other scripts,
 ```sh
 # Builds js dist file
 npm run build-dist-js
@@ -124,3 +124,8 @@ npm run build-dist-min-js
 # Builds all dist files
 npm run build-dist
 ```
+
+#### Source Code Writing Standarts
+For source code quality, I chose Eslint standart rules, so you should mainly beware of
+- not using semicolons at the end of lines and
+- indents should be 2 spaces.

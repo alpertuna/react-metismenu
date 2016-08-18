@@ -76,7 +76,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	exports.default = _MetisMenu2.default;
-	//Embeds styles
+	// Embeds styles
 
 /***/ },
 /* 1 */
@@ -85,7 +85,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -120,38 +120,38 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @prop {Object[]} content - Recursive menu stracture
 	 */
 	var MetisMenu = function (_Component) {
-	    _inherits(MetisMenu, _Component);
+	  _inherits(MetisMenu, _Component);
 
-	    function MetisMenu() {
-	        _classCallCheck(this, MetisMenu);
+	  function MetisMenu() {
+	    _classCallCheck(this, MetisMenu);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(MetisMenu).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MetisMenu).apply(this, arguments));
+	  }
+
+	  _createClass(MetisMenu, [{
+	    key: 'render',
+
+	    /**
+	     * Renders component
+	     * If props are not given, it sets default props for first depth container
+	     * @return {Object} React component
+	     */
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'metismenu' },
+	        _react2.default.createElement(_Container2.default, {
+	          className: 'metismenu',
+	          iconClassPrefix: this.props.iconClassPrefix || 'fa fa-',
+	          iconLevelDown: this.props.iconLevelDown || 'caret-left',
+	          iconLevelUp: this.props.iconLevelUp || 'caret-down',
+	          content: this.props.content || []
+	        })
+	      );
 	    }
+	  }]);
 
-	    _createClass(MetisMenu, [{
-	        key: 'render',
-
-	        /**
-	         * Renders component
-	         * If props are not given, it sets default props for first depth container
-	         * @return {Object} React component
-	         */
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'metismenu' },
-	                _react2.default.createElement(_Container2.default, {
-	                    className: 'metismenu',
-	                    iconClassPrefix: this.props.iconClassPrefix || 'fa fa-',
-	                    iconLevelDown: this.props.iconLevelDown || 'caret-left',
-	                    iconLevelUp: this.props.iconLevelUp || 'caret-down',
-	                    content: this.props.content || []
-	                })
-	            );
-	        }
-	    }]);
-
-	    return MetisMenu;
+	  return MetisMenu;
 	}(_react.Component);
 
 	exports.default = MetisMenu;
@@ -169,7 +169,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -212,62 +212,62 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @prop {Object[]} content - Recursive menu stracture (It also comes from top to first container depth)
 	 */
 	var Container = function (_Component) {
-	    _inherits(Container, _Component);
+	  _inherits(Container, _Component);
 
-	    function Container() {
-	        _classCallCheck(this, Container);
+	  function Container() {
+	    _classCallCheck(this, Container);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Container).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Container).apply(this, arguments));
+	  }
+
+	  _createClass(Container, [{
+	    key: 'closeChildContainers',
+
+	    /**
+	     * To close all item's submenu containers except sender item
+	     * @param {number} senderIndex - Index of sender menu item
+	     */
+	    value: function closeChildContainers(senderIndex) {
+	      for (var i in this.refs) {
+	        if (i === senderIndex) continue;
+	        this.refs[i].closeContainer();
+	      }
 	    }
+	    /**
+	     * Renders container block and menu items of it
+	     *
+	     * Also sends closeChildContainer method reference to props of items,
+	     * to make them able to close each others submenu container
+	     * when they are opened
+	     * @return {Object} React component
+	     */
 
-	    _createClass(Container, [{
-	        key: 'closeChildContainers',
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
 
-	        /**
-	         * To close all item's submenu containers except sender item
-	         * @param {number} senderIndex - Index of sender menu item
-	         */
-	        value: function closeChildContainers(senderIndex) {
-	            for (var i in this.refs) {
-	                if (i == senderIndex) continue;
-	                this.refs[i].closeContainer();
-	            }
-	        }
-	        /**
-	         * Renders container block and menu items of it
-	         *
-	         * Also sends closeChildContainer method reference to props of items,
-	         * to make them able to close each others submenu container
-	         * when they are opened
-	         * @return {Object} React component
-	         */
+	      var className = 'metismenu-container';
+	      if (this.props.visible) className += ' visible';
 
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: className },
+	        this.props.content.map(function (item, i) {
+	          return _react2.default.createElement(_Item2.default, _extends({
+	            key: i,
+	            ref: i,
+	            closeFriendContainers: _this2.closeChildContainers.bind(_this2, i),
+	            iconClassPrefix: _this2.props.iconClassPrefix,
+	            iconLevelDown: _this2.props.iconLevelDown,
+	            iconLevelUp: _this2.props.iconLevelUp
+	          }, item));
+	        })
+	      );
+	    }
+	  }]);
 
-	            var className = 'metismenu-container';
-	            if (this.props.visible) className += ' visible';
-
-	            return _react2.default.createElement(
-	                'ul',
-	                { className: className },
-	                this.props.content.map(function (item, i) {
-	                    return _react2.default.createElement(_Item2.default, _extends({
-	                        key: i,
-	                        ref: i,
-	                        closeFriendContainers: _this2.closeChildContainers.bind(_this2, i),
-	                        iconClassPrefix: _this2.props.iconClassPrefix,
-	                        iconLevelDown: _this2.props.iconLevelDown,
-	                        iconLevelUp: _this2.props.iconLevelUp
-	                    }, item));
-	                })
-	            );
-	        }
-	    }]);
-
-	    return Container;
+	  return Container;
 	}(_react.Component);
 
 	exports.default = Container;
@@ -279,7 +279,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -325,136 +325,138 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 */
 	var Item = function (_Component) {
-	    _inherits(Item, _Component);
+	  _inherits(Item, _Component);
 
-	    /**
-	     * constructor
-	     * it sets first state of container's visibility
-	     */
-	    function Item() {
-	        _classCallCheck(this, Item);
+	  /**
+	   * constructor
+	   * it sets first state of container's visibility
+	   */
+	  function Item() {
+	    _classCallCheck(this, Item);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Item).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Item).apply(this, arguments));
 
-	        _this.state = {
-	            containerVisibility: false
-	        };
-	        return _this;
+	    _this.state = {
+	      containerVisibility: false
+	    };
+	    return _this;
+	  }
+
+	  /**
+	   * To check this item has submenu
+	   * @return {boolean}
+	   */
+
+
+	  _createClass(Item, [{
+	    key: 'hasLevel',
+	    value: function hasLevel() {
+	      return typeof this.props.content !== 'undefined';
 	    }
 
 	    /**
-	     * To check this item has submenu
-	     * @return {boolean}
+	     * Returns container's visibility status
+	     * @return {boolean} If it's true, container is collapsed
 	     */
 
+	  }, {
+	    key: 'isContainerClosed',
+	    value: function isContainerClosed() {
+	      return !this.state.containerVisibility;
+	    }
+	    /*
+	     * Change container's visibility state to true and close peer items container
+	     */
 
-	    _createClass(Item, [{
-	        key: 'hasLevel',
-	        value: function hasLevel() {
-	            return typeof this.props.content != 'undefined';
-	        }
+	  }, {
+	    key: 'openContainer',
+	    value: function openContainer() {
+	      this.props.closeFriendContainers();
+	      this.setState({
+	        containerVisibility: true
+	      });
+	    }
+	    /*
+	     * Change container's visibility state to false and close submenu too
+	     */
 
-	        /**
-	         * Returns container's visibility status
-	         * @return {boolean} If it's true, container is collapsed
-	         */
+	  }, {
+	    key: 'closeContainer',
+	    value: function closeContainer() {
+	      if (this.hasLevel()) this.refs.container.closeChildContainers();
+	      this.setState({
+	        containerVisibility: false
+	      });
+	    }
+	    /*
+	     * Toggles container visibility state
+	     */
 
-	    }, {
-	        key: 'isContainerClosed',
-	        value: function isContainerClosed() {
-	            return !this.state.containerVisibility;
-	        }
-	        /*
-	         * Change container's visibility state to true and close peer items container
-	         */
+	  }, {
+	    key: 'toggleContainer',
+	    value: function toggleContainer() {
+	      if (this.isContainerClosed()) {
+	        this.openContainer();
+	      } else {
+	        this.closeContainer();
+	      }
+	    }
 
-	    }, {
-	        key: 'openContainer',
-	        value: function openContainer() {
-	            this.props.closeFriendContainers();
-	            this.setState({
-	                containerVisibility: true
-	            });
-	        }
-	        /*
-	         * Change container's visibility state to false and close submenu too
-	         */
+	    /*
+	     * Renders item and if it has level, submenu (container) of it
+	     * If item has sub menu, button's href link won't be applied and
+	     * will be added level status indicator icon to button.
+	     * @return {Object} React component
+	     */
 
-	    }, {
-	        key: 'closeContainer',
-	        value: function closeContainer() {
-	            if (this.hasLevel()) this.refs.container.closeChildContainers();
-	            this.setState({
-	                containerVisibility: false
-	            });
-	        }
-	        /*
-	         * Toggles container visibility state
-	         */
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var thisHasLevel = this.hasLevel();
+	      var iconClassName = 'metismenu-icon ' + this.props.iconClassPrefix + this.props.icon;
 
-	    }, {
-	        key: 'toggleContainer',
-	        value: function toggleContainer() {
-	            if (this.isContainerClosed()) {
-	                this.openContainer();
-	            } else {
-	                this.closeContainer();
-	            }
-	        }
+	      var href, onClick, iconLevel, target;
 
-	        /*
-	         * Renders item and if it has level, submenu (container) of it
-	         * If item has sub menu, button's href link won't be applied and
-	         * will be added level status indicator icon to button.
-	         * @return {Object} React component
-	         */
+	      if (thisHasLevel) {
+	        href = 'javascript:void(0);';
+	        onClick = this.toggleContainer.bind(this);
+	        iconLevel = _react2.default.createElement('span', { className: 'metismenu-iconlevel ' + this.props.iconClassPrefix + (this.state.containerVisibility ? this.props.iconLevelUp : this.props.iconLevelDown) });
+	      } else {
+	        href = this.props.href;
+	        onClick = false;
+	        iconLevel = null;
+	      }
 
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var thisHasLevel = this.hasLevel();
-	            var iconClassName = 'metismenu-icon ' + this.props.iconClassPrefix + this.props.icon;
+	      if (this.props.externalLink) {
+	        target = '_blank';
+	      } else {
+	        target = '';
+	      }
 
-	            if (thisHasLevel) {
-	                var href = 'javascript:void(0);';
-	                var onClick = this.toggleContainer.bind(this);
-	                var iconLevel = _react2.default.createElement('span', { className: 'metismenu-iconlevel ' + this.props.iconClassPrefix + (this.state.containerVisibility ? this.props.iconLevelUp : this.props.iconLevelDown) });
-	            } else {
-	                var href = this.props.href;
-	                var onClick = false;
-	                var iconLevel = null;
-	            }
+	      return _react2.default.createElement(
+	        'li',
+	        { className: 'metismenu-item' },
+	        _react2.default.createElement(
+	          'a',
+	          { target: target, href: href, onClick: onClick },
+	          _react2.default.createElement('span', { className: iconClassName }),
+	          this.props.label,
+	          iconLevel
+	        ),
+	        thisHasLevel && _react2.default.createElement(_Container2.default, {
+	          ref: 'container',
+	          visible: this.state.containerVisibility,
 
-	            if (this.props.externalLink) {
-	                var target = '_blank';
-	            } else {
-	                var target = '';
-	            }
+	          iconClassPrefix: this.props.iconClassPrefix,
+	          iconLevelDown: this.props.iconLevelDown,
+	          iconLevelUp: this.props.iconLevelUp,
+	          content: this.props.content
+	        })
+	      );
+	    }
+	  }]);
 
-	            return _react2.default.createElement(
-	                'li',
-	                { className: 'metismenu-item' },
-	                _react2.default.createElement(
-	                    'a',
-	                    { target: target, href: href, onClick: onClick },
-	                    _react2.default.createElement('span', { className: iconClassName }),
-	                    this.props.label,
-	                    iconLevel
-	                ),
-	                thisHasLevel && _react2.default.createElement(_Container2.default, {
-	                    ref: 'container',
-	                    visible: this.state.containerVisibility,
-
-	                    iconClassPrefix: this.props.iconClassPrefix,
-	                    iconLevelDown: this.props.iconLevelDown,
-	                    iconLevelUp: this.props.iconLevelUp,
-	                    content: this.props.content
-	                })
-	            );
-	        }
-	    }]);
-
-	    return Item;
+	  return Item;
 	}(_react.Component);
 
 	exports.default = Item;

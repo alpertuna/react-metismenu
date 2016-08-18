@@ -6,7 +6,7 @@
 
 var config = require('./base.conf')
 
-//Webpack Production Settings
+// Webpack Production Settings
 module.exports = Object.assign(config, {
   entry: './src/main.js',
   output: {

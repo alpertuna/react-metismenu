@@ -16,23 +16,23 @@ import Container from './Container'
  * @prop {string} iconLevelUp - Icon name for state of opened containers
  * @prop {Object[]} content - Recursive menu stracture
  */
-class MetisMenu extends Component{
-    /**
-     * Renders component
-     * If props are not given, it sets default props for first depth container
-     * @return {Object} React component
-     */
-    render(){
-        return <div className="metismenu">
-            <Container
-                className="metismenu"
-                iconClassPrefix={this.props.iconClassPrefix || 'fa fa-'}
-                iconLevelDown={this.props.iconLevelDown || 'caret-left'}
-                iconLevelUp={this.props.iconLevelUp || 'caret-down'}
-                content={this.props.content || []}
-            />
-        </div>
-    }
+class MetisMenu extends Component {
+  /**
+   * Renders component
+   * If props are not given, it sets default props for first depth container
+   * @return {Object} React component
+   */
+  render () {
+    return <div className="metismenu">
+      <Container
+        className="metismenu"
+        iconClassPrefix={this.props.iconClassPrefix || 'fa fa-'}
+        iconLevelDown={this.props.iconLevelDown || 'caret-left'}
+        iconLevelUp={this.props.iconLevelUp || 'caret-down'}
+        content={this.props.content || []}
+      />
+    </div>
+  }
 }
 
-export default MetisMenu;
+export default MetisMenu

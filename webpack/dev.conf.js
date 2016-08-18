@@ -6,7 +6,7 @@
 
 var config = require('./base.conf')
 
-//Webpack Development Settings
+// Webpack Development Settings
 module.exports = Object.assign(config, {
   entry: './dev/App.js',
   output: 'bundle.js',

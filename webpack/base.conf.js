@@ -4,7 +4,7 @@
  * Date: 18.08.2016
  */
 
-//Webpack Base Settings
+// Webpack Base Settings
 module.exports = {
   module: {
     loaders: [

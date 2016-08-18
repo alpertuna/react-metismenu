@@ -5,8 +5,8 @@
  */
 
 import MetisMenu from './MetisMenu'
-//Embeds styles
+// Embeds styles
 import '../less/style.less'
 
 // Entry point of component
-export default MetisMenu;
+export default MetisMenu
