@@ -1,1 +1,812 @@
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t(require("react")):"function"==typeof define&&define.amd?define(["react"],t):"object"==typeof exports?exports.ReactMetismenu=t(require("react")):e.ReactMetismenu=t(e.React)}(this,function(e){return function(e){function t(r){if(n[r])return n[r].exports;var i=n[r]={exports:{},id:r,loaded:!1};return e[r].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var i=n(1),o=r(i);n(5),t["default"]=o["default"]},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function s(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(2),c=r(u),l=n(3),f=r(l),p=function(e){function t(){return i(this,t),o(this,Object.getPrototypeOf(t).apply(this,arguments))}return s(t,e),a(t,[{key:"render",value:function(){return c["default"].createElement("div",{className:"metismenu"},c["default"].createElement(f["default"],{className:"metismenu",iconClassPrefix:this.props.iconClassPrefix||"fa fa-",iconLevelDown:this.props.iconLevelDown||"caret-left",iconLevelUp:this.props.iconLevelUp||"caret-down",content:this.props.content||[]}))}}]),t}(u.Component);t["default"]=p},function(t,n){t.exports=e},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function s(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},u=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),c=n(2),l=r(c),f=n(4),p=r(f),d=function(e){function t(){return i(this,t),o(this,Object.getPrototypeOf(t).apply(this,arguments))}return s(t,e),u(t,[{key:"closeChildContainers",value:function(e){for(var t in this.refs)t!=e&&this.refs[t].closeContainer()}},{key:"render",value:function(){var e=this,t="metismenu-container";return this.props.visible&&(t+=" visible"),l["default"].createElement("ul",{className:t},this.props.content.map(function(t,n){return l["default"].createElement(p["default"],a({key:n,ref:n,closeFriendContainers:e.closeChildContainers.bind(e,n),iconClassPrefix:e.props.iconClassPrefix,iconLevelDown:e.props.iconLevelDown,iconLevelUp:e.props.iconLevelUp},t))}))}}]),t}(c.Component);t["default"]=d},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function o(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function s(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),u=n(2),c=r(u),l=n(3),f=r(l),p=function(e){function t(){i(this,t);var e=o(this,Object.getPrototypeOf(t).apply(this,arguments));return e.state={containerVisibility:!1},e}return s(t,e),a(t,[{key:"hasLevel",value:function(){return"undefined"!=typeof this.props.content}},{key:"isContainerClosed",value:function(){return!this.state.containerVisibility}},{key:"openContainer",value:function(){this.props.closeFriendContainers(),this.setState({containerVisibility:!0})}},{key:"closeContainer",value:function(){this.hasLevel()&&this.refs.container.closeChildContainers(),this.setState({containerVisibility:!1})}},{key:"toggleContainer",value:function(){this.isContainerClosed()?this.openContainer():this.closeContainer()}},{key:"render",value:function(){var e=this.hasLevel(),t="metismenu-icon "+this.props.iconClassPrefix+this.props.icon;if(e)var n="javascript:void(0);",r=this.toggleContainer.bind(this),i=c["default"].createElement("span",{className:"metismenu-iconlevel "+this.props.iconClassPrefix+(this.state.containerVisibility?this.props.iconLevelUp:this.props.iconLevelDown)});else var n=this.props.href,r=!1,i=null;if(this.props.externalLink)var o="_blank";else var o="";return c["default"].createElement("li",{className:"metismenu-item"},c["default"].createElement("a",{target:o,href:n,onClick:r},c["default"].createElement("span",{className:t}),this.props.label,i),e&&c["default"].createElement(f["default"],{ref:"container",visible:this.state.containerVisibility,iconClassPrefix:this.props.iconClassPrefix,iconLevelDown:this.props.iconLevelDown,iconLevelUp:this.props.iconLevelUp,content:this.props.content}))}}]),t}(u.Component);t["default"]=p},function(e,t,n){var r=n(6);"string"==typeof r&&(r=[[e.id,r,""]]);n(8)(r,{});r.locals&&(e.exports=r.locals)},function(e,t,n){t=e.exports=n(7)(),t.push([e.id,".metismenu{width:300px}.metismenu>.metismenu-container{background:#ccc}.metismenu>.metismenu-container>.metismenu-item>A,.metismenu>.metismenu-container>.metismenu-item>A .metismenu-iconlevel{line-height:2.2em}.metismenu-container,.metismenu-item{margin:0;padding:0}.metismenu-container{background:#ddd;list-style:none}.metismenu-container .metismenu-container{display:none}.metismenu-container .metismenu-container A{padding-left:1em}.metismenu-container .metismenu-container .metismenu-container A{padding-left:2em}.metismenu-container.visible{display:block}.metismenu-item>A{color:#555;display:block;line-height:1.8em;text-decoration:none}.metismenu-item>A:hover{background:#eee;color:#333}.metismenu-icon{display:inline-block;text-align:center;width:2.2em}SPAN.metismenu-iconlevel{float:right;line-height:1.8em;text-align:center;width:2.2em}",""])},function(e,t){e.exports=function(){var e=[];return e.toString=function(){for(var e=[],t=0;t<this.length;t++){var n=this[t];n[2]?e.push("@media "+n[2]+"{"+n[1]+"}"):e.push(n[1])}return e.join("")},e.i=function(t,n){"string"==typeof t&&(t=[[null,t,""]]);for(var r={},i=0;i<this.length;i++){var o=this[i][0];"number"==typeof o&&(r[o]=!0)}for(i=0;i<t.length;i++){var s=t[i];"number"==typeof s[0]&&r[s[0]]||(n&&!s[2]?s[2]=n:n&&(s[2]="("+s[2]+") and ("+n+")"),e.push(s))}},e}},function(e,t,n){function r(e,t){for(var n=0;n<e.length;n++){var r=e[n],i=d[r.id];if(i){i.refs++;for(var o=0;o<i.parts.length;o++)i.parts[o](r.parts[o]);for(;o<r.parts.length;o++)i.parts.push(c(r.parts[o],t))}else{for(var s=[],o=0;o<r.parts.length;o++)s.push(c(r.parts[o],t));d[r.id]={id:r.id,refs:1,parts:s}}}}function i(e){for(var t=[],n={},r=0;r<e.length;r++){var i=e[r],o=i[0],s=i[1],a=i[2],u=i[3],c={css:s,media:a,sourceMap:u};n[o]?n[o].parts.push(c):t.push(n[o]={id:o,parts:[c]})}return t}function o(e,t){var n=v(),r=g[g.length-1];if("top"===e.insertAt)r?r.nextSibling?n.insertBefore(t,r.nextSibling):n.appendChild(t):n.insertBefore(t,n.firstChild),g.push(t);else{if("bottom"!==e.insertAt)throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");n.appendChild(t)}}function s(e){e.parentNode.removeChild(e);var t=g.indexOf(e);t>=0&&g.splice(t,1)}function a(e){var t=document.createElement("style");return t.type="text/css",o(e,t),t}function u(e){var t=document.createElement("link");return t.rel="stylesheet",o(e,t),t}function c(e,t){var n,r,i;if(t.singleton){var o=y++;n=b||(b=a(t)),r=l.bind(null,n,o,!1),i=l.bind(null,n,o,!0)}else e.sourceMap&&"function"==typeof URL&&"function"==typeof URL.createObjectURL&&"function"==typeof URL.revokeObjectURL&&"function"==typeof Blob&&"function"==typeof btoa?(n=u(t),r=p.bind(null,n),i=function(){s(n),n.href&&URL.revokeObjectURL(n.href)}):(n=a(t),r=f.bind(null,n),i=function(){s(n)});return r(e),function(t){if(t){if(t.css===e.css&&t.media===e.media&&t.sourceMap===e.sourceMap)return;r(e=t)}else i()}}function l(e,t,n,r){var i=n?"":r.css;if(e.styleSheet)e.styleSheet.cssText=C(t,i);else{var o=document.createTextNode(i),s=e.childNodes;s[t]&&e.removeChild(s[t]),s.length?e.insertBefore(o,s[t]):e.appendChild(o)}}function f(e,t){var n=t.css,r=t.media;if(r&&e.setAttribute("media",r),e.styleSheet)e.styleSheet.cssText=n;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(n))}}function p(e,t){var n=t.css,r=t.sourceMap;r&&(n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(r))))+" */");var i=new Blob([n],{type:"text/css"}),o=e.href;e.href=URL.createObjectURL(i),o&&URL.revokeObjectURL(o)}var d={},h=function(e){var t;return function(){return"undefined"==typeof t&&(t=e.apply(this,arguments)),t}},m=h(function(){return/msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase())}),v=h(function(){return document.head||document.getElementsByTagName("head")[0]}),b=null,y=0,g=[];e.exports=function(e,t){t=t||{},"undefined"==typeof t.singleton&&(t.singleton=m()),"undefined"==typeof t.insertAt&&(t.insertAt="bottom");var n=i(e);return r(n,t),function(e){for(var o=[],s=0;s<n.length;s++){var a=n[s],u=d[a.id];u.refs--,o.push(u)}if(e){var c=i(e);r(c,t)}for(var s=0;s<o.length;s++){var u=o[s];if(0===u.refs){for(var l=0;l<u.parts.length;l++)u.parts[l]();delete d[u.id]}}}};var C=function(){var e=[];return function(t,n){return e[t]=n,e.filter(Boolean).join("\n")}}()}])});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("react"));
+	else if(typeof define === 'function' && define.amd)
+		define(["react"], factory);
+	else if(typeof exports === 'object')
+		exports["ReactMetismenu"] = factory(require("react"));
+	else
+		root["ReactMetismenu"] = factory(root["React"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _MetisMenu = __webpack_require__(1);
+
+	var _MetisMenu2 = _interopRequireDefault(_MetisMenu);
+
+	__webpack_require__(5);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// Entry point of component
+	/*
+	 * src/main.js
+	 * Author: H.Alper Tuna <halpertuna@gmail.com>
+	 * Date: 23.03.2016
+	 */
+
+	exports.default = _MetisMenu2.default;
+	//Embeds styles
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Container = __webpack_require__(3);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * src/MetisMenu.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: H.Alper Tuna <halpertuna@gmail.com>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 23.03.2016
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	/**
+	 * Main container of MetisMenu
+	 *
+	 * Props come from top component
+	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
+	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
+	 * @prop {string} iconLevelUp - Icon name for state of opened containers
+	 * @prop {Object[]} content - Recursive menu stracture
+	 */
+	var MetisMenu = function (_Component) {
+	    _inherits(MetisMenu, _Component);
+
+	    function MetisMenu() {
+	        _classCallCheck(this, MetisMenu);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(MetisMenu).apply(this, arguments));
+	    }
+
+	    _createClass(MetisMenu, [{
+	        key: 'render',
+
+	        /**
+	         * Renders component
+	         * If props are not given, it sets default props for first depth container
+	         * @return {Object} React component
+	         */
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'metismenu' },
+	                _react2.default.createElement(_Container2.default, {
+	                    className: 'metismenu',
+	                    iconClassPrefix: this.props.iconClassPrefix || 'fa fa-',
+	                    iconLevelDown: this.props.iconLevelDown || 'caret-left',
+	                    iconLevelUp: this.props.iconLevelUp || 'caret-down',
+	                    content: this.props.content || []
+	                })
+	            );
+	        }
+	    }]);
+
+	    return MetisMenu;
+	}(_react.Component);
+
+	exports.default = MetisMenu;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Item = __webpack_require__(4);
+
+	var _Item2 = _interopRequireDefault(_Item);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * src/Container.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: H.Alper Tuna <halpertuna@gmail.com>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 23.03.2016
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	/**
+	 * Item Container / Submenu Class
+	 *
+	 * Containers are levels of menu, and keep items.
+	 * Also provides comminication between items to close each other's sub menu levels
+	 *
+	 * Props come from top component
+	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
+	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
+	 * @prop {string} iconLevelUp - Icon name for state of opened containers
+	 *
+	 * Props come from parent Item
+	 * @prop {boolean} visible - State of container visibility
+	 * @prop {Object[]} content - Recursive menu stracture (It also comes from top to first container depth)
+	 */
+	var Container = function (_Component) {
+	    _inherits(Container, _Component);
+
+	    function Container() {
+	        _classCallCheck(this, Container);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Container).apply(this, arguments));
+	    }
+
+	    _createClass(Container, [{
+	        key: 'closeChildContainers',
+
+	        /**
+	         * To close all item's submenu containers except sender item
+	         * @param {number} senderIndex - Index of sender menu item
+	         */
+	        value: function closeChildContainers(senderIndex) {
+	            for (var i in this.refs) {
+	                if (i == senderIndex) continue;
+	                this.refs[i].closeContainer();
+	            }
+	        }
+	        /**
+	         * Renders container block and menu items of it
+	         *
+	         * Also sends closeChildContainer method reference to props of items,
+	         * to make them able to close each others submenu container
+	         * when they are opened
+	         * @return {Object} React component
+	         */
+
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            var className = 'metismenu-container';
+	            if (this.props.visible) className += ' visible';
+
+	            return _react2.default.createElement(
+	                'ul',
+	                { className: className },
+	                this.props.content.map(function (item, i) {
+	                    return _react2.default.createElement(_Item2.default, _extends({
+	                        key: i,
+	                        ref: i,
+	                        closeFriendContainers: _this2.closeChildContainers.bind(_this2, i),
+	                        iconClassPrefix: _this2.props.iconClassPrefix,
+	                        iconLevelDown: _this2.props.iconLevelDown,
+	                        iconLevelUp: _this2.props.iconLevelUp
+	                    }, item));
+	                })
+	            );
+	        }
+	    }]);
+
+	    return Container;
+	}(_react.Component);
+
+	exports.default = Container;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Container = __webpack_require__(3);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * src/Item.js
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: H.Alper Tuna <halpertuna@gmail.com>
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Contributor: Layne Anderson
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 17.08.2016
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	/**
+	 * Menu Item Class
+	 *
+	 * Props comes from top component
+	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
+	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
+	 * @prop {string} iconLevelUp - Icon name for state of opened containers
+	 *
+	 * Props comes from parent Container
+	 * @prop {function} closeFriendContainer - Function to close peer item's container
+	 *
+	 * Props comes from menu content
+	 * @prop {string} icon - icon class name for item
+	 * @prop {string} label - label of item
+	 * @prop {boolean} externalLink - (optional) if true href opens in new tab/window
+	 * @prop {string} href - link address of item
+	 * @prop {Object[]} content - Recursive menu stracture
+	 *
+	 */
+	var Item = function (_Component) {
+	    _inherits(Item, _Component);
+
+	    /**
+	     * constructor
+	     * it sets first state of container's visibility
+	     */
+	    function Item() {
+	        _classCallCheck(this, Item);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Item).apply(this, arguments));
+
+	        _this.state = {
+	            containerVisibility: false
+	        };
+	        return _this;
+	    }
+
+	    /**
+	     * To check this item has submenu
+	     * @return {boolean}
+	     */
+
+
+	    _createClass(Item, [{
+	        key: 'hasLevel',
+	        value: function hasLevel() {
+	            return typeof this.props.content != 'undefined';
+	        }
+
+	        /**
+	         * Returns container's visibility status
+	         * @return {boolean} If it's true, container is collapsed
+	         */
+
+	    }, {
+	        key: 'isContainerClosed',
+	        value: function isContainerClosed() {
+	            return !this.state.containerVisibility;
+	        }
+	        /*
+	         * Change container's visibility state to true and close peer items container
+	         */
+
+	    }, {
+	        key: 'openContainer',
+	        value: function openContainer() {
+	            this.props.closeFriendContainers();
+	            this.setState({
+	                containerVisibility: true
+	            });
+	        }
+	        /*
+	         * Change container's visibility state to false and close submenu too
+	         */
+
+	    }, {
+	        key: 'closeContainer',
+	        value: function closeContainer() {
+	            if (this.hasLevel()) this.refs.container.closeChildContainers();
+	            this.setState({
+	                containerVisibility: false
+	            });
+	        }
+	        /*
+	         * Toggles container visibility state
+	         */
+
+	    }, {
+	        key: 'toggleContainer',
+	        value: function toggleContainer() {
+	            if (this.isContainerClosed()) {
+	                this.openContainer();
+	            } else {
+	                this.closeContainer();
+	            }
+	        }
+
+	        /*
+	         * Renders item and if it has level, submenu (container) of it
+	         * If item has sub menu, button's href link won't be applied and
+	         * will be added level status indicator icon to button.
+	         * @return {Object} React component
+	         */
+
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var thisHasLevel = this.hasLevel();
+	            var iconClassName = 'metismenu-icon ' + this.props.iconClassPrefix + this.props.icon;
+
+	            if (thisHasLevel) {
+	                var href = 'javascript:void(0);';
+	                var onClick = this.toggleContainer.bind(this);
+	                var iconLevel = _react2.default.createElement('span', { className: 'metismenu-iconlevel ' + this.props.iconClassPrefix + (this.state.containerVisibility ? this.props.iconLevelUp : this.props.iconLevelDown) });
+	            } else {
+	                var href = this.props.href;
+	                var onClick = false;
+	                var iconLevel = null;
+	            }
+
+	            if (this.props.externalLink) {
+	                var target = '_blank';
+	            } else {
+	                var target = '';
+	            }
+
+	            return _react2.default.createElement(
+	                'li',
+	                { className: 'metismenu-item' },
+	                _react2.default.createElement(
+	                    'a',
+	                    { target: target, href: href, onClick: onClick },
+	                    _react2.default.createElement('span', { className: iconClassName }),
+	                    this.props.label,
+	                    iconLevel
+	                ),
+	                thisHasLevel && _react2.default.createElement(_Container2.default, {
+	                    ref: 'container',
+	                    visible: this.state.containerVisibility,
+
+	                    iconClassPrefix: this.props.iconClassPrefix,
+	                    iconLevelDown: this.props.iconLevelDown,
+	                    iconLevelUp: this.props.iconLevelUp,
+	                    content: this.props.content
+	                })
+	            );
+	        }
+	    }]);
+
+	    return Item;
+	}(_react.Component);
+
+	exports.default = Item;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(6);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(8)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./style.less", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/less-loader/index.js!./style.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(7)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".metismenu {\n  width: 300px;\n}\n.metismenu > .metismenu-container {\n  background: #CCC;\n}\n.metismenu > .metismenu-container > .metismenu-item > A {\n  line-height: 2.2em;\n}\n.metismenu > .metismenu-container > .metismenu-item > A .metismenu-iconlevel {\n  line-height: 2.2em;\n}\n.metismenu-container,\n.metismenu-item {\n  margin: 0;\n  padding: 0;\n}\n.metismenu-container {\n  background: #DDD;\n  list-style: none;\n}\n.metismenu-container .metismenu-container {\n  display: none;\n}\n.metismenu-container .metismenu-container A {\n  padding-left: 1em;\n}\n.metismenu-container .metismenu-container .metismenu-container A {\n  padding-left: 2em;\n}\n.metismenu-container.visible {\n  display: block;\n}\n.metismenu-item > A {\n  color: #555;\n  display: block;\n  line-height: 1.8em;\n  text-decoration: none;\n}\n.metismenu-item > A:hover {\n  background: #EEE;\n  color: #333;\n}\n.metismenu-icon {\n  display: inline-block;\n  text-align: center;\n  width: 2.2em;\n}\nSPAN.metismenu-iconlevel {\n  float: right;\n  line-height: 1.8em;\n  text-align: center;\n  width: 2.2em;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function () {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for (var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if (item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function (modules, mediaQuery) {
+			if (typeof modules === "string") modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for (var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if (typeof id === "number") alreadyImportedModules[id] = true;
+			}
+			for (i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if (mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if (mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ }
+/******/ ])
+});
+;
