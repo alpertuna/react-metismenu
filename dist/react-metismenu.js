@@ -88,8 +88,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -100,16 +98,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * src/MetisMenu.js
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: H.Alper Tuna <halpertuna@gmail.com>
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 23.03.2016
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
 	/**
 	 * Main container of MetisMenu
 	 *
@@ -119,40 +107,37 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @prop {string} iconLevelUp - Icon name for state of opened containers
 	 * @prop {Object[]} content - Recursive menu stracture
 	 */
-	var MetisMenu = function (_Component) {
-	  _inherits(MetisMenu, _Component);
+	/**
+	 * Renders component
+	 * If props are not given, it sets default props for first depth container
+	 * @return {Object} React component
+	 */
+	/*
+	 * src/MetisMenu.js
+	 * Author: H.Alper Tuna <halpertuna@gmail.com>
+	 * Date: 23.03.2016
+	 */
 
-	  function MetisMenu() {
-	    _classCallCheck(this, MetisMenu);
+	var MetisMenu = function MetisMenu(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'metismenu' },
+	    _react2.default.createElement(_Container2.default, {
+	      className: 'metismenu',
+	      iconClassPrefix: props.iconClassPrefix || 'fa fa-',
+	      iconLevelDown: props.iconLevelDown || 'caret-left',
+	      iconLevelUp: props.iconLevelUp || 'caret-down',
+	      content: props.content || []
+	    })
+	  );
+	};
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(MetisMenu).apply(this, arguments));
-	  }
-
-	  _createClass(MetisMenu, [{
-	    key: 'render',
-
-	    /**
-	     * Renders component
-	     * If props are not given, it sets default props for first depth container
-	     * @return {Object} React component
-	     */
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'metismenu' },
-	        _react2.default.createElement(_Container2.default, {
-	          className: 'metismenu',
-	          iconClassPrefix: this.props.iconClassPrefix || 'fa fa-',
-	          iconLevelDown: this.props.iconLevelDown || 'caret-left',
-	          iconLevelUp: this.props.iconLevelUp || 'caret-down',
-	          content: this.props.content || []
-	        })
-	      );
-	    }
-	  }]);
-
-	  return MetisMenu;
-	}(_react.Component);
+	MetisMenu.propTypes = {
+	  iconClassPrefix: _react.PropTypes.string,
+	  iconLevelDown: _react.PropTypes.string,
+	  iconLevelUp: _react.PropTypes.string,
+	  content: _react.PropTypes.array
+	};
 
 	exports.default = MetisMenu;
 
@@ -209,7 +194,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 * Props come from parent Item
 	 * @prop {boolean} visible - State of container visibility
-	 * @prop {Object[]} content - Recursive menu stracture (It also comes from top to first container depth)
+	 * @prop {Object[]} content - Recursive menu stracture (It also comes from top to first container
+	 * depth)
 	 */
 	var Container = function (_Component) {
 	  _inherits(Container, _Component);
@@ -217,21 +203,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Container() {
 	    _classCallCheck(this, Container);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Container).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Container).call(this));
+
+	    _this.closeChildContainers = _this.closeChildContainers.bind(_this);
+	    return _this;
 	  }
+	  /**
+	   * To close all item's submenu containers except sender item
+	   */
+
 
 	  _createClass(Container, [{
 	    key: 'closeChildContainers',
+	    value: function closeChildContainers() {
+	      if (!this.props.content) return;
 
-	    /**
-	     * To close all item's submenu containers except sender item
-	     * @param {number} senderIndex - Index of sender menu item
-	     */
-	    value: function closeChildContainers(senderIndex) {
-	      for (var i in this.refs) {
-	        if (i === senderIndex) continue;
-	        this.refs[i].closeContainer();
-	      }
+	      this.items.forEach(function (item) {
+	        item.closeContainer();
+	      });
 	    }
 	    /**
 	     * Renders container block and menu items of it
@@ -250,14 +239,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var className = 'metismenu-container';
 	      if (this.props.visible) className += ' visible';
 
+	      this.items = [];
+
 	      return _react2.default.createElement(
 	        'ul',
 	        { className: className },
 	        this.props.content.map(function (item, i) {
 	          return _react2.default.createElement(_Item2.default, _extends({
 	            key: i,
-	            ref: i,
-	            closeFriendContainers: _this2.closeChildContainers.bind(_this2, i),
+	            ref: function ref(r) {
+	              _this2.items[i] = r;
+	            },
+	            closePeerContainers: _this2.closeChildContainers,
 	            iconClassPrefix: _this2.props.iconClassPrefix,
 	            iconLevelDown: _this2.props.iconLevelDown,
 	            iconLevelUp: _this2.props.iconLevelUp
@@ -269,6 +262,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  return Container;
 	}(_react.Component);
+
+	Container.propTypes = {
+	  iconClassPrefix: _react.PropTypes.string,
+	  iconLevelDown: _react.PropTypes.string,
+	  iconLevelUp: _react.PropTypes.string,
+	  visible: _react.PropTypes.bool,
+	  content: _react.PropTypes.array
+	};
 
 	exports.default = Container;
 
@@ -334,11 +335,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Item() {
 	    _classCallCheck(this, Item);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Item).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Item).call(this));
 
 	    _this.state = {
 	      containerVisibility: false
 	    };
+
+	    _this.toggleContainer = _this.toggleContainer.bind(_this);
 	    return _this;
 	  }
 
@@ -371,7 +374,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'openContainer',
 	    value: function openContainer() {
-	      this.props.closeFriendContainers();
+	      this.props.closePeerContainers();
 	      this.setState({
 	        containerVisibility: true
 	      });
@@ -383,7 +386,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'closeContainer',
 	    value: function closeContainer() {
-	      if (this.hasLevel()) this.refs.container.closeChildContainers();
+	      if (this.hasLevel()) this.container.closeChildContainers();
 	      this.setState({
 	        containerVisibility: false
 	      });
@@ -412,15 +415,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var thisHasLevel = this.hasLevel();
-	      var iconClassName = 'metismenu-icon ' + this.props.iconClassPrefix + this.props.icon;
+	      var _this2 = this;
 
-	      var href, onClick, iconLevel, target;
+	      var thisHasLevel = this.hasLevel();
+	      var iconClassName = 'metismenu-icon  ' + this.props.iconClassPrefix + this.props.icon;
+
+	      var href = void 0;
+	      var onClick = void 0;
+	      var iconLevel = void 0;
+	      var target = void 0;
 
 	      if (thisHasLevel) {
-	        href = 'javascript:void(0);';
-	        onClick = this.toggleContainer.bind(this);
-	        iconLevel = _react2.default.createElement('span', { className: 'metismenu-iconlevel ' + this.props.iconClassPrefix + (this.state.containerVisibility ? this.props.iconLevelUp : this.props.iconLevelDown) });
+	        var className = 'metismenu-iconlevel ' + this.props.iconClassPrefix;
+	        className += this.state.containerVisibility ? this.props.iconLevelUp : this.props.iconLevelDown;
+
+	        href = '#';
+	        onClick = this.toggleContainer;
+	        iconLevel = _react2.default.createElement('span', { className: className });
 	      } else {
 	        href = this.props.href;
 	        onClick = false;
@@ -444,7 +455,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	          iconLevel
 	        ),
 	        thisHasLevel && _react2.default.createElement(_Container2.default, {
-	          ref: 'container',
+	          ref: function ref(r) {
+	            _this2.container = r;
+	          },
 	          visible: this.state.containerVisibility,
 
 	          iconClassPrefix: this.props.iconClassPrefix,
@@ -458,6 +471,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  return Item;
 	}(_react.Component);
+
+	Item.propTypes = {
+	  iconClassPrefix: _react.PropTypes.string,
+	  iconLevelDown: _react.PropTypes.string,
+	  iconLevelUp: _react.PropTypes.string,
+	  closePeerContainers: _react.PropTypes.func,
+	  icon: _react.PropTypes.string,
+	  label: _react.PropTypes.string,
+	  externalLink: _react.PropTypes.bool,
+	  href: _react.PropTypes.string,
+	  content: _react.PropTypes.array
+	};
 
 	exports.default = Item;
 
