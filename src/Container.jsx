@@ -12,25 +12,29 @@ import Item from './Item';
  *
  * Containers are levels of menu, and keep items.
  * Also provides comminication between items to close each other's sub menu levels
- *
- * Props come from top component
- * @prop {string} iconClassPrefix - Prefix for all icon's style class name
- * @prop {string} iconLevelDown - Icon name for state of collapsed containers
- * @prop {string} iconLevelUp - Icon name for state of opened containers
- *
- * Props come from parent Item
- * @prop {boolean} visible - State of container visibility
- * @prop {Object[]} content - Recursive menu stracture (It also comes from top to first container
- * depth)
+ * @extends React.Component
  */
 class Container extends Component {
+  /**
+   * Creates item container.
+   *
+   * Props come from top component
+   * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
+   * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
+   * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+   *
+   * Props come from parent Item
+   * @prop {boolean} props.visible - State of container visibility
+   * @prop {Object[]} props.content - Recursive menu stracture (It also comes from top to first container
+   * depth)
+   */
   constructor() {
     super();
 
     this.closeChildContainers = this.closeChildContainers.bind(this);
   }
   /**
-   * To close all item's submenu containers except sender item
+   * Closes all sub containers
    */
   closeChildContainers() {
     if (!this.props.content) return;
@@ -42,9 +46,6 @@ class Container extends Component {
   /**
    * Renders container block and menu items of it
    *
-   * Also sends closeChildContainer method reference to props of items,
-   * to make them able to close each others submenu container
-   * when they are opened
    * @return {Object} React component
    */
   render() {

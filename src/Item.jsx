@@ -11,26 +11,27 @@ import Container from './Container';
 /**
  * Menu Item Class
  *
- * Props comes from top component
- * @prop {string} iconClassPrefix - Prefix for all icon's style class name
- * @prop {string} iconLevelDown - Icon name for state of collapsed containers
- * @prop {string} iconLevelUp - Icon name for state of opened containers
- *
- * Props comes from parent Container
- * @prop {function} closeFriendContainer - Function to close peer item's container
- *
- * Props comes from menu content
- * @prop {string} icon - icon class name for item
- * @prop {string} label - label of item
- * @prop {boolean} externalLink - (optional) if true href opens in new tab/window
- * @prop {string} href - link address of item
- * @prop {Object[]} content - Recursive menu stracture
- *
+ * @extends React.Component
  */
 class Item extends Component {
   /**
-   * constructor
-   * it sets first state of container's visibility
+   * Creates link item
+   *
+   * Props comes from top component
+   * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
+   * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
+   * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+   *
+   * Props comes from parent Container
+   * @prop {function} props.closePeerContainers - Function to close peer item's container
+   *
+   * Props comes from menu content
+   * @prop {string} props.icon - icon class name for item
+   * @prop {string} props.label - label of item
+   * @prop {boolean} props.externalLink - (optional) if true href opens in new tab/window
+   * @prop {string} props.href - link address of item
+   * @prop {Object[]} props.content - Recursive menu stracture
+   *
    */
   constructor() {
     super();
@@ -58,7 +59,7 @@ class Item extends Component {
     return !this.state.containerVisibility;
   }
   /*
-   * Change container's visibility state to true and close peer items container
+   * Opens its container and closes peer items' containers
    */
   openContainer() {
     this.props.closePeerContainers();
@@ -67,7 +68,7 @@ class Item extends Component {
     });
   }
   /*
-   * Change container's visibility state to false and close submenu too
+   * Closes all sub containers
    */
   closeContainer() {
     if (this.hasLevel()) this.container.closeChildContainers();
@@ -89,9 +90,8 @@ class Item extends Component {
   }
 
   /*
-   * Renders item and if it has level, submenu (container) of it
-   * If item has sub menu, button's href link won't be applied and
-   * will be added level status indicator icon to button.
+   * Renders item and submenus
+   *
    * @return {Object} React component
    */
   render() {

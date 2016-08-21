@@ -10,16 +10,15 @@ import Container from './Container';
 /**
  * Main container of MetisMenu
  *
- * Props come from top component
- * @prop {string} iconClassPrefix - Prefix for all icon's style class name
- * @prop {string} iconLevelDown - Icon name for state of collapsed containers
- * @prop {string} iconLevelUp - Icon name for state of opened containers
- * @prop {Object[]} content - Recursive menu stracture
- */
-/**
- * Renders component
  * If props are not given, it sets default props for first depth container
- * @return {Object} React component
+ * @constructor
+ * @extends React.Component
+ *
+ * Props come from top component
+ * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
+ * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
+ * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+ * @prop {Object[]} props.content - Recursive menu stracture
  */
 const MetisMenu = (props) => (
   <div className="metismenu">
