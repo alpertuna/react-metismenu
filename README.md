@@ -1,3 +1,9 @@
+[![Build Status](https://travis-ci.org/alpertuna/react-metismenu.svg?branch=master)](https://travis-ci.org/alpertuna/react-metismenu)
+[![npm version](https://badge.fury.io/js/react-metismenu.svg)](https://badge.fury.io/js/react-metismenu)
+[![peerDependencies Status](https://david-dm.org/alpertuna/react-metismenu/peer-status.svg)](https://david-dm.org/alpertuna/react-metismenu?type=peer)
+
+[![NPM](https://nodei.co/npm/react-metismenu.png?compact=true)](https://nodei.co/npm/react-metismenu/)
+
 # react-metismenu
 A ready-to-use menu component for [React](https://facebook.github.io/react/)
 
@@ -132,6 +138,9 @@ npm run eslint-confs
 npm run eslint-src
 npm run eslint-dev
 
-# Runs available necessary test scripts
+# Runs unit test
+npm run jest
+
+# Runs all necessary test scripts
 npm test
 ```

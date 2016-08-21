@@ -23,7 +23,6 @@ import Container from './Container';
 const MetisMenu = (props) => (
   <div className="metismenu">
     <Container
-      className="metismenu"
       iconClassPrefix={props.iconClassPrefix || 'fa fa-'}
       iconLevelDown={props.iconLevelDown || 'caret-left'}
       iconLevelUp={props.iconLevelUp || 'caret-down'}
