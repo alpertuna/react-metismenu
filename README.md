@@ -23,23 +23,23 @@ Usage
 
 With Ecma Script 6 and React Loaders
 ```javascript
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Menu from 'react-metismenu'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Menu from 'react-metismenu';
 
-ReactDOM.render(<Menu />, document.getElementById('dom_id'))
+ReactDOM.render(<Menu />, document.getElementById('dom_id'));
 ```
 
 Without Loaders (ES5)
 ```javascript
-var React = require('react')
-var ReactDOM = require('react-dom')
-var Menu = require('react-metismenu')
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Menu = require('react-metismenu');
 
 ReactDOM.render(
     React.createElement(Menu),
     document.getElementById('dom_id')
-)
+);
 ```
 
 Now, core css file is embed so that you don't need to add link.
