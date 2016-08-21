@@ -5,11 +5,15 @@
  */
 
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+
 const webpack = require('webpack');
-let config = require('./dist.conf');
+const config = require('./dist.conf');
 
 // Webpack Production Settings - Minified
-config = Object.assign(config, {
+module.exports = Object.assign(config, {
+  output: Object.assign(config.output, {
+    filename: 'react-metismenu.min.js',
+  }),
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -18,6 +22,3 @@ config = Object.assign(config, {
     }),
   ],
 });
-config.output.filename = 'react-metismenu.min.js';
-
-module.exports = config;
