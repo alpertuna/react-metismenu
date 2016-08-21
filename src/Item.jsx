@@ -78,7 +78,9 @@ class Item extends Component {
   /*
    * Toggles container visibility state
    */
-  toggleContainer() {
+  toggleContainer(e) {
+    e.preventDefault();
+
     if (this.isContainerClosed()) {
       this.openContainer();
     } else {

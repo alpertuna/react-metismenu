@@ -397,7 +397,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  }, {
 	    key: 'toggleContainer',
-	    value: function toggleContainer() {
+	    value: function toggleContainer(e) {
+	      e.preventDefault();
+
 	      if (this.isContainerClosed()) {
 	        this.openContainer();
 	      } else {
