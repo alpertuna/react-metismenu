@@ -4,14 +4,14 @@
  * Date: 18.08.2016
  */
 
-var config = require('./base.conf')
+const config = require('./base.conf');
 
 // Webpack Development Settings
 module.exports = Object.assign(config, {
-  entry: './dev/App.js',
+  entry: './dev/App.jsx',
   output: 'bundle.js',
   devtool: 'eval-source-map',
   devServer: {
-    contentBase: 'dev'
-  }
-})
+    contentBase: 'dev',
+  },
+});

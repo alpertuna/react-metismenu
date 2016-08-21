@@ -4,7 +4,7 @@
  * Date: 18.08.2016
  */
 
-var config = require('./base.conf')
+const config = require('./base.conf');
 
 // Webpack Production Settings
 module.exports = Object.assign(config, {
@@ -13,16 +13,16 @@ module.exports = Object.assign(config, {
     path: 'dist',
     filename: 'react-metismenu.js',
     library: 'ReactMetismenu',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   externals: [
     {
-      'react': {
+      react: {
         root: 'React',
         commonjs2: 'react',
         commonjs: 'react',
-        amd: 'react'
-      }
-    }
-  ]
-})
+        amd: 'react',
+      },
+    },
+  ],
+});

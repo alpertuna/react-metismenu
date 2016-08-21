@@ -112,6 +112,9 @@ npm run dev-server
 And open `localhost:8080` in browser.
 Dev server uses webpack and it has hot modul replecament plugins, so when you change and save any source file, it will rebuild virtual bundle and send signal browser to refresh page automaticly.
 
+#### Source Code Writing Standarts
+For source code quality, I applied Airbnb rules. Because it focuses on React more than others.
+
 
 #### Other scripts,
 ```sh
@@ -123,9 +126,12 @@ npm run build-dist-min-js
 
 # Builds all dist files
 npm run build-dist
-```
 
-#### Source Code Writing Standarts
-For source code quality, I chose Eslint standart rules, so you should mainly beware of
-- not using semicolons at the end of lines and
-- indents should be 2 spaces.
+# Lints js files according to Airbnb rules
+npm run eslint-confs
+npm run eslint-src
+npm run eslint-dev
+
+# Runs available necessary test scripts
+npm test
+```

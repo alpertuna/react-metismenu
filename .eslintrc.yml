@@ -1,20 +1,7 @@
-extends: standard
-env:
-  browser: true
-  commonjs: true
-  es6: true
-parserOptions:
-  ecmaFeatures:
-    experimentalObjectRestSpread: true
-    jsx: true
-  sourceType: module
+extends: airbnb
 plugins:
-  - standard
-  - promise
   - react
+  - jsx-a11y
+  - import
 rules:
-  quotes:
-    - error
-    - single
-  react/jsx-uses-vars: error
-  react/jsx-uses-react: error
+  react/require-extension: 0

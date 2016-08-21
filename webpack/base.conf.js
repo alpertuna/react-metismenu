@@ -6,19 +6,26 @@
 
 // Webpack Base Settings
 module.exports = {
+  resolve: {
+    extensions: [
+      '',
+      '.js',
+      '.jsx',
+    ],
+  },
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react']
-        }
+          presets: ['es2015', 'react'],
+        },
       },
       {
         test: /\.less$/,
-        loader: 'style!css!less'
-      }
-    ]
-  }
-}
+        loader: 'style!css!less',
+      },
+    ],
+  },
+};

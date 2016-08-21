@@ -5,16 +5,17 @@
   "main": "dist/react-metismenu.min.js",
   "scripts": {
     "dev-server": "webpack-dev-server --config webpack/dev.conf.js --progress --colors --hot --inline",
-
     "build-dist-min-js": "webpack --config webpack/dist-min.conf.js --progress --colors",
     "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
     "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-min-js",
-
-    "eslint-confs": "eslint webpack",
-    "eslint-src": "eslint src",
-    "eslint-dev": "eslint dev",
-
+    "eslint-confs": "eslint webpack __tests__",
+    "eslint-src": "eslint src --ext=jsx --ext=js",
+    "eslint-dev": "eslint dev --ext=jsx --ext=js",
+    "jest": "jest",
     "test": "npm run eslint-confs && npm run eslint-src"
+  },
+  "jest": {
+    "automock": false
   },
   "repository": {
     "type": "git",
@@ -37,14 +38,14 @@
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.23.1",
     "eslint": "^3.3.1",
-    "eslint-config-standard": "^5.3.5",
-    "eslint-plugin-promise": "^2.0.1",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
     "eslint-plugin-react": "^6.1.2",
-    "eslint-plugin-standard": "^2.0.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
