@@ -7,7 +7,7 @@
 		exports["ReactMetismenu"] = factory(require("react"));
 	else
 		root["ReactMetismenu"] = factory(root["React"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -60,11 +60,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _MetisMenu = __webpack_require__(1);
+	var _MetisMenu = __webpack_require__(2);
 
 	var _MetisMenu2 = _interopRequireDefault(_MetisMenu);
 
-	__webpack_require__(5);
+	__webpack_require__(6);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -79,7 +79,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	// Embeds styles
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88,11 +89,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Container = __webpack_require__(3);
+	var _Container = __webpack_require__(4);
 
 	var _Container2 = _interopRequireDefault(_Container);
 
@@ -101,16 +102,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Main container of MetisMenu
 	 *
-	 * Props come from top component
-	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
-	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
-	 * @prop {string} iconLevelUp - Icon name for state of opened containers
-	 * @prop {Object[]} content - Recursive menu stracture
-	 */
-	/**
-	 * Renders component
 	 * If props are not given, it sets default props for first depth container
-	 * @return {Object} React component
+	 * @constructor
+	 * @extends React.Component
+	 *
+	 * Props come from top component
+	 * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
+	 * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
+	 * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+	 * @prop {Object[]} props.content - Recursive menu stracture
 	 */
 	/*
 	 * src/MetisMenu.js
@@ -142,13 +142,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = MetisMenu;
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -161,11 +161,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(4);
+	var _Item = __webpack_require__(5);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -186,20 +186,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *
 	 * Containers are levels of menu, and keep items.
 	 * Also provides comminication between items to close each other's sub menu levels
-	 *
-	 * Props come from top component
-	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
-	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
-	 * @prop {string} iconLevelUp - Icon name for state of opened containers
-	 *
-	 * Props come from parent Item
-	 * @prop {boolean} visible - State of container visibility
-	 * @prop {Object[]} content - Recursive menu stracture (It also comes from top to first container
-	 * depth)
+	 * @extends React.Component
 	 */
 	var Container = function (_Component) {
 	  _inherits(Container, _Component);
 
+	  /**
+	   * Creates item container.
+	   *
+	   * Props come from top component
+	   * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
+	   * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
+	   * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+	   *
+	   * Props come from parent Item
+	   * @prop {boolean} props.visible - State of container visibility
+	   * @prop {Object[]} props.content - Recursive menu stracture (It also comes from top
+	   * to first container depth)
+	   */
 	  function Container() {
 	    _classCallCheck(this, Container);
 
@@ -209,7 +213,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return _this;
 	  }
 	  /**
-	   * To close all item's submenu containers except sender item
+	   * Closes all sub containers
 	   */
 
 
@@ -225,9 +229,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * Renders container block and menu items of it
 	     *
-	     * Also sends closeChildContainer method reference to props of items,
-	     * to make them able to close each others submenu container
-	     * when they are opened
 	     * @return {Object} React component
 	     */
 
@@ -274,7 +275,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Container;
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -285,11 +286,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Container = __webpack_require__(3);
+	var _Container = __webpack_require__(4);
 
 	var _Container2 = _interopRequireDefault(_Container);
 
@@ -309,28 +310,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Menu Item Class
 	 *
-	 * Props comes from top component
-	 * @prop {string} iconClassPrefix - Prefix for all icon's style class name
-	 * @prop {string} iconLevelDown - Icon name for state of collapsed containers
-	 * @prop {string} iconLevelUp - Icon name for state of opened containers
-	 *
-	 * Props comes from parent Container
-	 * @prop {function} closeFriendContainer - Function to close peer item's container
-	 *
-	 * Props comes from menu content
-	 * @prop {string} icon - icon class name for item
-	 * @prop {string} label - label of item
-	 * @prop {boolean} externalLink - (optional) if true href opens in new tab/window
-	 * @prop {string} href - link address of item
-	 * @prop {Object[]} content - Recursive menu stracture
-	 *
+	 * @extends React.Component
 	 */
 	var Item = function (_Component) {
 	  _inherits(Item, _Component);
 
 	  /**
-	   * constructor
-	   * it sets first state of container's visibility
+	   * Creates link item
+	   *
+	   * Props comes from top component
+	   * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
+	   * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
+	   * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+	   *
+	   * Props comes from parent Container
+	   * @prop {function} props.closePeerContainers - Function to close peer item's container
+	   *
+	   * Props comes from menu content
+	   * @prop {string} props.icon - icon class name for item
+	   * @prop {string} props.label - label of item
+	   * @prop {boolean} props.externalLink - (optional) if true href opens in new tab/window
+	   * @prop {string} props.href - link address of item
+	   * @prop {Object[]} props.content - Recursive menu stracture
+	   *
 	   */
 	  function Item() {
 	    _classCallCheck(this, Item);
@@ -368,7 +370,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return !this.state.containerVisibility;
 	    }
 	    /*
-	     * Change container's visibility state to true and close peer items container
+	     * Opens its container and closes peer items' containers
 	     */
 
 	  }, {
@@ -380,7 +382,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	    }
 	    /*
-	     * Change container's visibility state to false and close submenu too
+	     * Closes all sub containers
 	     */
 
 	  }, {
@@ -408,9 +410,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    /*
-	     * Renders item and if it has level, submenu (container) of it
-	     * If item has sub menu, button's href link won't be applied and
-	     * will be added level status indicator icon to button.
+	     * Renders item and submenus
+	     *
 	     * @return {Object} React component
 	     */
 
@@ -489,16 +490,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Item;
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(6);
+	var content = __webpack_require__(7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(8)(content, {});
+	var update = __webpack_require__(9)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -515,21 +516,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(7)();
+	exports = module.exports = __webpack_require__(8)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".metismenu {\n  width: 300px;\n}\n.metismenu > .metismenu-container {\n  background: #CCC;\n}\n.metismenu > .metismenu-container > .metismenu-item > A {\n  line-height: 2.2em;\n}\n.metismenu > .metismenu-container > .metismenu-item > A .metismenu-iconlevel {\n  line-height: 2.2em;\n}\n.metismenu-container,\n.metismenu-item {\n  margin: 0;\n  padding: 0;\n}\n.metismenu-container {\n  background: #DDD;\n  list-style: none;\n}\n.metismenu-container .metismenu-container {\n  display: none;\n}\n.metismenu-container .metismenu-container A {\n  padding-left: 1em;\n}\n.metismenu-container .metismenu-container .metismenu-container A {\n  padding-left: 2em;\n}\n.metismenu-container.visible {\n  display: block;\n}\n.metismenu-item > A {\n  color: #555;\n  display: block;\n  line-height: 1.8em;\n  text-decoration: none;\n}\n.metismenu-item > A:hover {\n  background: #EEE;\n  color: #333;\n}\n.metismenu-icon {\n  display: inline-block;\n  text-align: center;\n  width: 2.2em;\n}\nSPAN.metismenu-iconlevel {\n  float: right;\n  line-height: 1.8em;\n  text-align: center;\n  width: 2.2em;\n}\n", ""]);
+	exports.push([module.id, "/*\n * less/style.less\n * Author: H.Alper Tuna <halpertuna@gmail.com>\n * Date: 21.08.2016\n */\n/*\n * less/utils.less\n * Author: H.Alper Tuna <halpertuna@gmail.com>\n * Date: 21.08.2016\n */\n.metismenu {\n  width: 300px;\n}\n.metismenu > .metismenu-container {\n  background: #CCC;\n}\n.metismenu > .metismenu-container > .metismenu-item > A {\n  line-height: 2.2em;\n}\n.metismenu > .metismenu-container > .metismenu-item > A .metismenu-iconlevel {\n  line-height: 2.2em;\n}\n.metismenu-container,\n.metismenu-item {\n  margin: 0;\n  padding: 0;\n}\n.metismenu-container {\n  background: #DDD;\n  list-style: none;\n}\n.metismenu-container .metismenu-container .metismenu-item > A {\n  transition: height 300ms;\n  -webkit-transition: height 300ms;\n  height: 0;\n  overflow: hidden;\n}\n.metismenu-container .metismenu-container A {\n  padding-left: 1em;\n}\n.metismenu-container .metismenu-container .metismenu-container A {\n  padding-left: 2em;\n}\n.metismenu-container.visible > .metismenu-item > A {\n  height: 1.8em;\n}\n.metismenu-item > A {\n  color: #555;\n  display: block;\n  line-height: 1.8em;\n  text-decoration: none;\n}\n.metismenu-item > A:hover {\n  background: #EEE;\n  color: #333;\n}\n.metismenu-icon {\n  display: inline-block;\n  text-align: center;\n  width: 2.2em;\n}\nSPAN.metismenu-iconlevel {\n  float: right;\n  line-height: 1.8em;\n  text-align: center;\n  width: 2.2em;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -584,7 +585,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

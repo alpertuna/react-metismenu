@@ -1,3 +1,11 @@
+/*
+ * less/style.less
+ * Author: H.Alper Tuna <halpertuna@gmail.com>
+ * Date: 21.08.2016
+ */
+
+@import 'utils';
+
 @icon-width: 2.2em;
 
 @first-level-item-height: 2.2em;
@@ -7,63 +15,71 @@
 @third-level-indent: 2em;
 
 .metismenu{
-    width: 300px;
-    > .metismenu-container{
-        background: #CCC;
-        > .metismenu-item > A{
-            line-height: @first-level-item-height;
+  width: 300px;
+  > .metismenu-container{
+    background: #CCC;
+    > .metismenu-item > A{
+      line-height: @first-level-item-height;
 
-            .metismenu-iconlevel{
-                line-height: @first-level-item-height;
-            }
-        }
+      .metismenu-iconlevel{
+        line-height: @first-level-item-height;
+      }
     }
+  }
 }
 .metismenu-container,
 .metismenu-item{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 .metismenu-container{
-    background: #DDD;
-    list-style: none;
+  background: #DDD;
+  list-style: none;
 
-    .metismenu-container{
-        display: none;
+  .metismenu-container{
+    //display: none;
 
-        A{
-            padding-left:@second-level-indent;
-        }
+    .metismenu-item > A{
+      .transition(height 300ms);
 
-        .metismenu-container A{
-            padding-left:@third-level-indent;
-        }
+      height: 0;
+      overflow: hidden;
     }
 
-    &.visible{
-        display: block;
+    A{
+      padding-left:@second-level-indent;
     }
+
+    .metismenu-container A{
+      padding-left:@third-level-indent;
+    }
+  }
+
+  &.visible > .metismenu-item > A{
+    height: @sub-level-item-height;
+    //display: block;
+  }
 }
 
 .metismenu-item > A{
-    color:#555;
-    display: block;
-    line-height: @sub-level-item-height;
-    text-decoration: none;
+  color:#555;
+  display: block;
+  line-height: @sub-level-item-height;
+  text-decoration: none;
 
-    &:hover{
-        background: #EEE;
-        color:#333;
-    }
+  &:hover{
+    background: #EEE;
+    color:#333;
+  }
 }
 .metismenu-icon{
-    display: inline-block;
-    text-align: center;
-    width: @icon-width;
+  display: inline-block;
+  text-align: center;
+  width: @icon-width;
 }
 SPAN.metismenu-iconlevel{
-    float: right;
-    line-height: @sub-level-item-height;
-    text-align: center;
-    width: @icon-width;
+  float: right;
+  line-height: @sub-level-item-height;
+  text-align: center;
+  width: @icon-width;
 }

@@ -25,8 +25,8 @@ class Container extends Component {
    *
    * Props come from parent Item
    * @prop {boolean} props.visible - State of container visibility
-   * @prop {Object[]} props.content - Recursive menu stracture (It also comes from top to first container
-   * depth)
+   * @prop {Object[]} props.content - Recursive menu stracture (It also comes from top
+   * to first container depth)
    */
   constructor() {
     super();
