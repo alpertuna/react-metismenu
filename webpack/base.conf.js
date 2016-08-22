@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: 'style!css!less',
+        loader: 'style?insertAt=top!css!less',
       },
     ],
   },
