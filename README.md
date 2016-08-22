@@ -10,6 +10,9 @@ A ready-to-use menu component for [React](https://facebook.github.io/react/)
 
 react-metismenu is under development now, It is time to contribute :blush:
 
+Demo
+====
+Here is a simple demo without any customizations. [Go To Demo](https://alpertuna.github.io/react-metismenu/)
 
 Install
 =======
