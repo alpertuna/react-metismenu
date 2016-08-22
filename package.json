@@ -8,7 +8,7 @@
     "build-dist-min-js": "webpack --config webpack/dist-min.conf.js --progress --colors",
     "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
     "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-min-js",
-    "lint-confs": "eslint webpack __tests__",
+    "lint-confs": "eslint webpack __tests__ --ext=jsx --ext=js",
     "lint-src": "eslint src --ext=jsx --ext=js",
     "lint-dev": "eslint dev --ext=jsx --ext=js",
     "unit-test": "jest",
