@@ -123,7 +123,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    'div',
 	    { className: 'metismenu' },
 	    _react2.default.createElement(_Container2.default, {
-	      className: 'metismenu',
 	      iconClassPrefix: props.iconClassPrefix || 'fa fa-',
 	      iconLevelDown: props.iconLevelDown || 'caret-left',
 	      iconLevelUp: props.iconLevelUp || 'caret-down',
@@ -499,7 +498,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var content = __webpack_require__(7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(9)(content, {});
+	var update = __webpack_require__(9)(content, {"insertAt":"top"});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
