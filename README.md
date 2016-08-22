@@ -133,13 +133,13 @@ npm run build-dist-min-js
 # Builds all dist files
 npm run build-dist
 
-# Lints js files according to Airbnb rules
-npm run eslint-confs
-npm run eslint-src
-npm run eslint-dev
+# Lints js files according to Airbnb rules using Eslint
+npm run lint-confs
+npm run lint-src
+npm run lint-dev
 
-# Runs unit test
-npm run jest
+# Runs unit test using Jest
+npm run unit-test
 
 # Runs all necessary test scripts
 npm test

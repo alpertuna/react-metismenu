@@ -8,11 +8,13 @@
     "build-dist-min-js": "webpack --config webpack/dist-min.conf.js --progress --colors",
     "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
     "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-min-js",
-    "eslint-confs": "eslint webpack __tests__ src --ext=jsx --ext=js",
-    "eslint-src": "eslint src --ext=jsx --ext=js",
-    "eslint-dev": "eslint dev --ext=jsx --ext=js",
-    "jest": "jest",
-    "test": "npm run eslint-confs && npm run eslint-src && npm run jest"
+    "lint-confs": "eslint webpack __tests__",
+    "lint-src": "eslint src --ext=jsx --ext=js",
+    "lint-dev": "eslint dev --ext=jsx --ext=js",
+    "unit-test": "jest",
+    "coverage": "jest --coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "test": "npm run lint-confs && npm run lint-src && npm run coverage"
   },
   "jest": {
     "automock": false,
