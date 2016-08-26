@@ -59,7 +59,7 @@ class Container extends Component {
         {this.props.content.map((item, i) => (
           <Item
             key={i}
-            ref={r => { this.items[i] = r; }}
+            ref={r => { if (r !== null) this.items.push(r); }}
             closePeerContainers={this.closeChildContainers}
             iconClassPrefix={this.props.iconClassPrefix}
             iconLevelDown={this.props.iconLevelDown}

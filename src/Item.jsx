@@ -96,7 +96,7 @@ class Item extends Component {
    */
   render() {
     const thisHasLevel = this.hasLevel();
-    let iconClassName = `metismenu-icon  ${this.props.iconClassPrefix}${this.props.icon}`;
+    const iconClassName = `metismenu-icon  ${this.props.iconClassPrefix}${this.props.icon}`;
 
     let href;
     let onClick;
