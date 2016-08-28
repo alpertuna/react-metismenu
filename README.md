@@ -118,6 +118,8 @@ Under **`dev`** folder, `index.html` is index file of our web server. You don't 
 #### To run dev server,
 ```sh
 npm run dev-server
+# or shortly
+npm start
 ```
 And open `localhost:8080` in browser.
 Dev server uses webpack and it has hot modul replecament plugins, so when you change and save any source file, it will rebuild virtual bundle and send signal browser to refresh page automaticly.
@@ -132,7 +134,7 @@ For source code quality, I applied Airbnb rules. Because it focuses on React mor
 npm run build-dist-js
 
 # Builds minified js dist file
-npm run build-dist-min-js
+npm run build-dist-js-min
 
 # Builds all dist files
 npm run build-dist
