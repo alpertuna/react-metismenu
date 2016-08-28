@@ -8,7 +8,7 @@
     "start": "npm run dev-server",
     "build-dist-js-min": "webpack --config webpack/dist-min.conf.js --progress --colors",
     "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
-    "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-min-js",
+    "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-js-min",
     "lint-confs": "eslint webpack __tests__ --ext=jsx --ext=js",
     "lint-src": "eslint src --ext=jsx --ext=js",
     "lint-dev": "eslint dev --ext=jsx --ext=js",
