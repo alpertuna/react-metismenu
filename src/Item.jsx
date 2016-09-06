@@ -7,6 +7,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import Container from './Container';
+import { getLinkClass } from './Link';
 
 /**
  * Menu Item Class
@@ -95,6 +96,8 @@ class Item extends Component {
    * @return {Object} React component
    */
   render() {
+    const Link = getLinkClass();
+
     const thisHasLevel = this.hasLevel();
     const iconClassName = `metismenu-icon  ${this.props.iconClassPrefix}${this.props.icon}`;
 
@@ -114,23 +117,20 @@ class Item extends Component {
       iconLevel = <span className={className} />;
     } else {
       href = this.props.href;
-      onClick = false;
       iconLevel = null;
     }
 
     if (this.props.externalLink) {
       target = '_blank';
-    } else {
-      target = '';
     }
 
     return (
       <li className="metismenu-item">
-        <a target={target} href={href} onClick={onClick}>
+        <Link target={target} href={href} onClick={onClick}>
           <span className={iconClassName} />
           {this.props.label}
           {iconLevel}
-        </a>
+        </Link>
         {thisHasLevel && <Container
           ref={r => { this.container = r; }}
           visible={this.state.containerVisibility}
