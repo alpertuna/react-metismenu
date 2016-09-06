@@ -7,8 +7,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
       className="metismenu-item">
       <a
         href="#item-1"
-        onClick={false}
-        target="">
+        onClick={undefined}
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bolt" />
         Item 1
@@ -19,7 +19,7 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
       <a
         href="#"
         onClick={[Function bound toggleContainer]}
-        target="">
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bell" />
         Item 2
@@ -32,8 +32,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
           className="metismenu-item">
           <a
             href="#sub-item-1"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-eye" />
             Sub Item 1
@@ -43,8 +43,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
           className="metismenu-item">
           <a
             href="#sub-item-2"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-globe" />
             Sub Item 2
@@ -57,7 +57,7 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
       <a
         href="#"
         onClick={[Function bound toggleContainer]}
-        target="">
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bell" />
         Item 3
@@ -70,8 +70,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
           className="metismenu-item">
           <a
             href="#sub-item-3"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-eye" />
             Sub Item 3
@@ -82,7 +82,7 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
           <a
             href="#"
             onClick={[Function bound toggleContainer]}
-            target="">
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-globe" />
             Sub Item 4
@@ -95,8 +95,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
               className="metismenu-item">
               <a
                 href="#level-3-item-1"
-                onClick={false}
-                target="">
+                onClick={undefined}
+                target={undefined}>
                 <span
                   className="metismenu-icon  fa fa-bolt" />
                 Level 3 Item 1
@@ -106,8 +106,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 1`] = `
               className="metismenu-item">
               <a
                 href="#level-3-item-2"
-                onClick={false}
-                target="">
+                onClick={undefined}
+                target={undefined}>
                 <span
                   className="metismenu-icon  fa fa-bell" />
                 Level 3 Item 2
@@ -130,8 +130,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
       className="metismenu-item">
       <a
         href="#item-1"
-        onClick={false}
-        target="">
+        onClick={undefined}
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bolt" />
         Item 1
@@ -142,7 +142,7 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
       <a
         href="#"
         onClick={[Function bound toggleContainer]}
-        target="">
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bell" />
         Item 2
@@ -155,8 +155,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
           className="metismenu-item">
           <a
             href="#sub-item-1"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-eye" />
             Sub Item 1
@@ -166,8 +166,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
           className="metismenu-item">
           <a
             href="#sub-item-2"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-globe" />
             Sub Item 2
@@ -180,7 +180,7 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
       <a
         href="#"
         onClick={[Function bound toggleContainer]}
-        target="">
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bell" />
         Item 3
@@ -193,8 +193,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
           className="metismenu-item">
           <a
             href="#sub-item-3"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-eye" />
             Sub Item 3
@@ -205,7 +205,7 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
           <a
             href="#"
             onClick={[Function bound toggleContainer]}
-            target="">
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-globe" />
             Sub Item 4
@@ -218,8 +218,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
               className="metismenu-item">
               <a
                 href="#level-3-item-1"
-                onClick={false}
-                target="">
+                onClick={undefined}
+                target={undefined}>
                 <span
                   className="metismenu-icon  fa fa-bolt" />
                 Level 3 Item 1
@@ -229,8 +229,8 @@ exports[`Menu item has submenu changes class and caret icon when clicked 2`] = `
               className="metismenu-item">
               <a
                 href="#level-3-item-2"
-                onClick={false}
-                target="">
+                onClick={undefined}
+                target={undefined}>
                 <span
                   className="metismenu-icon  fa fa-bell" />
                 Level 3 Item 2
@@ -253,8 +253,8 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
       className="metismenu-item">
       <a
         href="#item-1"
-        onClick={false}
-        target="">
+        onClick={undefined}
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bolt" />
         Item 1
@@ -265,7 +265,7 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
       <a
         href="#"
         onClick={[Function bound toggleContainer]}
-        target="">
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bell" />
         Item 2
@@ -278,8 +278,8 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
           className="metismenu-item">
           <a
             href="#sub-item-1"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-eye" />
             Sub Item 1
@@ -289,8 +289,8 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
           className="metismenu-item">
           <a
             href="#sub-item-2"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-globe" />
             Sub Item 2
@@ -303,7 +303,7 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
       <a
         href="#"
         onClick={[Function bound toggleContainer]}
-        target="">
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bell" />
         Item 3
@@ -316,8 +316,8 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
           className="metismenu-item">
           <a
             href="#sub-item-3"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-eye" />
             Sub Item 3
@@ -328,7 +328,7 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
           <a
             href="#"
             onClick={[Function bound toggleContainer]}
-            target="">
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-globe" />
             Sub Item 4
@@ -341,8 +341,8 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
               className="metismenu-item">
               <a
                 href="#level-3-item-1"
-                onClick={false}
-                target="">
+                onClick={undefined}
+                target={undefined}>
                 <span
                   className="metismenu-icon  fa fa-bolt" />
                 Level 3 Item 1
@@ -352,8 +352,8 @@ exports[`Menu item has submenu collapses peer items and submenus of them when cl
               className="metismenu-item">
               <a
                 href="#level-3-item-2"
-                onClick={false}
-                target="">
+                onClick={undefined}
+                target={undefined}>
                 <span
                   className="metismenu-icon  fa fa-bell" />
                 Level 3 Item 2
@@ -376,8 +376,8 @@ exports[`Menu item has submenu looks like 1`] = `
       className="metismenu-item">
       <a
         href="#item-1"
-        onClick={false}
-        target="">
+        onClick={undefined}
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bolt" />
         Item 1
@@ -388,7 +388,7 @@ exports[`Menu item has submenu looks like 1`] = `
       <a
         href="#"
         onClick={[Function bound toggleContainer]}
-        target="">
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bell" />
         Item 2
@@ -401,8 +401,8 @@ exports[`Menu item has submenu looks like 1`] = `
           className="metismenu-item">
           <a
             href="#sub-item-1"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-eye" />
             Sub Item 1
@@ -412,8 +412,8 @@ exports[`Menu item has submenu looks like 1`] = `
           className="metismenu-item">
           <a
             href="#sub-item-2"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-globe" />
             Sub Item 2
@@ -426,7 +426,7 @@ exports[`Menu item has submenu looks like 1`] = `
       <a
         href="#"
         onClick={[Function bound toggleContainer]}
-        target="">
+        target={undefined}>
         <span
           className="metismenu-icon  fa fa-bell" />
         Item 3
@@ -439,8 +439,8 @@ exports[`Menu item has submenu looks like 1`] = `
           className="metismenu-item">
           <a
             href="#sub-item-3"
-            onClick={false}
-            target="">
+            onClick={undefined}
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-eye" />
             Sub Item 3
@@ -451,7 +451,7 @@ exports[`Menu item has submenu looks like 1`] = `
           <a
             href="#"
             onClick={[Function bound toggleContainer]}
-            target="">
+            target={undefined}>
             <span
               className="metismenu-icon  fa fa-globe" />
             Sub Item 4
@@ -464,8 +464,8 @@ exports[`Menu item has submenu looks like 1`] = `
               className="metismenu-item">
               <a
                 href="#level-3-item-1"
-                onClick={false}
-                target="">
+                onClick={undefined}
+                target={undefined}>
                 <span
                   className="metismenu-icon  fa fa-bolt" />
                 Level 3 Item 1
@@ -475,8 +475,8 @@ exports[`Menu item has submenu looks like 1`] = `
               className="metismenu-item">
               <a
                 href="#level-3-item-2"
-                onClick={false}
-                target="">
+                onClick={undefined}
+                target={undefined}>
                 <span
                   className="metismenu-icon  fa fa-bell" />
                 Level 3 Item 2
