@@ -1,5 +1,6 @@
-/src
-/less
-/dev
-/webpack
-/coverage
+src/
+less/
+dev/
+webpack/
+coverage/
+*.swp
