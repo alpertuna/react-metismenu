@@ -94,6 +94,50 @@ var content=[
 ReactDOM.render(<Menu content={content} />, document.getElementById('root'));
 ```
 
+Customizing Link Component
+==========================
+You are able to change the link component of each item.
+You may use another html tag, want to inject some properties or change operation logic. In this case, you can customize and use your own link component sending to `Menu` component as `LinkComponent` property.
+
+#### Props to use in your Link Component
+- `props.target` {string | boolean} - If link is external, contains `_blank` string, otherwise `undefined`
+- `props.href` {string} - Contains href info of the item comes from menu content object
+- `props.onClick` {function | boolean} - If item has submenu, returns toggle trigger callback, otherwise `undefined`
+- `props.children` {React.Component | array<React.Component>} -  Ready to render content of link - contains icon, label and other stuff
+
+#### An Example
+Defining CustomLink Component
+```javascript
+class CustomLink extends React.Component {
+  constructor() {
+    super();
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    if (this.props.onClick) this.props.onClick();
+    else {
+      // your own operation using "href"
+      // myGotoFunct(this.props.href);
+    }
+  }
+
+  render() {
+    return (
+      <button onClick={this.onClick}>
+        {props.children}
+      </button>
+    );
+  }
+};
+```
+Injecting CustomLink into Menu component
+```javascript
+<Menu content={menu} LinkComponent={CustomLink} />
+```
+Also, as another example, you can look into `DefaultLinkComponent` source of `react-metismenu`.
+
 Development / Contributing
 ==========================
 If you like to add or improve something, follow these steps.
