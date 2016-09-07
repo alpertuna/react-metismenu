@@ -6,9 +6,11 @@
 [![NPM](https://nodei.co/npm/react-metismenu.png?compact=true)](https://nodei.co/npm/react-metismenu/)
 
 # react-metismenu
-A ready-to-use menu component for [React](https://facebook.github.io/react/)
+A ready-to-use and simple menu component for [React](https://facebook.github.io/react/)
 
 react-metismenu is under development now, It is time to contribute :blush:
+
+**Important note:** After v0.4 `href` property of menu content has been changed to `to`
 
 Demo
 ====
