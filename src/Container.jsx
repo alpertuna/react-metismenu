@@ -22,6 +22,7 @@ class Container extends Component {
    * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
    * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
    * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+   * @prop {React.Component} props.LinkComponent - Handles link components of all items
    *
    * Props come from parent Item
    * @prop {boolean} props.visible - State of container visibility
@@ -64,6 +65,7 @@ class Container extends Component {
             iconClassPrefix={this.props.iconClassPrefix}
             iconLevelDown={this.props.iconLevelDown}
             iconLevelUp={this.props.iconLevelUp}
+            LinkComponent={this.props.LinkComponent}
             {...item}
           />
         ))}
@@ -76,6 +78,10 @@ Container.propTypes = {
   iconClassPrefix: PropTypes.string,
   iconLevelDown: PropTypes.string,
   iconLevelUp: PropTypes.string,
+  LinkComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   visible: PropTypes.bool,
   content: PropTypes.array,
 };

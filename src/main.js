@@ -5,12 +5,8 @@
  */
 
 import MetisMenu from './MetisMenu';
-import { setLinkClass } from './Link';
 // Embeds styles
 import '../less/style.less';
 
 // Entry point of component
 export default MetisMenu;
-export {
-  setLinkClass,
-};

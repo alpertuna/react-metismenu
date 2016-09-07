@@ -7,7 +7,6 @@
 
 import React, { Component, PropTypes } from 'react';
 import Container from './Container';
-import { getLinkClass } from './Link';
 
 /**
  * Menu Item Class
@@ -22,6 +21,7 @@ class Item extends Component {
    * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
    * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
    * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+   * @prop {React.Component} props.LinkComponent - Handles link components of all items
    *
    * Props comes from parent Container
    * @prop {function} props.closePeerContainers - Function to close peer item's container
@@ -96,7 +96,7 @@ class Item extends Component {
    * @return {Object} React component
    */
   render() {
-    const Link = getLinkClass();
+    const LinkComponent = this.props.LinkComponent;
 
     const thisHasLevel = this.hasLevel();
     const iconClassName = `metismenu-icon  ${this.props.iconClassPrefix}${this.props.icon}`;
@@ -126,11 +126,11 @@ class Item extends Component {
 
     return (
       <li className="metismenu-item">
-        <Link target={target} href={href} onClick={onClick}>
+        <LinkComponent target={target} href={href} onClick={onClick}>
           <span className={iconClassName} />
           {this.props.label}
           {iconLevel}
-        </Link>
+        </LinkComponent>
         {thisHasLevel && <Container
           ref={r => { this.container = r; }}
           visible={this.state.containerVisibility}
@@ -138,6 +138,7 @@ class Item extends Component {
           iconClassPrefix={this.props.iconClassPrefix}
           iconLevelDown={this.props.iconLevelDown}
           iconLevelUp={this.props.iconLevelUp}
+          LinkComponent={LinkComponent}
           content={this.props.content}
         />}
       </li>
@@ -149,6 +150,10 @@ Item.propTypes = {
   iconClassPrefix: PropTypes.string,
   iconLevelDown: PropTypes.string,
   iconLevelUp: PropTypes.string,
+  LinkComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
   closePeerContainers: PropTypes.func,
   icon: PropTypes.string,
   label: PropTypes.string,
