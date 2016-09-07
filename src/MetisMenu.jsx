@@ -16,11 +16,11 @@ import DefaultLinkComponent from './DefaultLinkComponent';
  * @extends React.Component
  *
  * Props come from top component
- * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
- * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
- * @prop {string} props.iconLevelUp - Icon name for state of opened containers
- * @prop {React.Component} props.LinkComponent - Handles link components of all items
- * @prop {Object[]} props.content - Recursive menu stracture
+ * @prop {string} [props.iconClassPrefix=fa fa-] - Prefix for all icon's style class name
+ * @prop {string} [props.iconLevelDown=caret-left] - Icon name for state of collapsed containers
+ * @prop {string} [props.iconLevelUp=caret-down] - Icon name for state of opened containers
+ * @prop {React.Component} [props.LinkComponent=DefaultLinkComponent] - Handles link components of all items
+ * @prop {Object[]} [props.content=[]] - Recursive menu stracture
  */
 const MetisMenu = (props) => (
   <div className="metismenu">

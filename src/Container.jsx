@@ -25,7 +25,7 @@ class Container extends Component {
    * @prop {React.Component} props.LinkComponent - Handles link components of all items
    *
    * Props come from parent Item
-   * @prop {boolean} props.visible - State of container visibility
+   * @prop {boolean} [props.visible] - State of container visibility
    * @prop {Object[]} props.content - Recursive menu stracture (It also comes from top
    * to first container depth)
    */
@@ -75,15 +75,15 @@ class Container extends Component {
 }
 
 Container.propTypes = {
-  iconClassPrefix: PropTypes.string,
-  iconLevelDown: PropTypes.string,
-  iconLevelUp: PropTypes.string,
+  iconClassPrefix: PropTypes.string.isRequired,
+  iconLevelDown: PropTypes.string.isRequired,
+  iconLevelUp: PropTypes.string.isRequired,
   LinkComponent: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
-  ]),
+  ]).isRequired,
   visible: PropTypes.bool,
-  content: PropTypes.array,
+  content: PropTypes.array.isRequired,
 };
 
 export default Container;

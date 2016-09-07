@@ -27,11 +27,11 @@ class Item extends Component {
    * @prop {function} props.closePeerContainers - Function to close peer item's container
    *
    * Props comes from menu content
-   * @prop {string} props.icon - icon class name for item
+   * @prop {string} [props.icon] - icon class name for item
    * @prop {string} props.label - label of item
-   * @prop {boolean} props.externalLink - (optional) if true href opens in new tab/window
-   * @prop {string} props.to - link address of item, refers href attribute of "A" tag
-   * @prop {Object[]} props.content - Recursive menu stracture
+   * @prop {boolean} [props.externalLink] - (optional) if true href opens in new tab/window
+   * @prop {string} [props.to] - link address of item, refers href attribute of "A" tag
+   * @prop {Object[]} [props.content] - Recursive menu stracture
    *
    */
   constructor() {
@@ -147,16 +147,16 @@ class Item extends Component {
 }
 
 Item.propTypes = {
-  iconClassPrefix: PropTypes.string,
-  iconLevelDown: PropTypes.string,
-  iconLevelUp: PropTypes.string,
+  iconClassPrefix: PropTypes.string.isRequired,
+  iconLevelDown: PropTypes.string.isRequired,
+  iconLevelUp: PropTypes.string.isRequired,
   LinkComponent: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
-  ]),
-  closePeerContainers: PropTypes.func,
+  ]).isRequired,
+  closePeerContainers: PropTypes.func.isRequired,
   icon: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   externalLink: PropTypes.bool,
   to: PropTypes.string,
   content: PropTypes.array,

@@ -13,9 +13,9 @@ import React, { PropTypes } from 'react';
  * @extends React.Component
  *
  * Props come from Item component
- * @prop {boolean} props.target - Specifies external or not
- * @prop {string} props.to - Href address to link
- * @prop {function} props.onClick - For collapable items, toggle callback
+ * @prop {boolean} [props.target] - Specifies external or not
+ * @prop {string} [props.to] - Href address to link
+ * @prop {function} [props.onClick] - For collapable items, toggle callback
  * @prop {React.Component} props.children - Contents of link (label, icons..)
  */
 const DefaultLinkComponent = props => (
@@ -37,7 +37,7 @@ DefaultLinkComponent.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.element,
-  ]),
+  ]).isRequired,
 };
 
 export default DefaultLinkComponent;
