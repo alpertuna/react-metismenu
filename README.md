@@ -56,6 +56,7 @@ MetisMenu (React component) properties
 * `iconLevelDown` {string} - Icon class name for state of collapsed sub menus (Default `caret-left`)
 * `iconLevelUp` {string} - Icon class name for state of opened sub menus (Default: `caret-down`)
 * `content` {Object[]} - It keeps all recursive structure of Metismenu
+* `LinkComponent` {React.Component} - Custom link component class for each item (See: [Customizing Link Component](#customizing-link-component))
 
 Properties for each item in content
 * `icon` {string} - Icon class name of item
@@ -119,7 +120,7 @@ class CustomLink extends React.Component {
     if (this.props.onClick) this.props.onClick(e);
     else {
       // your own operation using "href"
-      // myGotoFunct(this.props.href);
+      // myGotoFunc(this.props.href);
     }
   }
 
@@ -136,7 +137,7 @@ Injecting CustomLink into Menu component
 ```javascript
 <Menu content={menu} LinkComponent={CustomLink} />
 ```
-Also, as another example, you can look into `DefaultLinkComponent` source of `react-metismenu`.
+Also, as another example, you can look into [DefaultLinkComponent](https://github.com/alpertuna/react-metismenu/blob/master/src/DefaultLinkComponent.jsx) source.
 
 Development / Contributing
 ==========================
