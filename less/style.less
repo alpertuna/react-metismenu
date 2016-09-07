@@ -18,7 +18,7 @@
   width: 300px;
   > .metismenu-container{
     background: #CCC;
-    > .metismenu-item > A{
+    > .metismenu-item > .metismenu-link{
       line-height: @first-level-item-height;
 
       .metismenu-iconlevel{
@@ -39,29 +39,29 @@
   .metismenu-container{
     //display: none;
 
-    .metismenu-item > A{
+    .metismenu-item > .metismenu-link{
       .transition(height 300ms);
 
       height: 0;
       overflow: hidden;
     }
 
-    A{
+    .metismenu-link{
       padding-left:@second-level-indent;
     }
 
-    .metismenu-container A{
+    .metismenu-container .metismenu-link{
       padding-left:@third-level-indent;
     }
   }
 
-  &.visible > .metismenu-item > A{
+  &.visible > .metismenu-item > .metismenu-link{
     height: @sub-level-item-height;
     //display: block;
   }
 }
 
-.metismenu-item > A{
+.metismenu-item > .metismenu-link{
   color:#555;
   display: block;
   line-height: @sub-level-item-height;

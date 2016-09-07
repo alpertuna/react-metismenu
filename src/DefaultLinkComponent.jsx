@@ -19,7 +19,7 @@ import React, { PropTypes } from 'react';
  * @prop {React.Component} props.children - Contents of link (label, icons..)
  */
 const DefaultLinkComponent = props => (
-  <a target={props.target} href={props.href} onClick={props.onClick}>
+  <a className="metismenu-link" target={props.target} href={props.href} onClick={props.onClick}>
     {props.children}
   </a>
 );
