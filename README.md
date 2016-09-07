@@ -115,8 +115,8 @@ class CustomLink extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick() {
-    if (this.props.onClick) this.props.onClick();
+  onClick(e) {
+    if (this.props.onClick) this.props.onClick(e);
     else {
       // your own operation using "href"
       // myGotoFunct(this.props.href);
@@ -125,7 +125,7 @@ class CustomLink extends React.Component {
 
   render() {
     return (
-      <button onClick={this.onClick}>
+      <button className="metismenu-link" onClick={this.onClick}>
         {this.props.children}
       </button>
     );
