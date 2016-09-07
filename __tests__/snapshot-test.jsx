@@ -15,29 +15,29 @@ import Menu from '../src/MetisMenu';
 describe('Menu item has submenu', () => {
   // Create test component
   const content = [
-    { label: 'Item 1', href: '#item-1', icon: 'bolt' },
+    { label: 'Item 1', to: '#item-1', icon: 'bolt' },
     {
       label: 'Item 2',
-      href: '#item-2',
+      to: '#item-2',
       icon: 'bell',
       content: [
-        { label: 'Sub Item 1', href: '#sub-item-1', icon: 'eye' },
-        { label: 'Sub Item 2', href: '#sub-item-2', icon: 'globe' },
+        { label: 'Sub Item 1', to: '#sub-item-1', icon: 'eye' },
+        { label: 'Sub Item 2', to: '#sub-item-2', icon: 'globe' },
       ],
     },
     {
       label: 'Item 3',
-      href: '#item-3',
+      to: '#item-3',
       icon: 'bell',
       content: [
-        { label: 'Sub Item 3', href: '#sub-item-3', icon: 'eye' },
+        { label: 'Sub Item 3', to: '#sub-item-3', icon: 'eye' },
         {
           label: 'Sub Item 4',
-          href: '#sub-item-4',
+          to: '#sub-item-4',
           icon: 'globe',
           content: [
-            { label: 'Level 3 Item 1', href: '#level-3-item-1', icon: 'bolt' },
-            { label: 'Level 3 Item 2', href: '#level-3-item-2', icon: 'bell' },
+            { label: 'Level 3 Item 1', to: '#level-3-item-1', icon: 'bolt' },
+            { label: 'Level 3 Item 2', to: '#level-3-item-2', icon: 'bell' },
           ],
         },
       ],

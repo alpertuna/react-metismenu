@@ -14,12 +14,12 @@ import React, { PropTypes } from 'react';
  *
  * Props come from Item component
  * @prop {boolean} props.target - Specifies external or not
- * @prop {string} props.href - Href address to link
+ * @prop {string} props.to - Href address to link
  * @prop {function} props.onClick - For collapable items, toggle callback
  * @prop {React.Component} props.children - Contents of link (label, icons..)
  */
 const DefaultLinkComponent = props => (
-  <a className="metismenu-link" target={props.target} href={props.href} onClick={props.onClick}>
+  <a className="metismenu-link" target={props.target} href={props.to} onClick={props.onClick}>
     {props.children}
   </a>
 );
@@ -29,7 +29,7 @@ DefaultLinkComponent.propTypes = {
     PropTypes.string,
     PropTypes.boolean,
   ]),
-  href: PropTypes.string,
+  to: PropTypes.string,
   onClick: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.boolean,

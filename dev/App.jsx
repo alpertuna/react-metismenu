@@ -16,12 +16,12 @@ const App = () => {
     {
       icon: 'dashboard',
       label: 'Menu 1',
-      href: '#menu-1',
+      to: '#menu-1',
     },
     {
       icon: 'bell',
       label: 'Menu 2',
-      href: '#menu-2',
+      to: '#menu-2',
     },
     {
       icon: 'bolt',
@@ -30,7 +30,7 @@ const App = () => {
         {
           icon: 'bolt',
           label: 'Test',
-          href: '#test',
+          to: '#test',
         },
       ],
     },
@@ -41,7 +41,7 @@ const App = () => {
         {
           icon: 'bold',
           label: 'Sub Menu 1',
-          href: '#sub-menu-1',
+          to: '#sub-menu-1',
         },
         {
           icon: 'italic',
@@ -50,12 +50,12 @@ const App = () => {
             {
               icon: 'cog',
               label: 'Level 3 Menu 1',
-              href: '#level-3-menu-1',
+              to: '#level-3-menu-1',
             },
             {
               icon: 'group',
               label: 'Level 3 Menu 2',
-              href: '#level-3-menu-2',
+              to: '#level-3-menu-2',
             },
           ],
         },
@@ -66,19 +66,19 @@ const App = () => {
             {
               icon: 'cog',
               label: 'Level 3 Menu 1',
-              href: '#level-3-menu-1',
+              to: '#level-3-menu-1',
             },
             {
               icon: 'group',
               label: 'Level 3 Menu 2',
-              href: '#level-3-menu-2',
+              to: '#level-3-menu-2',
             },
           ],
         },
         {
           icon: 'check',
           label: 'Sub Menu 4',
-          href: '#sub-menu-4',
+          to: '#sub-menu-4',
         },
       ],
     },
@@ -86,7 +86,7 @@ const App = () => {
       icon: 'external-link',
       label: 'External Link',
       externalLink: true,
-      href: 'https://www.google.com',
+      to: 'https://www.google.com',
     },
   ];
 

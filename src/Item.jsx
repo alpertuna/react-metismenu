@@ -30,7 +30,7 @@ class Item extends Component {
    * @prop {string} props.icon - icon class name for item
    * @prop {string} props.label - label of item
    * @prop {boolean} props.externalLink - (optional) if true href opens in new tab/window
-   * @prop {string} props.href - link address of item
+   * @prop {string} props.to - link address of item, refers href attribute of "A" tag
    * @prop {Object[]} props.content - Recursive menu stracture
    *
    */
@@ -101,7 +101,7 @@ class Item extends Component {
     const thisHasLevel = this.hasLevel();
     const iconClassName = `metismenu-icon  ${this.props.iconClassPrefix}${this.props.icon}`;
 
-    let href;
+    let to;
     let onClick;
     let iconLevel;
     let target;
@@ -112,11 +112,11 @@ class Item extends Component {
         ? this.props.iconLevelUp
         : this.props.iconLevelDown;
 
-      href = '#';
+      to = '#';
       onClick = this.toggleContainer;
       iconLevel = <span className={className} />;
     } else {
-      href = this.props.href;
+      to = this.props.to;
       iconLevel = null;
     }
 
@@ -126,7 +126,7 @@ class Item extends Component {
 
     return (
       <li className="metismenu-item">
-        <LinkComponent target={target} href={href} onClick={onClick}>
+        <LinkComponent target={target} to={to} onClick={onClick}>
           <span className={iconClassName} />
           {this.props.label}
           {iconLevel}
@@ -158,7 +158,7 @@ Item.propTypes = {
   icon: PropTypes.string,
   label: PropTypes.string,
   externalLink: PropTypes.bool,
-  href: PropTypes.string,
+  to: PropTypes.string,
   content: PropTypes.array,
 };
 

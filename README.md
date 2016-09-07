@@ -61,8 +61,8 @@ MetisMenu (React component) properties
 Properties for each item in content
 * `icon` {string} - Icon class name of item
 * `label` {string} - Label of item
-* `externalLink` (boolean) - (optional) if true href opens in new tab/window
-* `href` {string} - Link of item (if item has submenu, href property will be ignored)
+* `externalLink` (boolean) - (optional) if true link opens page in new tab/window
+* `to` {string} - Href address to link (if item has submenu, `to` property will be ignored by `DefaultLinkComponent`)
 * `content` {Object[]} - Submenu of item
 
 Example
@@ -77,7 +77,7 @@ var content=[
     {
         icon: 'icon-class-name',
         label: 'Label of Item',
-        href: '#a-link'
+        to: '#a-link'
     },
     {
         icon: 'icon-class-name',
@@ -86,7 +86,7 @@ var content=[
             {
                 icon: 'icon-class-name',
                 label: 'Sub Menu of Second Item',
-                href: '#another-link'
+                to: '#another-link'
             }
         ]
     },
@@ -102,7 +102,7 @@ You may use another html tag, want to inject some properties or change operation
 
 #### Props to use in your Link Component
 - `props.target` {string | boolean} - If link is external, contains `_blank` string, otherwise `undefined`
-- `props.href` {string} - Contains href info of the item comes from menu content object
+- `props.to` {string} - Contains `to` info of the item comes from menu content object
 - `props.onClick` {function | boolean} - If item has submenu, returns toggle trigger callback, otherwise `undefined`
 - `props.children` {React.Component | array<React.Component>} -  Ready to render content of link - contains icon, label and other stuff
 
@@ -119,8 +119,8 @@ class CustomLink extends React.Component {
   onClick(e) {
     if (this.props.onClick) this.props.onClick(e);
     else {
-      // your own operation using "href"
-      // myGotoFunc(this.props.href);
+      // your own operation using "to"
+      // myGotoFunc(this.props.to);
     }
   }
 
