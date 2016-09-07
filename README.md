@@ -126,7 +126,7 @@ class CustomLink extends React.Component {
   render() {
     return (
       <button onClick={this.onClick}>
-        {props.children}
+        {this.props.children}
       </button>
     );
   }
