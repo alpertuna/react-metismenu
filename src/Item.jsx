@@ -102,7 +102,7 @@ class Item extends Component {
     const iconClassName = `metismenu-icon  ${this.props.iconClassPrefix}${this.props.icon}`;
 
     let to;
-    let onClick;
+    let toggleContainer;
     let iconLevel;
     let target;
 
@@ -113,7 +113,7 @@ class Item extends Component {
         : this.props.iconLevelDown;
 
       to = '#';
-      onClick = this.toggleContainer;
+      toggleContainer = this.toggleContainer;
       iconLevel = <span className={className} />;
     } else {
       to = this.props.to;
@@ -126,7 +126,7 @@ class Item extends Component {
 
     return (
       <li className="metismenu-item">
-        <LinkComponent target={target} to={to} onClick={onClick}>
+        <LinkComponent target={target} to={to} toggleSubMenu={toggleContainer}>
           <span className={iconClassName} />
           {this.props.label}
           {iconLevel}

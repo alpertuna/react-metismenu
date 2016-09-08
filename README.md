@@ -54,18 +54,18 @@ Properties
 ==========
 MetisMenu (React component) properties
 
-* `iconClassPrefix` {string} - Prefix for all icon's style class (Default `fa fa-`)
-* `iconLevelDown` {string} - Icon class name for state of collapsed sub menus (Default `caret-left`)
-* `iconLevelUp` {string} - Icon class name for state of opened sub menus (Default: `caret-down`)
-* `content` {Object[]} - It keeps all recursive structure of Metismenu
-* `LinkComponent` {React.Component} - Custom link component class for each item (See: [Customizing Link Component](#customizing-link-component))
+* [`content`=`[]`] {Object[]} - It keeps all recursive structure of Metismenu
+* [`iconClassPrefix`=`fa fa-`] {string} - Prefix for all icon's style class
+* [`iconLevelDown`=`caret-left`] {string} - Icon class name for state of collapsed sub menus
+* [`iconLevelUp`=`caret-down`] {string} - Icon class name for state of opened sub menus
+* [`LinkComponent`=`DefaultLinkComponent`] {React.Component} - Custom link component class for each item (See: [Customizing Link Component](#customizing-link-component))
 
 Properties for each item in content
 * `icon` {string} - Icon class name of item
 * `label` {string} - Label of item
-* `externalLink` (boolean) - (optional) if true link opens page in new tab/window
-* `to` {string} - Href address to link (if item has submenu, `to` property will be ignored by `DefaultLinkComponent`)
-* `content` {Object[]} - Submenu of item
+* [`to`] {string} - Href address to link (if item has submenu, `to` property will be ignored by `DefaultLinkComponent`)
+* [`externalLink`] {boolean} - If true link opens page in new tab/window
+* [`content`] {Object[]} - Submenu of item
 
 Example
 =======
@@ -103,10 +103,10 @@ You are able to change the link component of each item.
 You may use another html tag, want to inject some properties or change operation logic. In this case, you can customize and use your own link component sending to `Menu` component as `LinkComponent` property.
 
 #### Props to use in your Link Component
-- `props.target` {string | boolean} - If link is external, contains `_blank` string, otherwise `undefined`
-- `props.to` {string} - Contains `to` info of the item comes from menu content object
-- `props.onClick` {function | boolean} - If item has submenu, returns toggle trigger callback, otherwise `undefined`
-- `props.children` {React.Component | array<React.Component>} -  Ready to render content of link - contains icon, label and other stuff
+- `props.children` {React.Component | React.Component[]} -  Ready to render content of link - contains icon, label and other stuff
+- [`props.to`] {string} - Contains `to` info of the item comes from menu content object
+- [`props.target`] {string} - If link is external, contains `_blank` string, otherwise `undefined`
+- [`props.toggleSubMenu`] {function} - If item has submenu, returns toggle trigger callback, otherwise `undefined`
 
 #### An Example
 Defining CustomLink Component
@@ -119,7 +119,7 @@ class CustomLink extends React.Component {
   }
 
   onClick(e) {
-    if (this.props.onClick) this.props.onClick(e);
+    if (this.props.toggleSubMenu) this.props.toggleSubMenu(e);
     else {
       // your own operation using "to"
       // myGotoFunc(this.props.to);
