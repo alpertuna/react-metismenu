@@ -14,13 +14,15 @@ react-metismenu is under development now, It is time to contribute :blush:
 
 Demo
 ====
-Here is a simple demo without any customizations. [Go To Demo](https://alpertuna.github.io/react-metismenu/)
+Here is a simple demo without any customizations. [Go to demo](https://alpertuna.github.io/react-metismenu/)
+
+`react-metismenu-router-link` extension to use with `react-router`. [Go to demo](https://alpertuna.github.io/react-metismenu-router-link) - [Extension Page](https://github.com/alpertuna/react-metismenu-router-link)
 
 Install
 =======
 
-```sh
-npm install react-metismenu
+```console
+$ npm install react-metismenu
 ```
 In your project you may use `--save` or `--save-dev` options of npm
 
@@ -38,9 +40,9 @@ ReactDOM.render(<Menu />, document.getElementById('dom_id'));
 
 Without Loaders (ES5)
 ```javascript
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Menu = require('react-metismenu');
+const React = require('react');
+const ReactDOM = require('react-dom');
+const Menu = require('react-metismenu');
 
 ReactDOM.render(
     React.createElement(Menu),
@@ -71,11 +73,11 @@ Example
 =======
 
 ```javascript
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Menu from 'react-metismenu'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Menu from 'react-metismenu';
 
-var content=[
+const content=[
     {
         icon: 'icon-class-name',
         label: 'Label of Item',
@@ -141,17 +143,26 @@ Injecting CustomLink into Menu component
 ```
 Also, as another example, you can look into [DefaultLinkComponent](https://github.com/alpertuna/react-metismenu/blob/master/src/DefaultLinkComponent.jsx) source.
 
+Extensions
+==========
+## react-metismenu-router-link
+If you use `react-router`, this extension does the job.
+- Npm package `react-metismenu-router-link`
+- [Source page](https://github.com/alpertuna/react-metismenu-router-link)
+- [Demo page](https://alpertuna.github.io/react-metismenu-router-link)
+
+
 Development / Contributing
 ==========================
 If you like to add or improve something, follow these steps.
 
-```sh
+```console
 # Change dir to your playground folder and clone repository.
-git clone git@github.com:alpertuna/react-metismenu.git
+$ git clone git@github.com:alpertuna/react-metismenu.git
 
 # Enter cloned folder and install necessary development node libraries
-cd react-metismenu
-npm install
+$ cd react-metismenu
+$ npm install
 ```
 
 #### Folders and Files
@@ -163,10 +174,10 @@ Under **`dev`** folder, `index.html` is index file of our web server. You don't 
 `App.js` file is entry point for our react application, and you can test your alterations in here. There is a working example in `App.js` and it imports `react-metismenu` directly from source code, that's why there is no need to build it while developing. Similarly less folder is imported directly through less compiler pipe.
 
 #### To run dev server,
-```sh
-npm run dev-server
+```console
+$ npm run dev-server
 # or shortly
-npm start
+$ npm start
 ```
 And open `localhost:8080` in browser.
 Dev server uses webpack and it has hot modul replecament plugins, so when you change and save any source file, it will rebuild virtual bundle and send signal browser to refresh page automaticly.
@@ -176,24 +187,24 @@ For source code quality, I applied Airbnb rules. Because it focuses on React mor
 
 
 #### Other scripts,
-```sh
+```console
 # Builds js dist file
-npm run build-dist-js
+$ npm run build-dist-js
 
 # Builds minified js dist file
-npm run build-dist-js-min
+$ npm run build-dist-js-min
 
 # Builds all dist files
-npm run build-dist
+$ npm run build-dist
 
 # Lints js files according to Airbnb rules using Eslint
-npm run lint-confs
-npm run lint-src
-npm run lint-dev
+$ npm run lint-confs
+$ npm run lint-src
+$ npm run lint-dev
 
 # Runs unit test using Jest
-npm run unit-test
+$ npm run unit-test
 
 # Runs all necessary test scripts
-npm test
+$ npm test
 ```
