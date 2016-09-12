@@ -14,4 +14,13 @@ module.exports = Object.assign(config, {
   devServer: {
     contentBase: 'dev',
   },
+  module: {
+    loaders: [
+      ...config.module.loaders,
+      {
+        test: /\.less$/,
+        loader: 'style?insertAt=top!css!less',
+      },
+    ],
+  },
 });

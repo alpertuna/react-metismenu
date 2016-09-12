@@ -19,10 +19,6 @@ module.exports = {
         test: /\.jsx?$/,
         loader: 'babel',
       },
-      {
-        test: /\.less$/,
-        loader: 'style?insertAt=top!css!less',
-      },
     ],
   },
 };

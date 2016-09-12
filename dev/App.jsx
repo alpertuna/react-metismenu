@@ -7,6 +7,9 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 /* eslint-env browser */
 
+// Embeds styles
+import '../less/style.less';
+
 import React from 'react';
 import { render } from 'react-dom';
 import MetisMenu from '../src/main.js';
