@@ -12,6 +12,8 @@ react-metismenu is under development now, It is time to contribute :blush:
 
 **Important note:** After v0.4 `href` property of menu content has been changed to `to`
 
+**Important note:** After v0.5 styles are not embedded anymore. Need to include in html source.
+
 Demo
 ====
 Here is a simple demo without any customizations. [Go to demo](https://alpertuna.github.io/react-metismenu/)
@@ -50,7 +52,11 @@ ReactDOM.render(
 );
 ```
 
-Now, core css file is embed so that you don't need to add link.
+Also you should embed core css file to your html for menu to work.
+```html
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alpertuna/react-metismenu/master/dist/react-metismenu.min.css" />
+```
+You can find this css in your `node_modules/react-metismenu/dist` to embed locally.
 
 Properties
 ==========
@@ -167,7 +173,7 @@ $ npm install
 
 #### Folders and Files
  - **`src`** folder keeps all source files of `react-metismenu`
- - `react-metismenu` uses less preprocessor for styling, and **`less`** folder keeps source style files.
+ - **`less`** folder keeps source style files.
  - **`dev`** is playground folder to develop `react-metismenu`.
 
 Under **`dev`** folder, `index.html` is index file of our web server. You don't need to touch here if you don't want to add any other external js or css files.
@@ -186,25 +192,31 @@ Dev server uses webpack and it has hot modul replecament plugins, so when you ch
 For source code quality, I applied Airbnb rules. Because it focuses on React more than others.
 
 
-#### Other scripts,
+#### After Develop,
 ```console
-# Builds js dist file
-$ npm run build-dist-js
+# TESTING
+# Runs all necessary test scripts (linting and unit-testing)
+$ npm test
 
-# Builds minified js dist file
-$ npm run build-dist-js-min
-
-# Builds all dist files
-$ npm run build-dist
-
+# Or you can test specific parts of project
 # Lints js files according to Airbnb rules using Eslint
 $ npm run lint-confs
 $ npm run lint-src
 $ npm run lint-dev
-
 # Runs unit test using Jest
 $ npm run unit-test
 
-# Runs all necessary test scripts
-$ npm test
+# BUILDING
+# Builds lib and dist files together
+$ npm run build
+
+# Or you can build them seperately
+# Builds js and css dist files
+$ npm run build-dist-js
+$ npm run build-dist-js-min
+$ npm run build-dist-css
+$ npm run build-dist-css-min
+# Builds lib files for npm
+$ npm run build-lib
+
 ```
