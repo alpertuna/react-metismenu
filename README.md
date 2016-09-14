@@ -70,18 +70,18 @@ Properties
 - To [Customize Styles](#customizing-styles)
     * {string} [`className`] - Class name for main metismenu wrapper
     * {string} [`classNameContainer`] - Class name for item container (ul)
-    * {string} [`classNameContainerVisible`] - Class name when container is visible
+    * {string} [`classNameContainerVisible`] - Additional class name when container is visible
     * {string} [`classNameItem`] - Class name for items in container (li)
     * {string} [`classNameLink`] - Class name for links in items (a)
     * {string} [`classNameIcon`] - Class name for link icons
     * {string} [`classNameStateIcon`] - Class name for state indicators of submenu
     * {boolean} [`noBuiltInClassNames`=false] - When true, core css class names won't be used
     * {string} [`iconNamePrefix`="fa fa-"] - Prefix for all icon's style class name
-    * {string} [`iconNameStateHidden`=caret-left] - Icon name for state of collapsed containers
+    * {string} [`iconNameStateHidden`="caret-left"] - Icon name for state of collapsed containers
     * {string} [`iconNameStateVisible`="caret-down"] - Icon name for state of opened containers
 
 
-- To [Customize Link Component](#customizing-link-component)
+- To [Customize Link Components](#customizing-link-component)
     * {React.Component} [`LinkComponent`=DefaultLinkComponent] - Handles link components of all items
 
 **Properties for each item in content**
@@ -195,8 +195,8 @@ These icons are also prepended by `iconNamePrefix`.
 If you don't want use core styles you can remove them completely by setting `noBuiltInClassNames` prop `true`.
 In this case you are responsable for all styling including visibility states of containers.
 
-Customizing Link Component
-==========================
+Customizing Link Components
+===========================
 You are able to change the link component of each item.
 You may use another html tag, want to inject some properties or change operation logic. In this case, you can customize and use your own link component sending to `Menu` component as `LinkComponent` property.
 
