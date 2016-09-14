@@ -28,8 +28,8 @@ class Item extends Component {
    * @prop {string} props.classNameIcon - Class name for link icons
    * @prop {string} props.classNameStateIcon - Class name for state indicators of submenu
    * @prop {string} props.iconNamePrefix - Prefix for all icon's style class name
-   * @prop {string} props.iconNameStateVisible - Icon name for state of collapsed containers
-   * @prop {string} props.iconNameStateHidden - Icon name for state of opened containers
+   * @prop {string} props.iconNameStateVisible - Icon name for state of opened containers
+   * @prop {string} props.iconNameStateHidden - Icon name for state of collapsed containers
    * @prop {React.Component} props.LinkComponent - Handles link components of all items
    *
    * Props comes from parent Container
@@ -118,8 +118,8 @@ class Item extends Component {
     if (thisHasLevel) {
       let className = `${this.props.classNameStateIcon} ${this.props.iconNamePrefix}`;
       className += this.state.containerVisibility
-        ? this.props.iconNameStateHidden
-        : this.props.iconNameStateVisible;
+        ? this.props.iconNameStateVisible
+        : this.props.iconNameStateHidden;
 
       to = '#';
       toggleContainer = this.toggleContainer;

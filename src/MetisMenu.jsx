@@ -25,9 +25,9 @@ import DefaultLinkComponent from './DefaultLinkComponent';
  * @prop {string} [props.classNameStateIcon] - Class name for state indicators of submenu
  * @prop {boolean} [props.noBuiltInClassNames=false] - When true, core css class names won't be used
  * @prop {string} [props.iconNamePrefix=fa fa-] - Prefix for all icon's style class name
- * @prop {string} [props.iconNameStateVisible=caret-left] - Icon name for state of collapsed
+ * @prop {string} [props.iconNameStateVisible=caret-left] - Icon name for state of opened containers
  * containers
- * @prop {string} [props.iconNameStateHidden=caret-down] - Icon name for state of opened containers
+ * @prop {string} [props.iconNameStateHidden=caret-down] - Icon name for state of collapsed
  * @prop {React.Component} [props.LinkComponent=DefaultLinkComponent] - Handles link components of
  * all items
  * @prop {Object[]} [props.content=[]] - It keeps all recursive structure of Metismenu
@@ -70,8 +70,8 @@ const MetisMenu = (props) => {
         classNameIcon={classNameIcon}
         classNameStateIcon={classNameStateIcon}
         iconNamePrefix={props.iconNamePrefix || 'fa fa-'}
-        iconNameStateVisible={props.iconNameStateVisible || 'caret-left'}
-        iconNameStateHidden={props.iconNameStateHidden || 'caret-down'}
+        iconNameStateVisible={props.iconNameStateVisible || 'caret-down'}
+        iconNameStateHidden={props.iconNameStateHidden || 'caret-left'}
         LinkComponent={props.LinkComponent || DefaultLinkComponent}
         content={props.content || []}
       />
