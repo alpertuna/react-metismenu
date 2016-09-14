@@ -103,7 +103,7 @@ const content=[
     {
         icon: 'icon-class-name',
         label: 'Label of Item',
-        to: '#a-link'
+        to: '#a-link',
     },
     {
         icon: 'icon-class-name',
@@ -112,9 +112,9 @@ const content=[
             {
                 icon: 'icon-class-name',
                 label: 'Sub Menu of Second Item',
-                to: '#another-link'
-            }
-        ]
+                to: '#another-link',
+            },
+        ],
     },
 ];
 
@@ -167,8 +167,8 @@ You can overide these class names to customize with your own css.
 
 **Note:** Containers' default state is hidden and there is no assigned class to tell.
 
-#### Using Own Your Class Names
-You can tell metismenu to add your own class names by sending your class names as props.
+#### Using Your Own Class Names
+You can tell metismenu to add your own class names by sending them as props.
 
 Property names are, according to figure above;
 - main wrapper - `className`
@@ -178,6 +178,7 @@ Property names are, according to figure above;
 - icon - `classNameIcon`
 - state icon - `classNameStateIcon`
 
+Using these props **not** overwrites built-in class names, just appends.
 **Note:** Containers' default state is hidden and there is no prop to tell.
 
 #### Icon Framework
