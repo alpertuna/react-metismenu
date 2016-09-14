@@ -114,9 +114,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @prop {string} [props.classNameStateIcon] - Class name for state indicators of submenu
 	 * @prop {boolean} [props.noBuiltInClassNames=false] - When true, core css class names won't be used
 	 * @prop {string} [props.iconNamePrefix=fa fa-] - Prefix for all icon's style class name
-	 * @prop {string} [props.iconNameStateVisible=caret-left] - Icon name for state of collapsed
+	 * @prop {string} [props.iconNameStateVisible=caret-left] - Icon name for state of opened containers
 	 * containers
-	 * @prop {string} [props.iconNameStateHidden=caret-down] - Icon name for state of opened containers
+	 * @prop {string} [props.iconNameStateHidden=caret-down] - Icon name for state of collapsed
 	 * @prop {React.Component} [props.LinkComponent=DefaultLinkComponent] - Handles link components of
 	 * all items
 	 * @prop {Object[]} [props.content=[]] - It keeps all recursive structure of Metismenu
@@ -160,8 +160,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      classNameIcon: classNameIcon,
 	      classNameStateIcon: classNameStateIcon,
 	      iconNamePrefix: props.iconNamePrefix || 'fa fa-',
-	      iconNameStateVisible: props.iconNameStateVisible || 'caret-left',
-	      iconNameStateHidden: props.iconNameStateHidden || 'caret-down',
+	      iconNameStateVisible: props.iconNameStateVisible || 'caret-down',
+	      iconNameStateHidden: props.iconNameStateHidden || 'caret-left',
 	      LinkComponent: props.LinkComponent || _DefaultLinkComponent2.default,
 	      content: props.content || []
 	    })
@@ -251,8 +251,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @prop {string} props.classNameIcon - Class name for link icons
 	   * @prop {string} props.classNameStateIcon - Class name for state indicators of submenu
 	   * @prop {string} props.iconNamePrefix - Prefix for all icon's style class name
-	   * @prop {string} props.iconNameStateVisible - Icon name for state of collapsed containers
-	   * @prop {string} props.iconNameStateHidden - Icon name for state of opened containers
+	   * @prop {string} props.iconNameStateVisible - Icon name for state of opened containers
+	   * @prop {string} props.iconNameStateHidden - Icon name for state of collapsed containers
 	   * @prop {React.Component} props.LinkComponent - Handles link components of all items
 	   *
 	   * Props come from parent Item
@@ -399,8 +399,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * @prop {string} props.classNameIcon - Class name for link icons
 	   * @prop {string} props.classNameStateIcon - Class name for state indicators of submenu
 	   * @prop {string} props.iconNamePrefix - Prefix for all icon's style class name
-	   * @prop {string} props.iconNameStateVisible - Icon name for state of collapsed containers
-	   * @prop {string} props.iconNameStateHidden - Icon name for state of opened containers
+	   * @prop {string} props.iconNameStateVisible - Icon name for state of opened containers
+	   * @prop {string} props.iconNameStateHidden - Icon name for state of collapsed containers
 	   * @prop {React.Component} props.LinkComponent - Handles link components of all items
 	   *
 	   * Props comes from parent Container
@@ -512,7 +512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      if (thisHasLevel) {
 	        var className = this.props.classNameStateIcon + ' ' + this.props.iconNamePrefix;
-	        className += this.state.containerVisibility ? this.props.iconNameStateHidden : this.props.iconNameStateVisible;
+	        className += this.state.containerVisibility ? this.props.iconNameStateVisible : this.props.iconNameStateHidden;
 
 	        to = '#';
 	        toggleContainer = this.toggleContainer;
