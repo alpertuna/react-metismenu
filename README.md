@@ -26,7 +26,7 @@ Install
 =======
 
 ```console
-$ npm install react-metismenu
+npm install react-metismenu
 ```
 In your project you may use `--save` or `--save-dev` options of npm
 
@@ -62,30 +62,34 @@ You can find this css in your `node_modules/react-metismenu/dist` to embed local
 
 Properties
 ==========
-MetisMenu (React component) properties
+**MetisMenu (React component) properties**
+- Main Properties
+    * {Object[]} [`content`=[]] - It keeps all recursive structure of Metismenu
 
-* {string} [props.className] - Class name for main metismenu wrapper
-* {string} [props.classNameContainer] - Class name for item container (ul)
-* {string} [props.classNameContainerVisible] - Class name when container is visible
-* {string} [props.classNameItem] - Class name for items in container (li)
-* {string} [props.classNameLink] - Class name for links in items (a)
-* {string} [props.classNameIcon] - Class name for link icons
-* {string} [props.classNameStateIcon] - Class name for state indicators of submenu
-* {boolean} [props.noBuiltInClassNames=false] - When true, core css class names won't be used
-* {string} [props.iconNamePrefix=fa fa-] - Prefix for all icon's style class name
-* {string} [props.iconNameStateHidden=caret-left] - Icon name for state of collapsed
-* containers
-* {string} [props.iconNameStateVisible=caret-down] - Icon name for state of opened containers
-* {React.Component} [props.LinkComponent=DefaultLinkComponent] - Handles link components of all items (See: [Customizing Link Component](#customizing-link-component))
-* {Object[]} [props.content=[]] - It keeps all recursive structure of Metismenu
 
-Properties for each item in content
+- To [Customize Styles](#customizing-styles)
+    * {string} [`className`] - Class name for main metismenu wrapper
+    * {string} [`classNameContainer`] - Class name for item container (ul)
+    * {string} [`classNameContainerVisible`] - Class name when container is visible
+    * {string} [`classNameItem`] - Class name for items in container (li)
+    * {string} [`classNameLink`] - Class name for links in items (a)
+    * {string} [`classNameIcon`] - Class name for link icons
+    * {string} [`classNameStateIcon`] - Class name for state indicators of submenu
+    * {boolean} [`noBuiltInClassNames`=false] - When true, core css class names won't be used
+    * {string} [`iconNamePrefix`="fa fa-"] - Prefix for all icon's style class name
+    * {string} [`iconNameStateHidden`=caret-left] - Icon name for state of collapsed containers
+    * {string} [`iconNameStateVisible`="caret-down"] - Icon name for state of opened containers
 
-* {string} icon - Icon class name of item
-* {string} label - Label of item
-* {string} [to] - Href address to link (if item has submenu, `to` property will be ignored by `DefaultLinkComponent`)
-* {boolean} [externalLink] - If true link opens page in new tab/window
-* {Object[]} [content] - Submenu of item
+
+- To [Customize Link Component](#customizing-link-component)
+    * {React.Component} [`LinkComponent`=DefaultLinkComponent] - Handles link components of all items
+
+**Properties for each item in content**
+* {string} `icon` - Icon class name of item
+* {string} `label` - Label of item
+* {string} [`to`] - Href address to link (if item has submenu, `to` property will be ignored by `DefaultLinkComponent`)
+* {boolean} [`externalLink`] - If true link opens page in new tab/window
+* {Object[]} [`content`] - Submenu of item
 
 Example
 =======
@@ -117,17 +121,91 @@ const content=[
 ReactDOM.render(<Menu content={content} />, document.getElementById('root'));
 ```
 
+Customizing Styles
+==================
+After rendering metismenu with recursive content, output dom structure will be like this;
+```html
+<div>             - main wrapper
+  ====================================== Top container
+  <ul>            - container
+    <li>          - item
+      <a>         - link
+        <i />     - icon
+        " "       - label
+        <i />     - state icon (caret icon)
+      </a>
+      ---------------------------------- First depth sub container
+      <ul>        - container
+        <li>      - item
+          <a>     - link
+            <i /> - icon
+            " "   - label
+          </a>
+        </li>
+        ...
+      </ul>
+      ----------------------------------
+    </li>
+    ...
+  </ul>
+  ======================================
+</div>
+```
+
+#### Overriding Styles
+Metismenu with default setting adds built-in css class names.
+
+These class names are, according to figure above;
+- main wrapper - `metismenu`
+- container - `metismenu-container` and `visible` for opened containers
+- item - `metismenu-item`
+- link - `metismenu-link`
+- icon - `metismenu-icon`
+- state icon - `metismenu-state-icon`
+
+You can overide these class names to customize with your own css.
+
+**Note:** Containers' default state is hidden and there is no assigned class to tell.
+
+#### Using Own Your Class Names
+You can tell metismenu to add your own class names by sending your class names as props.
+
+Property names are, according to figure above;
+- main wrapper - `className`
+- container - `classNameContainer` and `classNameContainerVisible` for opened containers
+- item - `classNameItem`
+- link - `classNameLink`
+- icon - `classNameIcon`
+- state icon - `classNameStateIcon`
+
+**Note:** Containers' default state is hidden and there is no prop to tell.
+
+#### Icon Framework
+By default, metismenu uses [Font Awesome](http://fontawesome.io/) for icons and prepends all icon names with `fa fa-`.
+
+To use another icon framework, you can change prefix with `iconNamePrefix` prop of menu.
+
+To change state icons (shows submenu is visible or not) you can use these props of menu;
+- `iconNameStateVisible`
+- `iconNameStateHidden`
+
+These icons are also prepended by `iconNamePrefix`.
+
+#### Not Using Built-in Styles
+If you don't want use core styles you can remove them completely by setting `noBuiltInClassNames` prop `true`.
+In this case you are responsable for all styling including visibility states of containers.
+
 Customizing Link Component
 ==========================
 You are able to change the link component of each item.
 You may use another html tag, want to inject some properties or change operation logic. In this case, you can customize and use your own link component sending to `Menu` component as `LinkComponent` property.
 
 #### Props to use in your Link Component
-- {string} props.className - Class name comes from top component (a)
-- {React.Component | React.Component[]} `props.children` -  Ready to render content of link - contains icon, label and other stuff
-- {string} [props.to] - Contains `to` info of the item comes from menu content object
-- {string} [props.target] - If link is external, contains `_blank` string, otherwise `undefined`
-- {function} [props.toggleSubMenu] - If item has submenu, returns toggle trigger callback, otherwise `undefined`
+- {string} `className` - Class name comes from top component (a)
+- {React.Component} `children` -  Ready to render content of link - contains icon, label and other stuff
+- {string} [`to`] - Contains `to` info of the item comes from menu content object
+- {string} [`target`] - If link is external, contains `_blank` string, otherwise `undefined`
+- {function} [`toggleSubMenu`] - If item has submenu, returns toggle trigger callback, otherwise `undefined`
 
 #### An Example
 Defining CustomLink Component
@@ -177,11 +255,11 @@ If you like to add or improve something, follow these steps.
 
 ```console
 # Change dir to your playground folder and clone repository.
-$ git clone git@github.com:alpertuna/react-metismenu.git
+git clone git@github.com:alpertuna/react-metismenu.git
 
 # Enter cloned folder and install necessary development node libraries
-$ cd react-metismenu
-$ npm install
+cd react-metismenu
+npm install
 ```
 
 #### Folders and Files
@@ -194,9 +272,9 @@ Under **`dev`** folder, `index.html` is index file of our web server. You don't 
 
 #### To run dev server,
 ```console
-$ npm run dev-server
+npm run dev-server
 # or shortly
-$ npm start
+npm start
 ```
 And open `localhost:8080` in browser.
 Dev server uses webpack and it has hot modul replecament plugins, so when you change and save any source file, it will rebuild virtual bundle and send signal browser to refresh page automaticly.
@@ -209,27 +287,27 @@ For source code quality, I applied Airbnb rules. Because it focuses on React mor
 ```console
 # TESTING
 # Runs all necessary test scripts (linting and unit-testing)
-$ npm test
+npm test
 
 # Or you can test specific parts of project
 # Lints js files according to Airbnb rules using Eslint
-$ npm run lint-confs
-$ npm run lint-src
-$ npm run lint-dev
+npm run lint-confs
+npm run lint-src
+npm run lint-dev
 # Runs unit test using Jest
-$ npm run unit-test
+npm run unit-test
 
 # BUILDING
 # Builds lib and dist files together
-$ npm run build
+npm run build
 
 # Or you can build them seperately
 # Builds js and css dist files
-$ npm run build-dist-js
-$ npm run build-dist-js-min
-$ npm run build-dist-css
-$ npm run build-dist-css-min
+npm run build-dist-js
+npm run build-dist-js-min
+npm run build-dist-css
+npm run build-dist-css-min
 # Builds lib files for npm
-$ npm run build-lib
+npm run build-lib
 
 ```
