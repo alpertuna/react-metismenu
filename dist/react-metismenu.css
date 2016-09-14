@@ -54,12 +54,10 @@
   background: #EEE;
   color: #333;
 }
-.metismenu-icon {
-  display: inline-block;
-  text-align: center;
+I.metismenu-icon {
   width: 2.2em;
 }
-SPAN.metismenu-iconlevel {
+I.metismenu-state-icon {
   float: right;
   line-height: 1.8em;
   text-align: center;

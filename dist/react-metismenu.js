@@ -105,21 +105,63 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @extends React.Component
 	 *
 	 * Props come from top component
-	 * @prop {string} [props.iconClassPrefix=fa fa-] - Prefix for all icon's style class name
-	 * @prop {string} [props.iconLevelDown=caret-left] - Icon name for state of collapsed containers
-	 * @prop {string} [props.iconLevelUp=caret-down] - Icon name for state of opened containers
+	 * @prop {string} [props.className] - Class name for main metismenu wrapper
+	 * @prop {string} [props.classNameContainer] - Class name for item container (ul)
+	 * @prop {string} [props.classNameContainerVisible] - Class name when container is visible
+	 * @prop {string} [props.classNameItem] - Class name for items in container (li)
+	 * @prop {string} [props.classNameLink] - Class name for links in items (a)
+	 * @prop {string} [props.classNameIcon] - Class name for link icons
+	 * @prop {string} [props.classNameStateIcon] - Class name for state indicators of submenu
+	 * @prop {boolean} [props.noBuiltInClassNames=false] - When true, core css class names won't be used
+	 * @prop {string} [props.iconNamePrefix=fa fa-] - Prefix for all icon's style class name
+	 * @prop {string} [props.iconNameStateVisible=caret-left] - Icon name for state of collapsed
+	 * containers
+	 * @prop {string} [props.iconNameStateHidden=caret-down] - Icon name for state of opened containers
 	 * @prop {React.Component} [props.LinkComponent=DefaultLinkComponent] - Handles link components of
 	 * all items
-	 * @prop {Object[]} [props.content=[]] - Recursive menu stracture
+	 * @prop {Object[]} [props.content=[]] - It keeps all recursive structure of Metismenu
 	 */
 	var MetisMenu = function MetisMenu(props) {
+	  // Prepare all classnames before deploying
+	  var className = '';
+	  var classNameContainer = '';
+	  var classNameContainerVisible = '';
+	  var classNameItem = '';
+	  var classNameLink = '';
+	  var classNameIcon = '';
+	  var classNameStateIcon = '';
+	  if (!props.noBuiltInClassNames) {
+	    className = 'metismenu';
+	    classNameContainer = 'metismenu-container';
+	    classNameContainerVisible = 'visible';
+	    classNameItem = 'metismenu-item';
+	    classNameLink = 'metismenu-link';
+	    classNameIcon = 'metismenu-icon';
+	    classNameStateIcon = 'metismenu-state-icon';
+	  }
+	  if (props.className) className += ' ' + props.className;
+	  if (props.classNameContainer) classNameContainer += ' ' + props.classNameContainer;
+	  if (props.classNameContainerVisible) {
+	    classNameContainerVisible += ' ' + props.classNameContainerVisible;
+	  }
+	  if (props.classNameItem) classNameItem += ' ' + props.classNameItem;
+	  if (props.classNameLink) classNameLink += ' ' + props.classNameLink;
+	  if (props.classNameIcon) classNameIcon += ' ' + props.classNameIcon;
+	  if (props.classNameStateIcon) classNameStateIcon += ' ' + props.classNameStateIcon;
+
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'metismenu' },
+	    { className: className },
 	    _react2.default.createElement(_Container2.default, {
-	      iconClassPrefix: props.iconClassPrefix || 'fa fa-',
-	      iconLevelDown: props.iconLevelDown || 'caret-left',
-	      iconLevelUp: props.iconLevelUp || 'caret-down',
+	      classNameContainer: classNameContainer,
+	      classNameContainerVisible: classNameContainerVisible,
+	      classNameItem: classNameItem,
+	      classNameLink: classNameLink,
+	      classNameIcon: classNameIcon,
+	      classNameStateIcon: classNameStateIcon,
+	      iconNamePrefix: props.iconNamePrefix || 'fa fa-',
+	      iconNameStateVisible: props.iconNameStateVisible || 'caret-left',
+	      iconNameStateHidden: props.iconNameStateHidden || 'caret-down',
 	      LinkComponent: props.LinkComponent || _DefaultLinkComponent2.default,
 	      content: props.content || []
 	    })
@@ -131,9 +173,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    */
 
 	MetisMenu.propTypes = {
-	  iconClassPrefix: _react.PropTypes.string,
-	  iconLevelDown: _react.PropTypes.string,
-	  iconLevelUp: _react.PropTypes.string,
+	  className: _react.PropTypes.string,
+	  classNameContainer: _react.PropTypes.string,
+	  classNameContainerVisible: _react.PropTypes.string,
+	  classNameItem: _react.PropTypes.string,
+	  classNameLink: _react.PropTypes.string,
+	  classNameIcon: _react.PropTypes.string,
+	  classNameStateIcon: _react.PropTypes.string,
+	  noBuiltInClassNames: _react.PropTypes.bool,
+	  iconNamePrefix: _react.PropTypes.string,
+	  iconNameStateVisible: _react.PropTypes.string,
+	  iconNameStateHidden: _react.PropTypes.string,
 	  LinkComponent: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.func]),
 	  content: _react.PropTypes.array
 	};
@@ -183,7 +233,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Item Container / Submenu Class
 	 *
-	 * Containers are levels of menu, and keep items.
+	 * Containers are levels of menu, and keep items. Refers to <ul>.
 	 * Also provides comminication between items to close each other's sub menu levels
 	 * @extends React.Component
 	 */
@@ -194,9 +244,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * Creates item container.
 	   *
 	   * Props come from top component
-	   * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
-	   * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
-	   * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+	   * @prop {string} props.classNameContainer - Class name for item container (ul)
+	   * @prop {string} props.classNameContainerVisible - Class name when container is visible
+	   * @prop {string} props.classNameItem - Class name for items in container (li)
+	   * @prop {string} props.classNameLink - Class name for links in items (a)
+	   * @prop {string} props.classNameIcon - Class name for link icons
+	   * @prop {string} props.classNameStateIcon - Class name for state indicators of submenu
+	   * @prop {string} props.iconNamePrefix - Prefix for all icon's style class name
+	   * @prop {string} props.iconNameStateVisible - Icon name for state of collapsed containers
+	   * @prop {string} props.iconNameStateHidden - Icon name for state of opened containers
 	   * @prop {React.Component} props.LinkComponent - Handles link components of all items
 	   *
 	   * Props come from parent Item
@@ -237,8 +293,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      var _this2 = this;
 
-	      var className = 'metismenu-container';
-	      if (this.props.visible) className += ' visible';
+	      var className = this.props.classNameContainer;
+	      if (this.props.visible) className += ' ' + this.props.classNameContainerVisible;
 
 	      this.items = [];
 
@@ -252,9 +308,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	              if (r !== null) _this2.items.push(r);
 	            },
 	            closePeerContainers: _this2.closeChildContainers,
-	            iconClassPrefix: _this2.props.iconClassPrefix,
-	            iconLevelDown: _this2.props.iconLevelDown,
-	            iconLevelUp: _this2.props.iconLevelUp,
+	            classNameContainer: _this2.props.classNameContainer,
+	            classNameContainerVisible: _this2.props.classNameContainerVisible,
+	            classNameItem: _this2.props.classNameItem,
+	            classNameLink: _this2.props.classNameLink,
+	            classNameIcon: _this2.props.classNameIcon,
+	            classNameStateIcon: _this2.props.classNameStateIcon,
+	            iconNamePrefix: _this2.props.iconNamePrefix,
+	            iconNameStateVisible: _this2.props.iconNameStateVisible,
+	            iconNameStateHidden: _this2.props.iconNameStateHidden,
 	            LinkComponent: _this2.props.LinkComponent
 	          }, item));
 	        })
@@ -266,9 +328,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_react.Component);
 
 	Container.propTypes = {
-	  iconClassPrefix: _react.PropTypes.string.isRequired,
-	  iconLevelDown: _react.PropTypes.string.isRequired,
-	  iconLevelUp: _react.PropTypes.string.isRequired,
+	  classNameContainer: _react.PropTypes.string.isRequired,
+	  classNameContainerVisible: _react.PropTypes.string.isRequired,
+	  classNameItem: _react.PropTypes.string.isRequired,
+	  classNameLink: _react.PropTypes.string.isRequired,
+	  classNameIcon: _react.PropTypes.string.isRequired,
+	  classNameStateIcon: _react.PropTypes.string.isRequired,
+	  iconNamePrefix: _react.PropTypes.string.isRequired,
+	  iconNameStateVisible: _react.PropTypes.string.isRequired,
+	  iconNameStateHidden: _react.PropTypes.string.isRequired,
 	  LinkComponent: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.func]).isRequired,
 	  visible: _react.PropTypes.bool,
 	  content: _react.PropTypes.array.isRequired
@@ -309,8 +377,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 17.08.2016
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
+	/* eslint max-len: ["error", { "code": 100, "ignoreTemplateLiterals": true }] */
+
 	/**
 	 * Menu Item Class
+	 * Refers to <li>.
 	 *
 	 * @extends React.Component
 	 */
@@ -321,9 +392,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * Creates link item
 	   *
 	   * Props comes from top component
-	   * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
-	   * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
-	   * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+	   * @prop {string} props.classNameContainer - Class name for item container (ul)
+	   * @prop {string} props.classNameContainerVisible - Class name when container is visible
+	   * @prop {string} props.classNameItem - Class name for items in container (li)
+	   * @prop {string} props.classNameLink - Class name for links in items (a)
+	   * @prop {string} props.classNameIcon - Class name for link icons
+	   * @prop {string} props.classNameStateIcon - Class name for state indicators of submenu
+	   * @prop {string} props.iconNamePrefix - Prefix for all icon's style class name
+	   * @prop {string} props.iconNameStateVisible - Icon name for state of collapsed containers
+	   * @prop {string} props.iconNameStateHidden - Icon name for state of opened containers
 	   * @prop {React.Component} props.LinkComponent - Handles link components of all items
 	   *
 	   * Props comes from parent Container
@@ -426,7 +503,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var LinkComponent = this.props.LinkComponent;
 
 	      var thisHasLevel = this.hasLevel();
-	      var iconClassName = 'metismenu-icon  ' + this.props.iconClassPrefix + this.props.icon;
+	      var iconClassName = this.props.classNameIcon + ' fa-fw ' + this.props.iconNamePrefix + this.props.icon;
 
 	      var to = void 0;
 	      var toggleContainer = void 0;
@@ -434,12 +511,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var target = void 0;
 
 	      if (thisHasLevel) {
-	        var className = 'metismenu-iconlevel ' + this.props.iconClassPrefix;
-	        className += this.state.containerVisibility ? this.props.iconLevelUp : this.props.iconLevelDown;
+	        var className = this.props.classNameStateIcon + ' ' + this.props.iconNamePrefix;
+	        className += this.state.containerVisibility ? this.props.iconNameStateHidden : this.props.iconNameStateVisible;
 
 	        to = '#';
 	        toggleContainer = this.toggleContainer;
-	        iconLevel = _react2.default.createElement('span', { className: className });
+	        iconLevel = _react2.default.createElement('i', { className: className });
 	      } else {
 	        to = this.props.to;
 	        iconLevel = null;
@@ -451,11 +528,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      return _react2.default.createElement(
 	        'li',
-	        { className: 'metismenu-item' },
+	        { className: this.props.classNameItem },
 	        _react2.default.createElement(
 	          LinkComponent,
-	          { target: target, to: to, toggleSubMenu: toggleContainer },
-	          _react2.default.createElement('span', { className: iconClassName }),
+	          {
+	            className: this.props.classNameLink,
+	            target: target,
+	            to: to,
+	            toggleSubMenu: toggleContainer
+	          },
+	          _react2.default.createElement('i', { className: iconClassName }),
 	          this.props.label,
 	          iconLevel
 	        ),
@@ -464,10 +546,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _this2.container = r;
 	          },
 	          visible: this.state.containerVisibility,
-
-	          iconClassPrefix: this.props.iconClassPrefix,
-	          iconLevelDown: this.props.iconLevelDown,
-	          iconLevelUp: this.props.iconLevelUp,
+	          classNameContainer: this.props.classNameContainer,
+	          classNameContainerVisible: this.props.classNameContainerVisible,
+	          classNameItem: this.props.classNameItem,
+	          classNameLink: this.props.classNameLink,
+	          classNameIcon: this.props.classNameIcon,
+	          classNameStateIcon: this.props.classNameStateIcon,
+	          iconNamePrefix: this.props.iconNamePrefix,
+	          iconNameStateVisible: this.props.iconNameStateVisible,
+	          iconNameStateHidden: this.props.iconNameStateHidden,
 	          LinkComponent: LinkComponent,
 	          content: this.props.content
 	        })
@@ -479,9 +566,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_react.Component);
 
 	Item.propTypes = {
-	  iconClassPrefix: _react.PropTypes.string.isRequired,
-	  iconLevelDown: _react.PropTypes.string.isRequired,
-	  iconLevelUp: _react.PropTypes.string.isRequired,
+	  classNameContainer: _react.PropTypes.string.isRequired,
+	  classNameContainerVisible: _react.PropTypes.string.isRequired,
+	  classNameItem: _react.PropTypes.string.isRequired,
+	  classNameLink: _react.PropTypes.string.isRequired,
+	  classNameIcon: _react.PropTypes.string.isRequired,
+	  classNameStateIcon: _react.PropTypes.string.isRequired,
+	  iconNamePrefix: _react.PropTypes.string.isRequired,
+	  iconNameStateVisible: _react.PropTypes.string.isRequired,
+	  iconNameStateHidden: _react.PropTypes.string.isRequired,
 	  LinkComponent: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.func]).isRequired,
 	  closePeerContainers: _react.PropTypes.func.isRequired,
 	  icon: _react.PropTypes.string,
@@ -497,7 +590,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -515,6 +608,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @constructor
 	 * @extends React.Component
 	 *
+	 * Props come from top component
+	 * @prop {string} props.className - Class name for links in items (a)
+	 *
 	 * Props come from Item component
 	 * @prop {boolean} [props.target] - Specifies external or not
 	 * @prop {string} [props.to] - Href address to link
@@ -523,8 +619,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	var DefaultLinkComponent = function DefaultLinkComponent(props) {
 	  return _react2.default.createElement(
-	    "a",
-	    { className: "metismenu-link", target: props.target, href: props.to, onClick: props.toggleSubMenu },
+	    'a',
+	    {
+	      className: props.className,
+	      target: props.target,
+	      href: props.to,
+	      onClick: props.toggleSubMenu
+	    },
 	    props.children
 	  );
 	}; /**
@@ -534,9 +635,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    */
 
 	DefaultLinkComponent.propTypes = {
-	  target: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.boolean]),
+	  className: _react.PropTypes.string.isRequired,
+	  target: _react.PropTypes.string,
 	  to: _react.PropTypes.string,
-	  toggleSubMenu: _react.PropTypes.oneOfType([_react.PropTypes.func, _react.PropTypes.boolean]),
+	  toggleSubMenu: _react.PropTypes.func,
 	  children: _react.PropTypes.oneOfType([_react.PropTypes.array, _react.PropTypes.element]).isRequired
 	};
 
