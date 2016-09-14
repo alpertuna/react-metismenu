@@ -14,6 +14,8 @@ react-metismenu is under development now, It is time to contribute :blush:
 
 **Important note:** After v0.5 styles are not embedded anymore. Need to include in html source.
 
+**Important note**: After v0.6 names of props about css classes has been changed.
+
 Demo
 ====
 Here is a simple demo without any customizations. [Go to demo](https://alpertuna.github.io/react-metismenu/)
@@ -62,18 +64,28 @@ Properties
 ==========
 MetisMenu (React component) properties
 
-* [`content`=`[]`] {Object[]} - It keeps all recursive structure of Metismenu
-* [`iconClassPrefix`=`fa fa-`] {string} - Prefix for all icon's style class
-* [`iconLevelDown`=`caret-left`] {string} - Icon class name for state of collapsed sub menus
-* [`iconLevelUp`=`caret-down`] {string} - Icon class name for state of opened sub menus
-* [`LinkComponent`=`DefaultLinkComponent`] {React.Component} - Custom link component class for each item (See: [Customizing Link Component](#customizing-link-component))
+* {string} [props.className] - Class name for main metismenu wrapper
+* {string} [props.classNameContainer] - Class name for item container (ul)
+* {string} [props.classNameContainerVisible] - Class name when container is visible
+* {string} [props.classNameItem] - Class name for items in container (li)
+* {string} [props.classNameLink] - Class name for links in items (a)
+* {string} [props.classNameIcon] - Class name for link icons
+* {string} [props.classNameStateIcon] - Class name for state indicators of submenu
+* {boolean} [props.noBuiltInClassNames=false] - When true, core css class names won't be used
+* {string} [props.iconNamePrefix=fa fa-] - Prefix for all icon's style class name
+* {string} [props.iconNameStateHidden=caret-left] - Icon name for state of collapsed
+* containers
+* {string} [props.iconNameStateVisible=caret-down] - Icon name for state of opened containers
+* {React.Component} [props.LinkComponent=DefaultLinkComponent] - Handles link components of all items (See: [Customizing Link Component](#customizing-link-component))
+* {Object[]} [props.content=[]] - It keeps all recursive structure of Metismenu
 
 Properties for each item in content
-* `icon` {string} - Icon class name of item
-* `label` {string} - Label of item
-* [`to`] {string} - Href address to link (if item has submenu, `to` property will be ignored by `DefaultLinkComponent`)
-* [`externalLink`] {boolean} - If true link opens page in new tab/window
-* [`content`] {Object[]} - Submenu of item
+
+* {string} icon - Icon class name of item
+* {string} label - Label of item
+* {string} [to] - Href address to link (if item has submenu, `to` property will be ignored by `DefaultLinkComponent`)
+* {boolean} [externalLink] - If true link opens page in new tab/window
+* {Object[]} [content] - Submenu of item
 
 Example
 =======
@@ -111,10 +123,11 @@ You are able to change the link component of each item.
 You may use another html tag, want to inject some properties or change operation logic. In this case, you can customize and use your own link component sending to `Menu` component as `LinkComponent` property.
 
 #### Props to use in your Link Component
-- `props.children` {React.Component | React.Component[]} -  Ready to render content of link - contains icon, label and other stuff
-- [`props.to`] {string} - Contains `to` info of the item comes from menu content object
-- [`props.target`] {string} - If link is external, contains `_blank` string, otherwise `undefined`
-- [`props.toggleSubMenu`] {function} - If item has submenu, returns toggle trigger callback, otherwise `undefined`
+- {string} props.className - Class name comes from top component (a)
+- {React.Component | React.Component[]} `props.children` -  Ready to render content of link - contains icon, label and other stuff
+- {string} [props.to] - Contains `to` info of the item comes from menu content object
+- {string} [props.target] - If link is external, contains `_blank` string, otherwise `undefined`
+- {function} [props.toggleSubMenu] - If item has submenu, returns toggle trigger callback, otherwise `undefined`
 
 #### An Example
 Defining CustomLink Component

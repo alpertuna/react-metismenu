@@ -12,6 +12,9 @@ import React, { PropTypes } from 'react';
  * @constructor
  * @extends React.Component
  *
+ * Props come from top component
+ * @prop {string} props.className - Class name for links in items (a)
+ *
  * Props come from Item component
  * @prop {boolean} [props.target] - Specifies external or not
  * @prop {string} [props.to] - Href address to link
@@ -19,21 +22,21 @@ import React, { PropTypes } from 'react';
  * @prop {React.Component} props.children - Contents of link (label, icons..)
  */
 const DefaultLinkComponent = props => (
-  <a className="metismenu-link" target={props.target} href={props.to} onClick={props.toggleSubMenu}>
+  <a
+    className={props.className}
+    target={props.target}
+    href={props.to}
+    onClick={props.toggleSubMenu}
+  >
     {props.children}
   </a>
 );
 
 DefaultLinkComponent.propTypes = {
-  target: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.boolean,
-  ]),
+  className: PropTypes.string.isRequired,
+  target: PropTypes.string,
   to: PropTypes.string,
-  toggleSubMenu: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.boolean,
-  ]),
+  toggleSubMenu: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.element,

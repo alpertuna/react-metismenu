@@ -5,11 +5,14 @@
  * Date: 17.08.2016
  */
 
+/* eslint max-len: ["error", { "code": 100, "ignoreTemplateLiterals": true }] */
+
 import React, { Component, PropTypes } from 'react';
 import Container from './Container';
 
 /**
  * Menu Item Class
+ * Refers to <li>.
  *
  * @extends React.Component
  */
@@ -18,9 +21,15 @@ class Item extends Component {
    * Creates link item
    *
    * Props comes from top component
-   * @prop {string} props.iconClassPrefix - Prefix for all icon's style class name
-   * @prop {string} props.iconLevelDown - Icon name for state of collapsed containers
-   * @prop {string} props.iconLevelUp - Icon name for state of opened containers
+   * @prop {string} props.classNameContainer - Class name for item container (ul)
+   * @prop {string} props.classNameContainerVisible - Class name when container is visible
+   * @prop {string} props.classNameItem - Class name for items in container (li)
+   * @prop {string} props.classNameLink - Class name for links in items (a)
+   * @prop {string} props.classNameIcon - Class name for link icons
+   * @prop {string} props.classNameStateIcon - Class name for state indicators of submenu
+   * @prop {string} props.iconNamePrefix - Prefix for all icon's style class name
+   * @prop {string} props.iconNameStateVisible - Icon name for state of collapsed containers
+   * @prop {string} props.iconNameStateHidden - Icon name for state of opened containers
    * @prop {React.Component} props.LinkComponent - Handles link components of all items
    *
    * Props comes from parent Container
@@ -99,7 +108,7 @@ class Item extends Component {
     const LinkComponent = this.props.LinkComponent;
 
     const thisHasLevel = this.hasLevel();
-    const iconClassName = `metismenu-icon  ${this.props.iconClassPrefix}${this.props.icon}`;
+    const iconClassName = `${this.props.classNameIcon} fa-fw ${this.props.iconNamePrefix}${this.props.icon}`;
 
     let to;
     let toggleContainer;
@@ -107,14 +116,14 @@ class Item extends Component {
     let target;
 
     if (thisHasLevel) {
-      let className = `metismenu-iconlevel ${this.props.iconClassPrefix}`;
+      let className = `${this.props.classNameStateIcon} ${this.props.iconNamePrefix}`;
       className += this.state.containerVisibility
-        ? this.props.iconLevelUp
-        : this.props.iconLevelDown;
+        ? this.props.iconNameStateHidden
+        : this.props.iconNameStateVisible;
 
       to = '#';
       toggleContainer = this.toggleContainer;
-      iconLevel = <span className={className} />;
+      iconLevel = <i className={className} />;
     } else {
       to = this.props.to;
       iconLevel = null;
@@ -125,19 +134,29 @@ class Item extends Component {
     }
 
     return (
-      <li className="metismenu-item">
-        <LinkComponent target={target} to={to} toggleSubMenu={toggleContainer}>
-          <span className={iconClassName} />
+      <li className={this.props.classNameItem}>
+        <LinkComponent
+          className={this.props.classNameLink}
+          target={target}
+          to={to}
+          toggleSubMenu={toggleContainer}
+        >
+          <i className={iconClassName} />
           {this.props.label}
           {iconLevel}
         </LinkComponent>
         {thisHasLevel && <Container
           ref={r => { this.container = r; }}
           visible={this.state.containerVisibility}
-
-          iconClassPrefix={this.props.iconClassPrefix}
-          iconLevelDown={this.props.iconLevelDown}
-          iconLevelUp={this.props.iconLevelUp}
+          classNameContainer={this.props.classNameContainer}
+          classNameContainerVisible={this.props.classNameContainerVisible}
+          classNameItem={this.props.classNameItem}
+          classNameLink={this.props.classNameLink}
+          classNameIcon={this.props.classNameIcon}
+          classNameStateIcon={this.props.classNameStateIcon}
+          iconNamePrefix={this.props.iconNamePrefix}
+          iconNameStateVisible={this.props.iconNameStateVisible}
+          iconNameStateHidden={this.props.iconNameStateHidden}
           LinkComponent={LinkComponent}
           content={this.props.content}
         />}
@@ -147,9 +166,15 @@ class Item extends Component {
 }
 
 Item.propTypes = {
-  iconClassPrefix: PropTypes.string.isRequired,
-  iconLevelDown: PropTypes.string.isRequired,
-  iconLevelUp: PropTypes.string.isRequired,
+  classNameContainer: PropTypes.string.isRequired,
+  classNameContainerVisible: PropTypes.string.isRequired,
+  classNameItem: PropTypes.string.isRequired,
+  classNameLink: PropTypes.string.isRequired,
+  classNameIcon: PropTypes.string.isRequired,
+  classNameStateIcon: PropTypes.string.isRequired,
+  iconNamePrefix: PropTypes.string.isRequired,
+  iconNameStateVisible: PropTypes.string.isRequired,
+  iconNameStateHidden: PropTypes.string.isRequired,
   LinkComponent: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.func,
