@@ -1,0 +1,431 @@
+exports[`Menu with customized class names and built-in classes 1`] = `
+<div
+  className="metismenu test-c">
+  <ul
+    className="metismenu-container test-cc">
+    <li
+      className="metismenu-item test-ci">
+      <a
+        className="metismenu-link test-cl"
+        href="#item-1"
+        onClick={undefined}
+        target={undefined}>
+        <i
+          className="metismenu-icon test-cic fa-fw test-ipbolt" />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item test-ci">
+      <a
+        className="metismenu-link test-cl"
+        href="#"
+        onClick={[Function bound toggleContainer]}
+        target={undefined}>
+        <i
+          className="metismenu-icon test-cic fa-fw test-ipbell" />
+        Item 2
+        <i
+          className="metismenu-state-icon test-iptest-ish" />
+      </a>
+      <ul
+        className="metismenu-container test-cc">
+        <li
+          className="metismenu-item test-ci">
+          <a
+            className="metismenu-link test-cl"
+            href="#sub-item-1"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className="metismenu-icon test-cic fa-fw test-ipeye" />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item test-ci">
+          <a
+            className="metismenu-link test-cl"
+            href="#sub-item-2"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className="metismenu-icon test-cic fa-fw test-ipglobe" />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item test-ci">
+      <a
+        className="metismenu-link test-cl"
+        href="#"
+        onClick={[Function bound toggleContainer]}
+        target={undefined}>
+        <i
+          className="metismenu-icon test-cic fa-fw test-ipbell" />
+        Item 3
+        <i
+          className="metismenu-state-icon test-iptest-ish" />
+      </a>
+      <ul
+        className="metismenu-container test-cc">
+        <li
+          className="metismenu-item test-ci">
+          <a
+            className="metismenu-link test-cl"
+            href="#sub-item-3"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className="metismenu-icon test-cic fa-fw test-ipeye" />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item test-ci">
+          <a
+            className="metismenu-link test-cl"
+            href="#"
+            onClick={[Function bound toggleContainer]}
+            target={undefined}>
+            <i
+              className="metismenu-icon test-cic fa-fw test-ipglobe" />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon test-iptest-ish" />
+          </a>
+          <ul
+            className="metismenu-container test-cc">
+            <li
+              className="metismenu-item test-ci">
+              <a
+                className="metismenu-link test-cl"
+                href="#level-3-item-1"
+                onClick={undefined}
+                target={undefined}>
+                <i
+                  className="metismenu-icon test-cic fa-fw test-ipbolt" />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item test-ci">
+              <a
+                className="metismenu-link test-cl"
+                href="#level-3-item-2"
+                onClick={undefined}
+                target={undefined}>
+                <i
+                  className="metismenu-icon test-cic fa-fw test-ipbell" />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item test-ci">
+      <a
+        className="metismenu-link test-cl"
+        href="http://www.google.com"
+        onClick={undefined}
+        target="_blank">
+        <i
+          className="metismenu-icon test-cic fa-fw test-ipexternal-url" />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with customized class names and no built-in classes 1`] = `
+<div
+  className=" test-c">
+  <ul
+    className=" test-cc">
+    <li
+      className=" test-ci">
+      <a
+        className=" test-cl"
+        href="#item-1"
+        onClick={undefined}
+        target={undefined}>
+        <i
+          className=" test-cic fa-fw test-ipbolt" />
+        Item 1
+      </a>
+    </li>
+    <li
+      className=" test-ci">
+      <a
+        className=" test-cl"
+        href="#"
+        onClick={[Function bound toggleContainer]}
+        target={undefined}>
+        <i
+          className=" test-cic fa-fw test-ipbell" />
+        Item 2
+        <i
+          className=" test-iptest-ish" />
+      </a>
+      <ul
+        className=" test-cc">
+        <li
+          className=" test-ci">
+          <a
+            className=" test-cl"
+            href="#sub-item-1"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className=" test-cic fa-fw test-ipeye" />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className=" test-ci">
+          <a
+            className=" test-cl"
+            href="#sub-item-2"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className=" test-cic fa-fw test-ipglobe" />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className=" test-ci">
+      <a
+        className=" test-cl"
+        href="#"
+        onClick={[Function bound toggleContainer]}
+        target={undefined}>
+        <i
+          className=" test-cic fa-fw test-ipbell" />
+        Item 3
+        <i
+          className=" test-iptest-ish" />
+      </a>
+      <ul
+        className=" test-cc">
+        <li
+          className=" test-ci">
+          <a
+            className=" test-cl"
+            href="#sub-item-3"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className=" test-cic fa-fw test-ipeye" />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className=" test-ci">
+          <a
+            className=" test-cl"
+            href="#"
+            onClick={[Function bound toggleContainer]}
+            target={undefined}>
+            <i
+              className=" test-cic fa-fw test-ipglobe" />
+            Sub Item 4
+            <i
+              className=" test-iptest-ish" />
+          </a>
+          <ul
+            className=" test-cc">
+            <li
+              className=" test-ci">
+              <a
+                className=" test-cl"
+                href="#level-3-item-1"
+                onClick={undefined}
+                target={undefined}>
+                <i
+                  className=" test-cic fa-fw test-ipbolt" />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className=" test-ci">
+              <a
+                className=" test-cl"
+                href="#level-3-item-2"
+                onClick={undefined}
+                target={undefined}>
+                <i
+                  className=" test-cic fa-fw test-ipbell" />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className=" test-ci">
+      <a
+        className=" test-cl"
+        href="http://www.google.com"
+        onClick={undefined}
+        target="_blank">
+        <i
+          className=" test-cic fa-fw test-ipexternal-url" />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with no built-in classes 1`] = `
+<div
+  className="">
+  <ul
+    className="">
+    <li
+      className="">
+      <a
+        className=""
+        href="#item-1"
+        onClick={undefined}
+        target={undefined}>
+        <i
+          className=" fa-fw fa fa-bolt" />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="">
+      <a
+        className=""
+        href="#"
+        onClick={[Function bound toggleContainer]}
+        target={undefined}>
+        <i
+          className=" fa-fw fa fa-bell" />
+        Item 2
+        <i
+          className=" fa fa-caret-left" />
+      </a>
+      <ul
+        className="">
+        <li
+          className="">
+          <a
+            className=""
+            href="#sub-item-1"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className=" fa-fw fa fa-eye" />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="">
+          <a
+            className=""
+            href="#sub-item-2"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className=" fa-fw fa fa-globe" />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="">
+      <a
+        className=""
+        href="#"
+        onClick={[Function bound toggleContainer]}
+        target={undefined}>
+        <i
+          className=" fa-fw fa fa-bell" />
+        Item 3
+        <i
+          className=" fa fa-caret-left" />
+      </a>
+      <ul
+        className="">
+        <li
+          className="">
+          <a
+            className=""
+            href="#sub-item-3"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className=" fa-fw fa fa-eye" />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="">
+          <a
+            className=""
+            href="#"
+            onClick={[Function bound toggleContainer]}
+            target={undefined}>
+            <i
+              className=" fa-fw fa fa-globe" />
+            Sub Item 4
+            <i
+              className=" fa fa-caret-left" />
+          </a>
+          <ul
+            className="">
+            <li
+              className="">
+              <a
+                className=""
+                href="#level-3-item-1"
+                onClick={undefined}
+                target={undefined}>
+                <i
+                  className=" fa-fw fa fa-bolt" />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="">
+              <a
+                className=""
+                href="#level-3-item-2"
+                onClick={undefined}
+                target={undefined}>
+                <i
+                  className=" fa-fw fa fa-bell" />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="">
+      <a
+        className=""
+        href="http://www.google.com"
+        onClick={undefined}
+        target="_blank">
+        <i
+          className=" fa-fw fa fa-external-url" />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;

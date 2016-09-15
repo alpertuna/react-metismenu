@@ -1,5 +1,5 @@
 /**
- * __tests__/virtual-dom-test.js
+ * collapse.virtual-dom.jsx
  * Author: H.Alper Tuna <halpertuna@gmail.com>
  * Date: 20.08.2016
  */
@@ -12,40 +12,11 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { wrap } from 'react-stateless-wrapper';
-
 import Menu from '../src/MetisMenu';
+import content from './CONTENT.json';
 
-describe('Menu items', () => {
+describe('Menu with recursive content', () => {
   // Create test component
-  const content = [
-    { label: 'Item 1', to: '#item-1', icon: 'bolt' },
-    {
-      label: 'Item 2',
-      to: '#item-2',
-      icon: 'bell',
-      content: [
-        { label: 'Sub Item 1', to: '#sub-item-1', icon: 'eye' },
-        { label: 'Sub Item 2', to: '#sub-item-2', icon: 'globe' },
-      ],
-    },
-    {
-      label: 'Item 3',
-      to: '#item-3',
-      icon: 'bell',
-      content: [
-        { label: 'Sub Item 3', to: '#sub-item-3', icon: 'eye' },
-        {
-          label: 'Sub Item 4',
-          to: '#sub-item-4',
-          icon: 'globe',
-          content: [
-            { label: 'Level 3 Item 1', to: '#level-3-item-1', icon: 'bolt' },
-            { label: 'Level 3 Item 2', to: '#level-3-item-2', icon: 'bell' },
-          ],
-        },
-      ],
-    },
-  ];
   const WrappedMenu = wrap(Menu);
   const component = TestUtils.renderIntoDocument(<WrappedMenu content={content} />);
 
@@ -69,10 +40,8 @@ describe('Menu items', () => {
         break;
     }
 
-    const link = TestUtils.scryRenderedDOMComponentsWithTag(component, 'a')[linkIndex];
-
     return {
-      link,
+      link: TestUtils.scryRenderedDOMComponentsWithTag(component, 'a')[linkIndex],
       container: TestUtils.scryRenderedDOMComponentsWithTag(component, 'ul')[containerIndex],
     };
   }
@@ -83,7 +52,7 @@ describe('Menu items', () => {
     expect(getItem('subItem4').link.textContent).toBe('Sub Item 4');
   });
 
-  it('changes class and caret icon when clicked', () => {
+  it('changes class and caret icon of "Item 3" when you click it', () => {
     // Click Item 3
     TestUtils.Simulate.click(getItem('item3').link);
     // Caret icon
@@ -94,7 +63,9 @@ describe('Menu items', () => {
     expect(
       getItem('item3').container.classList.contains('visible')
     ).toBeTruthy();
+  });
 
+  it('changes class and caret icon of "Sub Item 4" when you click it', () => {
     // Click Sub Item 4
     TestUtils.Simulate.click(getItem('subItem4').link);
     // Caret icon
@@ -107,7 +78,7 @@ describe('Menu items', () => {
     ).toBeTruthy();
   });
 
-  it('collapses peer items and submenus of them when clicked', () => {
+  it('collapses peer item "Item 3" and submenu "Sub Item 4" of it when you click "Item 2"', () => {
     // Click Item 2
     TestUtils.Simulate.click(getItem('item2').link);
     // Caret icon
@@ -137,6 +108,19 @@ describe('Menu items', () => {
     // Container visibility
     expect(
       getItem('subItem4').container.classList.contains('visible')
+    ).toBeFalsy();
+  });
+
+  it('collapses "Item 2" back when you click again', () => {
+    // Click Item 2
+    TestUtils.Simulate.click(getItem('item2').link);
+    // Caret icon
+    expect(
+      getItem('item2').link.children[1].classList.contains('fa-caret-left')
+    ).toBeTruthy();
+    // Container visibility
+    expect(
+      getItem('item2').container.classList.contains('visible')
     ).toBeFalsy();
   });
 });

@@ -29,7 +29,6 @@
     ],
     "moduleFileExtensions": [
       "js",
-      "json",
       "jsx"
     ]
   },
@@ -44,7 +43,8 @@
     "json",
     "collapsable",
     "animated",
-    "smooth"
+    "smooth",
+    "customizable"
   ],
   "author": "H.Alper Tuna <halpertuna@gmail.com>",
   "license": "MIT",

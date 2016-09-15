@@ -1,0 +1,143 @@
+exports[`Menu with recursive content looks like without any interact 1`] = `
+<div
+  className="metismenu">
+  <ul
+    className="metismenu-container">
+    <li
+      className="metismenu-item">
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={undefined}
+        target={undefined}>
+        <i
+          className="metismenu-icon fa-fw fa fa-bolt" />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item">
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function bound toggleContainer]}
+        target={undefined}>
+        <i
+          className="metismenu-icon fa-fw fa fa-bell" />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left" />
+      </a>
+      <ul
+        className="metismenu-container">
+        <li
+          className="metismenu-item">
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className="metismenu-icon fa-fw fa fa-eye" />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item">
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className="metismenu-icon fa-fw fa fa-globe" />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item">
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function bound toggleContainer]}
+        target={undefined}>
+        <i
+          className="metismenu-icon fa-fw fa fa-bell" />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left" />
+      </a>
+      <ul
+        className="metismenu-container">
+        <li
+          className="metismenu-item">
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={undefined}
+            target={undefined}>
+            <i
+              className="metismenu-icon fa-fw fa fa-eye" />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item">
+          <a
+            className="metismenu-link"
+            href="#"
+            onClick={[Function bound toggleContainer]}
+            target={undefined}>
+            <i
+              className="metismenu-icon fa-fw fa fa-globe" />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left" />
+          </a>
+          <ul
+            className="metismenu-container">
+            <li
+              className="metismenu-item">
+              <a
+                className="metismenu-link"
+                href="#level-3-item-1"
+                onClick={undefined}
+                target={undefined}>
+                <i
+                  className="metismenu-icon fa-fw fa fa-bolt" />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item">
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={undefined}
+                target={undefined}>
+                <i
+                  className="metismenu-icon fa-fw fa fa-bell" />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item">
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={undefined}
+        target="_blank">
+        <i
+          className="metismenu-icon fa-fw fa fa-external-url" />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;

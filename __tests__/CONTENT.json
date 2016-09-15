@@ -1,0 +1,35 @@
+[
+  { "label": "Item 1", "to": "#item-1", "icon": "bolt" },
+  {
+    "label": "Item 2",
+    "to": "#item-2",
+    "icon": "bell",
+    "content": [
+      { "label": "Sub Item 1", "to": "#sub-item-1", "icon": "eye" },
+      { "label": "Sub Item 2", "to": "#sub-item-2", "icon": "globe" }
+    ]
+  },
+  {
+    "label": "Item 3",
+    "to": "#item-3",
+    "icon": "bell",
+    "content": [
+      { "label": "Sub Item 3", "to": "#sub-item-3", "icon": "eye" },
+      {
+        "label": "Sub Item 4",
+        "to": "#sub-item-4",
+        "icon": "globe",
+        "content": [
+          { "label": "Level 3 Item 1", "to": "#level-3-item-1", "icon": "bolt" },
+          { "label": "Level 3 Item 2", "to": "#level-3-item-2", "icon": "bell" }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "External Url",
+    "to": "http://www.google.com",
+    "icon": "external-url",
+    "externalLink": true
+  }
+]
