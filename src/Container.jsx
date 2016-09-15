@@ -44,8 +44,6 @@ class Container extends Component {
    * Closes all sub containers
    */
   closeChildContainers() {
-    if (!this.props.content) return;
-
     this.items.forEach(item => {
       item.closeContainer();
     });

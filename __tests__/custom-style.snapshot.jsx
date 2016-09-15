@@ -28,7 +28,7 @@ describe('Menu', () => {
       classNameItem: 'test-ci',
       classNameLink: 'test-cl',
       classNameIcon: 'test-cic',
-      classnameStateIcon: 'test-csi',
+      classNameStateIcon: 'test-csi',
       iconNamePrefix: 'test-ip',
       iconNameStateVisible: 'test-isv',
       iconNameStateHidden: 'test-ish',

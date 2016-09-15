@@ -26,7 +26,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           className="metismenu-icon test-cic fa-fw test-ipbell" />
         Item 2
         <i
-          className="metismenu-state-icon test-iptest-ish" />
+          className="metismenu-state-icon test-csi test-iptest-ish" />
       </a>
       <ul
         className="metismenu-container test-cc">
@@ -67,7 +67,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           className="metismenu-icon test-cic fa-fw test-ipbell" />
         Item 3
         <i
-          className="metismenu-state-icon test-iptest-ish" />
+          className="metismenu-state-icon test-csi test-iptest-ish" />
       </a>
       <ul
         className="metismenu-container test-cc">
@@ -94,7 +94,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
               className="metismenu-icon test-cic fa-fw test-ipglobe" />
             Sub Item 4
             <i
-              className="metismenu-state-icon test-iptest-ish" />
+              className="metismenu-state-icon test-csi test-iptest-ish" />
           </a>
           <ul
             className="metismenu-container test-cc">
@@ -170,7 +170,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
           className=" test-cic fa-fw test-ipbell" />
         Item 2
         <i
-          className=" test-iptest-ish" />
+          className=" test-csi test-iptest-ish" />
       </a>
       <ul
         className=" test-cc">
@@ -211,7 +211,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
           className=" test-cic fa-fw test-ipbell" />
         Item 3
         <i
-          className=" test-iptest-ish" />
+          className=" test-csi test-iptest-ish" />
       </a>
       <ul
         className=" test-cc">
@@ -238,7 +238,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
               className=" test-cic fa-fw test-ipglobe" />
             Sub Item 4
             <i
-              className=" test-iptest-ish" />
+              className=" test-csi test-iptest-ish" />
           </a>
           <ul
             className=" test-cc">
