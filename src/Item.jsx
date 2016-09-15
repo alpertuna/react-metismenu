@@ -22,7 +22,7 @@ class Item extends Component {
    *
    * Props comes from top component
    * @prop {string} props.classNameContainer - Class name for item container (ul)
-   * @prop {string} props.classNameContainerVisible - Class name when container is visible
+   * @prop {string} props.classNameContainerVisible - Additional class when container is visible
    * @prop {string} props.classNameItem - Class name for items in container (li)
    * @prop {string} props.classNameLink - Class name for links in items (a)
    * @prop {string} props.classNameIcon - Class name for link icons
