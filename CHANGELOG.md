@@ -123,7 +123,7 @@
 - Development tools
 - Core css file
 
-[1.0.0]: https://github.com/alpertuna/react-metismenu/compare/v0.6.0...v1.0.0
+[1.0.0-alpha.1]: https://github.com/alpertuna/react-metismenu/compare/v0.6.0...v1.0.0-alpha.1
 [0.6.0]: https://github.com/alpertuna/react-metismenu/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/alpertuna/react-metismenu/compare/v0.4.2...v0.5.0
 [0.4.2]: https://github.com/alpertuna/react-metismenu/compare/v0.3.4...v0.4.2
