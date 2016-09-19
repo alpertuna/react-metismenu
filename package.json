@@ -1,15 +1,15 @@
 {
   "name": "react-metismenu",
   "version": "0.6.0",
-  "description": "A ready-to-use menu component for React",
-  "main": "lib/main.js",
+  "description": "A ready / simple to use, highly customizable, updateable, ajax supported and animated menu component for React",
+  "main": "lib/index.js",
   "scripts": {
     "dev-server": "webpack-dev-server --config webpack/dev.conf.js --progress --colors --hot --inline",
     "start": "npm run dev-server",
     "build-dist-js-min": "webpack --config webpack/dist-min.conf.js --progress --colors",
     "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
-    "build-dist-css-min": "lessc --clean-css less/style.less dist/react-metismenu.min.css",
-    "build-dist-css": "lessc less/style.less dist/react-metismenu.css",
+    "build-dist-css-min": "lessc --clean-css less/standart.less dist/react-metismenu-standart.min.css",
+    "build-dist-css": "lessc less/standart.less dist/react-metismenu-standart.css",
     "build-lib": "rm -rf lib && babel src -d lib",
     "build-dist": "rm -rf dist && npm run build-dist-js && npm run build-dist-js-min && npm run build-dist-css && npm run build-dist-css-min",
     "build": "npm run build-lib && npm run build-dist",
@@ -19,11 +19,15 @@
     "unit-test": "jest",
     "coverage": "jest --coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "npm run lint-confs && npm run lint-src && npm run coverage"
+    "test": "npm run lint-confs && npm run lint-src && npm run coverage",
+    "prepublish": "npm run test && npm run build"
   },
   "jest": {
     "testRegex": "/__tests__/.*\\.jsx?$",
-		"moduleFileExtensions": [ "js", "jsx" ]
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
   },
   "repository": {
     "type": "git",
@@ -65,7 +69,6 @@
     "react": "^15.3.1",
     "react-addons-test-utils": "^15.3.1",
     "react-dom": "^15.3.1",
-    "react-stateless-wrapper": "^1.0.7",
     "react-test-renderer": "^15.3.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
@@ -73,5 +76,11 @@
   },
   "peerDependencies": {
     "react": "^0.14 || ^15.0.0-rc || ^15.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "simple-ajax": "^2.6.0"
   }
 }
