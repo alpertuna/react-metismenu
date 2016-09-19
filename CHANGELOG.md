@@ -1,0 +1,136 @@
+## [1.0.0-alpha.1] - 2016-09-19
+### Added
+- New unit tests
+- Dark theme as standart style
+- Active link control support
+- Flat content support
+- Remote json content support
+- Examples and guides for new supports to `README.md`
+- `CHANGELOG.md` file
+
+### Changed
+- Dev application
+- Demo page
+
+### Fixed
+- Rearranged unit tests
+
+## [0.6.0] - 2016-09-15
+### Added
+- Customizable class name support
+- Customizing Styles part to `README.md`
+
+## [0.5.0] - 2016-09-12
+### Added
+- `react-metismenu-router-link` extension information to `README.md`
+- Css files to `dist` folder
+
+### Changed
+- Styles are seperated from bundle
+- Prop names about icons
+
+## [0.4.2] - 2016-09-08
+### Added
+- Built dist files
+
+## 0.4.1 - 2016-09-08 [YANKED]
+### Changed
+- `onClick` prop name of `LinkComponent` to `toggleSubMenu`
+
+## 0.4.0 - 2016-09-07 [YANKED]
+### Added
+- Made link components customizable
+- "Customizing Link Component" part to `README.md`
+
+### Changed
+- Embedded styles
+- Example code
+- Menu content property `href` has beed changed to `to`
+
+## [0.3.4] - 2016-08-27
+### Added
+- Demo page
+
+### Fixed
+- Fixed [#6](https://github.com/alpertuna/react-metismenu/issues/6)
+
+## [0.3.3] - 2016-08-22
+### Added
+- Built files
+
+## 0.3.2 - 2016-08-22 [YANKED]
+### Added
+- Development guide to `README.md`
+- Transition effects for toggling menu
+- Linting tests using Airbnb rules
+- Unit tests with coverage
+
+### Changed
+- Doc comments
+
+### Fixed
+- Items had submenu to be dead link
+- Placed embedded styles to the top of `<head>` to be overrideable
+
+## [0.3.1] - 2016-08-18
+### Changed
+- Webpack configurations
+
+## 0.3.0 - 2016-08-18 [YANKED]
+### Changed
+- Css file was embedded in module
+
+### Added
+- External Link feature
+
+### Removed
+- css dist files
+
+## [0.2.0] - 2016-05-13
+### Changed
+- Styles
+- `react` module is moved to `peerDependencies` from `dependencies`
+
+### Fixed
+- Fixed [#3](https://github.com/alpertuna/react-metismenu/issues/3)
+
+## [0.1.4] - 2016-03-23
+### Fixed
+- Little bug
+
+## [0.1.3] - 2016-03-23
+### Added
+- Comments to source
+
+### Changed
+- Development application
+
+### Fixed
+- Some bugs
+
+
+## [0.1.2] - 2016-03-23
+### Added
+- `.npmignore` to ignore dev tools
+
+## 0.1.1 - 2016-03-23 [YANKED]
+### Changed
+- Used `js` extension for source code instead of `jsx`
+
+## 0.1.0 - 2016-03-23 [YANKED]
+### Added
+- Main structure of MetisMenu
+- Development tools
+- Core css file
+
+[1.0.0]: https://github.com/alpertuna/react-metismenu/compare/v0.6.0...v1.0.0
+[0.6.0]: https://github.com/alpertuna/react-metismenu/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/alpertuna/react-metismenu/compare/v0.4.2...v0.5.0
+[0.4.2]: https://github.com/alpertuna/react-metismenu/compare/v0.3.4...v0.4.2
+[0.3.4]: https://github.com/alpertuna/react-metismenu/compare/v0.3.3...v0.3.4
+[0.3.3]: https://github.com/alpertuna/react-metismenu/compare/v0.3.1...v0.3.3
+[0.3.1]: https://github.com/alpertuna/react-metismenu/compare/v0.2.0...v0.3.1
+[0.2.0]: https://github.com/alpertuna/react-metismenu/compare/v0.1.4...v0.2.0
+[0.1.4]: https://github.com/alpertuna/react-metismenu/compare/v0.1.3...v0.1.4
+[0.1.3]: https://github.com/alpertuna/react-metismenu/compare/v0.1.2...v0.1.3
+[0.1.2]: https://github.com/alpertuna/react-metismenu/compare/v0.1.0...v0.1.2

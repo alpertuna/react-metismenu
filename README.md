@@ -6,29 +6,18 @@
 [![NPM](https://nodei.co/npm/react-metismenu.png?compact=true)](https://nodei.co/npm/react-metismenu/)
 
 # react-metismenu
-A ready-to-use and simple menu component for [React](https://facebook.github.io/react/)
-
-react-metismenu is under development now, It is time to contribute :blush:
-
-**Important note:** After v0.4 `href` property of menu content has been changed to `to`
-
-**Important note:** After v0.5 styles are not embedded anymore. Need to include in html source.
-
-**Important note**: After v0.6 names of props about css classes has been changed.
+A ready / simple to use, highly customizable, updateable, ajax supported and animated menu component for [React](https://facebook.github.io/react/)
 
 Demo
 ====
-Here is a simple demo without any customizations. [Go to demo](https://alpertuna.github.io/react-metismenu/)
-
-`react-metismenu-router-link` extension to use with `react-router`. [Go to demo](https://alpertuna.github.io/react-metismenu-router-link) - [Extension Page](https://github.com/alpertuna/react-metismenu-router-link)
+Here is a simple demo to show animations and actions with standart theme. [Go to demo](https://alpertuna.github.io/react-metismenu/)
 
 Install
 =======
 
 ```console
-npm install react-metismenu
+npm install --save react-metismenu
 ```
-In your project you may use `--save` or `--save-dev` options of npm
 
 Usage
 =====
@@ -37,67 +26,85 @@ With Ecma Script 6 and React Loaders
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu from 'react-metismenu';
+import MetisMenu from 'react-metismenu';
 
-ReactDOM.render(<Menu />, document.getElementById('dom_id'));
+ReactDOM.render(<MetisMenu />, document.getElementById('dom_id'));
 ```
 
 Without Loaders (ES5)
 ```javascript
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Menu = require('react-metismenu');
+const MetisMenu = require('react-metismenu');
 
 ReactDOM.render(
-    React.createElement(Menu),
+    React.createElement(MetisMenu),
     document.getElementById('dom_id')
 );
 ```
 
 Also you should embed core css file to your html for menu to work.
 ```html
-<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alpertuna/react-metismenu/master/dist/react-metismenu.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alpertuna/react-metismenu/master/dist/react-metismenu-standart.min.css" />
 ```
 You can find this css in your `node_modules/react-metismenu/dist` to embed locally.
 
 Properties
 ==========
-**MetisMenu (React component) properties**
-- Main Properties
+### MetisMenu (React Component) Properties
+
++ Updateable Properties (by `state`)
+  - Properties To Set Content (See [Properties For Each Item In Content](#properties-for-each-item-in-content))
     * {Object[]} [`content`=[]] - It keeps all recursive structure of Metismenu
+    * {string | Object[]} [`ajax`] - Url or ajax settings object to get menu as json from remote. (See [Remote Contents](#remote-contents))
+  - [Active Link Selectors](#active-link-selectors) (Higlights and drops down all parents if it is a submenu item)
+    * {boolean} [`activeLinkFromLocation`] - Automatically highlights link matched item `to` and browser location.
+    * {string | number} [`activeLinkId`] - Find and highlight according to item `id`.
+    * {string} [`activeLinkTo`] - Find and highlight according to item `to`.
+    * {string} [`activeLinkLabel`] - Find and highlight according to item `label`.
 
 
-- To [Customize Styles](#customizing-styles)
++ Non-Updateable Properties (by `state`)
+  - [Customizing Styles](#customizing-styles)
     * {string} [`className`] - Class name for main metismenu wrapper
     * {string} [`classNameContainer`] - Class name for item container (ul)
     * {string} [`classNameContainerVisible`] - Additional class name when container is visible
     * {string} [`classNameItem`] - Class name for items in container (li)
     * {string} [`classNameLink`] - Class name for links in items (a)
+    * {string} [`classNameLinkActive`] - Additional class name when link is active (a)
     * {string} [`classNameIcon`] - Class name for link icons
     * {string} [`classNameStateIcon`] - Class name for state indicators of submenu
+
     * {boolean} [`noBuiltInClassNames`=false] - When true, core css class names won't be used
+
     * {string} [`iconNamePrefix`="fa fa-"] - Prefix for all icon's style class name
     * {string} [`iconNameStateHidden`="caret-left"] - Icon name for state of collapsed containers
-    * {string} [`iconNameStateVisible`="caret-down"] - Icon name for state of opened containers
+    * {string} [`iconNameStateVisible`="caret-left rotate-minus-90"] - Icon name for state of opened containers
 
-
-- To [Customize Link Components](#customizing-link-component)
-    * {React.Component} [`LinkComponent`=DefaultLinkComponent] - Handles link components of all items
-
-**Properties for each item in content**
+### Properties For Each Item In Content
 * {string} `icon` - Icon class name of item
 * {string} `label` - Label of item
-* {string} [`to`] - Href address to link (if item has submenu, `to` property will be ignored by `DefaultLinkComponent`)
+* {string} [`to`] - Href address to link (if item has submenu, `to` property will be ignored)
 * {boolean} [`externalLink`] - If true link opens page in new tab/window
-* {Object[]} [`content`] - Submenu of item
+* {Object[]} [`content`] - Sub menu of item. (For [Flat Contents](#flat-contents) you may use `id` and `parentId` properties instead.)
+* {string | number} [`id`] - Necessary for [Flat Contents](#flat-contents), or useful when activating a link of menu contains non-unique links. Minimum possible value is `1`, not `0`.
+* {string | number} [`parentId`] - Necessary for [Flat Contents](#flat-contents). If item has no parent, top item, `parentId` should be falsy -one of `false`, `undefined`, `null`, empty string or number `0`, **not** string `"0"`.
 
-Example
-=======
 
+**Note for all properties**
+> Curly brackets {...} refers to property type.
+> After types, square brackets [...] means that property is optional.
+> Equal sign = in square brackets shows its default value.
+
+Examples
+========
+
+### Simple Usage
+Simple usage with recursive content object.
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu from 'react-metismenu';
+import MetisMenu from 'react-metismenu';
 
 const content=[
     {
@@ -118,7 +125,217 @@ const content=[
     },
 ];
 
-ReactDOM.render(<Menu content={content} />, document.getElementById('root'));
+ReactDOM.render(
+  <MetisMenu content={content} activeLinkFromLocation />,
+  document.getElementById('root')
+);
+```
+
+See [Properties For Each Item In Content](#properties-for-each-item-in-content).
+
+See [activeLinkFromLocation](#activelinkfromlocation) property.
+
+### Flat Contents
+You may get menu content from a sql server. In this case, you can pass the content directly into `react-metismenu` without processing data. Here is flat json content example;
+```json
+[
+    {
+        "id": 1,
+        "icon": "icon-class-name",
+        "label": "Label of Item",
+        "to": "#a-link"
+    },
+    {
+        "id": 2,
+        "icon": "icon-class-name",
+        "label": "Second Item"
+    },
+    {
+        "id": 3,
+        "parentId": 2,
+        "icon": "icon-class-name",
+        "label": "Sub Menu of Second Item",
+        "to": "#another-link"
+    }
+]
+```
+
+### Remote Contents
+You are able to get json content from remote. Content may be recursive or flat. `react-metismenu` uses [simple-ajax](https://www.npmjs.com/package/simple-ajax) to send ajax request. You can pass just url string or object with these [Available Options](https://www.npmjs.com/package/simple-ajax#available-options) to `ajax` prop.
+
+```javascript
+<MetisMenu ajax="/get-menu.php" />
+```
+```javascript
+<MetisMenu ajax={{
+    url: "/service.php",
+    method: "POST",
+    data: {
+        "method": "get-menu",
+    },
+}} />
+```
+
+Active Link Selectors
+=====================
+### With Properties
+Using properties make you able to update active link via `state`.
+
+##### `activeLinkFromLocation`
+
+Automatically highlight link matched item `to` and browser location.
+
+It tries these posibilities to match location;
+```javascript
+[
+  window.location.pathname + window.location.search, // /path?search
+  window.location.hash, // #hash
+  window.location.pathname + window.location.search + window.location.hash, // /path?search#hash
+]
+```
+
+Usage Example
+```javascript
+<MetisMenu activeLinkFromLocation />
+```
+
+##### `activeLinkId`
+
+Find and highlight according to item `id`.
+It should be higher than `0`, if it is number.
+
+Usage Example
+```javascript
+<MetisMenu activeLinkId={this.state.activeLinkId} />
+```
+
+##### `activeLinkTo`
+
+Find and highlight according to item `to`.
+
+Usage Example
+```javascript
+<MetisMenu activeLinkTo="/users" />
+```
+
+##### `activeLinkLabel`
+
+Find and highlight according to item `label`.
+
+Usage Example
+```javascript
+<MetisMenu activeLinkLabel="User List" />
+```
+
+### With Methods
+Also, you can update active links with methods accessed from reference
+
+##### `updateActiveLinkFromLocation()`
+
+Same with [activeLinkFromLocation](#activelinkfromlocation) property.
+
+Usage Example
+```javascript
+class App extends React.Component {
+    //...
+
+    foo() {
+        //...
+        this.refs.menu.updateActiveLinkFromLocation();
+        //...
+    }
+
+    render() {
+        return (
+            <div>
+                ...
+                <MetisMenu ref="menu" />
+                ...
+            </div>
+        );
+    }
+}
+```
+
+##### `updateActiveLinkId(id)`
+
+Same with [activeLinkId](#activelinkid) property.
+
+Usage Example
+```javascript
+class App extends React.Component {
+    //...
+
+    foo() {
+        //...
+        this.refs.menu.updateActiveLinkId(3);
+        //...
+    }
+
+    render() {
+        return (
+            <div>
+                ...
+                <MetisMenu ref="menu" />
+                ...
+            </div>
+        );
+    }
+}
+```
+
+##### `updateActiveLinkTo(to)`
+
+Same with [activeLinkTo](#activelinkto) property.
+
+Usage Example
+```javascript
+class App extends React.Component {
+    //...
+
+    foo() {
+        //...
+        this.refs.menu.updateActiveLinkTo('/users');
+        //...
+    }
+
+    render() {
+        return (
+            <div>
+                ...
+                <MetisMenu ref="menu" />
+                ...
+            </div>
+        );
+    }
+}
+```
+
+##### `updateActiveLinkLabel(label)`
+
+Same with [activeLinkLabel](#activelinklabel) property.
+
+Usage Example
+```javascript
+class App extends React.Component {
+    //...
+
+    foo() {
+        //...
+        this.refs.menu.updateActiveLinkLabel('User List');
+        //...
+    }
+
+    render() {
+        return (
+            <div>
+                ...
+                <MetisMenu ref="menu" />
+                ...
+            </div>
+        );
+    }
+}
 ```
 
 Customizing Styles
@@ -159,7 +376,7 @@ These class names are, according to figure above;
 - main wrapper - `metismenu`
 - container - `metismenu-container` and `visible` for opened containers
 - item - `metismenu-item`
-- link - `metismenu-link`
+- link - `metismenu-link` and `active` for active links
 - icon - `metismenu-icon`
 - state icon - `metismenu-state-icon`
 
@@ -174,81 +391,38 @@ Property names are, according to figure above;
 - main wrapper - `className`
 - container - `classNameContainer` and `classNameContainerVisible` for opened containers
 - item - `classNameItem`
-- link - `classNameLink`
+- link - `classNameLink` and `classNameLinkActive` for active links
 - icon - `classNameIcon`
 - state icon - `classNameStateIcon`
 
 Using these props **not** overwrites built-in class names, just appends.
+
 **Note:** Containers' default state is hidden and there is no prop to tell.
-
-#### Icon Framework
-By default, metismenu uses [Font Awesome](http://fontawesome.io/) for icons and prepends all icon names with `fa fa-`.
-
-To use another icon framework, you can change prefix with `iconNamePrefix` prop of menu.
-
-To change state icons (shows submenu is visible or not) you can use these props of menu;
-- `iconNameStateVisible`
-- `iconNameStateHidden`
-
-These icons are also prepended by `iconNamePrefix`.
 
 #### Not Using Built-in Styles
 If you don't want use core styles you can remove them completely by setting `noBuiltInClassNames` prop `true`.
 In this case you are responsable for all styling including visibility states of containers.
 
-Customizing Link Components
-===========================
-You are able to change the link component of each item.
-You may use another html tag, want to inject some properties or change operation logic. In this case, you can customize and use your own link component sending to `Menu` component as `LinkComponent` property.
+#### Icon Framework
+By default, metismenu uses [Font Awesome](http://fontawesome.io/) for icons and prepends all icon names with `fa fa-`.
 
-#### Props to use in your Link Component
-- {string} `className` - Class name comes from top component (a)
-- {React.Component} `children` -  Ready to render content of link - contains icon, label and other stuff
-- {string} [`to`] - Contains `to` info of the item comes from menu content object
-- {string} [`target`] - If link is external, contains `_blank` string, otherwise `undefined`
-- {function} [`toggleSubMenu`] - If item has submenu, returns toggle trigger callback, otherwise `undefined`
+To use another icon framework, you can change prefix with `iconNamePrefix` prop.
 
-#### An Example
-Defining CustomLink Component
+To change state icons (shows submenu is visible or not) you can use these props;
+- `iconNameStateVisible`
+- `iconNameStateHidden`
+
+These icons are also prepended by `iconNamePrefix`.
+
+### Customizing Style Example
 ```javascript
-class CustomLink extends React.Component {
-  constructor() {
-    super();
-
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick(e) {
-    if (this.props.toggleSubMenu) this.props.toggleSubMenu(e);
-    else {
-      // your own operation using "to"
-      // myGotoFunc(this.props.to);
-    }
-  }
-
-  render() {
-    return (
-      <button className="metismenu-link" onClick={this.onClick}>
-        {this.props.children}
-      </button>
-    );
-  }
-};
+<MetisMenu
+  className="my-menu"
+  clasNameLink="my-menu-link"
+  iconNameStateVisible="minus"
+  iconNameStateHidden="plus"
+/>
 ```
-Injecting CustomLink into Menu component
-```javascript
-<Menu content={menu} LinkComponent={CustomLink} />
-```
-Also, as another example, you can look into [DefaultLinkComponent](https://github.com/alpertuna/react-metismenu/blob/master/src/DefaultLinkComponent.jsx) source.
-
-Extensions
-==========
-## react-metismenu-router-link
-If you use `react-router`, this extension does the job.
-- Npm package `react-metismenu-router-link`
-- [Source page](https://github.com/alpertuna/react-metismenu-router-link)
-- [Demo page](https://alpertuna.github.io/react-metismenu-router-link)
-
 
 Development / Contributing
 ==========================
@@ -283,7 +457,6 @@ Dev server uses webpack and it has hot modul replecament plugins, so when you ch
 #### Source Code Writing Standarts
 For source code quality, I applied Airbnb rules. Because it focuses on React more than others.
 
-
 #### After Develop,
 ```console
 # TESTING
@@ -310,5 +483,6 @@ npm run build-dist-css
 npm run build-dist-css-min
 # Builds lib files for npm
 npm run build-lib
-
 ```
+
+> You can correct typos or improve meanings in documents as well as contributing code.
