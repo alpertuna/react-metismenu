@@ -6,7 +6,7 @@
 [![NPM](https://nodei.co/npm/react-metismenu.png?compact=true)](https://nodei.co/npm/react-metismenu/)
 
 # react-metismenu
-A ready / simple to use, highly customizable, updateable, ajax supported and animated menu component for [React](https://facebook.github.io/react/)
+A ready / simple to use, highly customizable, updateable, ajax supported, animated and material designed menu component for [React](https://facebook.github.io/react/)
 
 Demo
 ====
@@ -43,7 +43,7 @@ ReactDOM.render(
 );
 ```
 
-Also you should embed core css file to your html for menu to work.
+Also you should embed core css file to your html for material design and transition effects to work.
 ```html
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alpertuna/react-metismenu/master/dist/react-metismenu-standart.min.css" />
 ```
@@ -340,7 +340,7 @@ class App extends React.Component {
 
 Customizing Styles
 ==================
-After rendering metismenu with recursive content, output dom structure will be like this;
+After rendering `react-metismenu` with recursive content, output dom structure will be like this;
 ```html
 <div>             - main wrapper
   ====================================== Top container
