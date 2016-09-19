@@ -1,0 +1,134 @@
+/*
+ * less/style.less
+ * Author: H.Alper Tuna <halpertuna@gmail.com>
+ * Date: 21.08.2016
+ */
+
+@import 'utils';
+
+@font-size: 12pt;
+
+@icon-width: 3em;
+@first-level-item-height: 2.8em;
+@sub-level-item-height: 2.6em;
+
+@second-level-indent: 1em;
+@third-level-indent: 2em;
+
+@bg: #303336;
+@fg: #DDD;
+
+@effect-duration: 300ms;
+
+.metismenu {
+  background: @bg;
+  font-family: 'Open Sans', sans-serif;
+  font-size: @font-size;
+  font-weight: lighter;
+  overflow: hidden;
+  position: relative;
+
+  > .metismenu-container {
+    > .metismenu-item {
+      > .metismenu-link {
+        line-height: @first-level-item-height;
+
+        .metismenu-state-icon {
+          line-height: @first-level-item-height;
+        }
+      }
+    }
+  }
+
+  &::after {
+    //.box-shadow(-.4em 0 .4em -.4em fade(#000, 50%) inset);
+    .box-shadow(0 0 .4em fade(#000, 50%) inset);
+
+    content: " ";
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+}
+.metismenu-container,
+.metismenu-item {
+  margin: 0;
+  padding: 0;
+}
+.metismenu-container {
+  list-style: none;
+
+  .metismenu-container {
+    .box-shadow(0 .3em .3em -.3em darken(@bg, 15%) inset, 0 -.3em .3em -.3em darken(@bg, 15%) inset);
+    .transition(padding @effect-duration);
+
+    background: fade(#FFF, 5%);
+
+    .metismenu-item > .metismenu-link {
+      .transition(height @effect-duration);
+
+      height: 0;
+      overflow: hidden;
+    }
+
+    .metismenu-link {
+      padding-left:@second-level-indent;
+    }
+
+    .metismenu-container .metismenu-link {
+      padding-left:@third-level-indent;
+    }
+  }
+
+  &.visible {
+    padding: .5em 0;
+
+    > .metismenu-item > .metismenu-link {
+      height: @sub-level-item-height;
+    }
+  }
+}
+
+.metismenu-link {
+  color: @fg;
+
+  .text-shadow(0 -1px 0 fade(#000, 50%));
+
+  display: block;
+  line-height: @sub-level-item-height;
+  text-decoration: none;
+
+  &:hover {
+    background: fade(#FFF, 5%);
+    color: lighten(@fg, 10%);
+  }
+
+  &.active {
+    @l-bg: #69F;
+
+    .text-shadow(0 -1px 0 fade(#000, 25%));
+
+    background: @l-bg;
+    color: #FFF;
+    font-weight: normal;
+  }
+}
+I.metismenu-icon {
+  text-align: center;
+  width: @icon-width;
+}
+I.metismenu-state-icon {
+  .transition(transform @effect-duration);
+
+  float: right;
+  line-height: @sub-level-item-height;
+  text-align: center;
+  width: @icon-width;
+
+  &.rotate-minus-90 {
+    .transform(rotate(-90deg));
+  }
+}

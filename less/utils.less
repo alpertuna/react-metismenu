@@ -4,11 +4,30 @@
  * Date: 21.08.2016
  */
 
-.transition(@transition){
-    transition: @transition;
-    -webkit-transition: @transition;
+.transition(@transition) {
+  transition: @transition;
+  -webkit-transition: @transition;
 }
-.transition(@transition1, @transition2){
-    transition: @transition1, @transition2;
-    -webkit-transition: @transition1, @transition2;
+.transition(@transition1, @transition2) {
+  transition: @transition1, @transition2;
+  -webkit-transition: @transition1, @transition2;
+}
+
+.transform(@transform) {
+  transform: @transform;
+  -webkit-transform: @transform;
+}
+
+.box-shadow(@shadow) {
+  box-shadow: @shadow;
+  -webkit-box-shadow: @shadow;
+}
+.box-shadow(@shadow, @shadow2) {
+  box-shadow: @shadow, @shadow2;
+  -webkit-box-shadow: @shadow, @shadow2;
+}
+
+.text-shadow(@shadow) {
+  text-shadow: @shadow;
+  -webkit-text-shadow: @shadow;
 }
