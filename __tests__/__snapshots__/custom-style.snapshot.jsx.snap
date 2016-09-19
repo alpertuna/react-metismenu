@@ -8,10 +8,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="#item-1"
-        onClick={undefined}
+        onClick={[Function activateMe]}
         target={undefined}>
         <i
-          className="metismenu-icon test-cic fa-fw test-ipbolt" />
+          className="metismenu-icon test-cic test-ipbolt" />
         Item 1
       </a>
     </li>
@@ -20,10 +20,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="#"
-        onClick={[Function bound toggleContainer]}
+        onClick={[Function anonymous]}
         target={undefined}>
         <i
-          className="metismenu-icon test-cic fa-fw test-ipbell" />
+          className="metismenu-icon test-cic test-ipbell" />
         Item 2
         <i
           className="metismenu-state-icon test-csi test-iptest-ish" />
@@ -35,10 +35,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#sub-item-1"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className="metismenu-icon test-cic fa-fw test-ipeye" />
+              className="metismenu-icon test-cic test-ipeye" />
             Sub Item 1
           </a>
         </li>
@@ -47,10 +47,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#sub-item-2"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className="metismenu-icon test-cic fa-fw test-ipglobe" />
+              className="metismenu-icon test-cic test-ipglobe" />
             Sub Item 2
           </a>
         </li>
@@ -61,10 +61,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="#"
-        onClick={[Function bound toggleContainer]}
+        onClick={[Function anonymous]}
         target={undefined}>
         <i
-          className="metismenu-icon test-cic fa-fw test-ipbell" />
+          className="metismenu-icon test-cic test-ipbell" />
         Item 3
         <i
           className="metismenu-state-icon test-csi test-iptest-ish" />
@@ -76,10 +76,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#sub-item-3"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className="metismenu-icon test-cic fa-fw test-ipeye" />
+              className="metismenu-icon test-cic test-ipeye" />
             Sub Item 3
           </a>
         </li>
@@ -88,10 +88,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#"
-            onClick={[Function bound toggleContainer]}
+            onClick={[Function anonymous]}
             target={undefined}>
             <i
-              className="metismenu-icon test-cic fa-fw test-ipglobe" />
+              className="metismenu-icon test-cic test-ipglobe" />
             Sub Item 4
             <i
               className="metismenu-state-icon test-csi test-iptest-ish" />
@@ -103,10 +103,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
               <a
                 className="metismenu-link test-cl"
                 href="#level-3-item-1"
-                onClick={undefined}
+                onClick={[Function activateMe]}
                 target={undefined}>
                 <i
-                  className="metismenu-icon test-cic fa-fw test-ipbolt" />
+                  className="metismenu-icon test-cic test-ipbolt" />
                 Level 3 Item 1
               </a>
             </li>
@@ -115,10 +115,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
               <a
                 className="metismenu-link test-cl"
                 href="#level-3-item-2"
-                onClick={undefined}
+                onClick={[Function activateMe]}
                 target={undefined}>
                 <i
-                  className="metismenu-icon test-cic fa-fw test-ipbell" />
+                  className="metismenu-icon test-cic test-ipbell" />
                 Level 3 Item 2
               </a>
             </li>
@@ -131,10 +131,10 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="http://www.google.com"
-        onClick={undefined}
+        onClick={[Function activateMe]}
         target="_blank">
         <i
-          className="metismenu-icon test-cic fa-fw test-ipexternal-url" />
+          className="metismenu-icon test-cic test-ipexternal-url" />
         External Url
       </a>
     </li>
@@ -144,125 +144,125 @@ exports[`Menu with customized class names and built-in classes 1`] = `
 
 exports[`Menu with customized class names and no built-in classes 1`] = `
 <div
-  className=" test-c">
+  className="test-c">
   <ul
-    className=" test-cc">
+    className="test-cc">
     <li
-      className=" test-ci">
+      className="test-ci">
       <a
-        className=" test-cl"
+        className="test-cl"
         href="#item-1"
-        onClick={undefined}
+        onClick={[Function activateMe]}
         target={undefined}>
         <i
-          className=" test-cic fa-fw test-ipbolt" />
+          className="test-cic test-ipbolt" />
         Item 1
       </a>
     </li>
     <li
-      className=" test-ci">
+      className="test-ci">
       <a
-        className=" test-cl"
+        className="test-cl"
         href="#"
-        onClick={[Function bound toggleContainer]}
+        onClick={[Function anonymous]}
         target={undefined}>
         <i
-          className=" test-cic fa-fw test-ipbell" />
+          className="test-cic test-ipbell" />
         Item 2
         <i
-          className=" test-csi test-iptest-ish" />
+          className="test-csi test-iptest-ish" />
       </a>
       <ul
-        className=" test-cc">
+        className="test-cc">
         <li
-          className=" test-ci">
+          className="test-ci">
           <a
-            className=" test-cl"
+            className="test-cl"
             href="#sub-item-1"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className=" test-cic fa-fw test-ipeye" />
+              className="test-cic test-ipeye" />
             Sub Item 1
           </a>
         </li>
         <li
-          className=" test-ci">
+          className="test-ci">
           <a
-            className=" test-cl"
+            className="test-cl"
             href="#sub-item-2"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className=" test-cic fa-fw test-ipglobe" />
+              className="test-cic test-ipglobe" />
             Sub Item 2
           </a>
         </li>
       </ul>
     </li>
     <li
-      className=" test-ci">
+      className="test-ci">
       <a
-        className=" test-cl"
+        className="test-cl"
         href="#"
-        onClick={[Function bound toggleContainer]}
+        onClick={[Function anonymous]}
         target={undefined}>
         <i
-          className=" test-cic fa-fw test-ipbell" />
+          className="test-cic test-ipbell" />
         Item 3
         <i
-          className=" test-csi test-iptest-ish" />
+          className="test-csi test-iptest-ish" />
       </a>
       <ul
-        className=" test-cc">
+        className="test-cc">
         <li
-          className=" test-ci">
+          className="test-ci">
           <a
-            className=" test-cl"
+            className="test-cl"
             href="#sub-item-3"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className=" test-cic fa-fw test-ipeye" />
+              className="test-cic test-ipeye" />
             Sub Item 3
           </a>
         </li>
         <li
-          className=" test-ci">
+          className="test-ci">
           <a
-            className=" test-cl"
+            className="test-cl"
             href="#"
-            onClick={[Function bound toggleContainer]}
+            onClick={[Function anonymous]}
             target={undefined}>
             <i
-              className=" test-cic fa-fw test-ipglobe" />
+              className="test-cic test-ipglobe" />
             Sub Item 4
             <i
-              className=" test-csi test-iptest-ish" />
+              className="test-csi test-iptest-ish" />
           </a>
           <ul
-            className=" test-cc">
+            className="test-cc">
             <li
-              className=" test-ci">
+              className="test-ci">
               <a
-                className=" test-cl"
+                className="test-cl"
                 href="#level-3-item-1"
-                onClick={undefined}
+                onClick={[Function activateMe]}
                 target={undefined}>
                 <i
-                  className=" test-cic fa-fw test-ipbolt" />
+                  className="test-cic test-ipbolt" />
                 Level 3 Item 1
               </a>
             </li>
             <li
-              className=" test-ci">
+              className="test-ci">
               <a
-                className=" test-cl"
+                className="test-cl"
                 href="#level-3-item-2"
-                onClick={undefined}
+                onClick={[Function activateMe]}
                 target={undefined}>
                 <i
-                  className=" test-cic fa-fw test-ipbell" />
+                  className="test-cic test-ipbell" />
                 Level 3 Item 2
               </a>
             </li>
@@ -271,14 +271,14 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       </ul>
     </li>
     <li
-      className=" test-ci">
+      className="test-ci">
       <a
-        className=" test-cl"
+        className="test-cl"
         href="http://www.google.com"
-        onClick={undefined}
+        onClick={[Function activateMe]}
         target="_blank">
         <i
-          className=" test-cic fa-fw test-ipexternal-url" />
+          className="test-cic test-ipexternal-url" />
         External Url
       </a>
     </li>
@@ -296,10 +296,10 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="#item-1"
-        onClick={undefined}
+        onClick={[Function activateMe]}
         target={undefined}>
         <i
-          className=" fa-fw fa fa-bolt" />
+          className="fa fa-bolt" />
         Item 1
       </a>
     </li>
@@ -308,13 +308,13 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="#"
-        onClick={[Function bound toggleContainer]}
+        onClick={[Function anonymous]}
         target={undefined}>
         <i
-          className=" fa-fw fa fa-bell" />
+          className="fa fa-bell" />
         Item 2
         <i
-          className=" fa fa-caret-left" />
+          className="fa fa-caret-left" />
       </a>
       <ul
         className="">
@@ -323,10 +323,10 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#sub-item-1"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className=" fa-fw fa fa-eye" />
+              className="fa fa-eye" />
             Sub Item 1
           </a>
         </li>
@@ -335,10 +335,10 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#sub-item-2"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className=" fa-fw fa fa-globe" />
+              className="fa fa-globe" />
             Sub Item 2
           </a>
         </li>
@@ -349,13 +349,13 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="#"
-        onClick={[Function bound toggleContainer]}
+        onClick={[Function anonymous]}
         target={undefined}>
         <i
-          className=" fa-fw fa fa-bell" />
+          className="fa fa-bell" />
         Item 3
         <i
-          className=" fa fa-caret-left" />
+          className="fa fa-caret-left" />
       </a>
       <ul
         className="">
@@ -364,10 +364,10 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#sub-item-3"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className=" fa-fw fa fa-eye" />
+              className="fa fa-eye" />
             Sub Item 3
           </a>
         </li>
@@ -376,13 +376,13 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#"
-            onClick={[Function bound toggleContainer]}
+            onClick={[Function anonymous]}
             target={undefined}>
             <i
-              className=" fa-fw fa fa-globe" />
+              className="fa fa-globe" />
             Sub Item 4
             <i
-              className=" fa fa-caret-left" />
+              className="fa fa-caret-left" />
           </a>
           <ul
             className="">
@@ -391,10 +391,10 @@ exports[`Menu with no built-in classes 1`] = `
               <a
                 className=""
                 href="#level-3-item-1"
-                onClick={undefined}
+                onClick={[Function activateMe]}
                 target={undefined}>
                 <i
-                  className=" fa-fw fa fa-bolt" />
+                  className="fa fa-bolt" />
                 Level 3 Item 1
               </a>
             </li>
@@ -403,10 +403,10 @@ exports[`Menu with no built-in classes 1`] = `
               <a
                 className=""
                 href="#level-3-item-2"
-                onClick={undefined}
+                onClick={[Function activateMe]}
                 target={undefined}>
                 <i
-                  className=" fa-fw fa fa-bell" />
+                  className="fa fa-bell" />
                 Level 3 Item 2
               </a>
             </li>
@@ -419,10 +419,10 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="http://www.google.com"
-        onClick={undefined}
+        onClick={[Function activateMe]}
         target="_blank">
         <i
-          className=" fa-fw fa fa-external-url" />
+          className="fa fa-external-url" />
         External Url
       </a>
     </li>

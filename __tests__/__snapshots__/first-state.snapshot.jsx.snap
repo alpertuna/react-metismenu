@@ -8,10 +8,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
       <a
         className="metismenu-link"
         href="#item-1"
-        onClick={undefined}
+        onClick={[Function activateMe]}
         target={undefined}>
         <i
-          className="metismenu-icon fa-fw fa fa-bolt" />
+          className="metismenu-icon fa fa-bolt" />
         Item 1
       </a>
     </li>
@@ -20,10 +20,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function bound toggleContainer]}
+        onClick={[Function anonymous]}
         target={undefined}>
         <i
-          className="metismenu-icon fa-fw fa fa-bell" />
+          className="metismenu-icon fa fa-bell" />
         Item 2
         <i
           className="metismenu-state-icon fa fa-caret-left" />
@@ -35,10 +35,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
           <a
             className="metismenu-link"
             href="#sub-item-1"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className="metismenu-icon fa-fw fa fa-eye" />
+              className="metismenu-icon fa fa-eye" />
             Sub Item 1
           </a>
         </li>
@@ -47,10 +47,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
           <a
             className="metismenu-link"
             href="#sub-item-2"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className="metismenu-icon fa-fw fa fa-globe" />
+              className="metismenu-icon fa fa-globe" />
             Sub Item 2
           </a>
         </li>
@@ -61,10 +61,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function bound toggleContainer]}
+        onClick={[Function anonymous]}
         target={undefined}>
         <i
-          className="metismenu-icon fa-fw fa fa-bell" />
+          className="metismenu-icon fa fa-bell" />
         Item 3
         <i
           className="metismenu-state-icon fa fa-caret-left" />
@@ -76,10 +76,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
           <a
             className="metismenu-link"
             href="#sub-item-3"
-            onClick={undefined}
+            onClick={[Function activateMe]}
             target={undefined}>
             <i
-              className="metismenu-icon fa-fw fa fa-eye" />
+              className="metismenu-icon fa fa-eye" />
             Sub Item 3
           </a>
         </li>
@@ -88,10 +88,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function bound toggleContainer]}
+            onClick={[Function anonymous]}
             target={undefined}>
             <i
-              className="metismenu-icon fa-fw fa fa-globe" />
+              className="metismenu-icon fa fa-globe" />
             Sub Item 4
             <i
               className="metismenu-state-icon fa fa-caret-left" />
@@ -103,10 +103,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
               <a
                 className="metismenu-link"
                 href="#level-3-item-1"
-                onClick={undefined}
+                onClick={[Function activateMe]}
                 target={undefined}>
                 <i
-                  className="metismenu-icon fa-fw fa fa-bolt" />
+                  className="metismenu-icon fa fa-bolt" />
                 Level 3 Item 1
               </a>
             </li>
@@ -115,10 +115,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
               <a
                 className="metismenu-link"
                 href="#level-3-item-2"
-                onClick={undefined}
+                onClick={[Function activateMe]}
                 target={undefined}>
                 <i
-                  className="metismenu-icon fa-fw fa fa-bell" />
+                  className="metismenu-icon fa fa-bell" />
                 Level 3 Item 2
               </a>
             </li>
@@ -131,10 +131,10 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
       <a
         className="metismenu-link"
         href="http://www.google.com"
-        onClick={undefined}
+        onClick={[Function activateMe]}
         target="_blank">
         <i
-          className="metismenu-icon fa-fw fa fa-external-url" />
+          className="metismenu-icon fa fa-external-url" />
         External Url
       </a>
     </li>

@@ -7,18 +7,14 @@
 /* eslint-env jest */
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
-// jest.unmock('../src/MetisMenu')
-
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import { wrap } from 'react-stateless-wrapper';
-import Menu from '../src/MetisMenu';
+import Menu from '../src';
 import content from './CONTENT.json';
 
 describe('Menu with recursive content', () => {
   // Create test component
-  const WrappedMenu = wrap(Menu);
-  const component = TestUtils.renderIntoDocument(<WrappedMenu content={content} />);
+  const component = TestUtils.renderIntoDocument(<Menu content={content} />);
 
   function getItem(item) {
     let linkIndex;
@@ -57,7 +53,7 @@ describe('Menu with recursive content', () => {
     TestUtils.Simulate.click(getItem('item3').link);
     // Caret icon
     expect(
-      getItem('item3').link.children[1].classList.contains('fa-caret-down')
+      getItem('item3').link.children[1].classList.contains('rotate-minus-90')
     ).toBeTruthy();
     // Container visibility
     expect(
@@ -70,7 +66,7 @@ describe('Menu with recursive content', () => {
     TestUtils.Simulate.click(getItem('subItem4').link);
     // Caret icon
     expect(
-      getItem('subItem4').link.children[1].classList.contains('fa-caret-down')
+      getItem('subItem4').link.children[1].classList.contains('rotate-minus-90')
     ).toBeTruthy();
     // Container visibility
     expect(
@@ -83,7 +79,7 @@ describe('Menu with recursive content', () => {
     TestUtils.Simulate.click(getItem('item2').link);
     // Caret icon
     expect(
-      getItem('item2').link.children[1].classList.contains('fa-caret-down')
+      getItem('item2').link.children[1].classList.contains('rotate-minus-90')
     ).toBeTruthy();
     // Container visibility
     expect(
@@ -93,8 +89,8 @@ describe('Menu with recursive content', () => {
     // Item 3
     // Caret icon
     expect(
-      getItem('item3').link.children[1].classList.contains('fa-caret-left')
-    ).toBeTruthy();
+      getItem('item3').link.children[1].classList.contains('rotate-minus-90')
+    ).toBeFalsy();
     // Container visibility
     expect(
       getItem('item3').container.classList.contains('visible')
@@ -103,8 +99,8 @@ describe('Menu with recursive content', () => {
     // Sub Item 4
     // Caret icon
     expect(
-      getItem('subItem4').link.children[1].classList.contains('fa-caret-left')
-    ).toBeTruthy();
+      getItem('subItem4').link.children[1].classList.contains('rotate-minus-90')
+    ).toBeFalsy();
     // Container visibility
     expect(
       getItem('subItem4').container.classList.contains('visible')
@@ -116,8 +112,8 @@ describe('Menu with recursive content', () => {
     TestUtils.Simulate.click(getItem('item2').link);
     // Caret icon
     expect(
-      getItem('item2').link.children[1].classList.contains('fa-caret-left')
-    ).toBeTruthy();
+      getItem('item2').link.children[1].classList.contains('rotate-minus-90')
+    ).toBeFalsy();
     // Container visibility
     expect(
       getItem('item2').container.classList.contains('visible')

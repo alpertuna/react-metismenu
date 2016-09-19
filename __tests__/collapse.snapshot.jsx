@@ -9,7 +9,7 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Menu from '../src/MetisMenu';
+import Menu from '../src';
 import content from './CONTENT.json';
 
 describe('Menu with recursive content', () => {
