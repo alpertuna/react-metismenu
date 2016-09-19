@@ -1,6 +1,6 @@
 {
   "name": "react-metismenu",
-  "version": "0.6.0",
+  "version": "1.0.0-alpha.1",
   "description": "A ready / simple to use, highly customizable, updateable, ajax supported and animated menu component for React",
   "main": "lib/index.js",
   "scripts": {
