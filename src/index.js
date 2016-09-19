@@ -1,10 +1,9 @@
-/*
+/**
  * src/main.js
  * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 23.03.2016
+ * Date: 16.09.2016
  */
 
-import MetisMenu from './MetisMenu';
+import MetisMenu from './components/MetisMenu';
 
-// Entry point of component
 export default MetisMenu;
