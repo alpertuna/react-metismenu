@@ -2,114 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/solarized-dark.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
-    <title>react-metismenu v0.3.3 - Demo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Metis Menu - Dev Server</title>
   </head>
   <body>
-    <h1>react-metismenu v0.3.3</h1>
-    <div style="float:left;">
-      <p>Demo with embedded styles (can be overwritten)</p>
-      <div id="root"></div>
-    </div>
-    <div style="float:left;margin-left:20px;">
-      <p>Source code</p>
-      <pre><code class="javascript">
-  import React, { Component } from 'react';
-  import { render } from 'react-dom';
-  import Menu from 'react-metismenu';
-
-  const App = () =&gt; {
-    const menu = [
-      {
-        icon: 'dashboard',
-        label: 'Menu 1',
-        href: '#menu-1',
-      },
-      {
-        icon: 'bell',
-        label: 'Menu 2',
-        href: '#menu-2',
-      },
-      {
-        icon: 'bolt',
-        label: 'Menu 3',
-        content: [
-          {
-            icon: 'bolt',
-            label: 'Test',
-            href: '#test',
-          },
-        ],
-      },
-      {
-        icon: 'bars',
-        label: 'Menu 4',
-        content: [
-          {
-            icon: 'bold',
-            label: 'Sub Menu 1',
-            href: '#sub-menu-1',
-          },
-          {
-            icon: 'italic',
-            label: 'Sub Menu 2',
-            content: [
-              {
-                icon: 'cog',
-                label: 'Level 3 Menu 1',
-                href: '#level-3-menu-1',
-              },
-              {
-                icon: 'group',
-                label: 'Level 3 Menu 2',
-                href: '#level-3-menu-2',
-              },
-            ],
-          },
-          {
-            icon: 'image',
-            label: 'Sub Menu 3',
-            content: [
-              {
-                icon: 'cog',
-                label: 'Level 3 Menu 1',
-                href: '#level-3-menu-1',
-              },
-              {
-                icon: 'group',
-                label: 'Level 3 Menu 2',
-                href: '#level-3-menu-2',
-              },
-            ],
-          },
-          {
-            icon: 'check',
-            label: 'Sub Menu 4',
-            href: '#sub-menu-4',
-          },
-        ],
-      },
-      {
-        icon: 'external-link',
-        label: 'External Link',
-        externalLink: true,
-        href: 'https://www.google.com',
-      },
-    ];
-
-    return (
-      &lt;div&gt;
-        &lt;Menu content={menu} /&gt;
-      &lt;/div&gt;
-    );
-  };
-
-  render(&lt;App /&gt;, document.getElementById('dom_id'));
-      </code></pre>
-    </div>
-    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+    <div id="root"></div>
     <script type="text/javascript" src="bundle.js"></script>
   </body>
 </html>
