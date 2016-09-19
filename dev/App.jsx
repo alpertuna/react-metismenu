@@ -160,62 +160,88 @@ class App extends React.Component {
         />
 
         <div className="body">
+          <h1>react-metismenu@1.0.0-alpha.1</h1>
           <h3>Examples to Change Active Link</h3>
-          Activate link with ref using <b>changeActiveLinkLabel</b> method
-          <br />
-          <button
-            onClick={() => {
-              this.menu.changeActiveLinkLabel('Test');
-            }}
-          >
-            Test
-          </button>
+          <p>
+            Activate link with ref using <b>changeActiveLinkLabel</b> method
+            <br />
+            <button
+              onClick={() => {
+                this.menu.changeActiveLinkLabel('Test');
+              }}
+            >
+              Test
+            </button>
+          </p>
 
-          <br /><br />
+          <p>
+            Activate link with ref using <b>changeActiveLinkTo</b> method
+            <br />
+            <button
+              onClick={() => {
+                this.menu.changeActiveLinkTo('#level-3-menu-4');
+              }}
+            >
+              #level-3-menu-4
+            </button>
+          </p>
 
-          Activate link with ref using <b>changeActiveLinkTo</b> method
-          <br />
-          <button
-            onClick={() => {
-              this.menu.changeActiveLinkTo('#level-3-menu-4');
-            }}
-          >
-            #level-3-menu-4
-          </button>
+          <p>
+            Activate link with state using <b>activeLinkLabel</b> prop*
+            <br />
+            <button
+              onClick={() => {
+                this.setState({ activeLinkLabel: 'Sub Menu 1' });
+              }}
+            >
+              Sub Menu 1
+            </button>
+          </p>
 
-          <br /><br />
-
-          Activate link with state using <b>activeLinkLabel</b> prop*
-          <br />
-          <button
-            onClick={() => {
-              this.setState({ activeLinkLabel: 'Sub Menu 1' });
-            }}
-          >
-            Sub Menu 1
-          </button>
-
-          <br /><br />
-
-          Also after selecting a link, you can refresh browser.
-          In this case, it will automatically activates link matched
-          location thanks to <b>activeLinkFromLocation</b> prop*.
+          <p>
+            Also after selecting a link, you can refresh browser.
+            In this case, it will automatically activates link matched
+            location thanks to <b>activeLinkFromLocation</b> prop*.
+          </p>
 
           <h3>Example to Change Content</h3>
-          Toggles content between two similar menu objects with state
-          using <b>content</b> prop. (*Keeps active link, only if
-          active link set as prop)
+          <p>
+            Toggles content between two similar menu objects with state
+            using <b>content</b> prop. (*Keeps active link, only if
+            active link set as prop)
+            <br />
+            <button
+              onClick={() => {
+                this.setState(this.state.menuToggle
+                  ? { menuToggle: false, menu: menu1 }
+                  : { menuToggle: true, menu: menu2 }
+                );
+              }}
+            >
+              Toggle Content
+            </button>
+          </p>
+
           <br />
-          <button
-            onClick={() => {
-              this.setState(this.state.menuToggle
-                ? { menuToggle: false, menu: menu1 }
-                : { menuToggle: true, menu: menu2 }
-              );
-            }}
-          >
-            Toggle Content
-          </button>
+
+          <h3>Fixed Menu Style</h3>
+          <p>
+            <code>react-metismenu</code> default wrapper <code>display</code> style is <code>block</code>.
+            To make menu looks like this, you should add some style manually;
+            <pre>
+              <code>{`
+.metismenu {
+  position: fixed;
+  width: 280px;
+
+  bottom: 0;
+  left: 0;
+  top: 0;
+}
+              `}</code>
+            </pre>
+          </p>
+
         </div>
       </div>
     );
