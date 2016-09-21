@@ -72,6 +72,7 @@ Properties
     * {string} [`classNameItem`] - Class name for items in container (li)
     * {string} [`classNameLink`] - Class name for links in items (a)
     * {string} [`classNameLinkActive`] - Additional class name when link is active (a)
+    * {string} [`classNameLinkHasActiveChild`] - Additional class name when any child or grandchild link is active (a)
     * {string} [`classNameIcon`] - Class name for link icons
     * {string} [`classNameStateIcon`] - Class name for state indicators of submenu
 
@@ -80,14 +81,16 @@ Properties
     * {string} [`iconNamePrefix`="fa fa-"] - Prefix for all icon's style class name
     * {string} [`iconNameStateHidden`="caret-left"] - Icon name for state of collapsed containers
     * {string} [`iconNameStateVisible`="caret-left rotate-minus-90"] - Icon name for state of opened containers
+  - [Customizing Link Component](#customizing-link-component)
+    * {React.Component} [`LinkComponent`=DefaultLink] - Handles link components of all items
 
 ### Properties For Each Item In Content
-* {string} `icon` - Icon class name of item
+* {string} [`icon`] - Icon class name of item
 * {string} `label` - Label of item
 * {string} [`to`] - Href address to link (if item has submenu, `to` property will be ignored)
 * {boolean} [`externalLink`] - If true link opens page in new tab/window
 * {Object[]} [`content`] - Sub menu of item. (For [Flat Contents](#flat-contents) you may use `id` and `parentId` properties instead.)
-* {string | number} [`id`] - Necessary for [Flat Contents](#flat-contents), or useful when activating a link of menu contains non-unique links. Minimum possible value is `1`, not `0`.
+* {string | number} [`id`] - Necessary for [Flat Contents](#flat-contents), or useful when activating a link of menu contains non-unique links. Possbile values are; not empty string, or greater than `0` if it is number.
 * {string | number} [`parentId`] - Necessary for [Flat Contents](#flat-contents). If item has no parent, top item, `parentId` should be falsy -one of `false`, `undefined`, `null`, empty string or number `0`, **not** string `"0"`.
 
 
@@ -202,7 +205,7 @@ Usage Example
 ##### `activeLinkId`
 
 Find and highlight according to item `id`.
-It should be higher than `0`, if it is number.
+It should be not empty string, or greater than `0` if it is number.
 
 Usage Example
 ```javascript
@@ -376,7 +379,7 @@ These class names are, according to figure above;
 - main wrapper - `metismenu`
 - container - `metismenu-container` and `visible` for opened containers
 - item - `metismenu-item`
-- link - `metismenu-link` and `active` for active links
+- link - `metismenu-link`, `active` for active links, and `has-active-child` for links has active child or grandchild
 - icon - `metismenu-icon`
 - state icon - `metismenu-state-icon`
 
@@ -391,7 +394,7 @@ Property names are, according to figure above;
 - main wrapper - `className`
 - container - `classNameContainer` and `classNameContainerVisible` for opened containers
 - item - `classNameItem`
-- link - `classNameLink` and `classNameLinkActive` for active links
+- link - `classNameLink`, `classNameLinkActive` for active links, and `classNameLinkHasActiveChild` for links has active child or grandchild
 - icon - `classNameIcon`
 - state icon - `classNameStateIcon`
 
@@ -423,6 +426,58 @@ These icons are also prepended by `iconNamePrefix`.
   iconNameStateHidden="plus"
 />
 ```
+
+
+Customizing Link Component
+==========================
+You are able to change the link component of each item.
+You may use another html tag, want to inject some properties or change operation logic. In this case, you can customize and use your own link component sending to `react-metismenu` component as `LinkComponent` property.
+
+#### Props to use in your Link Component
+- {string} `className` - Passes built-in class name and `classNameLink` prop of top component
+- {string} `classNameActive` - Passes built-in class name and `classNameLinkActive` prop of top component
+- {string} `classNameHasActiveChild` - Passes built-in class name and `classNameLinkHasActiveChild` prop of top component
+- {boolean} `active` - Active link or not state
+- {boolean} `hasActiveChild` - Has active child or grand child state
+- {boolean} `hasSubMenu` - Has sub menu or not state
+- {function} `toggleSubMenu` - If item has submenu, toggle sub menu callback. Otherwise dead function.
+- {function} `activateMe` - If it is normal link, callback that activates link (to assign active class name) and makes all parents beware they have active link.
+- {string} [`to`] - Contains `to` info of the item comes from menu content object
+- {boolean} [`externalLink`] - Destination is external or not
+- {React.Component} `children` -  Ready to render content of link - contains icon, label and other stuff
+
+#### An Example
+Defining CustomLink Component
+```javascript
+class CustomLink extends React.Component {
+  constructor() {
+    super();
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(e) {
+    if (this.props.hasSubMenu) this.props.toggleSubMenu(e);
+    else {
+      // your own operation using "to"
+      // myGotoFunc(this.props.to);
+    }
+  }
+
+  render() {
+    return (
+      <button className="metismenu-link" onClick={this.onClick}>
+        {this.props.children}
+      </button>
+    );
+  }
+};
+```
+Injecting CustomLink into Menu component
+```javascript
+<Menu content={menu} LinkComponent={CustomLink} />
+```
+Also, as another example, you can look into [DefaultLink Component](https://github.com/alpertuna/react-metismenu/blob/master/src/components/DefaultLink.jsx) source.
 
 Development / Contributing
 ==========================

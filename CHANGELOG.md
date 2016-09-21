@@ -1,3 +1,18 @@
+## [1.1.0-alpha.1] - 2016-09-22
+### Added
+- Custom link component support
+- Has active child control
+- Custom class name support for links has active child or grand child
+- Custom link component and has active child control guide in `README.md`
+- Build demo page script
+
+### Changed
+- Demo page
+- Standart style
+
+### Fixed
+- Optimized source code
+
 ## [1.0.0-alpha.1] - 2016-09-19
 ### Added
 - New unit tests
@@ -123,6 +138,7 @@
 - Development tools
 - Core css file
 
+[1.1.0-alpha.1]: https://github.com/alpertuna/react-metismenu/compare/v1.0.0-alpha.1...v1.1.0-alpha.1
 [1.0.0-alpha.1]: https://github.com/alpertuna/react-metismenu/compare/v0.6.0...v1.0.0-alpha.1
 [0.6.0]: https://github.com/alpertuna/react-metismenu/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/alpertuna/react-metismenu/compare/v0.4.2...v0.5.0
