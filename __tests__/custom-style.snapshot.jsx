@@ -27,6 +27,8 @@ describe('Menu', () => {
       classNameContainerVisible: 'test-ccv',
       classNameItem: 'test-ci',
       classNameLink: 'test-cl',
+      /* classNameLinkActive: 'test-cla',
+      classNameLinkHasActiveChild: 'test-clhac', */
       classNameIcon: 'test-cic',
       classNameStateIcon: 'test-csi',
       iconNamePrefix: 'test-ip',

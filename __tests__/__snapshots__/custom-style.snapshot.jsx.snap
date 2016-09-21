@@ -20,7 +20,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon test-cic test-ipbell" />
@@ -61,7 +61,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon test-cic test-ipbell" />
@@ -88,7 +88,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#"
-            onClick={[Function anonymous]}
+            onClick={[Function toggleSubMenu]}
             target={undefined}>
             <i
               className="metismenu-icon test-cic test-ipglobe" />
@@ -164,7 +164,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       <a
         className="test-cl"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="test-cic test-ipbell" />
@@ -205,7 +205,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       <a
         className="test-cl"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="test-cic test-ipbell" />
@@ -232,7 +232,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
           <a
             className="test-cl"
             href="#"
-            onClick={[Function anonymous]}
+            onClick={[Function toggleSubMenu]}
             target={undefined}>
             <i
               className="test-cic test-ipglobe" />
@@ -308,7 +308,7 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="fa fa-bell" />
@@ -349,7 +349,7 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="fa fa-bell" />
@@ -376,7 +376,7 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#"
-            onClick={[Function anonymous]}
+            onClick={[Function toggleSubMenu]}
             target={undefined}>
             <i
               className="fa fa-globe" />

@@ -20,7 +20,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -61,7 +61,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -88,7 +88,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function anonymous]}
+            onClick={[Function toggleSubMenu]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -164,7 +164,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -205,7 +205,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -232,7 +232,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function anonymous]}
+            onClick={[Function toggleSubMenu]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -308,7 +308,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -349,7 +349,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -376,7 +376,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function anonymous]}
+            onClick={[Function toggleSubMenu]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -452,7 +452,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -493,7 +493,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -520,7 +520,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function anonymous]}
+            onClick={[Function toggleSubMenu]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />

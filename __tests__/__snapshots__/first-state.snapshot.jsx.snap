@@ -20,7 +20,7 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -61,7 +61,7 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function anonymous]}
+        onClick={[Function toggleSubMenu]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -88,7 +88,7 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function anonymous]}
+            onClick={[Function toggleSubMenu]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
