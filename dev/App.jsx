@@ -226,10 +226,12 @@ class App extends React.Component {
 
           <h3>Fixed Menu Style</h3>
           <p>
-            <code>react-metismenu</code> default wrapper <code>display</code> style is <code>block</code>.
+            <code>react-metismenu</code> default wrapper <code>display</code>
+            style is <code>block</code>.
             To make menu looks like this, you should add some style manually;
-            <pre>
-              <code>{`
+          </p>
+          <pre>
+            <code>{`
 .metismenu {
   position: fixed;
   width: 280px;
@@ -238,9 +240,8 @@ class App extends React.Component {
   left: 0;
   top: 0;
 }
-              `}</code>
-            </pre>
-          </p>
+            `}</code>
+          </pre>
 
         </div>
       </div>
