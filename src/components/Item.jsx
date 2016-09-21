@@ -7,10 +7,8 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import Container from '../containers/Container';
-import Link from './DefaultLink';
 
 const Item = ({
-  classStore,
   id,
   icon,
   label,
@@ -18,15 +16,21 @@ const Item = ({
   externalLink,
   hasSubMenu,
   active,
+  hasActiveChild,
   subMenuVisibility,
   toggleSubMenu,
   activateMe,
+}, {
+  classStore,
+  LinkComponent,
 }) => (
   <li className={classStore.classItem}>
-    <Link
+    <LinkComponent
       className={classStore.classLink}
       classNameActive={classStore.classLinkActive}
+      classNameHasActiveChild={classStore.classLinkHasActiveChild}
       active={active}
+      hasActiveChild={hasActiveChild}
       to={to}
       externalLink={externalLink}
       hasSubMenu={hasSubMenu}
@@ -45,9 +49,8 @@ const Item = ({
           )
         )}
       />}
-    </Link>
+    </LinkComponent>
     {hasSubMenu && <Container
-      classStore={classStore}
       itemId={id}
       visible={subMenuVisibility}
     />}
@@ -55,7 +58,6 @@ const Item = ({
 );
 
 Item.propTypes = {
-  classStore: PropTypes.object.isRequired,
   id: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
@@ -66,9 +68,18 @@ Item.propTypes = {
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,
   active: PropTypes.bool.isRequired,
+  hasActiveChild: PropTypes.bool.isRequired,
   subMenuVisibility: PropTypes.bool.isRequired,
   toggleSubMenu: PropTypes.func,
   activateMe: PropTypes.func.isRequired,
+};
+
+Item.contextTypes = {
+  classStore: PropTypes.object.isRequired,
+  LinkComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]).isRequired,
 };
 
 export default Item;

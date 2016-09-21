@@ -8,7 +8,7 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import Item from '../containers/Item';
 
-const Container = ({ classStore, items, visible }) => (
+const Container = ({ items, visible }, { classStore }) => (
   <ul
     className={classnames(
       classStore.classContainer,
@@ -16,15 +16,18 @@ const Container = ({ classStore, items, visible }) => (
     )}
   >
     {items.map((item, i) => (
-      <Item key={i} classStore={classStore} {...item} />
+      <Item key={i} {...item} />
     ))}
   </ul>
 );
 
 Container.propTypes = {
-  classStore: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired,
   visible: PropTypes.bool,
+};
+
+Container.contextTypes = {
+  classStore: PropTypes.object.isRequired,
 };
 
 export default Container;

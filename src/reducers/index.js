@@ -1,32 +1,29 @@
 /**
- * src/reducers/item.js
+ * src/reducers/index.js
  * Author: H.Alper Tuna <halpertuna@gmail.com>
  * Date: 16.09.2016
  */
 
 /* eslint-env browser */
 
-import { showSubMenu } from '../actions/item-sub-menu';
+import { changeSubMenuVisibility } from '../actions';
 import flattenContent from './flattenContent';
 
 const item = (state, action) => {
   switch (action.type) {
-    case 'HIDE_SUBMENU':
-    case 'SHOW_SUBMENU':
-    case 'TOGGLE_SUBMENU': {
-      if (state.id === action.id) {
-        return Object.assign({}, state, {
-          subMenuVisibility: action.subMenuVisibility,
-        });
-      }
-
+    case 'CHANGE_SUBMENU_VISIBILITY': {
       return Object.assign({}, state, {
-        subMenuVisibility: action.trace.indexOf(state.id) !== -1,
+        subMenuVisibility: state.id === action.id
+          ? action.subMenuVisibility
+          : action.trace.indexOf(state.id) !== -1,
       });
     }
     case 'CHANGE_ACTIVE_LINK_FROM_LOCATION':
     case 'CHANGE_ACTIVE_LINK': {
-      return Object.assign({}, state, { active: state.id === action.id });
+      return Object.assign({}, state, {
+        active: state.id === action.id,
+        hasActiveChild: action.trace.indexOf(state.id) !== -1,
+      });
     }
     default: {
       return state;
@@ -34,25 +31,15 @@ const item = (state, action) => {
   }
 };
 
-const findItem = (content, value, prop = 'id') => content.find(i => i[prop] === value);
+const findItem = (content, value, prop) => content.find(i => i[prop] === value);
 
 const content = (state = [], action) => {
   switch (action.type) {
-    case 'HIDE_SUBMENU': {
+    case 'UPDATE_CONTENT': {
+      return flattenContent(action.content);
+    }
+    case 'CHANGE_SUBMENU_VISIBILITY': {
       return state.map(i => item(i, action));
-    }
-    case 'SHOW_SUBMENU': {
-      const trace = action.id
-        ? findItem(state, action.id).trace
-        : [];
-      return state.map(i => item(i, Object.assign({ trace }, action)));
-    }
-    case 'TOGGLE_SUBMENU': {
-      const { subMenuVisibility, trace } = findItem(state, action.id);
-      return state.map(i => item(i, Object.assign({
-        subMenuVisibility: !subMenuVisibility,
-        trace,
-      }, action)));
     }
     case 'CHANGE_ACTIVE_LINK_FROM_LOCATION':
     case 'CHANGE_ACTIVE_LINK': {
@@ -68,14 +55,14 @@ const content = (state = [], action) => {
         activeItem = findItem(state, action.value, action.propName);
       }
 
+      // If metismenu user tries to activate non-exist item
       if (!activeItem) return state;
 
-      const { id, parentId } = activeItem;
-      const stage = state.map(i => item(i, Object.assign({ id }, action)));
-      return content(stage, showSubMenu(parentId));
-    }
-    case 'UPDATE_CONTENT': {
-      return flattenContent(action.content);
+      const { id, parentId, trace } = activeItem;
+      const stage = state.map(i => item(i, Object.assign({ id, trace }, action)));
+
+      // Trace also keeps parentId nonetheless it doesn't matter
+      return content(stage, changeSubMenuVisibility(parentId, trace, true));
     }
     default: {
       return state;

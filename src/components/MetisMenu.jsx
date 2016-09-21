@@ -10,20 +10,23 @@ import { createStore } from 'redux';
 import classnames from 'classnames';
 import Ajax from 'simple-ajax';
 import Container from '../containers/Container';
+import Link from './DefaultLink';
 import reducers from '../reducers';
-import { updateContent } from '../actions/content';
 import {
+  updateContent,
   changeActiveLinkId,
   changeActiveLinkTo,
   changeActiveLinkLabel,
   changeActiveLinkFromLocation,
-} from '../actions/item-active-link';
+} from '../actions';
 
 class MetisMenu extends React.Component {
   constructor(props) {
     super(props);
 
     this.store = createStore(reducers);
+
+    this.LinkComponent = props.LinkComponent || Link;
 
     if (props.content) {
       this.updateContent(props.content);
@@ -57,6 +60,10 @@ class MetisMenu extends React.Component {
         { active: !props.noBuiltInClassNames },
         props.classNameLinkActive
       ),
+      classLinkHasActiveChild: classnames(
+        { 'has-active-child': !props.noBuiltInClassNames },
+        props.classNameLinkHasActiveChild
+      ),
       classIcon: classnames(
         { 'metismenu-icon': !props.noBuiltInClassNames },
         props.classNameIcon
@@ -69,6 +76,13 @@ class MetisMenu extends React.Component {
       iconNamePrefix: props.iconNamePrefix || 'fa fa-',
       iconNameStateHidden: props.iconNameStateHidden || 'caret-left',
       iconNameStateVisible: props.iconNameStateVisible || 'caret-left rotate-minus-90',
+    };
+  }
+
+  getChildContext() {
+    return {
+      classStore: this.classStore,
+      LinkComponent: this.LinkComponent,
     };
   }
 
@@ -131,7 +145,7 @@ class MetisMenu extends React.Component {
     return (
       <Provider store={this.store}>
         <div className={this.classStore.classMainWrapper}>
-          <Container classStore={this.classStore} />
+          <Container />
         </div>
       </Provider>
     );
@@ -144,6 +158,12 @@ MetisMenu.propTypes = {
     PropTypes.object,
     PropTypes.string,
   ]),
+
+  LinkComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]),
+
   noBuiltInClassNames: PropTypes.bool,
   className: PropTypes.string,
   classNameContainer: PropTypes.string,
@@ -151,6 +171,7 @@ MetisMenu.propTypes = {
   classNameItem: PropTypes.string,
   classNameLink: PropTypes.string,
   classNameLinkActive: PropTypes.string,
+  classNameLinkHasActiveChild: PropTypes.string,
   classNameIcon: PropTypes.string,
   classNameStateIcon: PropTypes.string,
   iconNamePrefix: PropTypes.string,
@@ -164,6 +185,14 @@ MetisMenu.propTypes = {
   activeLinkTo: PropTypes.string,
   activeLinkLabel: PropTypes.string,
   activeLinkFromLocation: PropTypes.bool,
+};
+
+MetisMenu.childContextTypes = {
+  classStore: PropTypes.object.isRequired,
+  LinkComponent: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+  ]).isRequired,
 };
 
 export default MetisMenu;

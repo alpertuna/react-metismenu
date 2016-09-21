@@ -5,17 +5,15 @@
  */
 
 import { connect } from 'react-redux';
-import { toggleSubMenu } from '../actions/item-sub-menu';
-import { changeActiveLinkId } from '../actions/item-active-link';
+import { changeSubMenuVisibility, changeActiveLinkId } from '../actions';
 import Item from '../components/Item';
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  toggleSubMenu: ownProps.hasSubMenu
-  ? e => {
+  toggleSubMenu(e) {
+    if (!ownProps.hasSubMenu) return;
     e.preventDefault();
-    dispatch(toggleSubMenu(ownProps.id));
-  }
-  : undefined,
+    dispatch(changeSubMenuVisibility(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
+  },
   activateMe() {
     dispatch(changeActiveLinkId(ownProps.id));
   },

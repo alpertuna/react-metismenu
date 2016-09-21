@@ -1,8 +1,20 @@
 /**
- * src/actions/item-active-link.js
+ * src/actions.js
  * Author: H.Alper Tuna <halpertuna@gmail.com>
  * Date: 16.09.2016
  */
+
+export const updateContent = content => ({
+  type: 'UPDATE_CONTENT',
+  content,
+});
+
+export const changeSubMenuVisibility = (id, trace, subMenuVisibility) => ({
+  type: 'CHANGE_SUBMENU_VISIBILITY',
+  id,
+  trace,
+  subMenuVisibility,
+});
 
 export const changeActiveLinkId = value => ({
   type: 'CHANGE_ACTIVE_LINK',

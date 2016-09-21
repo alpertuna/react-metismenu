@@ -10,7 +10,9 @@ import classnames from 'classnames';
 const DefaultLink = ({
   className,
   classNameActive,
+  classNameHasActiveChild,
   active,
+  hasActiveChild,
   to,
   externalLink,
   hasSubMenu,
@@ -19,7 +21,11 @@ const DefaultLink = ({
   children,
 }) => (
   <a
-    className={classnames(className, active && classNameActive)}
+    className={classnames(
+      className,
+      active && classNameActive,
+      hasActiveChild && classNameHasActiveChild
+    )}
     href={to}
     onClick={hasSubMenu ? toggleSubMenu : activateMe}
     target={externalLink ? '_blank' : undefined}
@@ -31,7 +37,9 @@ const DefaultLink = ({
 DefaultLink.propTypes = {
   className: PropTypes.string.isRequired,
   classNameActive: PropTypes.string.isRequired,
+  classNameHasActiveChild: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
+  hasActiveChild: PropTypes.bool.isRequired,
   to: PropTypes.string.isRequired,
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,

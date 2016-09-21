@@ -1,5 +1,5 @@
 /**
- * src/reducers/content.js
+ * src/reducers/flattenContent.js
  * Author: H.Alper Tuna <halpertuna@gmail.com>
  * Date: 17.09.2016
  */
@@ -19,6 +19,7 @@ const flattenLevel = (content, parentId) => {
       to: item.to,
       externalLink: item.externalLink,
       active: false,
+      hasActiveChild: false,
       subMenuVisibility: false,
     });
     if (typeof item.content !== 'undefined') {
