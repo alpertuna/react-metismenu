@@ -1,6 +1,7 @@
 src/
 less/
 dev/
+demo/
 webpack/
 coverage/
 *.swp

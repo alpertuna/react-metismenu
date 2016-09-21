@@ -13,7 +13,7 @@ const config = require('./base.conf');
 module.exports = Object.assign(config, {
   entry: './dev/App.jsx',
   output: {
-    path: './',
+    path: './demo',
     filename: 'bundle.js',
   },
   module: {

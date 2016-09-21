@@ -6,7 +6,7 @@
   "scripts": {
     "dev-server": "webpack-dev-server --config webpack/dev.conf.js --progress --colors --hot --inline",
     "start": "npm run dev-server",
-    "build-demo": "webpack --config webpack/demo.conf.js --progress --colors",
+    "build-demo": "mkdir demo && cp dev/{index.html,style.css} demo && webpack --config webpack/demo.conf.js --progress --colors",
     "build-dist-js-min": "webpack --config webpack/dist-min.conf.js --progress --colors",
     "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
     "build-dist-css-min": "lessc --clean-css less/standart.less dist/react-metismenu-standart.min.css",
@@ -20,8 +20,7 @@
     "unit-test": "jest",
     "coverage": "jest --coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "npm run lint-confs && npm run lint-src && npm run coverage",
-    "prepublish": "npm run test && npm run build"
+    "test": "npm run lint-confs && npm run lint-src && npm run coverage"
   },
   "jest": {
     "testRegex": "/__tests__/.*\\.jsx?$",
@@ -38,11 +37,14 @@
     "react",
     "metis",
     "menu",
+    "component",
     "json",
     "collapsable",
     "animated",
     "smooth",
-    "customizable"
+    "customizable",
+    "ajax",
+    "material"
   ],
   "author": "H.Alper Tuna <halpertuna@gmail.com>",
   "license": "MIT",
