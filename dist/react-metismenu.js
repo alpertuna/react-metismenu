@@ -104,13 +104,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _reducers = __webpack_require__(40);
+	var _DefaultLink = __webpack_require__(38);
+
+	var _DefaultLink2 = _interopRequireDefault(_DefaultLink);
+
+	var _reducers = __webpack_require__(39);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
-	var _content = __webpack_require__(42);
-
-	var _itemActiveLink = __webpack_require__(37);
+	var _actions = __webpack_require__(36);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -134,6 +136,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _this.store = (0, _redux.createStore)(_reducers2.default);
 
+	    _this.LinkComponent = props.LinkComponent || _DefaultLink2.default;
+
 	    if (props.content) {
 	      _this.updateContent(props.content);
 	      _this.updateActiveLink(props);
@@ -148,6 +152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      classItem: (0, _classnames2.default)({ 'metismenu-item': !props.noBuiltInClassNames }, props.classNameItem),
 	      classLink: (0, _classnames2.default)({ 'metismenu-link': !props.noBuiltInClassNames }, props.classNameLink),
 	      classLinkActive: (0, _classnames2.default)({ active: !props.noBuiltInClassNames }, props.classNameLinkActive),
+	      classLinkHasActiveChild: (0, _classnames2.default)({ 'has-active-child': !props.noBuiltInClassNames }, props.classNameLinkHasActiveChild),
 	      classIcon: (0, _classnames2.default)({ 'metismenu-icon': !props.noBuiltInClassNames }, props.classNameIcon),
 	      classStateIcon: (0, _classnames2.default)({ 'metismenu-state-icon': !props.noBuiltInClassNames }, props.classNameStateIcon),
 
@@ -159,6 +164,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  _createClass(MetisMenu, [{
+	    key: 'getChildContext',
+	    value: function getChildContext() {
+	      return {
+	        classStore: this.classStore,
+	        LinkComponent: this.LinkComponent
+	      };
+	    }
+	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
 	      if (this.props.content !== nextProps.content) {
@@ -174,22 +187,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'changeActiveLinkId',
 	    value: function changeActiveLinkId(value) {
-	      this.store.dispatch((0, _itemActiveLink.changeActiveLinkId)(value));
+	      this.store.dispatch((0, _actions.changeActiveLinkId)(value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkTo',
 	    value: function changeActiveLinkTo(value) {
-	      this.store.dispatch((0, _itemActiveLink.changeActiveLinkTo)(value));
+	      this.store.dispatch((0, _actions.changeActiveLinkTo)(value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkLabel',
 	    value: function changeActiveLinkLabel(value) {
-	      this.store.dispatch((0, _itemActiveLink.changeActiveLinkLabel)(value));
+	      this.store.dispatch((0, _actions.changeActiveLinkLabel)(value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkFromLocation',
 	    value: function changeActiveLinkFromLocation() {
-	      this.store.dispatch((0, _itemActiveLink.changeActiveLinkFromLocation)());
+	      this.store.dispatch((0, _actions.changeActiveLinkFromLocation)());
 	    }
 	  }, {
 	    key: 'updateActiveLink',
@@ -218,7 +231,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'updateContent',
 	    value: function updateContent(content) {
-	      this.store.dispatch((0, _content.updateContent)(content));
+	      this.store.dispatch((0, _actions.updateContent)(content));
 	    }
 	  }, {
 	    key: 'render',
@@ -229,7 +242,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2.default.createElement(
 	          'div',
 	          { className: this.classStore.classMainWrapper },
-	          _react2.default.createElement(_Container2.default, { classStore: this.classStore })
+	          _react2.default.createElement(_Container2.default, null)
 	        )
 	      );
 	    }
@@ -241,6 +254,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	MetisMenu.propTypes = {
 	  content: _react.PropTypes.array,
 	  ajax: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.string]),
+
+	  LinkComponent: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.func]),
+
 	  noBuiltInClassNames: _react.PropTypes.bool,
 	  className: _react.PropTypes.string,
 	  classNameContainer: _react.PropTypes.string,
@@ -248,6 +264,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  classNameItem: _react.PropTypes.string,
 	  classNameLink: _react.PropTypes.string,
 	  classNameLinkActive: _react.PropTypes.string,
+	  classNameLinkHasActiveChild: _react.PropTypes.string,
 	  classNameIcon: _react.PropTypes.string,
 	  classNameStateIcon: _react.PropTypes.string,
 	  iconNamePrefix: _react.PropTypes.string,
@@ -258,6 +275,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  activeLinkTo: _react.PropTypes.string,
 	  activeLinkLabel: _react.PropTypes.string,
 	  activeLinkFromLocation: _react.PropTypes.bool
+	};
+
+	MetisMenu.childContextTypes = {
+	  classStore: _react.PropTypes.object.isRequired,
+	  LinkComponent: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.func]).isRequired
 	};
 
 	exports.default = MetisMenu;
@@ -2757,25 +2779,28 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Container = function Container(_ref) {
-	  var classStore = _ref.classStore;
+	var Container = function Container(_ref, _ref2) {
 	  var items = _ref.items;
 	  var visible = _ref.visible;
+	  var classStore = _ref2.classStore;
 	  return _react2.default.createElement(
 	    'ul',
 	    {
 	      className: (0, _classnames2.default)(classStore.classContainer, visible && classStore.classContainerVisible)
 	    },
 	    items.map(function (item, i) {
-	      return _react2.default.createElement(_Item2.default, _extends({ key: i, classStore: classStore }, item));
+	      return _react2.default.createElement(_Item2.default, _extends({ key: i }, item));
 	    })
 	  );
 	};
 
 	Container.propTypes = {
-	  classStore: _react.PropTypes.object.isRequired,
 	  items: _react.PropTypes.array.isRequired,
 	  visible: _react.PropTypes.bool
+	};
+
+	Container.contextTypes = {
+	  classStore: _react.PropTypes.object.isRequired
 	};
 
 	exports.default = Container;
@@ -2792,33 +2817,30 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRedux = __webpack_require__(3);
 
-	var _itemSubMenu = __webpack_require__(36);
+	var _actions = __webpack_require__(36);
 
-	var _itemActiveLink = __webpack_require__(37);
-
-	var _Item = __webpack_require__(38);
+	var _Item = __webpack_require__(37);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * src/containers/Item.js
-	 * Author: H.Alper Tuna <halpertuna@gmail.com>
-	 * Date: 16.09.2016
-	 */
-
 	var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 	  return {
-	    toggleSubMenu: ownProps.hasSubMenu ? function (e) {
+	    toggleSubMenu: function toggleSubMenu(e) {
+	      if (!ownProps.hasSubMenu) return;
 	      e.preventDefault();
-	      dispatch((0, _itemSubMenu.toggleSubMenu)(ownProps.id));
-	    } : undefined,
+	      dispatch((0, _actions.changeSubMenuVisibility)(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
+	    },
 	    activateMe: function activateMe() {
-	      dispatch((0, _itemActiveLink.changeActiveLinkId)(ownProps.id));
+	      dispatch((0, _actions.changeActiveLinkId)(ownProps.id));
 	    }
 	  };
-	};
+	}; /**
+	    * src/containers/Item.js
+	    * Author: H.Alper Tuna <halpertuna@gmail.com>
+	    * Date: 16.09.2016
+	    */
 
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_Item2.default);
 
@@ -2832,49 +2854,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	/**
-	 * src/actions/item-sub-menu.js
+	 * src/actions.js
 	 * Author: H.Alper Tuna <halpertuna@gmail.com>
 	 * Date: 16.09.2016
 	 */
 
-	var showSubMenu = exports.showSubMenu = function showSubMenu(id) {
+	var updateContent = exports.updateContent = function updateContent(content) {
 	  return {
-	    type: 'SHOW_SUBMENU',
-	    subMenuVisibility: true,
-	    id: id
+	    type: 'UPDATE_CONTENT',
+	    content: content
 	  };
 	};
 
-	var hideSubMenu = exports.hideSubMenu = function hideSubMenu(id) {
+	var changeSubMenuVisibility = exports.changeSubMenuVisibility = function changeSubMenuVisibility(id, trace, subMenuVisibility) {
 	  return {
-	    type: 'HIDE_SUBMENU',
-	    subMenuVisibility: false,
-	    trace: [],
-	    id: id
+	    type: 'CHANGE_SUBMENU_VISIBILITY',
+	    id: id,
+	    trace: trace,
+	    subMenuVisibility: subMenuVisibility
 	  };
 	};
-
-	var toggleSubMenu = exports.toggleSubMenu = function toggleSubMenu(id) {
-	  return {
-	    type: 'TOGGLE_SUBMENU',
-	    id: id
-	  };
-	};
-
-/***/ },
-/* 37 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	/**
-	 * src/actions/item-active-link.js
-	 * Author: H.Alper Tuna <halpertuna@gmail.com>
-	 * Date: 16.09.2016
-	 */
 
 	var changeActiveLinkId = exports.changeActiveLinkId = function changeActiveLinkId(value) {
 	  return {
@@ -2904,7 +2903,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 38 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2925,20 +2924,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _DefaultLink = __webpack_require__(39);
-
-	var _DefaultLink2 = _interopRequireDefault(_DefaultLink);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * src/components/Container.jsx
-	 * Author: H.Alper Tuna <halpertuna@gmail.com>
-	 * Date: 16.09.2016
-	 */
-
-	var Item = function Item(_ref) {
-	  var classStore = _ref.classStore;
+	var Item = function Item(_ref, _ref2) {
 	  var id = _ref.id;
 	  var icon = _ref.icon;
 	  var label = _ref.label;
@@ -2946,18 +2934,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var externalLink = _ref.externalLink;
 	  var hasSubMenu = _ref.hasSubMenu;
 	  var active = _ref.active;
+	  var hasActiveChild = _ref.hasActiveChild;
 	  var subMenuVisibility = _ref.subMenuVisibility;
 	  var toggleSubMenu = _ref.toggleSubMenu;
 	  var activateMe = _ref.activateMe;
+	  var classStore = _ref2.classStore;
+	  var LinkComponent = _ref2.LinkComponent;
 	  return _react2.default.createElement(
 	    'li',
 	    { className: classStore.classItem },
 	    _react2.default.createElement(
-	      _DefaultLink2.default,
+	      LinkComponent,
 	      {
 	        className: classStore.classLink,
 	        classNameActive: classStore.classLinkActive,
+	        classNameHasActiveChild: classStore.classLinkHasActiveChild,
 	        active: active,
+	        hasActiveChild: hasActiveChild,
 	        to: to,
 	        externalLink: externalLink,
 	        hasSubMenu: hasSubMenu,
@@ -2971,15 +2964,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	      })
 	    ),
 	    hasSubMenu && _react2.default.createElement(_Container2.default, {
-	      classStore: classStore,
 	      itemId: id,
 	      visible: subMenuVisibility
 	    })
 	  );
-	};
+	}; /**
+	    * src/components/Container.jsx
+	    * Author: H.Alper Tuna <halpertuna@gmail.com>
+	    * Date: 16.09.2016
+	    */
 
 	Item.propTypes = {
-	  classStore: _react.PropTypes.object.isRequired,
 	  id: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]).isRequired,
 	  icon: _react.PropTypes.string,
 	  label: _react.PropTypes.string,
@@ -2987,15 +2982,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	  externalLink: _react.PropTypes.bool,
 	  hasSubMenu: _react.PropTypes.bool.isRequired,
 	  active: _react.PropTypes.bool.isRequired,
+	  hasActiveChild: _react.PropTypes.bool.isRequired,
 	  subMenuVisibility: _react.PropTypes.bool.isRequired,
 	  toggleSubMenu: _react.PropTypes.func,
 	  activateMe: _react.PropTypes.func.isRequired
 	};
 
+	Item.contextTypes = {
+	  classStore: _react.PropTypes.object.isRequired,
+	  LinkComponent: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.func]).isRequired
+	};
+
 	exports.default = Item;
 
 /***/ },
-/* 39 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3023,7 +3024,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DefaultLink = function DefaultLink(_ref) {
 	  var className = _ref.className;
 	  var classNameActive = _ref.classNameActive;
+	  var classNameHasActiveChild = _ref.classNameHasActiveChild;
 	  var active = _ref.active;
+	  var hasActiveChild = _ref.hasActiveChild;
 	  var to = _ref.to;
 	  var externalLink = _ref.externalLink;
 	  var hasSubMenu = _ref.hasSubMenu;
@@ -3033,7 +3036,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return _react2.default.createElement(
 	    'a',
 	    {
-	      className: (0, _classnames2.default)(className, active && classNameActive),
+	      className: (0, _classnames2.default)(className, active && classNameActive, hasActiveChild && classNameHasActiveChild),
 	      href: to,
 	      onClick: hasSubMenu ? toggleSubMenu : activateMe,
 	      target: externalLink ? '_blank' : undefined
@@ -3045,7 +3048,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	DefaultLink.propTypes = {
 	  className: _react.PropTypes.string.isRequired,
 	  classNameActive: _react.PropTypes.string.isRequired,
+	  classNameHasActiveChild: _react.PropTypes.string.isRequired,
 	  active: _react.PropTypes.bool.isRequired,
+	  hasActiveChild: _react.PropTypes.bool.isRequired,
 	  to: _react.PropTypes.string.isRequired,
 	  externalLink: _react.PropTypes.bool,
 	  hasSubMenu: _react.PropTypes.bool.isRequired,
@@ -3057,7 +3062,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = DefaultLink;
 
 /***/ },
-/* 40 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3067,16 +3072,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; }; /**
-	                                                                                                                                                                                                                                                   * src/reducers/item.js
+	                                                                                                                                                                                                                                                   * src/reducers/index.js
 	                                                                                                                                                                                                                                                   * Author: H.Alper Tuna <halpertuna@gmail.com>
 	                                                                                                                                                                                                                                                   * Date: 16.09.2016
 	                                                                                                                                                                                                                                                   */
 
 	/* eslint-env browser */
 
-	var _itemSubMenu = __webpack_require__(36);
+	var _actions = __webpack_require__(36);
 
-	var _flattenContent = __webpack_require__(41);
+	var _flattenContent = __webpack_require__(40);
 
 	var _flattenContent2 = _interopRequireDefault(_flattenContent);
 
@@ -3084,24 +3089,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var item = function item(state, action) {
 	  switch (action.type) {
-	    case 'HIDE_SUBMENU':
-	    case 'SHOW_SUBMENU':
-	    case 'TOGGLE_SUBMENU':
+	    case 'CHANGE_SUBMENU_VISIBILITY':
 	      {
-	        if (state.id === action.id) {
-	          return Object.assign({}, state, {
-	            subMenuVisibility: action.subMenuVisibility
-	          });
-	        }
-
 	        return Object.assign({}, state, {
-	          subMenuVisibility: action.trace.indexOf(state.id) !== -1
+	          subMenuVisibility: state.id === action.id ? action.subMenuVisibility : action.trace.indexOf(state.id) !== -1
 	        });
 	      }
 	    case 'CHANGE_ACTIVE_LINK_FROM_LOCATION':
 	    case 'CHANGE_ACTIVE_LINK':
 	      {
-	        return Object.assign({}, state, { active: state.id === action.id });
+	        return Object.assign({}, state, {
+	          active: state.id === action.id,
+	          hasActiveChild: action.trace.indexOf(state.id) !== -1
+	        });
 	      }
 	    default:
 	      {
@@ -3110,8 +3110,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 
-	var findItem = function findItem(content, value) {
-	  var prop = arguments.length <= 2 || arguments[2] === undefined ? 'id' : arguments[2];
+	var findItem = function findItem(content, value, prop) {
 	  return content.find(function (i) {
 	    return i[prop] === value;
 	  });
@@ -3122,49 +3121,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case 'HIDE_SUBMENU':
+	    case 'UPDATE_CONTENT':
+	      {
+	        return (0, _flattenContent2.default)(action.content);
+	      }
+	    case 'CHANGE_SUBMENU_VISIBILITY':
 	      {
 	        return state.map(function (i) {
 	          return item(i, action);
 	        });
 	      }
-	    case 'SHOW_SUBMENU':
-	      {
-	        var _ret = function () {
-	          var trace = action.id ? findItem(state, action.id).trace : [];
-	          return {
-	            v: state.map(function (i) {
-	              return item(i, Object.assign({ trace: trace }, action));
-	            })
-	          };
-	        }();
-
-	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
-	      }
-	    case 'TOGGLE_SUBMENU':
-	      {
-	        var _ret2 = function () {
-	          var _findItem = findItem(state, action.id);
-
-	          var subMenuVisibility = _findItem.subMenuVisibility;
-	          var trace = _findItem.trace;
-
-	          return {
-	            v: state.map(function (i) {
-	              return item(i, Object.assign({
-	                subMenuVisibility: !subMenuVisibility,
-	                trace: trace
-	              }, action));
-	            })
-	          };
-	        }();
-
-	        if ((typeof _ret2 === 'undefined' ? 'undefined' : _typeof(_ret2)) === "object") return _ret2.v;
-	      }
 	    case 'CHANGE_ACTIVE_LINK_FROM_LOCATION':
 	    case 'CHANGE_ACTIVE_LINK':
 	      {
-	        var _ret3 = function () {
+	        var _ret = function () {
 	          var activeItem = void 0;
 	          if (action.type === 'CHANGE_ACTIVE_LINK_FROM_LOCATION') {
 	            (function () {
@@ -3179,6 +3149,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            activeItem = findItem(state, action.value, action.propName);
 	          }
 
+	          // If metismenu user tries to activate non-exist item
 	          if (!activeItem) return {
 	              v: state
 	            };
@@ -3186,20 +3157,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	          var _activeItem = activeItem;
 	          var id = _activeItem.id;
 	          var parentId = _activeItem.parentId;
+	          var trace = _activeItem.trace;
 
 	          var stage = state.map(function (i) {
-	            return item(i, Object.assign({ id: id }, action));
+	            return item(i, Object.assign({ id: id, trace: trace }, action));
 	          });
+
+	          // Trace also keeps parentId nonetheless it doesn't matter
 	          return {
-	            v: content(stage, (0, _itemSubMenu.showSubMenu)(parentId))
+	            v: content(stage, (0, _actions.changeSubMenuVisibility)(parentId, trace, true))
 	          };
 	        }();
 
-	        if ((typeof _ret3 === 'undefined' ? 'undefined' : _typeof(_ret3)) === "object") return _ret3.v;
-	      }
-	    case 'UPDATE_CONTENT':
-	      {
-	        return (0, _flattenContent2.default)(action.content);
+	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	      }
 	    default:
 	      {
@@ -3211,7 +3181,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = content;
 
 /***/ },
-/* 41 */
+/* 40 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3223,7 +3193,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	/**
-	 * src/reducers/content.js
+	 * src/reducers/flattenContent.js
 	 * Author: H.Alper Tuna <halpertuna@gmail.com>
 	 * Date: 17.09.2016
 	 */
@@ -3243,6 +3213,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      to: item.to,
 	      externalLink: item.externalLink,
 	      active: false,
+	      hasActiveChild: false,
 	      subMenuVisibility: false
 	    });
 	    if (typeof item.content !== 'undefined') {
@@ -3275,30 +3246,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var flatContent = flattenLevel(content);
 	  mapTrace(flatContent);
 	  return flatContent;
-	};
-
-/***/ },
-/* 42 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	/*
-	 * @file src/actions/content.js
-	 * @author H.Alper Tuna <halpertuna@gmail.com>
-	 * Date: 17.09.2016
-	 */
-
-	/* eslint import/prefer-default-export: 0 */
-
-	var updateContent = exports.updateContent = function updateContent(content) {
-	  return {
-	    type: 'UPDATE_CONTENT',
-	    content: content
-	  };
 	};
 
 /***/ }
