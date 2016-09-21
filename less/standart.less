@@ -9,13 +9,15 @@
 @font-size: 12pt;
 
 @icon-width: 3em;
-@first-level-item-height: 2.8em;
-@sub-level-item-height: 2.6em;
+@first-level-item-height: 2.5em;
+@sub-level-item-height: 2.5em;
 
 @second-level-indent: 1em;
 @third-level-indent: 2em;
 
 @bg: #303336;
+@bg-active: #F53;
+//@bg-active: #69F;
 @fg: #DDD;
 
 @effect-duration: 300ms;
@@ -24,7 +26,6 @@
   background: @bg;
   font-family: 'Open Sans', sans-serif;
   font-size: @font-size;
-  font-weight: lighter;
   overflow: hidden;
   position: relative;
 
@@ -41,7 +42,6 @@
   }
 
   &::after {
-    //.box-shadow(-.4em 0 .4em -.4em fade(#000, 50%) inset);
     .box-shadow(0 0 .4em fade(#000, 50%) inset);
 
     content: " ";
@@ -107,13 +107,14 @@
   }
 
   &.active {
-    @l-bg: #69F;
-
     .text-shadow(0 -1px 0 fade(#000, 25%));
 
-    background: @l-bg;
+    background: @bg-active;
     color: #FFF;
-    font-weight: normal;
+  }
+
+  &.has-active-child {
+    color: @bg-active;
   }
 }
 I.metismenu-icon {
