@@ -6,7 +6,7 @@
   "scripts": {
     "dev-server": "webpack-dev-server --config webpack/dev.conf.js --progress --colors --hot --inline",
     "start": "npm run dev-server",
-    "build-demo": "mkdir demo && cp dev/{index.html,style.css} demo && webpack --config webpack/demo.conf.js --progress --colors",
+    "build-demo": "rm -rf demo && mkdir demo && cp dev/{index.html,style.css} demo && webpack --config webpack/demo.conf.js --progress --colors",
     "build-dist-js-min": "webpack --config webpack/dist-min.conf.js --progress --colors",
     "build-dist-js": "webpack --config webpack/dist.conf.js --progress --colors",
     "build-dist-css-min": "lessc --clean-css less/standart.less dist/react-metismenu-standart.min.css",
