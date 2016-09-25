@@ -160,7 +160,7 @@ class App extends React.Component {
         />
 
         <div className="body">
-          <h1>react-metismenu@1.0.0-alpha.1</h1>
+          <h1>react-metismenu@1.1.1</h1>
           <h3>Examples to Change Active Link</h3>
           <p>
             Activate link with ref using <b>changeActiveLinkLabel</b> method
