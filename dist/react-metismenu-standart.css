@@ -48,8 +48,6 @@
   background: rgba(255, 255, 255, 0.05);
 }
 .metismenu-container .metismenu-container .metismenu-item > .metismenu-link {
-  transition: height 300ms;
-  -webkit-transition: height 300ms;
   height: 0;
   overflow: hidden;
 }
@@ -69,6 +67,8 @@
   color: #DDD;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
   -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  transition: height 300ms, color 300ms, background-color 300ms;
+  -webkit-transition: height 300ms, color 300ms, background-color 300ms;
   display: block;
   line-height: 2.5em;
   text-decoration: none;

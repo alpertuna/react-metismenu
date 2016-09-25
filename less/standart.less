@@ -68,8 +68,6 @@
     background: fade(#FFF, 5%);
 
     .metismenu-item > .metismenu-link {
-      .transition(height @effect-duration);
-
       height: 0;
       overflow: hidden;
     }
@@ -96,6 +94,7 @@
   color: @fg;
 
   .text-shadow(0 -1px 0 fade(#000, 50%));
+  .transition(height @effect-duration, color @effect-duration, background-color @effect-duration);
 
   display: block;
   line-height: @sub-level-item-height;
