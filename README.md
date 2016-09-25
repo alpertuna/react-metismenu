@@ -12,6 +12,8 @@ Demo
 ====
 Here is a simple demo to show animations and actions with standart theme. [Go to demo](https://alpertuna.github.io/react-metismenu/)
 
+`react-metismenu-router-link` link component to use with `react-router`. [Go to demo](https://alpertuna.github.io/react-metismenu-router-link) - [Extension Page](https://github.com/alpertuna/react-metismenu-router-link)
+
 Install
 =======
 
@@ -478,6 +480,14 @@ Injecting CustomLink into Menu component
 <Menu content={menu} LinkComponent={CustomLink} />
 ```
 Also, as another example, you can look into [DefaultLink Component](https://github.com/alpertuna/react-metismenu/blob/master/src/components/DefaultLink.jsx) source.
+
+Extensions
+==========
+## react-metismenu-router-link
+If you use `react-router`, this extension does the job. It provides link component to use `react-metismenu` with `react-router`.
+- Npm package `react-metismenu-router-link`
+- [Source page](https://github.com/alpertuna/react-metismenu-router-link)
+- [Demo page](https://alpertuna.github.io/react-metismenu-router-link)
 
 Development / Contributing
 ==========================
