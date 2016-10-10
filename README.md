@@ -69,14 +69,14 @@ Properties
 + Non-Updateable Properties (by `state`)
   - [Customizing Styles](#customizing-styles)
     * {string} [`className`] - Class name for main metismenu wrapper
-    * {string} [`classNameContainer`] - Class name for item container (ul)
-    * {string} [`classNameContainerVisible`] - Additional class name when container is visible
-    * {string} [`classNameItem`] - Class name for items in container (li)
-    * {string} [`classNameItemActive`] - Additional class name when item link is active (a)
-    * {string} [`classNameItemHasActiveChild`] - Additional class name when any child or grandchild item link is active (a)
-    * {string} [`classNameLink`] - Class name for links in items (a)
-    * {string} [`classNameLinkActive`] - Additional class name when link is active (a)
-    * {string} [`classNameLinkHasActiveChild`] - Additional class name when any child or grandchild link is active (a)
+    * {string} [`classNameContainer`] - Class name for item container (Affects `ul`)
+    * {string} [`classNameContainerVisible`] - Additional class name when container is visible (Affects `ul`)
+    * {string} [`classNameItem`] - Class name for items in container (Affects `li`)
+    * {string} [`classNameItemActive`] - Additional class name when item link is active (Affects `li`)
+    * {string} [`classNameItemHasActiveChild`] - Additional class name when any child or grandchild item link is active (Affects `li`)
+    * {string} [`classNameLink`] - Class name for links in items (Affects `a`)
+    * {string} [`classNameLinkActive`] - Additional class name when link is active (Affects `a`)
+    * {string} [`classNameLinkHasActiveChild`] - Additional class name when any child or grandchild link is active (Affects `a`)
     * {string} [`classNameIcon`] - Class name for link icons
     * {string} [`classNameStateIcon`] - Class name for state indicators of submenu
 
