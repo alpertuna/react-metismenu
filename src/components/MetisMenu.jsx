@@ -56,6 +56,10 @@ class MetisMenu extends React.Component {
         { 'metismenu-link': !props.noBuiltInClassNames },
         props.classNameLink
       ),
+      classItemActive: classnames(
+        { active: !props.noBuiltInClassNames },
+        props.classNameItemActive
+      ),
       classLinkActive: classnames(
         { active: !props.noBuiltInClassNames },
         props.classNameLinkActive
@@ -169,6 +173,7 @@ MetisMenu.propTypes = {
   classNameContainer: PropTypes.string,
   classNameContainerVisible: PropTypes.string,
   classNameItem: PropTypes.string,
+  classNameItemActive: PropTypes.string,
   classNameLink: PropTypes.string,
   classNameLinkActive: PropTypes.string,
   classNameLinkHasActiveChild: PropTypes.string,

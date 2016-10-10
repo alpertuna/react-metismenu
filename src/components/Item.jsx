@@ -24,7 +24,7 @@ const Item = ({
   classStore,
   LinkComponent,
 }) => (
-  <li className={classStore.classItem}>
+  <li className={classnames(classStore.classItem, active && classStore.classItemActive)}>
     <LinkComponent
       className={classStore.classLink}
       classNameActive={classStore.classLinkActive}
