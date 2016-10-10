@@ -152,6 +152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      classItem: (0, _classnames2.default)({ 'metismenu-item': !props.noBuiltInClassNames }, props.classNameItem),
 	      classLink: (0, _classnames2.default)({ 'metismenu-link': !props.noBuiltInClassNames }, props.classNameLink),
 	      classItemActive: (0, _classnames2.default)({ active: !props.noBuiltInClassNames }, props.classNameItemActive),
+	      classItemHasActiveChild: (0, _classnames2.default)({ active: !props.noBuiltInClassNames }, props.classNameItemHasActiveChild),
 	      classLinkActive: (0, _classnames2.default)({ active: !props.noBuiltInClassNames }, props.classNameLinkActive),
 	      classLinkHasActiveChild: (0, _classnames2.default)({ 'has-active-child': !props.noBuiltInClassNames }, props.classNameLinkHasActiveChild),
 	      classIcon: (0, _classnames2.default)({ 'metismenu-icon': !props.noBuiltInClassNames }, props.classNameIcon),
@@ -264,6 +265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  classNameContainerVisible: _react.PropTypes.string,
 	  classNameItem: _react.PropTypes.string,
 	  classNameItemActive: _react.PropTypes.string,
+	  classNameItemHasActiveChild: _react.PropTypes.string,
 	  classNameLink: _react.PropTypes.string,
 	  classNameLinkActive: _react.PropTypes.string,
 	  classNameLinkHasActiveChild: _react.PropTypes.string,
@@ -2916,7 +2918,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var LinkComponent = _ref2.LinkComponent;
 	  return _react2.default.createElement(
 	    'li',
-	    { className: (0, _classnames2.default)(classStore.classItem, active && classStore.classItemActive) },
+	    { className: (0, _classnames2.default)(classStore.classItem, active && classStore.classItemActive, hasActiveChild && classStore.classItemHasActiveChild) },
 	    _react2.default.createElement(
 	      LinkComponent,
 	      {
