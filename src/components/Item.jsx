@@ -69,7 +69,11 @@ Item.propTypes = {
     PropTypes.string,
   ]).isRequired,
   icon: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.array,
+    PropTypes.string,
+  ]),
   to: PropTypes.string,
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,
