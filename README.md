@@ -72,6 +72,8 @@ Properties
     * {string} [`classNameContainer`] - Class name for item container (ul)
     * {string} [`classNameContainerVisible`] - Additional class name when container is visible
     * {string} [`classNameItem`] - Class name for items in container (li)
+    * {string} [`classNameItemActive`] - Additional class name when item link is active (a)
+    * {string} [`classNameItemHasActiveChild`] - Additional class name when any child or grandchild item link is active (a)
     * {string} [`classNameLink`] - Class name for links in items (a)
     * {string} [`classNameLinkActive`] - Additional class name when link is active (a)
     * {string} [`classNameLinkHasActiveChild`] - Additional class name when any child or grandchild link is active (a)
@@ -395,7 +397,7 @@ You can tell metismenu to add your own class names by sending them as props.
 Property names are, according to figure above;
 - main wrapper - `className`
 - container - `classNameContainer` and `classNameContainerVisible` for opened containers
-- item - `classNameItem`
+- item - `classNameItem`, `classNameItemActive` for active items, and `classNameItemHasActiveChild` for items has active child or grandchild
 - link - `classNameLink`, `classNameLinkActive` for active links, and `classNameLinkHasActiveChild` for links has active child or grandchild
 - icon - `classNameIcon`
 - state icon - `classNameStateIcon`
