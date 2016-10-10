@@ -56,14 +56,8 @@ class MetisMenu extends React.Component {
         { 'metismenu-link': !props.noBuiltInClassNames },
         props.classNameLink
       ),
-      classItemActive: classnames(
-        { active: !props.noBuiltInClassNames },
-        props.classNameItemActive
-      ),
-      classItemHasActiveChild: classnames(
-        { active: !props.noBuiltInClassNames },
-        props.classNameItemHasActiveChild
-      ),
+      classItemActive: props.classNameItemActive,
+      classItemHasActiveChild: props.classNameItemHasActiveChild,
       classLinkActive: classnames(
         { active: !props.noBuiltInClassNames },
         props.classNameLinkActive

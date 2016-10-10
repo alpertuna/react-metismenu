@@ -24,7 +24,13 @@ const Item = ({
   classStore,
   LinkComponent,
 }) => (
-  <li className={classnames(classStore.classItem, active && classStore.classItemActive, hasActiveChild && classStore.classItemHasActiveChild)}>
+  <li
+    className={classnames(
+      classStore.classItem,
+      active && classStore.classItemActive,
+      hasActiveChild && classStore.classItemHasActiveChild
+    )}
+  >
     <LinkComponent
       className={classStore.classLink}
       classNameActive={classStore.classLinkActive}
