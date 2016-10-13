@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import classnames from 'classnames';
 import Ajax from 'simple-ajax';
+import isEqual from 'lodash.isequal';
 import Container from '../containers/Container';
 import Link from './DefaultLink';
 import reducers from '../reducers';
@@ -19,6 +20,7 @@ import {
   changeActiveLinkLabel,
   changeActiveLinkFromLocation,
 } from '../actions';
+
 
 class MetisMenu extends React.Component {
   constructor(props) {
@@ -44,6 +46,10 @@ class MetisMenu extends React.Component {
         { 'metismenu-container': !props.noBuiltInClassNames },
         props.classNameContainer
       ),
+      classSubmenuContainer: classnames(
+        { 'metismenu-container': !props.noBuiltInClassNames },
+        props.classNameSubmenuContainer || props.classNameContainer
+      ),
       classContainerVisible: classnames(
         { visible: !props.noBuiltInClassNames },
         props.classNameContainerVisible
@@ -58,6 +64,7 @@ class MetisMenu extends React.Component {
       ),
       classItemActive: props.classNameItemActive,
       classItemHasActiveChild: props.classNameItemHasActiveChild,
+      classItemHasVisibleChild: props.classNameItemHasVisibleChild,
       classLinkActive: classnames(
         { active: !props.noBuiltInClassNames },
         props.classNameLinkActive
@@ -89,7 +96,7 @@ class MetisMenu extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.content !== nextProps.content) {
+    if (!isEqual(this.props.content, nextProps.content)) {
       this.updateContent(nextProps.content);
     }
 
@@ -169,10 +176,12 @@ MetisMenu.propTypes = {
   noBuiltInClassNames: PropTypes.bool,
   className: PropTypes.string,
   classNameContainer: PropTypes.string,
+  classNameSubmenuContainer: PropTypes.string,
   classNameContainerVisible: PropTypes.string,
   classNameItem: PropTypes.string,
   classNameItemActive: PropTypes.string,
   classNameItemHasActiveChild: PropTypes.string,
+  classNameItemHasVisibleChild: PropTypes.string,
   classNameLink: PropTypes.string,
   classNameLinkActive: PropTypes.string,
   classNameLinkHasActiveChild: PropTypes.string,
