@@ -58,7 +58,6 @@ const Item = ({
       />}
     </LinkComponent>
     {hasSubMenu && <Container
-      submenu
       itemId={id}
       visible={subMenuVisibility}
     />}

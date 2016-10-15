@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import classnames from 'classnames';
 import Ajax from 'simple-ajax';
-import isEqual from 'lodash.isequal';
 import Container from '../containers/Container';
 import Link from './DefaultLink';
 import reducers from '../reducers';
@@ -45,10 +44,6 @@ class MetisMenu extends React.Component {
       classContainer: classnames(
         { 'metismenu-container': !props.noBuiltInClassNames },
         props.classNameContainer
-      ),
-      classSubmenuContainer: classnames(
-        { 'metismenu-container': !props.noBuiltInClassNames },
-        props.classNameSubmenuContainer || props.classNameContainer
       ),
       classContainerVisible: classnames(
         { visible: !props.noBuiltInClassNames },
@@ -96,7 +91,7 @@ class MetisMenu extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!isEqual(this.props.content, nextProps.content)) {
+    if (this.props.content !== nextProps.content) {
       this.updateContent(nextProps.content);
     }
 
@@ -176,7 +171,6 @@ MetisMenu.propTypes = {
   noBuiltInClassNames: PropTypes.bool,
   className: PropTypes.string,
   classNameContainer: PropTypes.string,
-  classNameSubmenuContainer: PropTypes.string,
   classNameContainerVisible: PropTypes.string,
   classNameItem: PropTypes.string,
   classNameItemActive: PropTypes.string,

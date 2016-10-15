@@ -11,7 +11,7 @@ import Item from '../containers/Item';
 const Container = ({ items, visible, submenu }, { classStore }) => (
   <ul
     className={classnames(
-      submenu ? classStore.classSubmenuContainer : classStore.classContainer,
+      classStore.classContainer,
       visible && classStore.classContainerVisible
     )}
   >

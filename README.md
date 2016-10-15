@@ -74,6 +74,7 @@ Properties
     * {string} [`classNameItem`] - Class name for items in container (Affects `li`)
     * {string} [`classNameItemActive`] - Additional class name when item link is active (Affects `li`)
     * {string} [`classNameItemHasActiveChild`] - Additional class name when any child or grandchild item link is active (Affects `li`)
+    * {string} [`classNameItemHasVisibleChild`] - Additional class name when any child or grandchild item link is visible (Affects `li`)
     * {string} [`classNameLink`] - Class name for links in items (Affects `a`)
     * {string} [`classNameLinkActive`] - Additional class name when link is active (Affects `a`)
     * {string} [`classNameLinkHasActiveChild`] - Additional class name when any child or grandchild link is active (Affects `a`)

@@ -82,7 +82,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "lodash.isequal": "^4.4.0",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
     "simple-ajax": "^2.6.0"
