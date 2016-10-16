@@ -20,6 +20,7 @@ import {
   changeActiveLinkFromLocation,
 } from '../actions';
 
+
 class MetisMenu extends React.Component {
   constructor(props) {
     super(props);
@@ -58,6 +59,7 @@ class MetisMenu extends React.Component {
       ),
       classItemActive: props.classNameItemActive,
       classItemHasActiveChild: props.classNameItemHasActiveChild,
+      classItemHasVisibleChild: props.classNameItemHasVisibleChild,
       classLinkActive: classnames(
         { active: !props.noBuiltInClassNames },
         props.classNameLinkActive
@@ -173,6 +175,7 @@ MetisMenu.propTypes = {
   classNameItem: PropTypes.string,
   classNameItemActive: PropTypes.string,
   classNameItemHasActiveChild: PropTypes.string,
+  classNameItemHasVisibleChild: PropTypes.string,
   classNameLink: PropTypes.string,
   classNameLinkActive: PropTypes.string,
   classNameLinkHasActiveChild: PropTypes.string,

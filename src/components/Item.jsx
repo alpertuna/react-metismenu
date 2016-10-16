@@ -28,7 +28,8 @@ const Item = ({
     className={classnames(
       classStore.classItem,
       active && classStore.classItemActive,
-      hasActiveChild && classStore.classItemHasActiveChild
+      hasActiveChild && classStore.classItemHasActiveChild,
+      (hasSubMenu && subMenuVisibility) && classStore.classItemHasVisibleChild
     )}
   >
     <LinkComponent

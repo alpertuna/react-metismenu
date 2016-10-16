@@ -155,6 +155,7 @@ class App extends React.Component {
           ref={r => { this.menu = r; }}
           activeLinkFromLocation
           activeLinkLabel={this.state.activeLinkLabel}
+          classNameItemHasVisibleChild="open"
           className="menu"
           content={this.state.menu}
         />
