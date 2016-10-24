@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.3] - 2016-10-24
+### Added
+- Custom class name support for items has visible child or grand child
+
 ## [1.1.2] - 2016-10-10
 ### Added
 - Custom class name support for items has active link
@@ -155,6 +159,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Development tools
 - Core css file
 
+[1.1.3]: https://github.com/alpertuna/react-metismenu/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/alpertuna/react-metismenu/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/alpertuna/react-metismenu/compare/v1.1.0-alpha.1...v1.1.1
 [1.1.0-alpha.1]: https://github.com/alpertuna/react-metismenu/compare/v1.0.0-alpha.1...v1.1.0-alpha.1
