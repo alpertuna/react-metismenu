@@ -20,7 +20,6 @@ import {
   changeActiveLinkFromLocation,
 } from '../actions';
 
-
 class MetisMenu extends React.Component {
   constructor(props) {
     super(props);
