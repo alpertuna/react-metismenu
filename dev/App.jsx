@@ -157,6 +157,10 @@ class App extends React.Component {
           activeLinkLabel={this.state.activeLinkLabel}
           classNameItemHasVisibleChild="open"
           className="menu"
+          onSelected={(e) => {
+            /*e.preventDefault();
+            console.log('onSelected', e);*/
+          }}
           content={this.state.menu}
         />
 
