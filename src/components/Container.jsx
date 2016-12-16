@@ -12,7 +12,7 @@ const Container = ({ items, visible }, { classStore }) => (
   <ul
     className={classnames(
       classStore.classContainer,
-      visible && classStore.classContainerVisible,
+      visible && classStore.classContainerVisible
     )}
   >
     {items.map((item, i) => (

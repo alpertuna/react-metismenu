@@ -42,42 +42,42 @@ class MetisMenu extends React.Component {
     this.classStore = {
       classMainWrapper: classnames(
         { metismenu: !props.noBuiltInClassNames },
-        props.className,
+        props.className
       ),
       classContainer: classnames(
         { 'metismenu-container': !props.noBuiltInClassNames },
-        props.classNameContainer,
+        props.classNameContainer
       ),
       classContainerVisible: classnames(
         { visible: !props.noBuiltInClassNames },
-        props.classNameContainerVisible,
+        props.classNameContainerVisible
       ),
       classItem: classnames(
         { 'metismenu-item': !props.noBuiltInClassNames },
-        props.classNameItem,
+        props.classNameItem
       ),
       classLink: classnames(
         { 'metismenu-link': !props.noBuiltInClassNames },
-        props.classNameLink,
+        props.classNameLink
       ),
       classItemActive: props.classNameItemActive,
       classItemHasActiveChild: props.classNameItemHasActiveChild,
       classItemHasVisibleChild: props.classNameItemHasVisibleChild,
       classLinkActive: classnames(
         { active: !props.noBuiltInClassNames },
-        props.classNameLinkActive,
+        props.classNameLinkActive
       ),
       classLinkHasActiveChild: classnames(
         { 'has-active-child': !props.noBuiltInClassNames },
-        props.classNameLinkHasActiveChild,
+        props.classNameLinkHasActiveChild
       ),
       classIcon: classnames(
         { 'metismenu-icon': !props.noBuiltInClassNames },
-        props.classNameIcon,
+        props.classNameIcon
       ),
       classStateIcon: classnames(
         { 'metismenu-state-icon': !props.noBuiltInClassNames },
-        props.classNameStateIcon,
+        props.classNameStateIcon
       ),
 
       iconNamePrefix: props.iconNamePrefix || 'fa fa-',
