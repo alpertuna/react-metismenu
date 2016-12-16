@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.2.0] - 2016-12-16
+### Added
+- Internal event emitter support for future enhancements
+- `onSelected` event listener prop
+
+
 ## [1.1.3] - 2016-10-24
 ### Added
 - Custom class name support for items has visible child or grand child

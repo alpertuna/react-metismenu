@@ -88,6 +88,8 @@ Properties
     * {string} [`iconNameStateVisible`="caret-left rotate-minus-90"] - Icon name for state of opened containers
   - [Customizing Link Component](#customizing-link-component)
     * {React.Component} [`LinkComponent`=DefaultLink] - Handles link components of all items
+  - Event Listeners
+    * {callback} [`onSelected`] - Function is called when a menu is selected.
 
 ### Properties For Each Item In Content
 * {string} [`icon`] - Icon class name of item
@@ -446,7 +448,7 @@ You may use another html tag, want to inject some properties or change operation
 - {boolean} `hasActiveChild` - Has active child or grand child state
 - {boolean} `hasSubMenu` - Has sub menu or not state
 - {function} `toggleSubMenu` - If item has submenu, toggle sub menu callback. Otherwise dead function.
-- {function} `activateMe` - If it is normal link, callback that activates link (to assign active class name) and makes all parents beware they have active link.
+- {function} `activateMe` - If it is normal link, callback that activates link (to assign active class name) and makes all parents beware they have active link. Also triggers `onSelected` and given parameters are passed to listener.
 - {string} [`to`] - Contains `to` info of the item comes from menu content object
 - {boolean} [`externalLink`] - Destination is external or not
 - {React.Component} `children` -  Ready to render content of link - contains icon, label and other stuff
@@ -464,8 +466,17 @@ class CustomLink extends React.Component {
   onClick(e) {
     if (this.props.hasSubMenu) this.props.toggleSubMenu(e);
     else {
-      // your own operation using "to"
-      // myGotoFunc(this.props.to);
+      /*
+       * your own operation using "to"
+       * myGotoFunc(this.props.to);
+       * or
+       * this.props.activateMe(/* Parameters to pass "onSelected" event listener */);
+       */
+
+      this.props.activateMe({
+        newLocation: this.props.to,
+        selectedMenuLabel: this.props.label,
+      });
     }
   }
 
