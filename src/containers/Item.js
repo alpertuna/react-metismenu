@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
   activateMe(e) {
     dispatch(emitSelected(e));
-    if (!e.isDefaultPrevented || !e.isDefaultPrevented()) {
+    if (!e || !e.isDefaultPrevented || !e.isDefaultPrevented()) {
       dispatch(changeActiveLinkId(ownProps.id));
     }
   },
