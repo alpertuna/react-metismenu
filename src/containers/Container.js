@@ -7,8 +7,8 @@
 import { connect } from 'react-redux';
 import Container from '../components/Container';
 
-const mapStateToProps = (state, ownProps) => ({
-  items: state.filter(item => item.parentId === ownProps.itemId),
+const mapStateToProps = ({ content }, ownProps) => ({
+  items: content.filter(item => item.parentId === ownProps.itemId),
 });
 
 export default connect(

@@ -1,7 +1,7 @@
 /**
- * src/actions.js
- * Author: H.Alper Tuna <halpertuna@gmail.com>
- * Date: 16.09.2016
+ * @file actions/content.js
+ * @author H.Alper Tuna <halpertuna@gmail.com>
+ * Date: 16.12.2016
  */
 
 export const updateContent = content => ({

@@ -5,7 +5,8 @@
  */
 
 import { connect } from 'react-redux';
-import { changeSubMenuVisibility, changeActiveLinkId } from '../actions';
+import { changeSubMenuVisibility, changeActiveLinkId } from '../actions/content';
+import { emitSelected } from '../actions/emitters';
 import Item from '../components/Item';
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -14,8 +15,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     e.preventDefault();
     dispatch(changeSubMenuVisibility(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
   },
-  activateMe() {
-    dispatch(changeActiveLinkId(ownProps.id));
+  activateMe(e) {
+    dispatch(emitSelected(e))
+    if (!e.isDefaultPrevented || !e.isDefaultPrevented()) {
+      dispatch(changeActiveLinkId(ownProps.id));
+    }
   },
 });
 

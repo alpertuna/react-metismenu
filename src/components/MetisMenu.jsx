@@ -18,13 +18,17 @@ import {
   changeActiveLinkTo,
   changeActiveLinkLabel,
   changeActiveLinkFromLocation,
-} from '../actions';
+} from '../actions/content';
 
 class MetisMenu extends React.Component {
   constructor(props) {
     super(props);
 
-    this.store = createStore(reducers);
+    this.store = createStore(reducers, {
+      emitters: {
+        emitSelected: props.onSelected || (() => {}),
+      },
+    });
 
     this.LinkComponent = props.LinkComponent || Link;
 
