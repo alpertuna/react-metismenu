@@ -8,6 +8,7 @@ const emitters = (state = {}, action) => {
   switch (action.type) {
     case 'EMIT_SELECTED': {
       state.emitSelected(action.event);
+      return state;
     }
     default: {
       return state;

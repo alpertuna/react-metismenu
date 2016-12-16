@@ -12,5 +12,5 @@ const mapStateToProps = ({ content }, ownProps) => ({
 });
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
 )(Container);

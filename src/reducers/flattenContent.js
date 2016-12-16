@@ -9,8 +9,10 @@
 let uid;
 const flattenLevel = (content, parentId) => {
   let flatContent = [];
-  content.forEach(item => {
-    const id = item.id || uid++;
+  content.forEach((item) => {
+    const id = item.id || uid;
+    uid += 1;
+
     flatContent.push({
       id,
       parentId: item.parentId || parentId,
@@ -35,7 +37,7 @@ const flattenLevel = (content, parentId) => {
 let trace;
 const mapTrace = (content, parentId) => {
   const subItems = content.filter(item => item.parentId === parentId);
-  subItems.forEach(item => {
+  subItems.forEach((item) => {
     item.trace = [...trace];
     trace.push(item.id);
     item.hasSubMenu = mapTrace(content, item.id);
@@ -47,7 +49,7 @@ const mapTrace = (content, parentId) => {
   return subItems.length > 0;
 };
 
-export default content => {
+export default (content) => {
   uid = 1;
   trace = [];
   const flatContent = flattenLevel(content);

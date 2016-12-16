@@ -4,6 +4,8 @@
  * Date: 16.12.2016
  */
 
+/* eslint-env browser */
+
 import { changeSubMenuVisibility } from '../actions/content';
 import flattenContent from './flattenContent';
 

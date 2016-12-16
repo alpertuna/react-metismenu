@@ -12,7 +12,7 @@ const Container = ({ items, visible }, { classStore }) => (
   <ul
     className={classnames(
       classStore.classContainer,
-      visible && classStore.classContainerVisible
+      visible && classStore.classContainerVisible,
     )}
   >
     {items.map((item, i) => (
@@ -22,7 +22,7 @@ const Container = ({ items, visible }, { classStore }) => (
 );
 
 Container.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
   visible: PropTypes.bool,
 };
 

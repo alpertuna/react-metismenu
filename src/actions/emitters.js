@@ -4,7 +4,9 @@
  * Date: 16.12.2016
  */
 
-export const emitSelected = (e) => ({
+export const emitSelected = e => ({
   type: 'EMIT_SELECTED',
   event: e,
 });
+
+export default true;

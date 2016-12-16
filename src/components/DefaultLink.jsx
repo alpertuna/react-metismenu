@@ -24,7 +24,7 @@ const DefaultLink = ({
     className={classnames(
       className,
       active && classNameActive,
-      hasActiveChild && classNameHasActiveChild
+      hasActiveChild && classNameHasActiveChild,
     )}
     href={to}
     onClick={hasSubMenu ? toggleSubMenu : activateMe}
