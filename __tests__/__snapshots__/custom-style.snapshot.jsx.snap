@@ -8,7 +8,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="#item-1"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon test-cic test-ipbolt" />
@@ -20,7 +20,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon test-cic test-ipbell" />
@@ -35,7 +35,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#sub-item-1"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon test-cic test-ipeye" />
@@ -47,7 +47,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#sub-item-2"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon test-cic test-ipglobe" />
@@ -61,7 +61,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon test-cic test-ipbell" />
@@ -76,7 +76,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#sub-item-3"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon test-cic test-ipeye" />
@@ -88,7 +88,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
           <a
             className="metismenu-link test-cl"
             href="#"
-            onClick={[Function toggleSubMenu]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon test-cic test-ipglobe" />
@@ -103,7 +103,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
               <a
                 className="metismenu-link test-cl"
                 href="#level-3-item-1"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon test-cic test-ipbolt" />
@@ -115,7 +115,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
               <a
                 className="metismenu-link test-cl"
                 href="#level-3-item-2"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon test-cic test-ipbell" />
@@ -131,7 +131,7 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       <a
         className="metismenu-link test-cl"
         href="http://www.google.com"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target="_blank">
         <i
           className="metismenu-icon test-cic test-ipexternal-url" />
@@ -152,7 +152,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       <a
         className="test-cl"
         href="#item-1"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="test-cic test-ipbolt" />
@@ -164,7 +164,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       <a
         className="test-cl"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="test-cic test-ipbell" />
@@ -179,7 +179,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
           <a
             className="test-cl"
             href="#sub-item-1"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="test-cic test-ipeye" />
@@ -191,7 +191,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
           <a
             className="test-cl"
             href="#sub-item-2"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="test-cic test-ipglobe" />
@@ -205,7 +205,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       <a
         className="test-cl"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="test-cic test-ipbell" />
@@ -220,7 +220,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
           <a
             className="test-cl"
             href="#sub-item-3"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="test-cic test-ipeye" />
@@ -232,7 +232,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
           <a
             className="test-cl"
             href="#"
-            onClick={[Function toggleSubMenu]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="test-cic test-ipglobe" />
@@ -247,7 +247,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
               <a
                 className="test-cl"
                 href="#level-3-item-1"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="test-cic test-ipbolt" />
@@ -259,7 +259,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
               <a
                 className="test-cl"
                 href="#level-3-item-2"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="test-cic test-ipbell" />
@@ -275,7 +275,7 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       <a
         className="test-cl"
         href="http://www.google.com"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target="_blank">
         <i
           className="test-cic test-ipexternal-url" />
@@ -296,7 +296,7 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="#item-1"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="fa fa-bolt" />
@@ -308,7 +308,7 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="fa fa-bell" />
@@ -323,7 +323,7 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#sub-item-1"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="fa fa-eye" />
@@ -335,7 +335,7 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#sub-item-2"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="fa fa-globe" />
@@ -349,7 +349,7 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="fa fa-bell" />
@@ -364,7 +364,7 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#sub-item-3"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="fa fa-eye" />
@@ -376,7 +376,7 @@ exports[`Menu with no built-in classes 1`] = `
           <a
             className=""
             href="#"
-            onClick={[Function toggleSubMenu]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="fa fa-globe" />
@@ -391,7 +391,7 @@ exports[`Menu with no built-in classes 1`] = `
               <a
                 className=""
                 href="#level-3-item-1"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="fa fa-bolt" />
@@ -403,7 +403,7 @@ exports[`Menu with no built-in classes 1`] = `
               <a
                 className=""
                 href="#level-3-item-2"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="fa fa-bell" />
@@ -419,7 +419,7 @@ exports[`Menu with no built-in classes 1`] = `
       <a
         className=""
         href="http://www.google.com"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target="_blank">
         <i
           className="fa fa-external-url" />

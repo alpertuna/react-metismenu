@@ -8,7 +8,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
       <a
         className="metismenu-link"
         href="#item-1"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bolt" />
@@ -20,7 +20,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -35,7 +35,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
           <a
             className="metismenu-link"
             href="#sub-item-1"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-eye" />
@@ -47,7 +47,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
           <a
             className="metismenu-link"
             href="#sub-item-2"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -61,7 +61,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -76,7 +76,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
           <a
             className="metismenu-link"
             href="#sub-item-3"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-eye" />
@@ -88,7 +88,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function toggleSubMenu]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -103,7 +103,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
               <a
                 className="metismenu-link"
                 href="#level-3-item-1"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon fa fa-bolt" />
@@ -115,7 +115,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
               <a
                 className="metismenu-link"
                 href="#level-3-item-2"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon fa fa-bell" />
@@ -131,7 +131,7 @@ exports[`Menu with recursive content changes class and caret icon of "Item 3" wh
       <a
         className="metismenu-link"
         href="http://www.google.com"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target="_blank">
         <i
           className="metismenu-icon fa fa-external-url" />
@@ -152,7 +152,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
       <a
         className="metismenu-link"
         href="#item-1"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bolt" />
@@ -164,7 +164,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -179,7 +179,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
           <a
             className="metismenu-link"
             href="#sub-item-1"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-eye" />
@@ -191,7 +191,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
           <a
             className="metismenu-link"
             href="#sub-item-2"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -205,7 +205,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -220,7 +220,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
           <a
             className="metismenu-link"
             href="#sub-item-3"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-eye" />
@@ -232,7 +232,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function toggleSubMenu]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -247,7 +247,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
               <a
                 className="metismenu-link"
                 href="#level-3-item-1"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon fa fa-bolt" />
@@ -259,7 +259,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
               <a
                 className="metismenu-link"
                 href="#level-3-item-2"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon fa fa-bell" />
@@ -275,7 +275,7 @@ exports[`Menu with recursive content changes class and caret icon of "Sub Item 4
       <a
         className="metismenu-link"
         href="http://www.google.com"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target="_blank">
         <i
           className="metismenu-icon fa fa-external-url" />
@@ -296,7 +296,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
       <a
         className="metismenu-link"
         href="#item-1"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bolt" />
@@ -308,7 +308,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -323,7 +323,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
           <a
             className="metismenu-link"
             href="#sub-item-1"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-eye" />
@@ -335,7 +335,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
           <a
             className="metismenu-link"
             href="#sub-item-2"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -349,7 +349,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -364,7 +364,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
           <a
             className="metismenu-link"
             href="#sub-item-3"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-eye" />
@@ -376,7 +376,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function toggleSubMenu]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -391,7 +391,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
               <a
                 className="metismenu-link"
                 href="#level-3-item-1"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon fa fa-bolt" />
@@ -403,7 +403,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
               <a
                 className="metismenu-link"
                 href="#level-3-item-2"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon fa fa-bell" />
@@ -419,7 +419,7 @@ exports[`Menu with recursive content collapses "Item 2" back when you click agai
       <a
         className="metismenu-link"
         href="http://www.google.com"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target="_blank">
         <i
           className="metismenu-icon fa fa-external-url" />
@@ -440,7 +440,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
       <a
         className="metismenu-link"
         href="#item-1"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bolt" />
@@ -452,7 +452,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -467,7 +467,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
           <a
             className="metismenu-link"
             href="#sub-item-1"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-eye" />
@@ -479,7 +479,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
           <a
             className="metismenu-link"
             href="#sub-item-2"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -493,7 +493,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
+        onClick={[Function]}
         target={undefined}>
         <i
           className="metismenu-icon fa fa-bell" />
@@ -508,7 +508,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
           <a
             className="metismenu-link"
             href="#sub-item-3"
-            onClick={[Function activateMe]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-eye" />
@@ -520,7 +520,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function toggleSubMenu]}
+            onClick={[Function]}
             target={undefined}>
             <i
               className="metismenu-icon fa fa-globe" />
@@ -535,7 +535,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
               <a
                 className="metismenu-link"
                 href="#level-3-item-1"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon fa fa-bolt" />
@@ -547,7 +547,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
               <a
                 className="metismenu-link"
                 href="#level-3-item-2"
-                onClick={[Function activateMe]}
+                onClick={[Function]}
                 target={undefined}>
                 <i
                   className="metismenu-icon fa fa-bell" />
@@ -563,7 +563,7 @@ exports[`Menu with recursive content collapses peer item "Item 3" and submenu "S
       <a
         className="metismenu-link"
         href="http://www.google.com"
-        onClick={[Function activateMe]}
+        onClick={[Function]}
         target="_blank">
         <i
           className="metismenu-icon fa fa-external-url" />
