@@ -20,7 +20,8 @@
     "unit-test": "jest",
     "coverage": "jest --coverage",
     "coveralls": "coveralls < coverage/lcov.info",
-    "test": "npm run lint-confs && npm run lint-src && npm run coverage"
+    "_test": "npm run lint-confs && npm run lint-src && npm run coverage",
+    "test": "npm run lint-src && npm run coverage"
   },
   "jest": {
     "testRegex": "/__tests__/.*\\.jsx?$",
