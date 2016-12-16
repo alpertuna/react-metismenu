@@ -104,15 +104,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _DefaultLink = __webpack_require__(38);
+	var _DefaultLink = __webpack_require__(39);
 
 	var _DefaultLink2 = _interopRequireDefault(_DefaultLink);
 
-	var _reducers = __webpack_require__(39);
+	var _reducers = __webpack_require__(40);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
-	var _actions = __webpack_require__(36);
+	var _content = __webpack_require__(36);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -134,7 +134,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var _this = _possibleConstructorReturn(this, (MetisMenu.__proto__ || Object.getPrototypeOf(MetisMenu)).call(this, props));
 
-	    _this.store = (0, _redux.createStore)(_reducers2.default);
+	    _this.store = (0, _redux.createStore)(_reducers2.default, {
+	      emitters: {
+	        emitSelected: props.onSelected || function () {}
+	      }
+	    });
 
 	    _this.LinkComponent = props.LinkComponent || _DefaultLink2.default;
 
@@ -190,22 +194,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'changeActiveLinkId',
 	    value: function changeActiveLinkId(value) {
-	      this.store.dispatch((0, _actions.changeActiveLinkId)(value));
+	      this.store.dispatch((0, _content.changeActiveLinkId)(value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkTo',
 	    value: function changeActiveLinkTo(value) {
-	      this.store.dispatch((0, _actions.changeActiveLinkTo)(value));
+	      this.store.dispatch((0, _content.changeActiveLinkTo)(value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkLabel',
 	    value: function changeActiveLinkLabel(value) {
-	      this.store.dispatch((0, _actions.changeActiveLinkLabel)(value));
+	      this.store.dispatch((0, _content.changeActiveLinkLabel)(value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkFromLocation',
 	    value: function changeActiveLinkFromLocation() {
-	      this.store.dispatch((0, _actions.changeActiveLinkFromLocation)());
+	      this.store.dispatch((0, _content.changeActiveLinkFromLocation)());
 	    }
 	  }, {
 	    key: 'updateActiveLink',
@@ -234,7 +238,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'updateContent',
 	    value: function updateContent(content) {
-	      this.store.dispatch((0, _actions.updateContent)(content));
+	      this.store.dispatch((0, _content.updateContent)(content));
 	    }
 	  }, {
 	    key: 'render',
@@ -255,7 +259,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}(_react2.default.Component);
 
 	MetisMenu.propTypes = {
-	  content: _react.PropTypes.array,
+	  content: _react.PropTypes.arrayOf(_react.PropTypes.object),
 	  ajax: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.string]),
 
 	  LinkComponent: _react.PropTypes.oneOfType([_react.PropTypes.element, _react.PropTypes.func]),
@@ -277,10 +281,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  iconNameStateHidden: _react.PropTypes.string,
 	  iconNameStateVisible: _react.PropTypes.string,
 
-	  activeLinkId: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]),
-	  activeLinkTo: _react.PropTypes.string,
-	  activeLinkLabel: _react.PropTypes.string,
-	  activeLinkFromLocation: _react.PropTypes.bool
+	  /* activeLinkId: PropTypes.oneOfType([
+	    PropTypes.number,
+	    PropTypes.string,
+	  ]),
+	  activeLinkTo: PropTypes.string,
+	  activeLinkLabel: PropTypes.string,
+	  activeLinkFromLocation: PropTypes.bool,*/
+
+	  onSelected: _react.PropTypes.func
 	};
 
 	MetisMenu.childContextTypes = {
@@ -390,9 +399,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  Provider.prototype.render = function render() {
-	    var children = this.props.children;
-
-	    return _react.Children.only(children);
+	    return _react.Children.only(this.props.children);
 	  };
 
 	  return Provider;
@@ -643,8 +650,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  /* eslint-enable no-console */
 	  try {
-	    // This error was thrown as a convenience so that you can use this stack
-	    // to find the callsite that caused this warning to fire.
+	    // This error was thrown as a convenience so that if you enable
+	    // "break on all exceptions" in your console,
+	    // it would pause the execution at this line.
 	    throw new Error(message);
 	    /* eslint-disable no-empty */
 	  } catch (e) {}
@@ -659,6 +667,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
+	exports.__esModule = true;
+
 	var _extends = Object.assign || function (target) {
 	  for (var i = 1; i < arguments.length; i++) {
 	    var source = arguments[i];for (var key in source) {
@@ -669,7 +679,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }return target;
 	};
 
-	exports.__esModule = true;
 	exports["default"] = connect;
 
 	var _react = __webpack_require__(2);
@@ -752,12 +761,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	var nextVersion = 0;
 
 	function connect(mapStateToProps, mapDispatchToProps, mergeProps) {
-	  var options = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
+	  var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
 
 	  var shouldSubscribe = Boolean(mapStateToProps);
 	  var mapState = mapStateToProps || defaultMapStateToProps;
 
-	  var mapDispatch = undefined;
+	  var mapDispatch = void 0;
 	  if (typeof mapDispatchToProps === 'function') {
 	    mapDispatch = mapDispatchToProps;
 	  } else if (!mapDispatchToProps) {
@@ -767,10 +776,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  var finalMergeProps = mergeProps || defaultMergeProps;
-	  var _options$pure = options.pure;
-	  var pure = _options$pure === undefined ? true : _options$pure;
-	  var _options$withRef = options.withRef;
-	  var withRef = _options$withRef === undefined ? false : _options$withRef;
+	  var _options$pure = options.pure,
+	      pure = _options$pure === undefined ? true : _options$pure,
+	      _options$withRef = options.withRef,
+	      withRef = _options$withRef === undefined ? false : _options$withRef;
 
 	  var checkMergedEquals = pure && finalMergeProps !== defaultMergeProps;
 
@@ -989,11 +998,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 
 	      Connect.prototype.render = function render() {
-	        var haveOwnPropsChanged = this.haveOwnPropsChanged;
-	        var hasStoreStateChanged = this.hasStoreStateChanged;
-	        var haveStatePropsBeenPrecalculated = this.haveStatePropsBeenPrecalculated;
-	        var statePropsPrecalculationError = this.statePropsPrecalculationError;
-	        var renderedElement = this.renderedElement;
+	        var haveOwnPropsChanged = this.haveOwnPropsChanged,
+	            hasStoreStateChanged = this.hasStoreStateChanged,
+	            haveStatePropsBeenPrecalculated = this.haveStatePropsBeenPrecalculated,
+	            statePropsPrecalculationError = this.statePropsPrecalculationError,
+	            renderedElement = this.renderedElement;
 
 	        this.haveOwnPropsChanged = false;
 	        this.hasStoreStateChanged = false;
@@ -2745,9 +2754,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Date: 16.09.2016
 	 */
 
-	var mapStateToProps = function mapStateToProps(state, ownProps) {
+	var mapStateToProps = function mapStateToProps(_ref, ownProps) {
+	  var content = _ref.content;
 	  return {
-	    items: state.filter(function (item) {
+	    items: content.filter(function (item) {
 	      return item.parentId === ownProps.itemId;
 	    })
 	  };
@@ -2786,8 +2796,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Container = function Container(_ref, _ref2) {
-	  var items = _ref.items;
-	  var visible = _ref.visible;
+	  var items = _ref.items,
+	      visible = _ref.visible;
 	  var classStore = _ref2.classStore;
 	  return _react2.default.createElement(
 	    'ul',
@@ -2801,7 +2811,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	Container.propTypes = {
-	  items: _react.PropTypes.array.isRequired,
+	  items: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
 	  visible: _react.PropTypes.bool
 	};
 
@@ -2823,30 +2833,37 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRedux = __webpack_require__(3);
 
-	var _actions = __webpack_require__(36);
+	var _content = __webpack_require__(36);
 
-	var _Item = __webpack_require__(37);
+	var _emitters = __webpack_require__(37);
+
+	var _Item = __webpack_require__(38);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * src/containers/Item.js
+	 * Author: H.Alper Tuna <halpertuna@gmail.com>
+	 * Date: 16.09.2016
+	 */
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
 	  return {
 	    toggleSubMenu: function toggleSubMenu(e) {
 	      if (!ownProps.hasSubMenu) return;
 	      e.preventDefault();
-	      dispatch((0, _actions.changeSubMenuVisibility)(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
+	      dispatch((0, _content.changeSubMenuVisibility)(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
 	    },
-	    activateMe: function activateMe() {
-	      dispatch((0, _actions.changeActiveLinkId)(ownProps.id));
+	    activateMe: function activateMe(e) {
+	      dispatch((0, _emitters.emitSelected)(e));
+	      if (!e || !e.isDefaultPrevented || !e.isDefaultPrevented()) {
+	        dispatch((0, _content.changeActiveLinkId)(ownProps.id));
+	      }
 	    }
 	  };
-	}; /**
-	    * src/containers/Item.js
-	    * Author: H.Alper Tuna <halpertuna@gmail.com>
-	    * Date: 16.09.2016
-	    */
+	};
 
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_Item2.default);
 
@@ -2860,9 +2877,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	/**
-	 * src/actions.js
-	 * Author: H.Alper Tuna <halpertuna@gmail.com>
-	 * Date: 16.09.2016
+	 * @file actions/content.js
+	 * @author H.Alper Tuna <halpertuna@gmail.com>
+	 * Date: 16.12.2016
 	 */
 
 	var updateContent = exports.updateContent = function updateContent(content) {
@@ -2910,6 +2927,30 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 37 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	/**
+	 * @file actions/emitters.js
+	 * @author H.Alper Tuna <halpertuna@gmail.com>
+	 * Date: 16.12.2016
+	 */
+
+	var emitSelected = exports.emitSelected = function emitSelected(e) {
+	  return {
+	    type: 'EMIT_SELECTED',
+	    event: e
+	  };
+	};
+
+	exports.default = true;
+
+/***/ },
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2933,19 +2974,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Item = function Item(_ref, _ref2) {
-	  var id = _ref.id;
-	  var icon = _ref.icon;
-	  var label = _ref.label;
-	  var to = _ref.to;
-	  var externalLink = _ref.externalLink;
-	  var hasSubMenu = _ref.hasSubMenu;
-	  var active = _ref.active;
-	  var hasActiveChild = _ref.hasActiveChild;
-	  var subMenuVisibility = _ref.subMenuVisibility;
-	  var toggleSubMenu = _ref.toggleSubMenu;
-	  var activateMe = _ref.activateMe;
-	  var classStore = _ref2.classStore;
-	  var LinkComponent = _ref2.LinkComponent;
+	  var id = _ref.id,
+	      icon = _ref.icon,
+	      label = _ref.label,
+	      to = _ref.to,
+	      externalLink = _ref.externalLink,
+	      hasSubMenu = _ref.hasSubMenu,
+	      active = _ref.active,
+	      hasActiveChild = _ref.hasActiveChild,
+	      subMenuVisibility = _ref.subMenuVisibility,
+	      toggleSubMenu = _ref.toggleSubMenu,
+	      activateMe = _ref.activateMe;
+	  var classStore = _ref2.classStore,
+	      LinkComponent = _ref2.LinkComponent;
 	  return _react2.default.createElement(
 	    'li',
 	    {
@@ -3004,7 +3045,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Item;
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3030,17 +3071,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var DefaultLink = function DefaultLink(_ref) {
-	  var className = _ref.className;
-	  var classNameActive = _ref.classNameActive;
-	  var classNameHasActiveChild = _ref.classNameHasActiveChild;
-	  var active = _ref.active;
-	  var hasActiveChild = _ref.hasActiveChild;
-	  var to = _ref.to;
-	  var externalLink = _ref.externalLink;
-	  var hasSubMenu = _ref.hasSubMenu;
-	  var toggleSubMenu = _ref.toggleSubMenu;
-	  var activateMe = _ref.activateMe;
-	  var children = _ref.children;
+	  var className = _ref.className,
+	      classNameActive = _ref.classNameActive,
+	      classNameHasActiveChild = _ref.classNameHasActiveChild,
+	      active = _ref.active,
+	      hasActiveChild = _ref.hasActiveChild,
+	      to = _ref.to,
+	      externalLink = _ref.externalLink,
+	      hasSubMenu = _ref.hasSubMenu,
+	      toggleSubMenu = _ref.toggleSubMenu,
+	      activateMe = _ref.activateMe,
+	      children = _ref.children;
 	  return _react2.default.createElement(
 	    'a',
 	    {
@@ -3070,7 +3111,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = DefaultLink;
 
 /***/ },
-/* 39 */
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _redux = __webpack_require__(11);
+
+	var _content = __webpack_require__(41);
+
+	var _content2 = _interopRequireDefault(_content);
+
+	var _emitters = __webpack_require__(43);
+
+	var _emitters2 = _interopRequireDefault(_emitters);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = (0, _redux.combineReducers)({
+	  content: _content2.default,
+	  emitters: _emitters2.default
+	}); /**
+	     * src/reducers/index.js
+	     * Author: H.Alper Tuna <halpertuna@gmail.com>
+	     * Date: 16.09.2016
+	     */
+
+	/* eslint-env browser */
+
+/***/ },
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3080,16 +3154,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; }; /**
-	                                                                                                                                                                                                                                                   * src/reducers/index.js
-	                                                                                                                                                                                                                                                   * Author: H.Alper Tuna <halpertuna@gmail.com>
-	                                                                                                                                                                                                                                                   * Date: 16.09.2016
+	                                                                                                                                                                                                                                                   * @file reducers/content.js
+	                                                                                                                                                                                                                                                   * @author H.Alper Tuna <halpertuna@gmail.com>
+	                                                                                                                                                                                                                                                   * Date: 16.12.2016
 	                                                                                                                                                                                                                                                   */
 
 	/* eslint-env browser */
 
-	var _actions = __webpack_require__(36);
+	var _content = __webpack_require__(36);
 
-	var _flattenContent = __webpack_require__(40);
+	var _flattenContent = __webpack_require__(42);
 
 	var _flattenContent2 = _interopRequireDefault(_flattenContent);
 
@@ -3125,7 +3199,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	var content = function content() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 	  var action = arguments[1];
 
 	  switch (action.type) {
@@ -3162,10 +3236,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	              v: state
 	            };
 
-	          var _activeItem = activeItem;
-	          var id = _activeItem.id;
-	          var parentId = _activeItem.parentId;
-	          var trace = _activeItem.trace;
+	          var _activeItem = activeItem,
+	              id = _activeItem.id,
+	              parentId = _activeItem.parentId,
+	              trace = _activeItem.trace;
 
 	          var stage = state.map(function (i) {
 	            return item(i, Object.assign({ id: id, trace: trace }, action));
@@ -3173,7 +3247,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	          // Trace also keeps parentId nonetheless it doesn't matter
 	          return {
-	            v: content(stage, (0, _actions.changeSubMenuVisibility)(parentId, trace, true))
+	            v: content(stage, (0, _content.changeSubMenuVisibility)(parentId, trace, true))
 	          };
 	        }();
 
@@ -3189,7 +3263,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = content;
 
 /***/ },
-/* 40 */
+/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3212,7 +3286,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var flattenLevel = function flattenLevel(content, parentId) {
 	  var flatContent = [];
 	  content.forEach(function (item) {
-	    var id = item.id || uid++;
+	    var id = item.id || uid;
+	    uid += 1;
+
 	    flatContent.push({
 	      id: id,
 	      parentId: item.parentId || parentId,
@@ -3255,6 +3331,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	  mapTrace(flatContent);
 	  return flatContent;
 	};
+
+/***/ },
+/* 43 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	/**
+	 * @file reducers/emitters.js
+	 * @author H.Alper Tuna <halpertuna@gmail.com>
+	 * Date: 16.12.2016
+	 */
+
+	var emitters = function emitters() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'EMIT_SELECTED':
+	      {
+	        state.emitSelected(action.event);
+	        return state;
+	      }
+	    default:
+	      {
+	        return state;
+	      }
+	  }
+	};
+
+	exports.default = emitters;
 
 /***/ }
 /******/ ])
