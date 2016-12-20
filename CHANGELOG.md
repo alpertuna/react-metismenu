@@ -4,11 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.2.2] - 2016-12-20
+### Fixed
+- `label` and `id` content props now available in custom links like `to`
+
 ## [1.2.1] - 2016-12-16
 ### Added
 - Internal event emitter support for future enhancements
 - `onSelected` event listener prop
-
 
 ## [1.1.3] - 2016-10-24
 ### Added
@@ -165,6 +168,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Development tools
 - Core css file
 
+[1.2.2]: https://github.com/alpertuna/react-metismenu/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/alpertuna/react-metismenu/compare/v1.1.3...v1.2.1
 [1.1.3]: https://github.com/alpertuna/react-metismenu/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/alpertuna/react-metismenu/compare/v1.1.1...v1.1.2
