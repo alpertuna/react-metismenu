@@ -240,7 +240,7 @@ Usage Example
 ### With Methods
 Also, you can update active links with methods accessed from reference
 
-##### `updateActiveLinkFromLocation()`
+##### `changeActiveLinkFromLocation()`
 
 Same with [activeLinkFromLocation](#activelinkfromlocation) property.
 
@@ -251,7 +251,7 @@ class App extends React.Component {
 
     foo() {
         //...
-        this.refs.menu.updateActiveLinkFromLocation();
+        this.refs.menu.changeActiveLinkFromLocation();
         //...
     }
 
@@ -267,7 +267,7 @@ class App extends React.Component {
 }
 ```
 
-##### `updateActiveLinkId(id)`
+##### `changeActiveLinkId(id)`
 
 Same with [activeLinkId](#activelinkid) property.
 
@@ -278,7 +278,7 @@ class App extends React.Component {
 
     foo() {
         //...
-        this.refs.menu.updateActiveLinkId(3);
+        this.refs.menu.changeActiveLinkId(3);
         //...
     }
 
@@ -294,7 +294,7 @@ class App extends React.Component {
 }
 ```
 
-##### `updateActiveLinkTo(to)`
+##### `changeActiveLinkTo(to)`
 
 Same with [activeLinkTo](#activelinkto) property.
 
@@ -305,7 +305,7 @@ class App extends React.Component {
 
     foo() {
         //...
-        this.refs.menu.updateActiveLinkTo('/users');
+        this.refs.menu.changeActiveLinkTo('/users');
         //...
     }
 
@@ -321,7 +321,7 @@ class App extends React.Component {
 }
 ```
 
-##### `updateActiveLinkLabel(label)`
+##### `changeActiveLinkLabel(label)`
 
 Same with [activeLinkLabel](#activelinklabel) property.
 
@@ -332,7 +332,7 @@ class App extends React.Component {
 
     foo() {
         //...
-        this.refs.menu.updateActiveLinkLabel('User List');
+        this.refs.menu.changeActiveLinkLabel('User List');
         //...
     }
 
