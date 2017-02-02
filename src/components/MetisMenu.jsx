@@ -11,7 +11,7 @@ import classnames from 'classnames';
 import Ajax from 'simple-ajax';
 import Container from '../containers/Container';
 import Link from './DefaultLink';
-import reducers from '../reducers';
+import internalReducers from '../reducers/internal';
 import {
   updateContent,
   changeActiveLinkId,
@@ -19,16 +19,18 @@ import {
   changeActiveLinkLabel,
   changeActiveLinkFromLocation,
 } from '../actions/content';
+import { updateListener } from '../actions/emitters';
 
 class MetisMenu extends React.Component {
   constructor(props) {
     super(props);
 
-    this.store = createStore(reducers, {
-      emitters: {
-        emitSelected: props.onSelected || (() => {}),
-      },
-    });
+    this.useExternalReduxStore = props.useExternalReduxStore;
+    this.store = this.useExternalReduxStore || createStore(internalReducers);
+
+    if (props.onSelected) {
+      this.store.dispatch(updateListener(props.onSelected));
+    }
 
     this.LinkComponent = props.LinkComponent || Link;
 
@@ -149,11 +151,19 @@ class MetisMenu extends React.Component {
   }
 
   render() {
+    const mainWrapper = (
+      <div className={this.classStore.classMainWrapper}>
+        <Container />
+      </div>
+    );
+
+    if (this.useExternalReduxStore) {
+      return mainWrapper;
+    }
+
     return (
       <Provider store={this.store}>
-        <div className={this.classStore.classMainWrapper}>
-          <Container />
-        </div>
+        {mainWrapper}
       </Provider>
     );
   }
@@ -197,6 +207,7 @@ MetisMenu.propTypes = {
   activeLinkFromLocation: PropTypes.bool,*/
 
   onSelected: PropTypes.func,
+  useExternalReduxStore: PropTypes.object,
 };
 
 MetisMenu.childContextTypes = {

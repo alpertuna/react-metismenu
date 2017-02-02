@@ -16,7 +16,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch(changeSubMenuVisibility(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
   },
   activateMe(e) {
-    dispatch(emitSelected(e));
+    if (emitSelected) {
+      dispatch(emitSelected(e));
+    }
     if (!e || !e.isDefaultPrevented || !e.isDefaultPrevented()) {
       dispatch(changeActiveLinkId(ownProps.id));
     }

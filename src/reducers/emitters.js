@@ -10,6 +10,11 @@ const emitters = (state = {}, action) => {
       state.emitSelected(action.event);
       return state;
     }
+    case 'UPDATE_LISTENER': {
+      return Object.assign({}, state, {
+        emitSelected: action.listener,
+      });
+    }
     default: {
       return state;
     }
