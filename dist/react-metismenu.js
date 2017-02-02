@@ -108,11 +108,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _DefaultLink2 = _interopRequireDefault(_DefaultLink);
 
-	var _reducers = __webpack_require__(40);
+	var _internal = __webpack_require__(40);
 
-	var _reducers2 = _interopRequireDefault(_reducers);
+	var _internal2 = _interopRequireDefault(_internal);
 
 	var _content = __webpack_require__(36);
+
+	var _emitters = __webpack_require__(37);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -134,11 +136,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var _this = _possibleConstructorReturn(this, (MetisMenu.__proto__ || Object.getPrototypeOf(MetisMenu)).call(this, props));
 
-	    _this.store = (0, _redux.createStore)(_reducers2.default, {
-	      emitters: {
-	        emitSelected: props.onSelected || function () {}
-	      }
-	    });
+	    _this.useExternalReduxStore = props.useExternalReduxStore;
+	    _this.store = _this.useExternalReduxStore || (0, _redux.createStore)(_internal2.default);
+
+	    if (props.onSelected) {
+	      _this.store.dispatch((0, _emitters.updateListener)(props.onSelected));
+	    }
 
 	    _this.LinkComponent = props.LinkComponent || _DefaultLink2.default;
 
@@ -243,14 +246,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var mainWrapper = _react2.default.createElement(
+	        'div',
+	        { className: this.classStore.classMainWrapper },
+	        _react2.default.createElement(_Container2.default, null)
+	      );
+
+	      if (this.useExternalReduxStore) {
+	        return mainWrapper;
+	      }
+
 	      return _react2.default.createElement(
 	        _reactRedux.Provider,
 	        { store: this.store },
-	        _react2.default.createElement(
-	          'div',
-	          { className: this.classStore.classMainWrapper },
-	          _react2.default.createElement(_Container2.default, null)
-	        )
+	        mainWrapper
 	      );
 	    }
 	  }]);
@@ -289,7 +298,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  activeLinkLabel: PropTypes.string,
 	  activeLinkFromLocation: PropTypes.bool,*/
 
-	  onSelected: _react.PropTypes.func
+	  onSelected: _react.PropTypes.func,
+	  useExternalReduxStore: _react.PropTypes.object
 	};
 
 	MetisMenu.childContextTypes = {
@@ -2755,7 +2765,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	var mapStateToProps = function mapStateToProps(_ref, ownProps) {
-	  var content = _ref.content;
+	  var content = _ref.metisMenuStore.content;
 	  return {
 	    items: content.filter(function (item) {
 	      return item.parentId === ownProps.itemId;
@@ -2857,7 +2867,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      dispatch((0, _content.changeSubMenuVisibility)(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
 	    },
 	    activateMe: function activateMe(e) {
-	      dispatch((0, _emitters.emitSelected)(e));
+	      if (_emitters.emitSelected) {
+	        dispatch((0, _emitters.emitSelected)(e));
+	      }
 	      if (!e || !e.isDefaultPrevented || !e.isDefaultPrevented()) {
 	        dispatch((0, _content.changeActiveLinkId)(ownProps.id));
 	      }
@@ -2944,6 +2956,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return {
 	    type: 'EMIT_SELECTED',
 	    event: e
+	  };
+	};
+
+	var updateListener = exports.updateListener = function updateListener(listener) {
+	  return {
+	    type: 'UPDATE_LISTENER',
+	    listener: listener
 	  };
 	};
 
@@ -3124,11 +3143,41 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _redux = __webpack_require__(11);
 
-	var _content = __webpack_require__(41);
+	var _index = __webpack_require__(41);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @file src/reducers/internal.js
+	 * @author H.Alper Tuna <halpertuna@gmail.com>
+	 * Date: 03.02.2017
+	 */
+
+	/* eslint-env browser */
+
+	exports.default = (0, _redux.combineReducers)({
+	  metisMenuStore: _index2.default
+	});
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _redux = __webpack_require__(11);
+
+	var _content = __webpack_require__(42);
 
 	var _content2 = _interopRequireDefault(_content);
 
-	var _emitters = __webpack_require__(43);
+	var _emitters = __webpack_require__(44);
 
 	var _emitters2 = _interopRequireDefault(_emitters);
 
@@ -3146,7 +3195,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* eslint-env browser */
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3165,7 +3214,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _content = __webpack_require__(36);
 
-	var _flattenContent = __webpack_require__(42);
+	var _flattenContent = __webpack_require__(43);
 
 	var _flattenContent2 = _interopRequireDefault(_flattenContent);
 
@@ -3265,7 +3314,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = content;
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3335,7 +3384,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3358,6 +3407,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      {
 	        state.emitSelected(action.event);
 	        return state;
+	      }
+	    case 'UPDATE_LISTENER':
+	      {
+	        return Object.assign({}, state, {
+	          emitSelected: action.listener
+	        });
 	      }
 	    default:
 	      {
