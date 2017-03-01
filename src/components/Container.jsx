@@ -8,10 +8,11 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import Item from '../containers/Item';
 
-const Container = ({ items, visible }, { classStore }) => (
+const Container = ({ items, visible, itemId }, { classStore }) => {
+  return (
   <ul
     className={classnames(
-      classStore.classContainer,
+      typeof classStore.classContainer === 'function' ? classStore.classContainer(itemId) : classStore.classContainer,
       visible && classStore.classContainerVisible
     )}
   >
@@ -19,7 +20,8 @@ const Container = ({ items, visible }, { classStore }) => (
       <Item key={i} {...item} />
     ))}
   </ul>
-);
+)
+};
 
 Container.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
