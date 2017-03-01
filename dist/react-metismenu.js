@@ -3405,7 +3405,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  switch (action.type) {
 	    case 'EMIT_SELECTED':
 	      {
-	        state.emitSelected(action.event);
+	        if (state.emitSelected) {
+	          state.emitSelected(action.event);
+	        }
 	        return state;
 	      }
 	    case 'UPDATE_LISTENER':
