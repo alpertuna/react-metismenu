@@ -12,7 +12,7 @@ const Container = ({ items, visible, itemId }, { classStore }) => (
   <ul
     className={classnames(
       typeof classStore.classContainer === 'function' ?
-        classStore.classContainer(itemId) : classStore.classContainer,
+        classStore.classContainer(itemId, visible, items) : classStore.classContainer,
       visible && classStore.classContainerVisible
     )}
   >
