@@ -286,6 +286,150 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
 </div>
 `;
 
+exports[`Menu with customized class names classNameContainer func support 1`] = `
+<div
+  className="test-c">
+  <ul
+    className="test-cc">
+    <li
+      className="test-ci">
+      <a
+        className="test-cl"
+        href="#item-1"
+        onClick={[Function activateMe]}
+        target={undefined}>
+        <i
+          className="test-cic test-ipbolt" />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="test-ci">
+      <a
+        className="test-cl"
+        href="#"
+        onClick={[Function toggleSubMenu]}
+        target={undefined}>
+        <i
+          className="test-cic test-ipbell" />
+        Item 2
+        <i
+          className="test-csi test-iptest-ish" />
+      </a>
+      <ul
+        className="child-cc">
+        <li
+          className="test-ci">
+          <a
+            className="test-cl"
+            href="#sub-item-1"
+            onClick={[Function activateMe]}
+            target={undefined}>
+            <i
+              className="test-cic test-ipeye" />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="test-ci">
+          <a
+            className="test-cl"
+            href="#sub-item-2"
+            onClick={[Function activateMe]}
+            target={undefined}>
+            <i
+              className="test-cic test-ipglobe" />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="test-ci">
+      <a
+        className="test-cl"
+        href="#"
+        onClick={[Function toggleSubMenu]}
+        target={undefined}>
+        <i
+          className="test-cic test-ipbell" />
+        Item 3
+        <i
+          className="test-csi test-iptest-ish" />
+      </a>
+      <ul
+        className="child-cc">
+        <li
+          className="test-ci">
+          <a
+            className="test-cl"
+            href="#sub-item-3"
+            onClick={[Function activateMe]}
+            target={undefined}>
+            <i
+              className="test-cic test-ipeye" />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="test-ci">
+          <a
+            className="test-cl"
+            href="#"
+            onClick={[Function toggleSubMenu]}
+            target={undefined}>
+            <i
+              className="test-cic test-ipglobe" />
+            Sub Item 4
+            <i
+              className="test-csi test-iptest-ish" />
+          </a>
+          <ul
+            className="child-cc">
+            <li
+              className="test-ci">
+              <a
+                className="test-cl"
+                href="#level-3-item-1"
+                onClick={[Function activateMe]}
+                target={undefined}>
+                <i
+                  className="test-cic test-ipbolt" />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="test-ci">
+              <a
+                className="test-cl"
+                href="#level-3-item-2"
+                onClick={[Function activateMe]}
+                target={undefined}>
+                <i
+                  className="test-cic test-ipbell" />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="test-ci">
+      <a
+        className="test-cl"
+        href="http://www.google.com"
+        onClick={[Function activateMe]}
+        target="_blank">
+        <i
+          className="test-cic test-ipexternal-url" />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`Menu with no built-in classes 1`] = `
 <div
   className="">

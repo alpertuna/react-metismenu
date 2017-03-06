@@ -44,8 +44,9 @@ class MetisMenu extends React.Component {
         { metismenu: !props.noBuiltInClassNames },
         props.className
       ),
-      classContainer: classnames(
-        { 'metismenu-container': !props.noBuiltInClassNames },
+      classContainer: typeof props.classNameContainer === 'function' ?
+        props.classNameContainer : classnames(
+          { 'metismenu-container': !props.noBuiltInClassNames },
         props.classNameContainer
       ),
       classContainerVisible: classnames(
@@ -173,7 +174,10 @@ MetisMenu.propTypes = {
 
   noBuiltInClassNames: PropTypes.bool,
   className: PropTypes.string,
-  classNameContainer: PropTypes.string,
+  classNameContainer: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.string,
+  ]),
   classNameContainerVisible: PropTypes.string,
   classNameItem: PropTypes.string,
   classNameItemActive: PropTypes.string,

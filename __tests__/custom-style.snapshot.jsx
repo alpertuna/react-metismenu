@@ -50,5 +50,14 @@ describe('Menu', () => {
 
       expect(tree).toMatchSnapshot();
     });
+    it('classNameContainer func support', () => {
+      customClassNamesProp.classNameContainer = itemId => itemId ? 'child-cc' : 'test-cc'
+      const component = renderer.create(
+        <Menu content={content} noBuiltInClassNames {...customClassNamesProp} />
+      );
+      const tree = component.toJSON();
+
+      expect(tree).toMatchSnapshot();
+    });
   });
 });
