@@ -18,8 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         ownProps.reduxUid,
         ownProps.id,
         ownProps.trace,
-        !ownProps.subMenuVisibility
-      )
+        !ownProps.subMenuVisibility,
+      ),
     );
   },
   activateMe(e) {
@@ -32,5 +32,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Item);

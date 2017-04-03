@@ -12,14 +12,18 @@ const Container = ({ items, visible, reduxStoreName, reduxUid }, { classStore })
   <ul
     className={classnames(
       classStore.classContainer,
-      visible && classStore.classContainerVisible
+      visible && classStore.classContainerVisible,
     )}
   >
     {items.map((item, i) => (
-      <Item key={i} reduxStoreName={reduxStoreName} reduxUid={reduxUid} {...item} />
+      <Item key={item.id || `_${i}`} reduxStoreName={reduxStoreName} reduxUid={reduxUid} {...item} />
     ))}
   </ul>
 );
+
+Container.defaultProps = {
+  visible: false,
+};
 
 Container.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,

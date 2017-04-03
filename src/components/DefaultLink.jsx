@@ -24,7 +24,7 @@ const DefaultLink = ({
     className={classnames(
       className,
       active && classNameActive,
-      hasActiveChild && classNameHasActiveChild
+      hasActiveChild && classNameHasActiveChild,
     )}
     href={to}
     onClick={hasSubMenu ? toggleSubMenu : activateMe}
@@ -33,6 +33,11 @@ const DefaultLink = ({
     {children}
   </a>
 );
+
+DefaultLink.defaultProps = {
+  externalLink: false,
+  toggleSubMenu: null,
+};
 
 DefaultLink.propTypes = {
   className: PropTypes.string.isRequired,

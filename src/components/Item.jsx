@@ -31,7 +31,7 @@ const Item = ({
       classStore.classItem,
       active && classStore.classItemActive,
       hasActiveChild && classStore.classItemHasActiveChild,
-      (hasSubMenu && subMenuVisibility) && classStore.classItemHasVisibleChild
+      (hasSubMenu && subMenuVisibility) && classStore.classItemHasVisibleChild,
     )}
   >
     <LinkComponent
@@ -57,7 +57,7 @@ const Item = ({
             subMenuVisibility
               ? classStore.iconNameStateVisible
               : classStore.iconNameStateHidden
-          )
+          ),
         )}
       />}
     </LinkComponent>
@@ -69,6 +69,14 @@ const Item = ({
     />}
   </li>
 );
+
+Item.defaultProps = {
+  icon: '',
+  label: '',
+  to: null,
+  externalLink: false,
+  toggleSubMenu: null,
+};
 
 Item.propTypes = {
   id: PropTypes.oneOfType([

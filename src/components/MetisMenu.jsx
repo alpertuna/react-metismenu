@@ -4,6 +4,8 @@
  * Date: 16.09.2016
  */
 
+/* eslint react/forbid-prop-types: [ "error", { forbid: [ "any", "array" ] } ] */
+
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -27,13 +29,13 @@ class MetisMenu extends React.Component {
   constructor(props) {
     super(props);
 
-    this.reduxUid = ++lastReduxUid;
+    lastReduxUid += 1;
+    this.reduxUid = lastReduxUid;
     this.useExternalReduxStore = props.useExternalReduxStore;
+    this.reduxStoreName = props.reduxStoreName;
     if (this.useExternalReduxStore) {
-      this.reduxStoreName = props.reduxStoreName || 'metisMenuStore';
       this.store = this.useExternalReduxStore;
     } else {
-      this.reduxStoreName = 'metisMenuStore';
       this.store = createStore(internalReducers);
     }
 
@@ -41,7 +43,7 @@ class MetisMenu extends React.Component {
       this.store.dispatch(updateListener(this.reduxUid, props.onSelected));
     }
 
-    this.LinkComponent = props.LinkComponent || Link;
+    this.LinkComponent = props.LinkComponent;
 
     if (props.content) {
       this.updateContent(props.content);
@@ -53,47 +55,47 @@ class MetisMenu extends React.Component {
     this.classStore = {
       classMainWrapper: classnames(
         { metismenu: !props.noBuiltInClassNames },
-        props.className
+        props.className,
       ),
       classContainer: classnames(
         { 'metismenu-container': !props.noBuiltInClassNames },
-        props.classNameContainer
+        props.classNameContainer,
       ),
       classContainerVisible: classnames(
         { visible: !props.noBuiltInClassNames },
-        props.classNameContainerVisible
+        props.classNameContainerVisible,
       ),
       classItem: classnames(
         { 'metismenu-item': !props.noBuiltInClassNames },
-        props.classNameItem
+        props.classNameItem,
       ),
       classLink: classnames(
         { 'metismenu-link': !props.noBuiltInClassNames },
-        props.classNameLink
+        props.classNameLink,
       ),
       classItemActive: props.classNameItemActive,
       classItemHasActiveChild: props.classNameItemHasActiveChild,
       classItemHasVisibleChild: props.classNameItemHasVisibleChild,
       classLinkActive: classnames(
         { active: !props.noBuiltInClassNames },
-        props.classNameLinkActive
+        props.classNameLinkActive,
       ),
       classLinkHasActiveChild: classnames(
         { 'has-active-child': !props.noBuiltInClassNames },
-        props.classNameLinkHasActiveChild
+        props.classNameLinkHasActiveChild,
       ),
       classIcon: classnames(
         { 'metismenu-icon': !props.noBuiltInClassNames },
-        props.classNameIcon
+        props.classNameIcon,
       ),
       classStateIcon: classnames(
         { 'metismenu-state-icon': !props.noBuiltInClassNames },
-        props.classNameStateIcon
+        props.classNameStateIcon,
       ),
 
-      iconNamePrefix: props.iconNamePrefix || 'fa fa-',
-      iconNameStateHidden: props.iconNameStateHidden || 'caret-left',
-      iconNameStateVisible: props.iconNameStateVisible || 'caret-left rotate-minus-90',
+      iconNamePrefix: props.iconNamePrefix,
+      iconNameStateHidden: props.iconNameStateHidden,
+      iconNameStateVisible: props.iconNameStateVisible,
     };
   }
 
@@ -180,6 +182,31 @@ class MetisMenu extends React.Component {
     );
   }
 }
+
+MetisMenu.defaultProps = {
+  content: [],
+  ajax: null,
+  LinkComponent: Link,
+  noBuiltInClassNames: false,
+  className: null,
+  classNameContainer: null,
+  classNameContainerVisible: null,
+  classNameItem: null,
+  classNameItemActive: null,
+  classNameItemHasActiveChild: null,
+  classNameItemHasVisibleChild: null,
+  classNameLink: null,
+  classNameLinkActive: null,
+  classNameLinkHasActiveChild: null,
+  classNameIcon: null,
+  classNameStateIcon: null,
+  iconNamePrefix: 'fa fa-',
+  iconNameStateHidden: 'caret-left',
+  iconNameStateVisible: 'caret-left rotate-minus-90',
+  onSelected: null,
+  useExternalReduxStore: null,
+  reduxStoreName: 'metisMenuStore',
+};
 
 MetisMenu.propTypes = {
   content: PropTypes.arrayOf(PropTypes.object),
