@@ -1,73 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu with customized class names and built-in classes 1`] = `
+exports[`Menu with recursive content activates "Level 3 Item 1" and sets "has-active-child" classes of parents when you click it 1`] = `
 <div
-  className="metismenu test-c"
+  className="metismenu"
 >
   <ul
-    className="metismenu-container test-cc"
+    className="metismenu-container"
   >
     <li
-      className="metismenu-item test-ci"
+      className="metismenu-item"
     >
       <a
-        className="metismenu-link test-cl"
+        className="metismenu-link"
         href="#item-1"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="metismenu-icon test-cic test-ipbolt"
+          className="metismenu-icon fa fa-bolt"
         />
         Item 1
       </a>
     </li>
     <li
-      className="metismenu-item test-ci"
+      className="metismenu-item"
     >
       <a
-        className="metismenu-link test-cl"
+        className="metismenu-link"
         href="#"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="metismenu-icon test-cic test-ipbell"
+          className="metismenu-icon fa fa-bell"
         />
         Item 2
         <i
-          className="metismenu-state-icon test-csi test-iptest-ish"
+          className="metismenu-state-icon fa fa-caret-left"
         />
       </a>
       <ul
-        className="metismenu-container test-cc"
+        className="metismenu-container"
       >
         <li
-          className="metismenu-item test-ci"
+          className="metismenu-item"
         >
           <a
-            className="metismenu-link test-cl"
+            className="metismenu-link"
             href="#sub-item-1"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="metismenu-icon test-cic test-ipeye"
+              className="metismenu-icon fa fa-eye"
             />
             Sub Item 1
           </a>
         </li>
         <li
-          className="metismenu-item test-ci"
+          className="metismenu-item"
         >
           <a
-            className="metismenu-link test-cl"
+            className="metismenu-link"
             href="#sub-item-2"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="metismenu-icon test-cic test-ipglobe"
+              className="metismenu-icon fa fa-globe"
             />
             Sub Item 2
           </a>
@@ -75,86 +75,86 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       </ul>
     </li>
     <li
-      className="metismenu-item test-ci"
+      className="metismenu-item"
     >
       <a
-        className="metismenu-link test-cl"
+        className="metismenu-link has-active-child"
         href="#"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="metismenu-icon test-cic test-ipbell"
+          className="metismenu-icon fa fa-bell"
         />
         Item 3
         <i
-          className="metismenu-state-icon test-csi test-iptest-ish"
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
         />
       </a>
       <ul
-        className="metismenu-container test-cc"
+        className="metismenu-container visible"
       >
         <li
-          className="metismenu-item test-ci"
+          className="metismenu-item"
         >
           <a
-            className="metismenu-link test-cl"
+            className="metismenu-link"
             href="#sub-item-3"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="metismenu-icon test-cic test-ipeye"
+              className="metismenu-icon fa fa-eye"
             />
             Sub Item 3
           </a>
         </li>
         <li
-          className="metismenu-item test-ci"
+          className="metismenu-item"
         >
           <a
-            className="metismenu-link test-cl"
+            className="metismenu-link has-active-child"
             href="#"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="metismenu-icon test-cic test-ipglobe"
+              className="metismenu-icon fa fa-globe"
             />
             Sub Item 4
             <i
-              className="metismenu-state-icon test-csi test-iptest-ish"
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
             />
           </a>
           <ul
-            className="metismenu-container test-cc"
+            className="metismenu-container visible"
           >
             <li
-              className="metismenu-item test-ci"
+              className="metismenu-item"
             >
               <a
-                className="metismenu-link test-cl"
+                className="metismenu-link active"
                 href="#level-3-item-1"
                 onClick={[Function]}
                 target={undefined}
               >
                 <i
-                  className="metismenu-icon test-cic test-ipbolt"
+                  className="metismenu-icon fa fa-bolt"
                 />
                 Level 3 Item 1
               </a>
             </li>
             <li
-              className="metismenu-item test-ci"
+              className="metismenu-item"
             >
               <a
-                className="metismenu-link test-cl"
+                className="metismenu-link"
                 href="#level-3-item-2"
                 onClick={[Function]}
                 target={undefined}
               >
                 <i
-                  className="metismenu-icon test-cic test-ipbell"
+                  className="metismenu-icon fa fa-bell"
                 />
                 Level 3 Item 2
               </a>
@@ -164,16 +164,16 @@ exports[`Menu with customized class names and built-in classes 1`] = `
       </ul>
     </li>
     <li
-      className="metismenu-item test-ci"
+      className="metismenu-item"
     >
       <a
-        className="metismenu-link test-cl"
+        className="metismenu-link"
         href="http://www.google.com"
         onClick={[Function]}
         target="_blank"
       >
         <i
-          className="metismenu-icon test-cic test-ipexternal-url"
+          className="metismenu-icon fa fa-external-url"
         />
         External Url
       </a>
@@ -182,74 +182,74 @@ exports[`Menu with customized class names and built-in classes 1`] = `
 </div>
 `;
 
-exports[`Menu with customized class names and no built-in classes 1`] = `
+exports[`Menu with recursive content visibles "Item 3" subcontainer when you click it 1`] = `
 <div
-  className="test-c"
+  className="metismenu"
 >
   <ul
-    className="test-cc"
+    className="metismenu-container"
   >
     <li
-      className="test-ci"
+      className="metismenu-item"
     >
       <a
-        className="test-cl"
+        className="metismenu-link"
         href="#item-1"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="test-cic test-ipbolt"
+          className="metismenu-icon fa fa-bolt"
         />
         Item 1
       </a>
     </li>
     <li
-      className="test-ci"
+      className="metismenu-item"
     >
       <a
-        className="test-cl"
+        className="metismenu-link"
         href="#"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="test-cic test-ipbell"
+          className="metismenu-icon fa fa-bell"
         />
         Item 2
         <i
-          className="test-csi test-iptest-ish"
+          className="metismenu-state-icon fa fa-caret-left"
         />
       </a>
       <ul
-        className="test-cc"
+        className="metismenu-container"
       >
         <li
-          className="test-ci"
+          className="metismenu-item"
         >
           <a
-            className="test-cl"
+            className="metismenu-link"
             href="#sub-item-1"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="test-cic test-ipeye"
+              className="metismenu-icon fa fa-eye"
             />
             Sub Item 1
           </a>
         </li>
         <li
-          className="test-ci"
+          className="metismenu-item"
         >
           <a
-            className="test-cl"
+            className="metismenu-link"
             href="#sub-item-2"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="test-cic test-ipglobe"
+              className="metismenu-icon fa fa-globe"
             />
             Sub Item 2
           </a>
@@ -257,86 +257,86 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       </ul>
     </li>
     <li
-      className="test-ci"
+      className="metismenu-item"
     >
       <a
-        className="test-cl"
+        className="metismenu-link"
         href="#"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="test-cic test-ipbell"
+          className="metismenu-icon fa fa-bell"
         />
         Item 3
         <i
-          className="test-csi test-iptest-ish"
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
         />
       </a>
       <ul
-        className="test-cc"
+        className="metismenu-container visible"
       >
         <li
-          className="test-ci"
+          className="metismenu-item"
         >
           <a
-            className="test-cl"
+            className="metismenu-link"
             href="#sub-item-3"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="test-cic test-ipeye"
+              className="metismenu-icon fa fa-eye"
             />
             Sub Item 3
           </a>
         </li>
         <li
-          className="test-ci"
+          className="metismenu-item"
         >
           <a
-            className="test-cl"
+            className="metismenu-link"
             href="#"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="test-cic test-ipglobe"
+              className="metismenu-icon fa fa-globe"
             />
             Sub Item 4
             <i
-              className="test-csi test-iptest-ish"
+              className="metismenu-state-icon fa fa-caret-left"
             />
           </a>
           <ul
-            className="test-cc"
+            className="metismenu-container"
           >
             <li
-              className="test-ci"
+              className="metismenu-item"
             >
               <a
-                className="test-cl"
+                className="metismenu-link"
                 href="#level-3-item-1"
                 onClick={[Function]}
                 target={undefined}
               >
                 <i
-                  className="test-cic test-ipbolt"
+                  className="metismenu-icon fa fa-bolt"
                 />
                 Level 3 Item 1
               </a>
             </li>
             <li
-              className="test-ci"
+              className="metismenu-item"
             >
               <a
-                className="test-cl"
+                className="metismenu-link"
                 href="#level-3-item-2"
                 onClick={[Function]}
                 target={undefined}
               >
                 <i
-                  className="test-cic test-ipbell"
+                  className="metismenu-icon fa fa-bell"
                 />
                 Level 3 Item 2
               </a>
@@ -346,16 +346,16 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
       </ul>
     </li>
     <li
-      className="test-ci"
+      className="metismenu-item"
     >
       <a
-        className="test-cl"
+        className="metismenu-link"
         href="http://www.google.com"
         onClick={[Function]}
         target="_blank"
       >
         <i
-          className="test-cic test-ipexternal-url"
+          className="metismenu-icon fa fa-external-url"
         />
         External Url
       </a>
@@ -364,74 +364,74 @@ exports[`Menu with customized class names and no built-in classes 1`] = `
 </div>
 `;
 
-exports[`Menu with no built-in classes 1`] = `
+exports[`Menu with recursive content visibles "Sub Item 4" subcontainer when you click it 1`] = `
 <div
-  className=""
+  className="metismenu"
 >
   <ul
-    className=""
+    className="metismenu-container"
   >
     <li
-      className=""
+      className="metismenu-item"
     >
       <a
-        className=""
+        className="metismenu-link"
         href="#item-1"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="fa fa-bolt"
+          className="metismenu-icon fa fa-bolt"
         />
         Item 1
       </a>
     </li>
     <li
-      className=""
+      className="metismenu-item"
     >
       <a
-        className=""
+        className="metismenu-link"
         href="#"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="fa fa-bell"
+          className="metismenu-icon fa fa-bell"
         />
         Item 2
         <i
-          className="fa fa-caret-left"
+          className="metismenu-state-icon fa fa-caret-left"
         />
       </a>
       <ul
-        className=""
+        className="metismenu-container"
       >
         <li
-          className=""
+          className="metismenu-item"
         >
           <a
-            className=""
+            className="metismenu-link"
             href="#sub-item-1"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="fa fa-eye"
+              className="metismenu-icon fa fa-eye"
             />
             Sub Item 1
           </a>
         </li>
         <li
-          className=""
+          className="metismenu-item"
         >
           <a
-            className=""
+            className="metismenu-link"
             href="#sub-item-2"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="fa fa-globe"
+              className="metismenu-icon fa fa-globe"
             />
             Sub Item 2
           </a>
@@ -439,86 +439,86 @@ exports[`Menu with no built-in classes 1`] = `
       </ul>
     </li>
     <li
-      className=""
+      className="metismenu-item"
     >
       <a
-        className=""
+        className="metismenu-link"
         href="#"
         onClick={[Function]}
         target={undefined}
       >
         <i
-          className="fa fa-bell"
+          className="metismenu-icon fa fa-bell"
         />
         Item 3
         <i
-          className="fa fa-caret-left"
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
         />
       </a>
       <ul
-        className=""
+        className="metismenu-container visible"
       >
         <li
-          className=""
+          className="metismenu-item"
         >
           <a
-            className=""
+            className="metismenu-link"
             href="#sub-item-3"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="fa fa-eye"
+              className="metismenu-icon fa fa-eye"
             />
             Sub Item 3
           </a>
         </li>
         <li
-          className=""
+          className="metismenu-item"
         >
           <a
-            className=""
+            className="metismenu-link"
             href="#"
             onClick={[Function]}
             target={undefined}
           >
             <i
-              className="fa fa-globe"
+              className="metismenu-icon fa fa-globe"
             />
             Sub Item 4
             <i
-              className="fa fa-caret-left"
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
             />
           </a>
           <ul
-            className=""
+            className="metismenu-container visible"
           >
             <li
-              className=""
+              className="metismenu-item"
             >
               <a
-                className=""
+                className="metismenu-link"
                 href="#level-3-item-1"
                 onClick={[Function]}
                 target={undefined}
               >
                 <i
-                  className="fa fa-bolt"
+                  className="metismenu-icon fa fa-bolt"
                 />
                 Level 3 Item 1
               </a>
             </li>
             <li
-              className=""
+              className="metismenu-item"
             >
               <a
-                className=""
+                className="metismenu-link"
                 href="#level-3-item-2"
                 onClick={[Function]}
                 target={undefined}
               >
                 <i
-                  className="fa fa-bell"
+                  className="metismenu-icon fa fa-bell"
                 />
                 Level 3 Item 2
               </a>
@@ -528,16 +528,16 @@ exports[`Menu with no built-in classes 1`] = `
       </ul>
     </li>
     <li
-      className=""
+      className="metismenu-item"
     >
       <a
-        className=""
+        className="metismenu-link"
         href="http://www.google.com"
         onClick={[Function]}
         target="_blank"
       >
         <i
-          className="fa fa-external-url"
+          className="metismenu-icon fa fa-external-url"
         />
         External Url
       </a>

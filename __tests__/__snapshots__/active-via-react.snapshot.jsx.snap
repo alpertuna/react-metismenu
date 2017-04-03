@@ -1,0 +1,1639 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu with recursive content should looks like others when you activate link with "activeLinkId" prop with state 1`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with recursive content should looks like others when you activate link with "activeLinkId" prop with state 2`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with recursive content should looks like others when you activate link with "activeLinkLabel" prop with state 1`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with recursive content should looks like others when you activate link with "activeLinkLabel" prop with state 2`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with recursive content should looks like others when you activate link with "activeLinkTo" prop with state 1`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with recursive content should looks like others when you activate link with "activeLinkTo" prop with state 2`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with recursive content should looks like others when you activate link with "changeActiveLinkLabel" method 1`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with recursive content should looks like others when you activate link with "changeActiveLinkTo" method 1`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Menu with recursive content should looks like snapshot when you activate link with "changeActiveLinkId" method 1`] = `
+<div
+  className="metismenu"
+>
+  <ul
+    className="metismenu-container"
+  >
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#item-1"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bolt"
+        />
+        Item 1
+      </a>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 2
+        <i
+          className="metismenu-state-icon fa fa-caret-left"
+        />
+      </a>
+      <ul
+        className="metismenu-container"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-1"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 1
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-2"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 2
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link has-active-child"
+        href="#"
+        onClick={[Function]}
+        target={undefined}
+      >
+        <i
+          className="metismenu-icon fa fa-bell"
+        />
+        Item 3
+        <i
+          className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+        />
+      </a>
+      <ul
+        className="metismenu-container visible"
+      >
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link"
+            href="#sub-item-3"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-eye"
+            />
+            Sub Item 3
+          </a>
+        </li>
+        <li
+          className="metismenu-item"
+        >
+          <a
+            className="metismenu-link has-active-child"
+            href="#"
+            onClick={[Function]}
+            target={undefined}
+          >
+            <i
+              className="metismenu-icon fa fa-globe"
+            />
+            Sub Item 4
+            <i
+              className="metismenu-state-icon fa fa-caret-left rotate-minus-90"
+            />
+          </a>
+          <ul
+            className="metismenu-container visible"
+          >
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link active"
+                href="#level-3-item-1"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bolt"
+                />
+                Level 3 Item 1
+              </a>
+            </li>
+            <li
+              className="metismenu-item"
+            >
+              <a
+                className="metismenu-link"
+                href="#level-3-item-2"
+                onClick={[Function]}
+                target={undefined}
+              >
+                <i
+                  className="metismenu-icon fa fa-bell"
+                />
+                Level 3 Item 2
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li
+      className="metismenu-item"
+    >
+      <a
+        className="metismenu-link"
+        href="http://www.google.com"
+        onClick={[Function]}
+        target="_blank"
+      >
+        <i
+          className="metismenu-icon fa fa-external-url"
+        />
+        External Url
+      </a>
+    </li>
+  </ul>
+</div>
+`;

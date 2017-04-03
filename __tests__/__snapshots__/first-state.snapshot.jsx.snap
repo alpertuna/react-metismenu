@@ -1,124 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Menu with recursive content looks like without any interact 1`] = `
 <div
-  className="metismenu">
+  className="metismenu"
+>
   <ul
-    className="metismenu-container">
+    className="metismenu-container"
+  >
     <li
-      className="metismenu-item">
+      className="metismenu-item"
+    >
       <a
         className="metismenu-link"
         href="#item-1"
-        onClick={[Function activateMe]}
-        target={undefined}>
+        onClick={[Function]}
+        target={undefined}
+      >
         <i
-          className="metismenu-icon fa fa-bolt" />
+          className="metismenu-icon fa fa-bolt"
+        />
         Item 1
       </a>
     </li>
     <li
-      className="metismenu-item">
+      className="metismenu-item"
+    >
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
-        target={undefined}>
+        onClick={[Function]}
+        target={undefined}
+      >
         <i
-          className="metismenu-icon fa fa-bell" />
+          className="metismenu-icon fa fa-bell"
+        />
         Item 2
         <i
-          className="metismenu-state-icon fa fa-caret-left" />
+          className="metismenu-state-icon fa fa-caret-left"
+        />
       </a>
       <ul
-        className="metismenu-container">
+        className="metismenu-container"
+      >
         <li
-          className="metismenu-item">
+          className="metismenu-item"
+        >
           <a
             className="metismenu-link"
             href="#sub-item-1"
-            onClick={[Function activateMe]}
-            target={undefined}>
+            onClick={[Function]}
+            target={undefined}
+          >
             <i
-              className="metismenu-icon fa fa-eye" />
+              className="metismenu-icon fa fa-eye"
+            />
             Sub Item 1
           </a>
         </li>
         <li
-          className="metismenu-item">
+          className="metismenu-item"
+        >
           <a
             className="metismenu-link"
             href="#sub-item-2"
-            onClick={[Function activateMe]}
-            target={undefined}>
+            onClick={[Function]}
+            target={undefined}
+          >
             <i
-              className="metismenu-icon fa fa-globe" />
+              className="metismenu-icon fa fa-globe"
+            />
             Sub Item 2
           </a>
         </li>
       </ul>
     </li>
     <li
-      className="metismenu-item">
+      className="metismenu-item"
+    >
       <a
         className="metismenu-link"
         href="#"
-        onClick={[Function toggleSubMenu]}
-        target={undefined}>
+        onClick={[Function]}
+        target={undefined}
+      >
         <i
-          className="metismenu-icon fa fa-bell" />
+          className="metismenu-icon fa fa-bell"
+        />
         Item 3
         <i
-          className="metismenu-state-icon fa fa-caret-left" />
+          className="metismenu-state-icon fa fa-caret-left"
+        />
       </a>
       <ul
-        className="metismenu-container">
+        className="metismenu-container"
+      >
         <li
-          className="metismenu-item">
+          className="metismenu-item"
+        >
           <a
             className="metismenu-link"
             href="#sub-item-3"
-            onClick={[Function activateMe]}
-            target={undefined}>
+            onClick={[Function]}
+            target={undefined}
+          >
             <i
-              className="metismenu-icon fa fa-eye" />
+              className="metismenu-icon fa fa-eye"
+            />
             Sub Item 3
           </a>
         </li>
         <li
-          className="metismenu-item">
+          className="metismenu-item"
+        >
           <a
             className="metismenu-link"
             href="#"
-            onClick={[Function toggleSubMenu]}
-            target={undefined}>
+            onClick={[Function]}
+            target={undefined}
+          >
             <i
-              className="metismenu-icon fa fa-globe" />
+              className="metismenu-icon fa fa-globe"
+            />
             Sub Item 4
             <i
-              className="metismenu-state-icon fa fa-caret-left" />
+              className="metismenu-state-icon fa fa-caret-left"
+            />
           </a>
           <ul
-            className="metismenu-container">
+            className="metismenu-container"
+          >
             <li
-              className="metismenu-item">
+              className="metismenu-item"
+            >
               <a
                 className="metismenu-link"
                 href="#level-3-item-1"
-                onClick={[Function activateMe]}
-                target={undefined}>
+                onClick={[Function]}
+                target={undefined}
+              >
                 <i
-                  className="metismenu-icon fa fa-bolt" />
+                  className="metismenu-icon fa fa-bolt"
+                />
                 Level 3 Item 1
               </a>
             </li>
             <li
-              className="metismenu-item">
+              className="metismenu-item"
+            >
               <a
                 className="metismenu-link"
                 href="#level-3-item-2"
-                onClick={[Function activateMe]}
-                target={undefined}>
+                onClick={[Function]}
+                target={undefined}
+              >
                 <i
-                  className="metismenu-icon fa fa-bell" />
+                  className="metismenu-icon fa fa-bell"
+                />
                 Level 3 Item 2
               </a>
             </li>
@@ -127,14 +164,17 @@ exports[`Menu with recursive content looks like without any interact 1`] = `
       </ul>
     </li>
     <li
-      className="metismenu-item">
+      className="metismenu-item"
+    >
       <a
         className="metismenu-link"
         href="http://www.google.com"
-        onClick={[Function activateMe]}
-        target="_blank">
+        onClick={[Function]}
+        target="_blank"
+      >
         <i
-          className="metismenu-icon fa fa-external-url" />
+          className="metismenu-icon fa fa-external-url"
+        />
         External Url
       </a>
     </li>

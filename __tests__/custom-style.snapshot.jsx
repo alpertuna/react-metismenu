@@ -26,9 +26,12 @@ describe('Menu', () => {
       classNameContainer: 'test-cc',
       classNameContainerVisible: 'test-ccv',
       classNameItem: 'test-ci',
+      /* classNameItemActive: 'test-cia',
+      classNameItemHasActiveChild: 'test-cihac',
+      classNameItemHasVisibleChild: 'test-cihvc',*/
       classNameLink: 'test-cl',
       /* classNameLinkActive: 'test-cla',
-      classNameLinkHasActiveChild: 'test-clhac', */
+      classNameLinkHasActiveChild: 'test-clhac',*/
       classNameIcon: 'test-cic',
       classNameStateIcon: 'test-csi',
       iconNamePrefix: 'test-ip',
@@ -44,7 +47,7 @@ describe('Menu', () => {
     });
     it('and no built-in classes', () => {
       const component = renderer.create(
-        <Menu content={content} noBuiltInClassNames {...customClassNamesProp} />
+        <Menu content={content} noBuiltInClassNames {...customClassNamesProp} />,
       );
       const tree = component.toJSON();
 
