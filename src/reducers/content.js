@@ -62,7 +62,7 @@ const content = (state = [], action) => {
       const stage = state.map(i => item(i, Object.assign({ id, trace }, action)));
 
       // Trace also keeps parentId nonetheless it doesn't matter
-      return content(stage, changeSubMenuVisibility(parentId, trace, true));
+      return content(stage, changeSubMenuVisibility(action.reduxUid, parentId, trace, true));
     }
     default: {
       return state;
@@ -70,4 +70,13 @@ const content = (state = [], action) => {
   }
 };
 
-export default content;
+const multiContent = (state = {}, action) => {
+  if (typeof action.reduxUid === 'undefined') return state;
+
+  const reduxUid = action.reduxUid;
+  const newState = Object.assign({}, state);
+  newState[reduxUid] = content(state[reduxUid], action);
+  return newState;
+};
+
+export default multiContent;

@@ -21,15 +21,24 @@ import {
 } from '../actions/content';
 import { updateListener } from '../actions/emitters';
 
+let lastReduxUid = -1;
+
 class MetisMenu extends React.Component {
   constructor(props) {
     super(props);
 
+    this.reduxUid = ++lastReduxUid;
     this.useExternalReduxStore = props.useExternalReduxStore;
-    this.store = this.useExternalReduxStore || createStore(internalReducers);
+    if (this.useExternalReduxStore) {
+      this.reduxStoreName = props.reduxStoreName || 'metisMenuStore';
+      this.store = this.useExternalReduxStore;
+    } else {
+      this.reduxStoreName = 'metisMenuStore';
+      this.store = createStore(internalReducers);
+    }
 
     if (props.onSelected) {
-      this.store.dispatch(updateListener(props.onSelected));
+      this.store.dispatch(updateListener(this.reduxUid, props.onSelected));
     }
 
     this.LinkComponent = props.LinkComponent || Link;
@@ -108,19 +117,19 @@ class MetisMenu extends React.Component {
   }
 
   changeActiveLinkId(value) {
-    this.store.dispatch(changeActiveLinkId(value));
+    this.store.dispatch(changeActiveLinkId(this.reduxUid, value));
   }
 
   changeActiveLinkTo(value) {
-    this.store.dispatch(changeActiveLinkTo(value));
+    this.store.dispatch(changeActiveLinkTo(this.reduxUid, value));
   }
 
   changeActiveLinkLabel(value) {
-    this.store.dispatch(changeActiveLinkLabel(value));
+    this.store.dispatch(changeActiveLinkLabel(this.reduxUid, value));
   }
 
   changeActiveLinkFromLocation() {
-    this.store.dispatch(changeActiveLinkFromLocation());
+    this.store.dispatch(changeActiveLinkFromLocation(this.reduxUid));
   }
 
   updateActiveLink(props) {
@@ -147,13 +156,16 @@ class MetisMenu extends React.Component {
   }
 
   updateContent(content) {
-    this.store.dispatch(updateContent(content));
+    this.store.dispatch(updateContent(this.reduxUid, content));
   }
 
   render() {
     const mainWrapper = (
       <div className={this.classStore.classMainWrapper}>
-        <Container />
+        <Container
+          reduxStoreName={this.reduxStoreName}
+          reduxUid={this.reduxUid}
+        />
       </div>
     );
 
@@ -208,6 +220,7 @@ MetisMenu.propTypes = {
 
   onSelected: PropTypes.func,
   useExternalReduxStore: PropTypes.object,
+  reduxStoreName: PropTypes.string,
 };
 
 MetisMenu.childContextTypes = {

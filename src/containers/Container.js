@@ -7,8 +7,12 @@
 import { connect } from 'react-redux';
 import Container from '../components/Container';
 
-const mapStateToProps = ({ metisMenuStore: { content } }, ownProps) => ({
-  items: content.filter(item => item.parentId === ownProps.itemId),
+const mapStateToProps = (store, ownProps) => ({
+  items: (
+    store[ownProps.reduxStoreName]
+    .content[ownProps.reduxUid]
+    .filter(item => item.parentId === ownProps.itemId)
+  ),
 });
 
 export default connect(

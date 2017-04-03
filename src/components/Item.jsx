@@ -20,6 +20,8 @@ const Item = ({
   subMenuVisibility,
   toggleSubMenu,
   activateMe,
+  reduxStoreName,
+  reduxUid,
 }, {
   classStore,
   LinkComponent,
@@ -62,6 +64,8 @@ const Item = ({
     {hasSubMenu && <Container
       itemId={id}
       visible={subMenuVisibility}
+      reduxStoreName={reduxStoreName}
+      reduxUid={reduxUid}
     />}
   </li>
 );
@@ -85,6 +89,8 @@ Item.propTypes = {
   subMenuVisibility: PropTypes.bool.isRequired,
   toggleSubMenu: PropTypes.func,
   activateMe: PropTypes.func.isRequired,
+  reduxStoreName: PropTypes.string.isRequired,
+  reduxUid: PropTypes.number.isRequired,
 };
 
 Item.contextTypes = {

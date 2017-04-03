@@ -90,6 +90,9 @@ Properties
     * {React.Component} [`LinkComponent`=DefaultLink] - Handles link components of all items
   - Event Listeners
     * {callback} [`onSelected`] - Function is called when a menu is selected.
+  - [Using With Redux](#using-with-redux)
+    * {string} [`reduxStoreName`="metisMenuStore"] - Redux store field name for `react-metismenu` to use
+    * {object} [`useExternalReduxStore`] - Created redux store
 
 ### Properties For Each Item In Content
 * {string} [`icon`] - Icon class name of item
@@ -494,6 +497,35 @@ Injecting CustomLink into Menu component
 <Menu content={menu} LinkComponent={CustomLink} />
 ```
 Also, as another example, you can look into [DefaultLink Component](https://github.com/alpertuna/react-metismenu/blob/master/src/components/DefaultLink.jsx) source.
+
+Using With Redux
+================
+`react-metismenu` uses Redux and if you also use Redux in your application, `Provider`s will confilict.
+That's why you should pass your store using `useExternalReduxStore` prop.
+In this case, `react-metismenu` will use your application's `Provider`.
+
+**An example application;**
+```javascript
+import { createStore, combineReducers } from 'redux';
+import MetisMenu from 'react-metismenu';
+import metisMenuReducer from 'react-metismenu/lib/reducers';
+
+const reducers = combineReducers({
+    yourStore: yourReducers,
+    // Your other reducer assignments...
+    metisMenuStore: metisMenuReducer, // Here "metisMenuStore" is default and it can be changed with "reduxStoreName" prop
+});
+const store = createStore(reducers, {
+    yourStore: { // This name should be the same with above you assigned your reducer
+        // Your application state
+    },
+   // Your other initial states...
+   // There is no need to initalize "metisMenuStore"
+});
+
+<MetisMenu ... useExternalReduxStore={store} />
+```
+You can also use multiple react-metismenu with same external store
 
 Extensions
 ==========

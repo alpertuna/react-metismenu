@@ -23,4 +23,13 @@ const emitters = (state = {}, action) => {
   }
 };
 
-export default emitters;
+const multiEmitters = (state = {}, action) => {
+  if (typeof action.reduxUid === 'undefined') return state;
+
+  const reduxUid = action.reduxUid;
+  const newState = Object.assign({}, state);
+  newState[reduxUid] = emitters(state[reduxUid], action);
+  return newState;
+};
+
+export default multiEmitters;

@@ -13,14 +13,19 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleSubMenu(e) {
     if (!ownProps.hasSubMenu) return;
     e.preventDefault();
-    dispatch(changeSubMenuVisibility(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
+    dispatch(
+      changeSubMenuVisibility(
+        ownProps.reduxUid,
+        ownProps.id,
+        ownProps.trace,
+        !ownProps.subMenuVisibility
+      )
+    );
   },
   activateMe(e) {
-    if (emitSelected) {
-      dispatch(emitSelected(e));
-    }
+    dispatch(emitSelected(ownProps.reduxUid, e));
     if (!e || !e.isDefaultPrevented || !e.isDefaultPrevented()) {
-      dispatch(changeActiveLinkId(ownProps.id));
+      dispatch(changeActiveLinkId(ownProps.reduxUid, ownProps.id));
     }
   },
 });
