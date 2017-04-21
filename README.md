@@ -69,7 +69,7 @@ Properties
 + Non-Updateable Properties (by `state`)
   - [Customizing Styles](#customizing-styles)
     * {string} [`className`] - Class name for main metismenu wrapper
-    * {string} [`classNameContainer`] - Class name for item container (Affects `ul`)
+    * {string|func} [`classNameContainer`] - Class name or dynamic class name producer callback for item container (Affects `ul`)
     * {string} [`classNameContainerVisible`] - Additional class name when container is visible (Affects `ul`)
     * {string} [`classNameItem`] - Class name for items in container (Affects `li`)
     * {string} [`classNameItemActive`] - Additional class name when item link is active (Affects `li`)
