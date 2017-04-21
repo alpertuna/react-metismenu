@@ -8,10 +8,12 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import Item from '../containers/Item';
 
-const Container = ({ items, visible, reduxStoreName, reduxUid }, { classStore }) => (
+const Container = ({ items, visible, itemId, reduxStoreName, reduxUid }, { classStore }) => (
   <ul
     className={classnames(
-      classStore.classContainer,
+      typeof classStore.classContainer === 'function'
+        ? classStore.classContainer({ itemId, visible, items })
+        : classStore.classContainer,
       visible && classStore.classContainerVisible,
     )}
   >
@@ -22,10 +24,12 @@ const Container = ({ items, visible, reduxStoreName, reduxUid }, { classStore })
 );
 
 Container.defaultProps = {
+  itemId: null,
   visible: false,
 };
 
 Container.propTypes = {
+  itemId: PropTypes.number,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   visible: PropTypes.bool,
   reduxStoreName: PropTypes.string.isRequired,
