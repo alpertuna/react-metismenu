@@ -92,29 +92,29 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _redux = __webpack_require__(11);
 
-	var _classnames = __webpack_require__(28);
+	var _classnames = __webpack_require__(34);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _simpleAjax = __webpack_require__(30);
+	var _simpleAjax = __webpack_require__(36);
 
 	var _simpleAjax2 = _interopRequireDefault(_simpleAjax);
 
-	var _Container = __webpack_require__(33);
+	var _Container = __webpack_require__(39);
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _DefaultLink = __webpack_require__(39);
+	var _DefaultLink = __webpack_require__(45);
 
 	var _DefaultLink2 = _interopRequireDefault(_DefaultLink);
 
-	var _internal = __webpack_require__(40);
+	var _internal = __webpack_require__(46);
 
 	var _internal2 = _interopRequireDefault(_internal);
 
-	var _content = __webpack_require__(36);
+	var _content = __webpack_require__(42);
 
-	var _emitters = __webpack_require__(37);
+	var _emitters = __webpack_require__(43);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -128,6 +128,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Date: 16.09.2016
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
+	/* eslint react/forbid-prop-types: [ "error", { forbid: [ "any", "array" ] } ] */
+
+	var lastReduxUid = -1;
+
 	var MetisMenu = function (_React$Component) {
 	  _inherits(MetisMenu, _React$Component);
 
@@ -136,14 +140,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var _this = _possibleConstructorReturn(this, (MetisMenu.__proto__ || Object.getPrototypeOf(MetisMenu)).call(this, props));
 
+	    lastReduxUid += 1;
+	    _this.reduxUid = lastReduxUid;
 	    _this.useExternalReduxStore = props.useExternalReduxStore;
-	    _this.store = _this.useExternalReduxStore || (0, _redux.createStore)(_internal2.default);
-
-	    if (props.onSelected) {
-	      _this.store.dispatch((0, _emitters.updateListener)(props.onSelected));
+	    _this.reduxStoreName = props.reduxStoreName;
+	    if (_this.useExternalReduxStore) {
+	      _this.store = _this.useExternalReduxStore;
+	    } else {
+	      _this.store = (0, _redux.createStore)(_internal2.default);
 	    }
 
-	    _this.LinkComponent = props.LinkComponent || _DefaultLink2.default;
+	    if (props.onSelected) {
+	      _this.store.dispatch((0, _emitters.updateListener)(_this.reduxUid, props.onSelected));
+	    }
+
+	    _this.LinkComponent = props.LinkComponent;
 
 	    if (props.content) {
 	      _this.updateContent(props.content);
@@ -154,7 +165,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    _this.classStore = {
 	      classMainWrapper: (0, _classnames2.default)({ metismenu: !props.noBuiltInClassNames }, props.className),
-	      classContainer: (0, _classnames2.default)({ 'metismenu-container': !props.noBuiltInClassNames }, props.classNameContainer),
+	      classContainer: typeof props.classNameContainer === 'function' ? props.classNameContainer : (0, _classnames2.default)({ 'metismenu-container': !props.noBuiltInClassNames }, props.classNameContainer),
 	      classContainerVisible: (0, _classnames2.default)({ visible: !props.noBuiltInClassNames }, props.classNameContainerVisible),
 	      classItem: (0, _classnames2.default)({ 'metismenu-item': !props.noBuiltInClassNames }, props.classNameItem),
 	      classLink: (0, _classnames2.default)({ 'metismenu-link': !props.noBuiltInClassNames }, props.classNameLink),
@@ -166,9 +177,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      classIcon: (0, _classnames2.default)({ 'metismenu-icon': !props.noBuiltInClassNames }, props.classNameIcon),
 	      classStateIcon: (0, _classnames2.default)({ 'metismenu-state-icon': !props.noBuiltInClassNames }, props.classNameStateIcon),
 
-	      iconNamePrefix: props.iconNamePrefix || 'fa fa-',
-	      iconNameStateHidden: props.iconNameStateHidden || 'caret-left',
-	      iconNameStateVisible: props.iconNameStateVisible || 'caret-left rotate-minus-90'
+	      iconNamePrefix: props.iconNamePrefix,
+	      iconNameStateHidden: props.iconNameStateHidden,
+	      iconNameStateVisible: props.iconNameStateVisible
 	    };
 	    return _this;
 	  }
@@ -197,22 +208,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'changeActiveLinkId',
 	    value: function changeActiveLinkId(value) {
-	      this.store.dispatch((0, _content.changeActiveLinkId)(value));
+	      this.store.dispatch((0, _content.changeActiveLinkId)(this.reduxUid, value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkTo',
 	    value: function changeActiveLinkTo(value) {
-	      this.store.dispatch((0, _content.changeActiveLinkTo)(value));
+	      this.store.dispatch((0, _content.changeActiveLinkTo)(this.reduxUid, value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkLabel',
 	    value: function changeActiveLinkLabel(value) {
-	      this.store.dispatch((0, _content.changeActiveLinkLabel)(value));
+	      this.store.dispatch((0, _content.changeActiveLinkLabel)(this.reduxUid, value));
 	    }
 	  }, {
 	    key: 'changeActiveLinkFromLocation',
 	    value: function changeActiveLinkFromLocation() {
-	      this.store.dispatch((0, _content.changeActiveLinkFromLocation)());
+	      this.store.dispatch((0, _content.changeActiveLinkFromLocation)(this.reduxUid));
 	    }
 	  }, {
 	    key: 'updateActiveLink',
@@ -241,7 +252,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'updateContent',
 	    value: function updateContent(content) {
-	      this.store.dispatch((0, _content.updateContent)(content));
+	      this.store.dispatch((0, _content.updateContent)(this.reduxUid, content));
 	    }
 	  }, {
 	    key: 'render',
@@ -249,7 +260,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var mainWrapper = _react2.default.createElement(
 	        'div',
 	        { className: this.classStore.classMainWrapper },
-	        _react2.default.createElement(_Container2.default, null)
+	        _react2.default.createElement(_Container2.default, {
+	          reduxStoreName: this.reduxStoreName,
+	          reduxUid: this.reduxUid
+	        })
 	      );
 
 	      if (this.useExternalReduxStore) {
@@ -267,6 +281,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return MetisMenu;
 	}(_react2.default.Component);
 
+	MetisMenu.defaultProps = {
+	  content: [],
+	  ajax: null,
+	  LinkComponent: _DefaultLink2.default,
+	  noBuiltInClassNames: false,
+	  className: null,
+	  classNameContainer: null,
+	  classNameContainerVisible: null,
+	  classNameItem: null,
+	  classNameItemActive: null,
+	  classNameItemHasActiveChild: null,
+	  classNameItemHasVisibleChild: null,
+	  classNameLink: null,
+	  classNameLinkActive: null,
+	  classNameLinkHasActiveChild: null,
+	  classNameIcon: null,
+	  classNameStateIcon: null,
+	  iconNamePrefix: 'fa fa-',
+	  iconNameStateHidden: 'caret-left',
+	  iconNameStateVisible: 'caret-left rotate-minus-90',
+	  onSelected: null,
+	  useExternalReduxStore: null,
+	  reduxStoreName: 'metisMenuStore'
+	};
+
 	MetisMenu.propTypes = {
 	  content: _react.PropTypes.arrayOf(_react.PropTypes.object),
 	  ajax: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.string]),
@@ -275,7 +314,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  noBuiltInClassNames: _react.PropTypes.bool,
 	  className: _react.PropTypes.string,
-	  classNameContainer: _react.PropTypes.string,
+	  classNameContainer: _react.PropTypes.oneOfType([_react.PropTypes.func, _react.PropTypes.string]),
 	  classNameContainerVisible: _react.PropTypes.string,
 	  classNameItem: _react.PropTypes.string,
 	  classNameItemActive: _react.PropTypes.string,
@@ -299,7 +338,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  activeLinkFromLocation: PropTypes.bool,*/
 
 	  onSelected: _react.PropTypes.func,
-	  useExternalReduxStore: _react.PropTypes.object
+	  useExternalReduxStore: _react.PropTypes.object,
+	  reduxStoreName: _react.PropTypes.string
 	};
 
 	MetisMenu.childContextTypes = {
@@ -345,7 +385,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	exports.__esModule = true;
 	exports["default"] = undefined;
@@ -675,7 +715,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	exports.__esModule = true;
 
@@ -713,11 +753,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _hoistNonReactStatics = __webpack_require__(26);
+	var _hoistNonReactStatics = __webpack_require__(32);
 
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-	var _invariant = __webpack_require__(27);
+	var _invariant = __webpack_require__(33);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -1154,23 +1194,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _combineReducers = __webpack_require__(21);
+	var _combineReducers = __webpack_require__(27);
 
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
-	var _bindActionCreators = __webpack_require__(23);
+	var _bindActionCreators = __webpack_require__(29);
 
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 
-	var _applyMiddleware = __webpack_require__(24);
+	var _applyMiddleware = __webpack_require__(30);
 
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 
-	var _compose = __webpack_require__(25);
+	var _compose = __webpack_require__(31);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _warning = __webpack_require__(22);
+	var _warning = __webpack_require__(28);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -1201,7 +1241,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	exports.__esModule = true;
 	exports.ActionTypes = undefined;
@@ -1211,7 +1251,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _symbolObservable = __webpack_require__(18);
+	var _symbolObservable = __webpack_require__(23);
 
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 
@@ -1471,9 +1511,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var getPrototype = __webpack_require__(14),
-	    isHostObject = __webpack_require__(16),
-	    isObjectLike = __webpack_require__(17);
+	var baseGetTag = __webpack_require__(14),
+	    getPrototype = __webpack_require__(20),
+	    isObjectLike = __webpack_require__(22);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -1490,13 +1530,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/** Used to infer the `Object` constructor. */
 	var objectCtorString = funcToString.call(Object);
-
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var objectToString = objectProto.toString;
 
 	/**
 	 * Checks if `value` is a plain object, that is, an object created by the
@@ -1527,15 +1560,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * // => true
 	 */
 	function isPlainObject(value) {
-	    if (!isObjectLike(value) || objectToString.call(value) != objectTag || isHostObject(value)) {
-	        return false;
-	    }
-	    var proto = getPrototype(value);
-	    if (proto === null) {
-	        return true;
-	    }
-	    var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-	    return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+	  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
+	    return false;
+	  }
+	  var proto = getPrototype(value);
+	  if (proto === null) {
+	    return true;
+	  }
+	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+	  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
 	}
 
 	module.exports = isPlainObject;
@@ -1546,7 +1579,167 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var overArg = __webpack_require__(15);
+	var _Symbol = __webpack_require__(15),
+	    getRawTag = __webpack_require__(18),
+	    objectToString = __webpack_require__(19);
+
+	/** `Object#toString` result references. */
+	var nullTag = '[object Null]',
+	    undefinedTag = '[object Undefined]';
+
+	/** Built-in value references. */
+	var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+	/**
+	 * The base implementation of `getTag` without fallbacks for buggy environments.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the `toStringTag`.
+	 */
+	function baseGetTag(value) {
+	    if (value == null) {
+	        return value === undefined ? undefinedTag : nullTag;
+	    }
+	    return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
+	}
+
+	module.exports = baseGetTag;
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var root = __webpack_require__(16);
+
+	/** Built-in value references. */
+	var _Symbol = root.Symbol;
+
+	module.exports = _Symbol;
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	var freeGlobal = __webpack_require__(17);
+
+	/** Detect free variable `self`. */
+	var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
+
+	/** Used as a reference to the global object. */
+	var root = freeGlobal || freeSelf || Function('return this')();
+
+	module.exports = root;
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	/** Detect free variable `global` from Node.js. */
+	var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
+
+	module.exports = freeGlobal;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _Symbol = __webpack_require__(15);
+
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+
+	/** Used to check objects for own properties. */
+	var hasOwnProperty = objectProto.hasOwnProperty;
+
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+
+	/** Built-in value references. */
+	var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+	/**
+	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the raw `toStringTag`.
+	 */
+	function getRawTag(value) {
+	  var isOwn = hasOwnProperty.call(value, symToStringTag),
+	      tag = value[symToStringTag];
+
+	  try {
+	    value[symToStringTag] = undefined;
+	    var unmasked = true;
+	  } catch (e) {}
+
+	  var result = nativeObjectToString.call(value);
+	  if (unmasked) {
+	    if (isOwn) {
+	      value[symToStringTag] = tag;
+	    } else {
+	      delete value[symToStringTag];
+	    }
+	  }
+	  return result;
+	}
+
+	module.exports = getRawTag;
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+
+	/**
+	 * Converts `value` to a string using `Object.prototype.toString`.
+	 *
+	 * @private
+	 * @param {*} value The value to convert.
+	 * @returns {string} Returns the converted string.
+	 */
+	function objectToString(value) {
+	  return nativeObjectToString.call(value);
+	}
+
+	module.exports = objectToString;
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var overArg = __webpack_require__(21);
 
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -1554,7 +1747,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = getPrototype;
 
 /***/ },
-/* 15 */
+/* 21 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1576,39 +1769,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = overArg;
 
 /***/ },
-/* 16 */
+/* 22 */
 /***/ function(module, exports) {
 
 	'use strict';
 
-	/**
-	 * Checks if `value` is a host object in IE < 9.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
-	 */
-	function isHostObject(value) {
-	  // Many host objects are `Object` objects that can coerce to strings
-	  // despite having improperly defined `toString` methods.
-	  var result = false;
-	  if (value != null && typeof value.toString != 'function') {
-	    try {
-	      result = !!(value + '');
-	    } catch (e) {}
-	  }
-	  return result;
-	}
-
-	module.exports = isHostObject;
-
-/***/ },
-/* 17 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	/**
 	 * Checks if `value` is object-like. A value is object-like if it's not `null`
@@ -1635,51 +1801,74 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * // => false
 	 */
 	function isObjectLike(value) {
-	  return !!value && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+	  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
 	}
 
 	module.exports = isObjectLike;
 
 /***/ },
-/* 18 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(19);
+	module.exports = __webpack_require__(24);
 
 /***/ },
-/* 19 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
-	var _ponyfill = __webpack_require__(20);
+	var _ponyfill = __webpack_require__(26);
 
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 
 	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { 'default': obj };
+	  return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
-	var root = undefined; /* global window */
+	var root; /* global window */
 
-	if (typeof global !== 'undefined') {
-		root = global;
+	if (typeof self !== 'undefined') {
+	  root = self;
 	} else if (typeof window !== 'undefined') {
-		root = window;
+	  root = window;
+	} else if (typeof global !== 'undefined') {
+	  root = global;
+	} else if (true) {
+	  root = module;
+	} else {
+	  root = Function('return this')();
 	}
 
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(25)(module)))
 
 /***/ },
-/* 20 */
+/* 25 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	module.exports = function (module) {
+		if (!module.webpackPolyfill) {
+			module.deprecate = function () {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	};
+
+/***/ },
+/* 26 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1707,7 +1896,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 21 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -1721,7 +1910,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _warning = __webpack_require__(22);
+	var _warning = __webpack_require__(28);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -1857,7 +2046,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 22 */
+/* 28 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1887,12 +2076,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 23 */
+/* 29 */
 /***/ function(module, exports) {
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	exports.__esModule = true;
 	exports['default'] = bindActionCreators;
@@ -1945,7 +2134,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 24 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1964,7 +2153,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports['default'] = applyMiddleware;
 
-	var _compose = __webpack_require__(25);
+	var _compose = __webpack_require__(31);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -2018,7 +2207,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 25 */
+/* 31 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -2061,7 +2250,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 26 */
+/* 32 */
 /***/ function(module, exports) {
 
 	/**
@@ -2115,7 +2304,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 27 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2169,12 +2358,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 28 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	/*!
 	  Copyright (c) 2016 Jed Watson.
@@ -2215,7 +2404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(29)) === 'object' && __webpack_require__(29)) {
+		} else if ("function" === 'function' && _typeof(__webpack_require__(35)) === 'object' && __webpack_require__(35)) {
 			// register as 'classnames', consistent with npm package name
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
@@ -2226,7 +2415,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})();
 
 /***/ },
-/* 29 */
+/* 35 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -2234,15 +2423,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 30 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var EventEmitter = __webpack_require__(31).EventEmitter,
-	    queryString = __webpack_require__(32);
+	var EventEmitter = __webpack_require__(37).EventEmitter,
+	    queryString = __webpack_require__(38);
 
 	function tryParseJson(data) {
 	    try {
@@ -2387,12 +2576,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Ajax;
 
 /***/ },
-/* 31 */
+/* 37 */
 /***/ function(module, exports) {
 
 	'use strict';
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	// Copyright Joyent, Inc. and other Node contributors.
 	//
@@ -2665,7 +2854,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 32 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -2741,7 +2930,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})();
 
 /***/ },
-/* 33 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2752,7 +2941,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRedux = __webpack_require__(3);
 
-	var _Container = __webpack_require__(34);
+	var _Container = __webpack_require__(40);
 
 	var _Container2 = _interopRequireDefault(_Container);
 
@@ -2764,10 +2953,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Date: 16.09.2016
 	 */
 
-	var mapStateToProps = function mapStateToProps(_ref, ownProps) {
-	  var content = _ref.metisMenuStore.content;
+	var mapStateToProps = function mapStateToProps(store, ownProps) {
 	  return {
-	    items: content.filter(function (item) {
+	    items: store[ownProps.reduxStoreName].content[ownProps.reduxUid].filter(function (item) {
 	      return item.parentId === ownProps.itemId;
 	    })
 	  };
@@ -2776,7 +2964,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_Container2.default);
 
 /***/ },
-/* 34 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2795,11 +2983,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(28);
+	var _classnames = __webpack_require__(34);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Item = __webpack_require__(35);
+	var _Item = __webpack_require__(41);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -2807,22 +2995,33 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Container = function Container(_ref, _ref2) {
 	  var items = _ref.items,
-	      visible = _ref.visible;
+	      visible = _ref.visible,
+	      itemId = _ref.itemId,
+	      reduxStoreName = _ref.reduxStoreName,
+	      reduxUid = _ref.reduxUid;
 	  var classStore = _ref2.classStore;
 	  return _react2.default.createElement(
 	    'ul',
 	    {
-	      className: (0, _classnames2.default)(classStore.classContainer, visible && classStore.classContainerVisible)
+	      className: (0, _classnames2.default)(typeof classStore.classContainer === 'function' ? classStore.classContainer({ itemId: itemId, visible: visible, items: items }) : classStore.classContainer, visible && classStore.classContainerVisible)
 	    },
 	    items.map(function (item, i) {
-	      return _react2.default.createElement(_Item2.default, _extends({ key: i }, item));
+	      return _react2.default.createElement(_Item2.default, _extends({ key: item.id || '_' + i, reduxStoreName: reduxStoreName, reduxUid: reduxUid }, item));
 	    })
 	  );
 	};
 
+	Container.defaultProps = {
+	  itemId: null,
+	  visible: false
+	};
+
 	Container.propTypes = {
+	  itemId: _react.PropTypes.number,
 	  items: _react.PropTypes.arrayOf(_react.PropTypes.object).isRequired,
-	  visible: _react.PropTypes.bool
+	  visible: _react.PropTypes.bool,
+	  reduxStoreName: _react.PropTypes.string.isRequired,
+	  reduxUid: _react.PropTypes.number.isRequired
 	};
 
 	Container.contextTypes = {
@@ -2832,7 +3031,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Container;
 
 /***/ },
-/* 35 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2843,11 +3042,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactRedux = __webpack_require__(3);
 
-	var _content = __webpack_require__(36);
+	var _content = __webpack_require__(42);
 
-	var _emitters = __webpack_require__(37);
+	var _emitters = __webpack_require__(43);
 
-	var _Item = __webpack_require__(38);
+	var _Item = __webpack_require__(44);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -2864,14 +3063,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    toggleSubMenu: function toggleSubMenu(e) {
 	      if (!ownProps.hasSubMenu) return;
 	      e.preventDefault();
-	      dispatch((0, _content.changeSubMenuVisibility)(ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
+	      dispatch((0, _content.changeSubMenuVisibility)(ownProps.reduxUid, ownProps.id, ownProps.trace, !ownProps.subMenuVisibility));
 	    },
 	    activateMe: function activateMe(e) {
-	      if (_emitters.emitSelected) {
-	        dispatch((0, _emitters.emitSelected)(e));
-	      }
+	      dispatch((0, _emitters.emitSelected)(ownProps.reduxUid, e));
 	      if (!e || !e.isDefaultPrevented || !e.isDefaultPrevented()) {
-	        dispatch((0, _content.changeActiveLinkId)(ownProps.id));
+	        dispatch((0, _content.changeActiveLinkId)(ownProps.reduxUid, ownProps.id));
 	      }
 	    }
 	  };
@@ -2880,7 +3077,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_Item2.default);
 
 /***/ },
-/* 36 */
+/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2894,51 +3091,57 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Date: 16.12.2016
 	 */
 
-	var updateContent = exports.updateContent = function updateContent(content) {
+	var updateContent = exports.updateContent = function updateContent(reduxUid, content) {
 	  return {
 	    type: 'UPDATE_CONTENT',
+	    reduxUid: reduxUid,
 	    content: content
 	  };
 	};
 
-	var changeSubMenuVisibility = exports.changeSubMenuVisibility = function changeSubMenuVisibility(id, trace, subMenuVisibility) {
+	var changeSubMenuVisibility = exports.changeSubMenuVisibility = function changeSubMenuVisibility(reduxUid, id, trace, subMenuVisibility) {
 	  return {
 	    type: 'CHANGE_SUBMENU_VISIBILITY',
+	    reduxUid: reduxUid,
 	    id: id,
 	    trace: trace,
 	    subMenuVisibility: subMenuVisibility
 	  };
 	};
 
-	var changeActiveLinkId = exports.changeActiveLinkId = function changeActiveLinkId(value) {
+	var changeActiveLinkId = exports.changeActiveLinkId = function changeActiveLinkId(reduxUid, value) {
 	  return {
 	    type: 'CHANGE_ACTIVE_LINK',
+	    reduxUid: reduxUid,
 	    propName: 'id',
 	    value: value
 	  };
 	};
-	var changeActiveLinkTo = exports.changeActiveLinkTo = function changeActiveLinkTo(value) {
+	var changeActiveLinkTo = exports.changeActiveLinkTo = function changeActiveLinkTo(reduxUid, value) {
 	  return {
 	    type: 'CHANGE_ACTIVE_LINK',
+	    reduxUid: reduxUid,
 	    propName: 'to',
 	    value: value
 	  };
 	};
-	var changeActiveLinkLabel = exports.changeActiveLinkLabel = function changeActiveLinkLabel(value) {
+	var changeActiveLinkLabel = exports.changeActiveLinkLabel = function changeActiveLinkLabel(reduxUid, value) {
 	  return {
 	    type: 'CHANGE_ACTIVE_LINK',
+	    reduxUid: reduxUid,
 	    propName: 'label',
 	    value: value
 	  };
 	};
-	var changeActiveLinkFromLocation = exports.changeActiveLinkFromLocation = function changeActiveLinkFromLocation() {
+	var changeActiveLinkFromLocation = exports.changeActiveLinkFromLocation = function changeActiveLinkFromLocation(reduxUid) {
 	  return {
-	    type: 'CHANGE_ACTIVE_LINK_FROM_LOCATION'
+	    type: 'CHANGE_ACTIVE_LINK_FROM_LOCATION',
+	    reduxUid: reduxUid
 	  };
 	};
 
 /***/ },
-/* 37 */
+/* 43 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2952,16 +3155,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Date: 16.12.2016
 	 */
 
-	var emitSelected = exports.emitSelected = function emitSelected(e) {
+	var emitSelected = exports.emitSelected = function emitSelected(reduxUid, e) {
 	  return {
 	    type: 'EMIT_SELECTED',
+	    reduxUid: reduxUid,
 	    event: e
 	  };
 	};
 
-	var updateListener = exports.updateListener = function updateListener(listener) {
+	var updateListener = exports.updateListener = function updateListener(reduxUid, listener) {
 	  return {
 	    type: 'UPDATE_LISTENER',
+	    reduxUid: reduxUid,
 	    listener: listener
 	  };
 	};
@@ -2969,7 +3174,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = true;
 
 /***/ },
-/* 38 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2982,11 +3187,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(28);
+	var _classnames = __webpack_require__(34);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Container = __webpack_require__(33);
+	var _Container = __webpack_require__(39);
 
 	var _Container2 = _interopRequireDefault(_Container);
 
@@ -3003,7 +3208,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      hasActiveChild = _ref.hasActiveChild,
 	      subMenuVisibility = _ref.subMenuVisibility,
 	      toggleSubMenu = _ref.toggleSubMenu,
-	      activateMe = _ref.activateMe;
+	      activateMe = _ref.activateMe,
+	      reduxStoreName = _ref.reduxStoreName,
+	      reduxUid = _ref.reduxUid;
 	  var classStore = _ref2.classStore,
 	      LinkComponent = _ref2.LinkComponent;
 	  return _react2.default.createElement(
@@ -3035,7 +3242,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ),
 	    hasSubMenu && _react2.default.createElement(_Container2.default, {
 	      itemId: id,
-	      visible: subMenuVisibility
+	      visible: subMenuVisibility,
+	      reduxStoreName: reduxStoreName,
+	      reduxUid: reduxUid
 	    })
 	  );
 	}; /**
@@ -3043,6 +3252,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    * Author: H.Alper Tuna <halpertuna@gmail.com>
 	    * Date: 16.09.2016
 	    */
+
+	Item.defaultProps = {
+	  icon: '',
+	  label: '',
+	  to: null,
+	  externalLink: false,
+	  toggleSubMenu: null
+	};
 
 	Item.propTypes = {
 	  id: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]).isRequired,
@@ -3055,7 +3272,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  hasActiveChild: _react.PropTypes.bool.isRequired,
 	  subMenuVisibility: _react.PropTypes.bool.isRequired,
 	  toggleSubMenu: _react.PropTypes.func,
-	  activateMe: _react.PropTypes.func.isRequired
+	  activateMe: _react.PropTypes.func.isRequired,
+	  reduxStoreName: _react.PropTypes.string.isRequired,
+	  reduxUid: _react.PropTypes.number.isRequired
 	};
 
 	Item.contextTypes = {
@@ -3066,7 +3285,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Item;
 
 /***/ },
-/* 39 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3079,7 +3298,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(28);
+	var _classnames = __webpack_require__(34);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -3115,6 +3334,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  );
 	};
 
+	DefaultLink.defaultProps = {
+	  externalLink: false,
+	  toggleSubMenu: null
+	};
+
 	DefaultLink.propTypes = {
 	  className: _react.PropTypes.string.isRequired,
 	  classNameActive: _react.PropTypes.string.isRequired,
@@ -3132,7 +3356,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = DefaultLink;
 
 /***/ },
-/* 40 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3143,7 +3367,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _redux = __webpack_require__(11);
 
-	var _index = __webpack_require__(41);
+	var _index = __webpack_require__(47);
 
 	var _index2 = _interopRequireDefault(_index);
 
@@ -3162,7 +3386,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 41 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3173,11 +3397,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _redux = __webpack_require__(11);
 
-	var _content = __webpack_require__(42);
+	var _content = __webpack_require__(48);
 
 	var _content2 = _interopRequireDefault(_content);
 
-	var _emitters = __webpack_require__(44);
+	var _emitters = __webpack_require__(50);
 
 	var _emitters2 = _interopRequireDefault(_emitters);
 
@@ -3195,7 +3419,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* eslint-env browser */
 
 /***/ },
-/* 42 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3204,21 +3428,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; }; /**
-	                                                                                                                                                                                                                                                   * @file reducers/content.js
-	                                                                                                                                                                                                                                                   * @author H.Alper Tuna <halpertuna@gmail.com>
-	                                                                                                                                                                                                                                                   * Date: 16.12.2016
-	                                                                                                                                                                                                                                                   */
+	var _content = __webpack_require__(42);
 
-	/* eslint-env browser */
-
-	var _content = __webpack_require__(36);
-
-	var _flattenContent = __webpack_require__(43);
+	var _flattenContent = __webpack_require__(49);
 
 	var _flattenContent2 = _interopRequireDefault(_flattenContent);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @file reducers/content.js
+	 * @author H.Alper Tuna <halpertuna@gmail.com>
+	 * Date: 16.12.2016
+	 */
+
+	/* eslint-env browser */
 
 	var item = function item(state, action) {
 	  switch (action.type) {
@@ -3267,42 +3491,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	    case 'CHANGE_ACTIVE_LINK_FROM_LOCATION':
 	    case 'CHANGE_ACTIVE_LINK':
 	      {
-	        var _ret = function () {
-	          var activeItem = void 0;
-	          if (action.type === 'CHANGE_ACTIVE_LINK_FROM_LOCATION') {
-	            (function () {
-	              var locationSets = [window.location.pathname + window.location.search, // /path?search
-	              window.location.hash, // #hash
-	              window.location.pathname + window.location.search + window.location.hash];
-	              activeItem = state.find(function (i) {
-	                return locationSets.indexOf(i.to) !== -1;
-	              });
-	            })();
-	          } else {
-	            activeItem = findItem(state, action.value, action.propName);
-	          }
-
-	          // If metismenu user tries to activate non-exist item
-	          if (!activeItem) return {
-	              v: state
-	            };
-
-	          var _activeItem = activeItem,
-	              id = _activeItem.id,
-	              parentId = _activeItem.parentId,
-	              trace = _activeItem.trace;
-
-	          var stage = state.map(function (i) {
-	            return item(i, Object.assign({ id: id, trace: trace }, action));
+	        var activeItem = void 0;
+	        if (action.type === 'CHANGE_ACTIVE_LINK_FROM_LOCATION') {
+	          var locationSets = [window.location.pathname + window.location.search, // /path?search
+	          window.location.hash, // #hash
+	          window.location.pathname + window.location.search + window.location.hash];
+	          activeItem = state.find(function (i) {
+	            return locationSets.indexOf(i.to) !== -1;
 	          });
+	        } else {
+	          activeItem = findItem(state, action.value, action.propName);
+	        }
 
-	          // Trace also keeps parentId nonetheless it doesn't matter
-	          return {
-	            v: content(stage, (0, _content.changeSubMenuVisibility)(parentId, trace, true))
-	          };
-	        }();
+	        // If metismenu user tries to activate non-exist item
+	        if (!activeItem) return state;
 
-	        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	        var _activeItem = activeItem,
+	            id = _activeItem.id,
+	            parentId = _activeItem.parentId,
+	            trace = _activeItem.trace;
+
+	        var stage = state.map(function (i) {
+	          return item(i, Object.assign({ id: id, trace: trace }, action));
+	        });
+
+	        // Trace also keeps parentId nonetheless it doesn't matter
+	        return content(stage, (0, _content.changeSubMenuVisibility)(action.reduxUid, parentId, trace, true));
 	      }
 	    default:
 	      {
@@ -3311,10 +3525,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 
-	exports.default = content;
+	var multiContent = function multiContent() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  if (typeof action.reduxUid === 'undefined') return state;
+
+	  var reduxUid = action.reduxUid;
+	  var newState = Object.assign({}, state);
+	  newState[reduxUid] = content(state[reduxUid], action);
+	  return newState;
+	};
+
+	exports.default = multiContent;
 
 /***/ },
-/* 43 */
+/* 49 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3384,7 +3610,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 44 */
+/* 50 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3423,7 +3649,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 
-	exports.default = emitters;
+	var multiEmitters = function multiEmitters() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var action = arguments[1];
+
+	  if (typeof action.reduxUid === 'undefined') return state;
+
+	  var reduxUid = action.reduxUid;
+	  var newState = Object.assign({}, state);
+	  newState[reduxUid] = emitters(state[reduxUid], action);
+	  return newState;
+	};
+
+	exports.default = multiEmitters;
 
 /***/ }
 /******/ ])
