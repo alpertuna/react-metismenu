@@ -240,6 +240,9 @@ Usage Example
 <MetisMenu activeLinkLabel="User List" />
 ```
 
+> Note that, if you like to use more than one selector (`activeLinkTo`, `activeLinkLabel`, ...) at the same time, while setting the prop using one of them, you should set other props to `null` or `undefined`.
+> For example; `this.setState({ metisMenuActiveLinkId: null, metisMenuActiveLinkLabel: 'A Label' });`. Otherwise, your component may not change active link.
+
 ### With Methods
 Also, you can update active links with methods accessed from reference
 

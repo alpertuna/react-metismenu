@@ -211,7 +211,7 @@ class App extends React.Component {
             <br />
             <button
               onClick={() => {
-                this.setState({ activeLinkLabel: 'Sub Menu 1' });
+                this.setState({ activeLinkId: null, activeLinkLabel: 'Sub Menu 1' });
               }}
             >
               Sub Menu 1
@@ -223,7 +223,7 @@ class App extends React.Component {
             <br />
             <button
               onClick={() => {
-                this.setState({ activeLinkId: 2 });
+                this.setState({ activeLinkId: 2, activeLinkLabel: null });
               }}
             >
               2 (Menu 2 Id)

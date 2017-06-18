@@ -115,7 +115,12 @@ class MetisMenu extends React.Component {
 
     if (this.props.ajax !== nextProps.ajax) {
       this.updateRemoteContent(nextProps);
-    } else {
+    } else if (
+      this.props.activeLinkId !== nextProps.activeLinkId ||
+      this.props.activeLinkTo !== nextProps.activeLinkTo ||
+      this.props.activeLinkLabel !== nextProps.activeLinkLabel ||
+      this.props.activeLinkFromLocation !== nextProps.activeLinkFromLocation
+    ) {
       this.updateActiveLink(nextProps);
     }
   }
@@ -205,6 +210,10 @@ MetisMenu.defaultProps = {
   iconNamePrefix: 'fa fa-',
   iconNameStateHidden: 'caret-left',
   iconNameStateVisible: 'caret-left rotate-minus-90',
+  activeLinkId: null,
+  activeLinkTo: null,
+  activeLinkLabel: null,
+  activeLinkFromLocation: false,
   onSelected: null,
   useExternalReduxStore: null,
   reduxStoreName: 'metisMenuStore',
@@ -242,13 +251,13 @@ MetisMenu.propTypes = {
   iconNameStateHidden: PropTypes.string,
   iconNameStateVisible: PropTypes.string,
 
-  /* activeLinkId: PropTypes.oneOfType([
+  activeLinkId: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string,
   ]),
   activeLinkTo: PropTypes.string,
   activeLinkLabel: PropTypes.string,
-  activeLinkFromLocation: PropTypes.bool,*/
+  activeLinkFromLocation: PropTypes.bool,
 
   onSelected: PropTypes.func,
   useExternalReduxStore: PropTypes.object,
