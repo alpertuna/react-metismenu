@@ -8,7 +8,6 @@
 module.exports = {
   resolve: {
     extensions: [
-      '',
       '.js',
       '.jsx',
     ],
@@ -17,7 +16,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
       },
     ],
   },

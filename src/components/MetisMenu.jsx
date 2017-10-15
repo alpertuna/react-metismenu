@@ -6,7 +6,8 @@
 
 /* eslint react/forbid-prop-types: [ "error", { forbid: [ "any", "array" ] } ] */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import classnames from 'classnames';
