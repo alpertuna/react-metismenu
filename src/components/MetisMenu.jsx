@@ -6,7 +6,8 @@
 
 /* eslint react/forbid-prop-types: [ "error", { forbid: [ "any", "array" ] } ] */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import classnames from 'classnames';
@@ -152,7 +153,7 @@ class MetisMenu extends React.Component {
     const ajax = new Ajax(props.ajax);
     ajax.on('success', (event) => {
       let content;
-      const responseText = event.target.responseText;
+      const { target: { responseText } } = event.target.responseText;
       try {
         content = JSON.parse(responseText);
       } catch (e) {

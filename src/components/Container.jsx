@@ -4,11 +4,20 @@
  * Date: 16.09.2016
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Item from '../containers/Item';
 
-const Container = ({ items, visible, itemId, reduxStoreName, reduxUid }, { classStore }) => (
+const Container = ({
+  items,
+  visible,
+  itemId,
+  reduxStoreName,
+  reduxUid,
+}, {
+  classStore,
+}) => (
   <ul
     className={classnames(
       typeof classStore.classContainer === 'function'

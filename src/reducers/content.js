@@ -73,7 +73,7 @@ const content = (state = [], action) => {
 const multiContent = (state = {}, action) => {
   if (typeof action.reduxUid === 'undefined') return state;
 
-  const reduxUid = action.reduxUid;
+  const { reduxUid } = action;
   const newState = Object.assign({}, state);
   newState[reduxUid] = content(state[reduxUid], action);
   return newState;
