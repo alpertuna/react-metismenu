@@ -8,7 +8,7 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 import Menu from '../src';
 import content from './CONTENT.json';
 

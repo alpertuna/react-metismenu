@@ -1981,7 +1981,8 @@ var MetisMenu = function (_React$Component) {
       var ajax = new _simpleAjax2.default(props.ajax);
       ajax.on('success', function (event) {
         var content = void 0;
-        var responseText = event.target.responseText;
+        var responseText = event.target.responseText.target.responseText;
+
         try {
           content = JSON.parse(responseText);
         } catch (e) {
@@ -4946,6 +4947,7 @@ exports.default = Container;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.mapDispatchToProps = undefined;
 
 var _reactRedux = __webpack_require__(8);
 
@@ -4965,7 +4967,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Date: 16.09.2016
  */
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
+var mapDispatchToProps = exports.mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
     toggleSubMenu: function toggleSubMenu(e) {
       if (!ownProps.hasSubMenu) return;
@@ -5355,6 +5357,7 @@ var multiContent = function multiContent() {
   if (typeof action.reduxUid === 'undefined') return state;
 
   var reduxUid = action.reduxUid;
+
   var newState = Object.assign({}, state);
   newState[reduxUid] = content(state[reduxUid], action);
   return newState;
@@ -5481,6 +5484,7 @@ var multiEmitters = function multiEmitters() {
   if (typeof action.reduxUid === 'undefined') return state;
 
   var reduxUid = action.reduxUid;
+
   var newState = Object.assign({}, state);
   newState[reduxUid] = emitters(state[reduxUid], action);
   return newState;

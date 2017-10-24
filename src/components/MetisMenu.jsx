@@ -153,7 +153,7 @@ class MetisMenu extends React.Component {
     const ajax = new Ajax(props.ajax);
     ajax.on('success', (event) => {
       let content;
-      const responseText = event.target.responseText;
+      const { target: { responseText } } = event.target.responseText;
       try {
         content = JSON.parse(responseText);
       } catch (e) {
