@@ -19,7 +19,7 @@ module.exports = Object.assign(config, {
       ...config.module.loaders,
       {
         test: /\.less$/,
-        loader: 'style?insertAt=top!css!less',
+        loader: 'style-loader?insertAt=top!css-loader!less-loader',
       },
     ],
   },
