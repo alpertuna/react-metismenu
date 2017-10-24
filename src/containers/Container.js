@@ -10,11 +10,9 @@ import Container from '../components/Container';
 const mapStateToProps = (store, ownProps) => ({
   items: (
     store[ownProps.reduxStoreName]
-    .content[ownProps.reduxUid]
-    .filter(item => item.parentId === ownProps.itemId)
+      .content[ownProps.reduxUid]
+      .filter(item => item.parentId === ownProps.itemId)
   ),
 });
 
-export default connect(
-  mapStateToProps,
-)(Container);
+export default connect(mapStateToProps)(Container);
