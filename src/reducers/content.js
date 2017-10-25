@@ -46,9 +46,12 @@ const content = (state = [], action) => {
       let activeItem;
       if (action.type === 'CHANGE_ACTIVE_LINK_FROM_LOCATION') {
         const locationSets = [
-          window.location.pathname + window.location.search, // /path?search
           window.location.hash, // #hash
+          window.location.pathname + window.location.search, // /path?search
           window.location.pathname + window.location.search + window.location.hash, // /path?s#hash
+          window.location.pathname.slice(1) + window.location.search, // path?search
+          window.location.pathname.slice(1) + window.location.search + window.location.hash,
+          // path?s#hash
         ];
         activeItem = state.find(i => locationSets.indexOf(i.to) !== -1);
       } else {
