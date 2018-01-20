@@ -50,8 +50,8 @@ const Item = ({
       activateMe={activateMe}
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
-      {label}
-      {hasSubMenu && <i
+      <span class='content'>{label}</span>
+      {hasSubMenu && <span><i
         className={classnames(
           classStore.classStateIcon,
           classStore.iconNamePrefix + (
@@ -60,7 +60,7 @@ const Item = ({
               : classStore.iconNameStateHidden
           ),
         )}
-      />}
+      /></span>}
     </LinkComponent>
     {hasSubMenu && <Container
       itemId={id}
