@@ -50,7 +50,7 @@ const Item = ({
       activateMe={activateMe}
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
-      <span className='content'>{label}</span>
+      <span className={'content'}>{label}</span>
       {hasSubMenu && <span><i
         className={classnames(
           classStore.classStateIcon,
