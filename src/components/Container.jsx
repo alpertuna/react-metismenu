@@ -38,7 +38,10 @@ Container.defaultProps = {
 };
 
 Container.propTypes = {
-  itemId: PropTypes.number,
+  itemId: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   visible: PropTypes.bool,
   reduxStoreName: PropTypes.string.isRequired,
