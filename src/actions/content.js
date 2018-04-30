@@ -40,3 +40,10 @@ export const changeActiveLinkFromLocation = reduxUid => ({
   type: 'CHANGE_ACTIVE_LINK_FROM_LOCATION',
   reduxUid,
 });
+
+var changeMainMenuContentVisibility = exports.changeMainMenuContentVisibility = function changeMainMenuContentVisibility(reduxUid) {
+  return {
+    type: 'CHANGE_MAIN_MENU_CONTENT_VISIBILITY',
+    reduxUid: reduxUid
+  };
+};

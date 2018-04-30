@@ -13,6 +13,8 @@ const Item = ({
   id,
   icon,
   label,
+  actionRoute,
+  collapse,
   to,
   externalLink,
   hasSubMenu,
@@ -50,8 +52,8 @@ const Item = ({
       activateMe={activateMe}
     >
       <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
-      {label}
-      {hasSubMenu && <i
+      <span className={'content'}>{label}</span>
+      {hasSubMenu && <span><i
         className={classnames(
           classStore.classStateIcon,
           classStore.iconNamePrefix + (
@@ -60,7 +62,7 @@ const Item = ({
               : classStore.iconNameStateHidden
           ),
         )}
-      />}
+      /></span>}
     </LinkComponent>
     {hasSubMenu && <Container
       itemId={id}
@@ -75,6 +77,8 @@ Item.defaultProps = {
   icon: '',
   label: '',
   to: null,
+  actionRoute: '',
+  collapse: false,
   externalLink: false,
   toggleSubMenu: null,
 };
@@ -90,6 +94,8 @@ Item.propTypes = {
     PropTypes.array,
     PropTypes.string,
   ]),
+  collapse: _propTypes2.default.bool,
+  actionRoute: _propTypes2.default.string,
   to: PropTypes.string,
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,
