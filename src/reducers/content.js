@@ -53,6 +53,9 @@ const content = (state = [], action) => {
           window.location.pathname.slice(1) + window.location.search + window.location.hash,
           // path?s#hash
         ];
+        if (window.location.hash.startsWith('#')) {
+          locationSets.push(window.location.hash.substring(1));
+        }
         activeItem = state.find(i => locationSets.indexOf(i.to) !== -1);
       } else {
         activeItem = findItem(state, action.value, action.propName);
