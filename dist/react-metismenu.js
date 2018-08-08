@@ -1731,7 +1731,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(8);
 
-var _Container = __webpack_require__(60);
+var _Container = __webpack_require__(61);
 
 var _Container2 = _interopRequireDefault(_Container);
 
@@ -1835,11 +1835,15 @@ var _reactRedux = __webpack_require__(8);
 
 var _redux = __webpack_require__(3);
 
+var _reactFastCompare = __webpack_require__(57);
+
+var _reactFastCompare2 = _interopRequireDefault(_reactFastCompare);
+
 var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _simpleAjax = __webpack_require__(57);
+var _simpleAjax = __webpack_require__(58);
 
 var _simpleAjax2 = _interopRequireDefault(_simpleAjax);
 
@@ -1847,11 +1851,11 @@ var _Container = __webpack_require__(23);
 
 var _Container2 = _interopRequireDefault(_Container);
 
-var _DefaultLink = __webpack_require__(63);
+var _DefaultLink = __webpack_require__(64);
 
 var _DefaultLink2 = _interopRequireDefault(_DefaultLink);
 
-var _internal = __webpack_require__(64);
+var _internal = __webpack_require__(65);
 
 var _internal2 = _interopRequireDefault(_internal);
 
@@ -1938,8 +1942,9 @@ var MetisMenu = function (_React$Component) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
-      if (this.props.content !== nextProps.content) {
+      if (!(0, _reactFastCompare2.default)(this.props.content, nextProps.content)) {
         this.updateContent(nextProps.content);
+        this.updateActiveLink(nextProps);
       }
 
       if (this.props.ajax !== nextProps.ajax) {
@@ -4363,8 +4368,102 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var EventEmitter = __webpack_require__(58).EventEmitter,
-    queryString = __webpack_require__(59);
+var isArray = Array.isArray;
+var keyList = Object.keys;
+var hasProp = Object.prototype.hasOwnProperty;
+
+function equal(a, b) {
+  // fast-deep-equal index.js 2.0.1
+  if (a === b) return true;
+
+  if (a && b && (typeof a === 'undefined' ? 'undefined' : _typeof(a)) == 'object' && (typeof b === 'undefined' ? 'undefined' : _typeof(b)) == 'object') {
+    var arrA = isArray(a),
+        arrB = isArray(b),
+        i,
+        length,
+        key;
+
+    if (arrA && arrB) {
+      length = a.length;
+      if (length != b.length) return false;
+      for (i = length; i-- !== 0;) {
+        if (!equal(a[i], b[i])) return false;
+      }return true;
+    }
+
+    if (arrA != arrB) return false;
+
+    var dateA = a instanceof Date,
+        dateB = b instanceof Date;
+    if (dateA != dateB) return false;
+    if (dateA && dateB) return a.getTime() == b.getTime();
+
+    var regexpA = a instanceof RegExp,
+        regexpB = b instanceof RegExp;
+    if (regexpA != regexpB) return false;
+    if (regexpA && regexpB) return a.toString() == b.toString();
+
+    var keys = keyList(a);
+    length = keys.length;
+
+    if (length !== keyList(b).length) return false;
+
+    for (i = length; i-- !== 0;) {
+      if (!hasProp.call(b, keys[i])) return false;
+    } // end fast-deep-equal
+
+    // Custom handling for React
+    for (i = length; i-- !== 0;) {
+      key = keys[i];
+      if (key === '_owner' && a.$$typeof) {
+        // React-specific: avoid traversing React elements' _owner.
+        //  _owner contains circular references
+        // and is not needed when comparing the actual elements (and not their owners)
+        // .$$typeof and ._store on just reasonable markers of a react element
+        continue;
+      } else {
+        // all other properties should be traversed as usual
+        if (!equal(a[key], b[key])) return false;
+      }
+    }
+
+    // fast-deep-equal index.js 2.0.1
+    return true;
+  }
+
+  return a !== a && b !== b;
+}
+// end fast-deep-equal
+
+module.exports = function exportedEqual(a, b) {
+  try {
+    return equal(a, b);
+  } catch (error) {
+    if (error.message && error.message.match(/stack|recursion/i)) {
+      // warn on circular references, don't crash
+      // browsers give this different errors name and messages:
+      // chrome/safari: "RangeError", "Maximum call stack size exceeded"
+      // firefox: "InternalError", too much recursion"
+      // edge: "Error", "Out of stack space"
+      console.warn('Warning: react-fast-compare does not handle circular references.', error.name, error.message);
+      return false;
+    }
+    // some other error. we should definitely know about these
+    throw error;
+  }
+};
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var EventEmitter = __webpack_require__(59).EventEmitter,
+    queryString = __webpack_require__(60);
 
 function tryParseJson(data) {
     try {
@@ -4509,7 +4608,7 @@ Ajax.prototype.send = function () {
 module.exports = Ajax;
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4788,7 +4887,7 @@ function isUndefined(arg) {
 }
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4866,7 +4965,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;
 })();
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4894,7 +4993,7 @@ var _classnames = __webpack_require__(4);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Item = __webpack_require__(61);
+var _Item = __webpack_require__(62);
 
 var _Item2 = _interopRequireDefault(_Item);
 
@@ -4938,7 +5037,7 @@ Container.contextTypes = {
 exports.default = Container;
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4955,7 +5054,7 @@ var _content = __webpack_require__(11);
 
 var _emitters = __webpack_require__(24);
 
-var _Item = __webpack_require__(62);
+var _Item = __webpack_require__(63);
 
 var _Item2 = _interopRequireDefault(_Item);
 
@@ -4986,7 +5085,7 @@ var mapDispatchToProps = exports.mapDispatchToProps = function mapDispatchToProp
 exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(_Item2.default);
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5026,6 +5125,9 @@ var Item = function Item(_ref, _ref2) {
       label = _ref.label,
       to = _ref.to,
       externalLink = _ref.externalLink,
+      customIconClass = _ref.customIconClass,
+      customIconContent = _ref.customIconContent,
+      customIcon = _ref.customIcon,
       hasSubMenu = _ref.hasSubMenu,
       active = _ref.active,
       hasActiveChild = _ref.hasActiveChild,
@@ -5051,13 +5153,20 @@ var Item = function Item(_ref, _ref2) {
         hasActiveChild: hasActiveChild,
         id: id,
         to: to,
+        customIconClass: customIconClass,
+        customIconContent: customIconContent,
+        customIcon: customIcon,
         label: label,
         externalLink: externalLink,
         hasSubMenu: hasSubMenu,
         toggleSubMenu: toggleSubMenu,
         activateMe: activateMe
       },
-      _react2.default.createElement('i', { className: (0, _classnames2.default)(classStore.classIcon, classStore.iconNamePrefix + icon) }),
+      customIcon ? _react2.default.createElement(
+        'span',
+        { className: (0, _classnames2.default)(customIconClass) },
+        customIconContent
+      ) : _react2.default.createElement('i', { className: (0, _classnames2.default)(classStore.classIcon, classStore.iconNamePrefix + icon) }),
       label,
       hasSubMenu && _react2.default.createElement('i', {
         className: (0, _classnames2.default)(classStore.classStateIcon, classStore.iconNamePrefix + (subMenuVisibility ? classStore.iconNameStateVisible : classStore.iconNameStateHidden))
@@ -5077,7 +5186,10 @@ Item.defaultProps = {
   label: '',
   to: null,
   externalLink: false,
-  toggleSubMenu: null
+  toggleSubMenu: null,
+  customIcon: false,
+  customIconContent: '',
+  customIconClass: ''
 };
 
 Item.propTypes = {
@@ -5085,6 +5197,9 @@ Item.propTypes = {
   icon: _propTypes2.default.string,
   label: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.array, _propTypes2.default.string]),
   to: _propTypes2.default.string,
+  customIcon: _propTypes2.default.bool,
+  customIconContent: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
+  customIconClass: _propTypes2.default.string,
   externalLink: _propTypes2.default.bool,
   hasSubMenu: _propTypes2.default.bool.isRequired,
   active: _propTypes2.default.bool.isRequired,
@@ -5104,7 +5219,7 @@ Item.contextTypes = {
 exports.default = Item;
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5178,7 +5293,7 @@ DefaultLink.propTypes = {
 exports.default = DefaultLink;
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5190,7 +5305,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(3);
 
-var _index = __webpack_require__(65);
+var _index = __webpack_require__(66);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -5209,7 +5324,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5221,11 +5336,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(3);
 
-var _content = __webpack_require__(66);
+var _content = __webpack_require__(67);
 
 var _content2 = _interopRequireDefault(_content);
 
-var _emitters = __webpack_require__(68);
+var _emitters = __webpack_require__(69);
 
 var _emitters2 = _interopRequireDefault(_emitters);
 
@@ -5243,7 +5358,7 @@ exports.default = (0, _redux.combineReducers)({
 /* eslint-env browser */
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5255,7 +5370,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _content = __webpack_require__(11);
 
-var _flattenContent = __webpack_require__(67);
+var _flattenContent = __webpack_require__(68);
 
 var _flattenContent2 = _interopRequireDefault(_flattenContent);
 
@@ -5371,7 +5486,7 @@ var multiContent = function multiContent() {
 exports.default = multiContent;
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5397,18 +5512,20 @@ var flattenLevel = function flattenLevel(content, parentId) {
   content.forEach(function (item) {
     var id = item.id || uid;
     uid += 1;
-
-    flatContent.push({
+    flatContent.push(Object.assign({
       id: id,
       parentId: item.parentId || parentId,
       icon: item.icon,
       label: item.label,
       to: item.to,
+      customIconClass: item.customIconClass,
+      customIconContent: item.customIconContent,
+      customIcon: item.customIcon,
       externalLink: item.externalLink,
       active: false,
       hasActiveChild: false,
       subMenuVisibility: false
-    });
+    }, item));
     if (typeof item.content !== 'undefined') {
       flatContent = [].concat(_toConsumableArray(flatContent), _toConsumableArray(flattenLevel(item.content, id)));
     }
@@ -5442,7 +5559,7 @@ exports.default = function (content) {
 };
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

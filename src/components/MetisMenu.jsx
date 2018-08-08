@@ -10,6 +10,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import isEqual from 'react-fast-compare';
 import classnames from 'classnames';
 import Ajax from 'simple-ajax';
 import Container from '../containers/Container';
@@ -110,8 +111,9 @@ class MetisMenu extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.content !== nextProps.content) {
+    if (!isEqual(this.props.content, nextProps.content)) {
       this.updateContent(nextProps.content);
+      this.updateActiveLink(nextProps);
     }
 
     if (this.props.ajax !== nextProps.ajax) {

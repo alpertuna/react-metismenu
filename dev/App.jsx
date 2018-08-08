@@ -23,6 +23,9 @@ const menu1 = [
   },
   {
     id: 2,
+    customIcon: true,
+    customIconContent: 10,
+    customIconClass: 'icon-custom-class',
     icon: 'bell',
     label: 'Menu 2',
     to: '#menu-2',
@@ -48,6 +51,9 @@ const menu1 = [
       {
         id: 6,
         icon: 'bold',
+        customIcon: true,
+        customIconContent: 11,
+        customIconClass: 'icon-custom-class',
         label: 'Sub Menu 1',
         to: '#sub-menu-1',
       },
@@ -274,7 +280,6 @@ class App extends React.Component {
 }
             `}</code>
           </pre>
-
         </div>
       </div>
     );
