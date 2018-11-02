@@ -1,4 +1,4 @@
-#### NOTE: Version 2 is on the way with fewer and latest dependencies, that's why version 1 is no longer maintained well.
+#### NOTE: This library is not under active development now.
 
 [![Build Status](https://travis-ci.org/alpertuna/react-metismenu.svg?branch=master)](https://travis-ci.org/alpertuna/react-metismenu)
 [![Coverage Status](https://coveralls.io/repos/github/alpertuna/react-metismenu/badge.svg)](https://coveralls.io/github/alpertuna/react-metismenu)
