@@ -12,18 +12,20 @@ const flattenLevel = (content, parentId) => {
   content.forEach((item) => {
     const id = item.id || uid;
     uid += 1;
-
-    flatContent.push({
+    flatContent.push(Object.assign({
       id,
       parentId: item.parentId || parentId,
       icon: item.icon,
       label: item.label,
       to: item.to,
+      customIconClass: item.customIconClass,
+      customIconContent: item.customIconContent,
+      customIcon: item.customIcon,
       externalLink: item.externalLink,
       active: false,
       hasActiveChild: false,
       subMenuVisibility: false,
-    });
+    }, item));
     if (typeof item.content !== 'undefined') {
       flatContent = [
         ...flatContent,

@@ -15,6 +15,9 @@ const Item = ({
   label,
   to,
   externalLink,
+  customIconClass,
+  customIconContent,
+  customIcon,
   hasSubMenu,
   active,
   hasActiveChild,
@@ -43,13 +46,18 @@ const Item = ({
       hasActiveChild={hasActiveChild}
       id={id}
       to={to}
+      customIconClass={customIconClass}
+      customIconContent={customIconContent}
+      customIcon={customIcon}
       label={label}
       externalLink={externalLink}
       hasSubMenu={hasSubMenu}
       toggleSubMenu={toggleSubMenu}
       activateMe={activateMe}
     >
-      <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />
+      {customIcon ? <span className={classnames(customIconClass)}>{customIconContent}</span> :
+      <i className={classnames(classStore.classIcon, classStore.iconNamePrefix + icon)} />}
+
       {label}
       {hasSubMenu && <i
         className={classnames(
@@ -77,6 +85,9 @@ Item.defaultProps = {
   to: null,
   externalLink: false,
   toggleSubMenu: null,
+  customIcon: false,
+  customIconContent: '',
+  customIconClass: '',
 };
 
 Item.propTypes = {
@@ -91,6 +102,12 @@ Item.propTypes = {
     PropTypes.string,
   ]),
   to: PropTypes.string,
+  customIcon: PropTypes.bool,
+  customIconContent: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  customIconClass: PropTypes.string,
   externalLink: PropTypes.bool,
   hasSubMenu: PropTypes.bool.isRequired,
   active: PropTypes.bool.isRequired,
