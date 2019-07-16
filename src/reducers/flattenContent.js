@@ -41,9 +41,6 @@ const mapTrace = (content, parentId) => {
     item.trace = [...trace];
     trace.push(item.id);
     item.hasSubMenu = mapTrace(content, item.id);
-    if (item.hasSubMenu) {
-      item.to = '#';
-    }
     trace.pop();
   });
   return subItems.length > 0;
